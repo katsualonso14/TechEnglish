@@ -6,6 +6,35 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		13C561F515BF267E25025F7C /* Pods_TechEnglishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA25FF0E3404AEE7AC05D50 /* Pods_TechEnglishTests.framework */; };
+		2317C6E22D6DA27C00F8E1D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6D92D6DA27C00F8E1D4 /* AppDelegate.swift */; };
+		2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */; };
+		2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6DF2D6DA27C00F8E1D4 /* SceneDelegate.swift */; };
+		2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */; };
+		2317C6E62D6DA27C00F8E1D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */; };
+		2317C6E82D6DA27C00F8E1D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2317C6DD2D6DA27C00F8E1D4 /* LaunchScreen.storyboard */; };
+		2317C6F02D6DA28200F8E1D4 /* PhraseStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EB2D6DA28200F8E1D4 /* PhraseStoreCell.swift */; };
+		2317C6F12D6DA28200F8E1D4 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */; };
+		2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */; };
+		2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */; };
+		2317C6F42D6DA28200F8E1D4 /* WebViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */; };
+		2317C6F52D6DA28200F8E1D4 /* QuickMemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EC2D6DA28200F8E1D4 /* QuickMemoCell.swift */; };
+		2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */; };
+		2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */; };
+		2317C7012D6DA37B00F8E1D4 /* PhraseStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FF2D6DA37B00F8E1D4 /* PhraseStoreViewController.swift */; };
+		2317C7022D6DA37B00F8E1D4 /* QuickMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7002D6DA37B00F8E1D4 /* QuickMemoViewController.swift */; };
+		2317C7072D6DA3DB00F8E1D4 /* SentenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7062D6DA3DB00F8E1D4 /* SentenceViewController.swift */; };
+		2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7082D6DA3F900F8E1D4 /* AppColors.swift */; };
+		2317C70B2D6DA40000F8E1D4 /* MyAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C70A2D6DA40000F8E1D4 /* MyAds.swift */; };
+		2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C70E2D6DA6FC00F8E1D4 /* Contact.swift */; };
+		2317C71C2D6DE07A00F8E1D4 /* VocabFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71B2D6DE07A00F8E1D4 /* VocabFirstViewController.swift */; };
+		2317C71E2D6EEB1400F8E1D4 /* VocabSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71D2D6EEB1400F8E1D4 /* VocabSecondViewController.swift */; };
+		2317C7202D6EED8400F8E1D4 /* VocabThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */; };
+		8F915D3EBB5EDC4FC742BE69 /* Pods_TechEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F251A53FCBB91C69C86381 /* Pods_TechEnglish.framework */; };
+		A46E653C46D92CF6526727B0 /* Pods_TechEnglish_TechEnglishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71AA9BB57A37BED81626A2C /* Pods_TechEnglish_TechEnglishUITests.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		2317C65B2D6D96DE00F8E1D4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,27 +56,42 @@
 		2317C6442D6D96DC00F8E1D4 /* TechEnglish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechEnglish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2317C65A2D6D96DE00F8E1D4 /* TechEnglishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechEnglishTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2317C6642D6D96DE00F8E1D4 /* TechEnglishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechEnglishUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2317C6D92D6DA27C00F8E1D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2317C6DB2D6DA27C00F8E1D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2317C6DC2D6DA27C00F8E1D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		2317C6DF2D6DA27C00F8E1D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModalViewController.swift; sourceTree = "<group>"; };
+		2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		2317C6EB2D6DA28200F8E1D4 /* PhraseStoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseStoreCell.swift; sourceTree = "<group>"; };
+		2317C6EC2D6DA28200F8E1D4 /* QuickMemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMemoCell.swift; sourceTree = "<group>"; };
+		2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSearchWordModal.swift; sourceTree = "<group>"; };
+		2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContainer.swift; sourceTree = "<group>"; };
+		2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNotifController.swift; sourceTree = "<group>"; };
+		2317C6FF2D6DA37B00F8E1D4 /* PhraseStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseStoreViewController.swift; sourceTree = "<group>"; };
+		2317C7002D6DA37B00F8E1D4 /* QuickMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickMemoViewController.swift; sourceTree = "<group>"; };
+		2317C7062D6DA3DB00F8E1D4 /* SentenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceViewController.swift; sourceTree = "<group>"; };
+		2317C7082D6DA3F900F8E1D4 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		2317C70A2D6DA40000F8E1D4 /* MyAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAds.swift; sourceTree = "<group>"; };
+		2317C70E2D6DA6FC00F8E1D4 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		2317C71B2D6DE07A00F8E1D4 /* VocabFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabFirstViewController.swift; sourceTree = "<group>"; };
+		2317C71D2D6EEB1400F8E1D4 /* VocabSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabSecondViewController.swift; sourceTree = "<group>"; };
+		2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabThirdViewController.swift; sourceTree = "<group>"; };
+		2676E555D96CF7567418D47E /* Pods-TechEnglish-TechEnglishUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; path = "Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; sourceTree = "<group>"; };
+		3AA25FF0E3404AEE7AC05D50 /* Pods_TechEnglishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechEnglishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53337819C95C450F32D95427 /* Pods-TechEnglish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish.debug.xcconfig"; path = "Target Support Files/Pods-TechEnglish/Pods-TechEnglish.debug.xcconfig"; sourceTree = "<group>"; };
+		6705347556F4D6B8442201EE /* Pods-TechEnglish.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish.release.xcconfig"; path = "Target Support Files/Pods-TechEnglish/Pods-TechEnglish.release.xcconfig"; sourceTree = "<group>"; };
+		B71AA9BB57A37BED81626A2C /* Pods_TechEnglish_TechEnglishUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechEnglish_TechEnglishUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B85E5388E9E3749170B18184 /* Pods-TechEnglishTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglishTests.release.xcconfig"; path = "Target Support Files/Pods-TechEnglishTests/Pods-TechEnglishTests.release.xcconfig"; sourceTree = "<group>"; };
+		CDA8A0D3B749765359065925 /* Pods-TechEnglishTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglishTests.debug.xcconfig"; path = "Target Support Files/Pods-TechEnglishTests/Pods-TechEnglishTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CFFF5C431C398AFCF4218BC0 /* Pods-TechEnglish-TechEnglishUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish-TechEnglishUITests.debug.xcconfig"; path = "Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E6F251A53FCBB91C69C86381 /* Pods_TechEnglish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechEnglish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		2317C66C2D6D96DE00F8E1D4 /* Exceptions for "TechEnglish" folder in "TechEnglish" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 2317C6432D6D96DC00F8E1D4 /* TechEnglish */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2317C6462D6D96DC00F8E1D4 /* TechEnglish */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				2317C66C2D6D96DE00F8E1D4 /* Exceptions for "TechEnglish" folder in "TechEnglish" target */,
-			);
-			path = TechEnglish;
-			sourceTree = "<group>";
-		};
 		2317C65D2D6D96DE00F8E1D4 /* TechEnglishTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TechEnglishTests;
@@ -65,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F915D3EBB5EDC4FC742BE69 /* Pods_TechEnglish.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13C561F515BF267E25025F7C /* Pods_TechEnglishTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A46E653C46D92CF6526727B0 /* Pods_TechEnglish_TechEnglishUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,10 +135,12 @@
 		2317C63B2D6D96DC00F8E1D4 = {
 			isa = PBXGroup;
 			children = (
-				2317C6462D6D96DC00F8E1D4 /* TechEnglish */,
+				2317C6E12D6DA27C00F8E1D4 /* TechEnglish */,
 				2317C65D2D6D96DE00F8E1D4 /* TechEnglishTests */,
 				2317C6672D6D96DE00F8E1D4 /* TechEnglishUITests */,
 				2317C6452D6D96DC00F8E1D4 /* Products */,
+				2CD3859A869429ED58EC1AFD /* Pods */,
+				E17228E4CB51A601DE6E5B87 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +154,108 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2317C6E12D6DA27C00F8E1D4 /* TechEnglish */ = {
+			isa = PBXGroup;
+			children = (
+				2317C6F72D6DA32000F8E1D4 /* App */,
+				2317C7052D6DA3D500F8E1D4 /* Model */,
+				2317C6F62D6DA2F200F8E1D4 /* View */,
+				2317C6F82D6DA34000F8E1D4 /* Controller */,
+				2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */,
+				2317C6DB2D6DA27C00F8E1D4 /* Info.plist */,
+				2317C6DD2D6DA27C00F8E1D4 /* LaunchScreen.storyboard */,
+			);
+			path = TechEnglish;
+			sourceTree = "<group>";
+		};
+		2317C6EF2D6DA28200F8E1D4 /* Parts */ = {
+			isa = PBXGroup;
+			children = (
+				2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */,
+				2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */,
+				2317C6EB2D6DA28200F8E1D4 /* PhraseStoreCell.swift */,
+				2317C6EC2D6DA28200F8E1D4 /* QuickMemoCell.swift */,
+				2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */,
+				2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */,
+			);
+			path = Parts;
+			sourceTree = "<group>";
+		};
+		2317C6F62D6DA2F200F8E1D4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2317C6EF2D6DA28200F8E1D4 /* Parts */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2317C6F72D6DA32000F8E1D4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2317C6DF2D6DA27C00F8E1D4 /* SceneDelegate.swift */,
+				2317C6D92D6DA27C00F8E1D4 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2317C6F82D6DA34000F8E1D4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2317C71A2D6DE05700F8E1D4 /* Vocabularies */,
+				2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */,
+				2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */,
+				2317C6FF2D6DA37B00F8E1D4 /* PhraseStoreViewController.swift */,
+				2317C7002D6DA37B00F8E1D4 /* QuickMemoViewController.swift */,
+				2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */,
+				2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2317C7052D6DA3D500F8E1D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2317C70E2D6DA6FC00F8E1D4 /* Contact.swift */,
+				2317C7082D6DA3F900F8E1D4 /* AppColors.swift */,
+				2317C70A2D6DA40000F8E1D4 /* MyAds.swift */,
+				2317C7062D6DA3DB00F8E1D4 /* SentenceViewController.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2317C71A2D6DE05700F8E1D4 /* Vocabularies */ = {
+			isa = PBXGroup;
+			children = (
+				2317C71B2D6DE07A00F8E1D4 /* VocabFirstViewController.swift */,
+				2317C71D2D6EEB1400F8E1D4 /* VocabSecondViewController.swift */,
+				2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */,
+			);
+			path = Vocabularies;
+			sourceTree = "<group>";
+		};
+		2CD3859A869429ED58EC1AFD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				53337819C95C450F32D95427 /* Pods-TechEnglish.debug.xcconfig */,
+				6705347556F4D6B8442201EE /* Pods-TechEnglish.release.xcconfig */,
+				CFFF5C431C398AFCF4218BC0 /* Pods-TechEnglish-TechEnglishUITests.debug.xcconfig */,
+				2676E555D96CF7567418D47E /* Pods-TechEnglish-TechEnglishUITests.release.xcconfig */,
+				CDA8A0D3B749765359065925 /* Pods-TechEnglishTests.debug.xcconfig */,
+				B85E5388E9E3749170B18184 /* Pods-TechEnglishTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		E17228E4CB51A601DE6E5B87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E6F251A53FCBB91C69C86381 /* Pods_TechEnglish.framework */,
+				B71AA9BB57A37BED81626A2C /* Pods_TechEnglish_TechEnglishUITests.framework */,
+				3AA25FF0E3404AEE7AC05D50 /* Pods_TechEnglishTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,20 +263,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2317C66D2D6D96DE00F8E1D4 /* Build configuration list for PBXNativeTarget "TechEnglish" */;
 			buildPhases = (
+				7B562318B86F9FD15B6E6A1D /* [CP] Check Pods Manifest.lock */,
 				2317C6402D6D96DC00F8E1D4 /* Sources */,
 				2317C6412D6D96DC00F8E1D4 /* Frameworks */,
 				2317C6422D6D96DC00F8E1D4 /* Resources */,
+				B43ACC02B7F615015A931046 /* [CP] Embed Pods Frameworks */,
+				2F8F331CC33AA595A43C8EE3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				2317C6462D6D96DC00F8E1D4 /* TechEnglish */,
-			);
 			name = TechEnglish;
-			packageProductDependencies = (
-			);
 			productName = TechEnglish;
 			productReference = 2317C6442D6D96DC00F8E1D4 /* TechEnglish.app */;
 			productType = "com.apple.product-type.application";
@@ -134,6 +283,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2317C6722D6D96DE00F8E1D4 /* Build configuration list for PBXNativeTarget "TechEnglishTests" */;
 			buildPhases = (
+				1D3C06D5BAE7F534E2396D14 /* [CP] Check Pods Manifest.lock */,
 				2317C6562D6D96DE00F8E1D4 /* Sources */,
 				2317C6572D6D96DE00F8E1D4 /* Frameworks */,
 				2317C6582D6D96DE00F8E1D4 /* Resources */,
@@ -147,8 +297,6 @@
 				2317C65D2D6D96DE00F8E1D4 /* TechEnglishTests */,
 			);
 			name = TechEnglishTests;
-			packageProductDependencies = (
-			);
 			productName = TechEnglishTests;
 			productReference = 2317C65A2D6D96DE00F8E1D4 /* TechEnglishTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -157,9 +305,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2317C6752D6D96DE00F8E1D4 /* Build configuration list for PBXNativeTarget "TechEnglishUITests" */;
 			buildPhases = (
+				90785F5382EA2A562515832A /* [CP] Check Pods Manifest.lock */,
 				2317C6602D6D96DE00F8E1D4 /* Sources */,
 				2317C6612D6D96DE00F8E1D4 /* Frameworks */,
 				2317C6622D6D96DE00F8E1D4 /* Resources */,
+				BC16F8B6360DB5631A19D1EB /* [CP] Embed Pods Frameworks */,
+				DFFAE9E0ABE00D265491F0FC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,8 +321,6 @@
 				2317C6672D6D96DE00F8E1D4 /* TechEnglishUITests */,
 			);
 			name = TechEnglishUITests;
-			packageProductDependencies = (
-			);
 			productName = TechEnglishUITests;
 			productReference = 2317C6642D6D96DE00F8E1D4 /* TechEnglishUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -225,6 +374,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2317C6E62D6DA27C00F8E1D4 /* Assets.xcassets in Resources */,
+				2317C6E82D6DA27C00F8E1D4 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,11 +395,169 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1D3C06D5BAE7F534E2396D14 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TechEnglishTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2F8F331CC33AA595A43C8EE3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TechEnglish/Pods-TechEnglish-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TechEnglish/Pods-TechEnglish-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TechEnglish/Pods-TechEnglish-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B562318B86F9FD15B6E6A1D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TechEnglish-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90785F5382EA2A562515832A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TechEnglish-TechEnglishUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B43ACC02B7F615015A931046 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TechEnglish/Pods-TechEnglish-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TechEnglish/Pods-TechEnglish-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TechEnglish/Pods-TechEnglish-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC16F8B6360DB5631A19D1EB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DFFAE9E0ABE00D265491F0FC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2317C6402D6D96DC00F8E1D4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2317C70B2D6DA40000F8E1D4 /* MyAds.swift in Sources */,
+				2317C6E22D6DA27C00F8E1D4 /* AppDelegate.swift in Sources */,
+				2317C7072D6DA3DB00F8E1D4 /* SentenceViewController.swift in Sources */,
+				2317C71C2D6DE07A00F8E1D4 /* VocabFirstViewController.swift in Sources */,
+				2317C71E2D6EEB1400F8E1D4 /* VocabSecondViewController.swift in Sources */,
+				2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */,
+				2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */,
+				2317C6F02D6DA28200F8E1D4 /* PhraseStoreCell.swift in Sources */,
+				2317C6F12D6DA28200F8E1D4 /* CustomTableViewCell.swift in Sources */,
+				2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */,
+				2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */,
+				2317C6F42D6DA28200F8E1D4 /* WebViewContainer.swift in Sources */,
+				2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */,
+				2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */,
+				2317C6F52D6DA28200F8E1D4 /* QuickMemoCell.swift in Sources */,
+				2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */,
+				2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */,
+				2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */,
+				2317C7012D6DA37B00F8E1D4 /* PhraseStoreViewController.swift in Sources */,
+				2317C7022D6DA37B00F8E1D4 /* QuickMemoViewController.swift in Sources */,
+				2317C7202D6EED8400F8E1D4 /* VocabThirdViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,15 +590,29 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		2317C6DD2D6DA27C00F8E1D4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2317C6DC2D6DA27C00F8E1D4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		2317C66E2D6D96DE00F8E1D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53337819C95C450F32D95427 /* Pods-TechEnglish.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RXTSJ9F9Z8;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				EXCLUDED_ARCHS = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TechEnglish/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -300,7 +623,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.katsuyatamai.TechEnglish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -311,12 +634,14 @@
 		};
 		2317C66F2D6D96DE00F8E1D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6705347556F4D6B8442201EE /* Pods-TechEnglish.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RXTSJ9F9Z8;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TechEnglish/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -327,7 +652,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.katsuyatamai.TechEnglish;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -457,6 +782,7 @@
 		};
 		2317C6732D6D96DE00F8E1D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDA8A0D3B749765359065925 /* Pods-TechEnglishTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -476,6 +802,7 @@
 		};
 		2317C6742D6D96DE00F8E1D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B85E5388E9E3749170B18184 /* Pods-TechEnglishTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -495,6 +822,7 @@
 		};
 		2317C6762D6D96DE00F8E1D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFFF5C431C398AFCF4218BC0 /* Pods-TechEnglish-TechEnglishUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -512,6 +840,7 @@
 		};
 		2317C6772D6D96DE00F8E1D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2676E555D96CF7567418D47E /* Pods-TechEnglish-TechEnglishUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;

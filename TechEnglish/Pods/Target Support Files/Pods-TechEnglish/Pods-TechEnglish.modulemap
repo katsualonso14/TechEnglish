@@ -1,0 +1,6 @@
+framework module Pods_TechEnglish {
+  umbrella header "Pods-TechEnglish-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,41 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'TechEnglish' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  # Pods for TechEnglish
+  pod 'SnapKit', '~> 5.0.0'
+  pod 'FSCalendar'
+  pod 'CalculateCalendarLogic'
+  pod 'Realm'
+  pod 'RealmSwift', '~> 10.42.0'
+  pod 'Google-Mobile-Ads-SDK'
+  pod 'GoogleUserMessagingPlatform'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
+
+  # For Test Setting
+  target 'TechEnglishTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'TechEnglishUITests' do
+    # Pods for testing
+  end
+  
+  post_install do |installer|
+      installer.generated_projects.each do |project|
+          project.targets.each do |target|
+              target.build_configurations.each do |config|
+                  config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+                  config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+              end
+          end
+      end
+  end
+end
+
+
+

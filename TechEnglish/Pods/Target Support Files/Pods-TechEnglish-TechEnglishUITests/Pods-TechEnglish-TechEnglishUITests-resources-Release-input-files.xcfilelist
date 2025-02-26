@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/Google-Mobile-Ads-SDK/GoogleMobileAdsResources.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/GoogleUserMessagingPlatform/UserMessagingPlatformResources.bundle
