@@ -23,7 +23,7 @@ class SelectSearchWordModal: UIView {
     
     func setupDiscriptLabel() {
         let label = UILabel()
-        label.text = "Would you like to search for the following words in Web?"
+        label.text = "Webで検索する単語を選択してください"
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.numberOfLines = 0
@@ -57,13 +57,23 @@ class SelectSearchWordModal: UIView {
         cancelButton.frame = CGRect(x: 0, y: 250, width: 150, height: 50)
         self.addSubview(cancelButton)
     }
+    //MARK - Function
+    // 検索する単語がありませんのモーダル表示
+    func openNoSearchWordAlert() {
+        let alert = UIAlertController(title: "検索する単語がありません", message: "検索する単語を保存し選択してください。", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        parentVC?.present(alert, animated: true, completion: nil)
+    }
     //MARK - objc
     @objc func openWebView() {
-        print("tap")
         self.removeFromSuperview()
+        if (searchWord.isEmpty) {
+            openNoSearchWordAlert()
+        }
         let webView = WebModalViewController()
         // pickerで選択した単語を渡す
-        webView.selectedWord = selecetedWord == nil ? searchWord[0] : selecetedWord
+        webView.selectedWord = selecetedWord
         webView.modalPresentationStyle = .popover
         // 親ビューの上に表示
         parentVC?.present(webView, animated: true, completion: nil)
