@@ -2,8 +2,8 @@ import UIKit
 
 class SelectSearchWordModal: UIView {
     var searchWord: [String] = []
-    var selecetedWord: String?
     var parentVC: UIViewController?
+    let pickerView = UIPickerView()
     
     init(frame: CGRect, parentVC: UIViewController) {
         self.parentVC = parentVC
@@ -32,7 +32,6 @@ class SelectSearchWordModal: UIView {
     }
     
     func setupPicker() {
-        let pickerView = UIPickerView()
         pickerView.backgroundColor = .systemBackground
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -72,8 +71,9 @@ class SelectSearchWordModal: UIView {
             openNoSearchWordAlert()
         }
         let webView = WebModalViewController()
-        // pickerで選択した単語を渡す
-        webView.selectedWord = selecetedWord
+        // pickerで選択した単語を渡す(非選択時は0番目)
+        let row = pickerView.selectedRow(inComponent: 0)
+        webView.selectedWord = searchWord[row]
         webView.modalPresentationStyle = .popover
         // 親ビューの上に表示
         parentVC?.present(webView, animated: true, completion: nil)
@@ -96,7 +96,6 @@ extension SelectSearchWordModal: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        selecetedWord = searchWord[row]
         return searchWord[row]
     }
 }
