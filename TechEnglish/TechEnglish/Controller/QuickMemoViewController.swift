@@ -312,15 +312,15 @@ extension QuickMemoViewController: UITableViewDataSource, UITableViewDelegate {
         let editAction = UIContextualAction(style: .normal, title: nil) { (action, view, completionHandler) in
             // 検索中の場合、フィルター時のインデックス指定
             if(self.isSearching) {
-                let originalIndex = self.QuickMemo.firstIndex(of: self.filteredWords[indexPath.row]) ?? indexPath.row
+                let originalIndex = self.QuickMemo.firstIndex(of: self.filteredWords[indexPath.section]) ?? indexPath.section
                 self.openEditMemo(
                     quickMemo: self.QuickMemo[originalIndex],
                     index: originalIndex
                 )
             } else {
                 self.openEditMemo(
-                    quickMemo: self.QuickMemo[indexPath.row],
-                    index: indexPath.row
+                    quickMemo: self.QuickMemo[indexPath.section],
+                    index: indexPath.section
                 )
             }
             completionHandler(true)
@@ -330,16 +330,16 @@ extension QuickMemoViewController: UITableViewDataSource, UITableViewDelegate {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (action, view, completionHandler) in
             // 検索中の場合、フィルター時のインデックス指定
             if(self.isSearching) {
-                let originalIndex = self.QuickMemo.firstIndex(of: self.filteredWords[indexPath.row]) ?? indexPath.row
+                let originalIndex = self.QuickMemo.firstIndex(of: self.filteredWords[indexPath.section]) ?? indexPath.section
                 self.QuickMemo.remove(at: originalIndex)
 
-                self.filteredWords.remove(at: indexPath.row)
+                self.filteredWords.remove(at: indexPath.section)
             } else {
-                self.QuickMemo.remove(at: indexPath.row)
+                self.QuickMemo.remove(at: indexPath.section)
             }
     
             UserDefaults.standard.setValue(self.QuickMemo, forKey: "quick word")
-            tableView.deleteSections([indexPath.row], with: .fade) // セクションで設定しているため、セクション削除
+            tableView.deleteSections([indexPath.section], with: .fade) // セクションで設定しているため、セクション削除
             completionHandler(true)
         }
         
