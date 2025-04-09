@@ -255,7 +255,7 @@ extension PhraseStoreViewController: UITableViewDataSource, UITableViewDelegate 
     
     //セルの高さ
      func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 170
     }
     //Cellの編集と削除
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

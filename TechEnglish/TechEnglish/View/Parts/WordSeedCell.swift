@@ -1,6 +1,6 @@
 import UIKit
 
-class QuickMemoCell: UITableViewCell {
+class WordSeedCell: UITableViewCell {
     
     let label = UILabel()
 

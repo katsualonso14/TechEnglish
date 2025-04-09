@@ -17,32 +17,32 @@ class DescriptionView: UIView {
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = AppColors.backgroundColorCheckMode
         self.layer.cornerRadius = 12
         setupView()
     }
     
     func setupView() {
         // 画像
-//        imageView.contentMode = .scaleAspectFit
-//        imageView.frame = CGRect(x: 20, y: 20, width: 250, height: 150)
-//        addSubview(imageView)
+        imageView.contentMode = .scaleAspectFit
+        imageView.frame = CGRect(x: 20, y: 20, width: 250, height: 150)
+        addSubview(imageView)
 
         // 説明文
-        label.frame = CGRect(x: 20, y: 20, width: 280, height: 20)
+        label.frame = CGRect(x: 20, y: 180, width: 280, height: 20)
         label.font = UIFont.systemFont(ofSize: 15)
         label.numberOfLines = 0
         addSubview(label)
         
         // チェックボックスの説明
         checkBoxLabel.text = "アプリ起動時に説明を表示しない"
-        checkBoxLabel.frame = CGRect(x: 5, y: 110, width: 250, height: 20)
+        checkBoxLabel.frame = CGRect(x: 5, y: 260, width: 250, height: 20)
         checkBoxLabel.font = UIFont.systemFont(ofSize: 15)
         checkBoxLabel.textColor = .systemGray
         addSubview(checkBoxLabel)
         
         // 起動時に説明ダイアログを表示するかどうかのチェックボックス
-        descriptionCheckBox.frame = CGRect(x: 180, y: 110, width: 150, height: 30)
+        descriptionCheckBox.frame = CGRect(x: 180, y: 260, width: 150, height: 30)
         descriptionCheckBox.contentMode = .scaleAspectFit
         descriptionCheckBox.isUserInteractionEnabled = true
         addSubview(descriptionCheckBox)
@@ -57,7 +57,7 @@ class DescriptionView: UIView {
         button.layer.cornerRadius = 10
         button.layer.masksToBounds = true
         button.addTarget(self, action: #selector(changePage), for: .touchUpInside)
-        button.frame = CGRect(x: 20, y: 150, width: 250, height: 40)
+        button.frame = CGRect(x: 20, y: 300, width: 260, height: 40)
         addSubview(button)
         
         //閉じるボタン
@@ -71,9 +71,8 @@ class DescriptionView: UIView {
     }
     
     func updateViewContent() {
-        //TODO: 画像の差し替え
-//        imageView.image = discriptNumber == 1 ? UIImage(named: "Quick Memo Sample") :
-//        discriptNumber == 2 ? UIImage(named: "Add PhraseStore from Quick Memo") : UIImage(named: "PhraseStore Sample")
+        imageView.image = discriptNumber == 1 ? UIImage(named: "WordSeed Sample") :
+        discriptNumber == 2 ? UIImage(named: "Add CustomWordList from WordSeed") : UIImage(named: "CustomWordList Sample")
         
         label.text = discriptNumber == 1 ?
         "「単語のタネ」では、日常で気になったり理解できない単語を簡単にメモすることができます。"
