@@ -41,7 +41,8 @@ class PhraseStoreViewController: UIViewController {
             conteinerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             conteinerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             conteinerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            conteinerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            // 広告用にスペースを空けて設定(80)
+            conteinerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -80)
         ])
     }
     
