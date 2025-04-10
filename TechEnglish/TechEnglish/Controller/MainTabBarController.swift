@@ -21,7 +21,7 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         self.tabBar.tintColor = AppColors.appMainColor
         view.backgroundColor = .systemGray6
         
-        let phrasesVC = QuickMemoViewController()
+        let phrasesVC = WordSeedViewController()
         phrasesVC.tabBarItem.image = UIImage(systemName: "pencil.and.scribble")
         phrasesVC.tabBarItem.title = "単語のタネ"
         let nv1 = UINavigationController(rootViewController: phrasesVC)

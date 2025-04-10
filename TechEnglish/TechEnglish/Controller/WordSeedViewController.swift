@@ -1,7 +1,7 @@
 import Foundation
 import UIKit
 
-class QuickMemoViewController: UIViewController {
+class WordSeedViewController: UIViewController {
     let tableView = UITableView()
     let conteinerView = UIView()
     var QuickMemo = [String]()
@@ -51,7 +51,7 @@ class QuickMemoViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(QuickMemoCell.self, forCellReuseIdentifier: "QuickMemoCell")
+        tableView.register(WordSeedCell.self, forCellReuseIdentifier: "QuickMemoCell")
     }
     
     func setAddButton() {
@@ -257,7 +257,7 @@ class QuickMemoViewController: UIViewController {
     }
 
     @objc func setDiscrptionView() {
-        let explanationView = DescriptionView(frame: CGRect(x: 50, y: 170, width: 330, height: 200))
+        let explanationView = DescriptionView(frame: CGRect(x: 50, y: 170, width: 330, height: 350))
         explanationView.center = view.center
         view.addSubview(explanationView)
     }
@@ -265,7 +265,7 @@ class QuickMemoViewController: UIViewController {
 }
 
 //MARK: - TableView DataSource
-extension QuickMemoViewController: UITableViewDataSource, UITableViewDelegate {
+extension WordSeedViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return QuickMemo.count
     }
@@ -289,7 +289,7 @@ extension QuickMemoViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QuickMemoCell") as! QuickMemoCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "QuickMemoCell") as! WordSeedCell
         // Background view for selection
         let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = UIColor.systemGray.withAlphaComponent(0.5)
@@ -353,7 +353,7 @@ extension QuickMemoViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 //MARK: - Search
-extension QuickMemoViewController: UISearchResultsUpdating {
+extension WordSeedViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
             isSearching = false

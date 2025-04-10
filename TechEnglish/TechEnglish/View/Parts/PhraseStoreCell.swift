@@ -31,10 +31,12 @@ class PhraseStoreCell: UITableViewCell {
         
         secondLabel.textColor = .orange
         secondLabel.translatesAutoresizingMaskIntoConstraints = false
+        secondLabel.numberOfLines = 3
         contentView.addSubview(secondLabel)
         
         thirdLabel.textColor = .systemBlue
         thirdLabel.translatesAutoresizingMaskIntoConstraints = false
+        thirdLabel.numberOfLines = 3
         contentView.addSubview(thirdLabel)
         
         label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
@@ -42,9 +44,12 @@ class PhraseStoreCell: UITableViewCell {
         
         secondLabel.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 10).isActive = true
         secondLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        secondLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
         
         thirdLabel.topAnchor.constraint(equalTo: secondLabel.bottomAnchor, constant: 30).isActive = true
         thirdLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        thirdLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+        
     }
     
     required init?(coder: NSCoder) {
