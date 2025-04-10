@@ -48,10 +48,10 @@ class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVS
             print("Audio Setting Failed.")
             return
         }
-        // TableViewのcontentInsetを調整して、広告スペースを確保
+        // 画面下部の広告スペースを確保
         let bannerHeight: CGFloat = 50 // AdMobバナーの高さ
         tableView.contentInset.bottom = bannerHeight
-        tableView.scrollIndicatorInsets.bottom = bannerHeight
+        tableView.horizontalScrollIndicatorInsets.bottom = bannerHeight
         
         tableView.dataSource = self
         tableView.delegate  = self
