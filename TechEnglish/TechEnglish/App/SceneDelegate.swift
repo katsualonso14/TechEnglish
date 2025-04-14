@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  TechEnglish
-//
-//  Created by KatsuyaTamai on 2025/02/25.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -17,10 +10,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windosScene)
         self.window = window
         
-//        let vc = MainTabBarController()
         let vc = MainTabBarController()
         window.rootViewController = vc
-        //   keywindowとして設定することで、同一レベル(もしくは同一レベル以下)の windowの最前面に表示するためのメソッド
         window.makeKeyAndVisible()
     }
 

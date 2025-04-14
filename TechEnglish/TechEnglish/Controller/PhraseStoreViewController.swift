@@ -56,7 +56,7 @@ class PhraseStoreViewController: UIViewController {
         ])
         tableView.backgroundColor = .systemGray6
         // 画面下部の広告スペースを確保
-        let bannerHeight: CGFloat = 80 // AdMobバナーの高さ
+        let bannerHeight: CGFloat = 150 // AdMobバナーの高さ
         tableView.contentInset.bottom = bannerHeight
         tableView.horizontalScrollIndicatorInsets.bottom = bannerHeight
         
