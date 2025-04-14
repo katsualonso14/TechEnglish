@@ -30,7 +30,7 @@ class WordSeedViewController: UIViewController {
             conteinerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             conteinerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             conteinerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            conteinerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            conteinerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -47,8 +47,12 @@ class WordSeedViewController: UIViewController {
         tableView.layer.cornerRadius = 16
         tableView.layer.masksToBounds = true
         tableView.separatorStyle = .none // Remove default separator
-        self.QuickMemo = UserDefaults.standard.stringArray(forKey: "quick word") ?? []
+        // 画面下部の広告スペースを確保
+        let bannerHeight: CGFloat = 150 // AdMobバナーの高さ
+        tableView.contentInset.bottom = bannerHeight
+        tableView.horizontalScrollIndicatorInsets.bottom = bannerHeight
         
+        self.QuickMemo = UserDefaults.standard.stringArray(forKey: "quick word") ?? []
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(WordSeedCell.self, forCellReuseIdentifier: "QuickMemoCell")
@@ -105,17 +109,10 @@ class WordSeedViewController: UIViewController {
     func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Words"
-        tableView.tableHeaderView = searchController.searchBar
-        // Layout Setting
-        tableView.tableHeaderView?.layer.cornerRadius = 16
-        tableView.tableHeaderView?.layer.masksToBounds = true
-        tableView.tableHeaderView?.layer.borderWidth = 5
-        tableView.tableHeaderView?.layer.borderColor = UIColor.systemGray6.cgColor
+        searchController.searchBar.placeholder = "単語を検索"
         
-        searchController.searchBar.backgroundImage = UIImage() // 背景を透明に設定
-        searchController.searchBar.searchTextField.backgroundColor = AppColors.backgroundColorCheckMode
-        definesPresentationContext = true
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     //MARK: - Helper Function
     func checkIsDescription() {

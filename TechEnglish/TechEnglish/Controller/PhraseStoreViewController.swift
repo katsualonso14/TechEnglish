@@ -41,7 +41,7 @@ class PhraseStoreViewController: UIViewController {
             conteinerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             conteinerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             conteinerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            conteinerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+            conteinerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
     
@@ -55,6 +55,10 @@ class PhraseStoreViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: conteinerView.bottomAnchor)
         ])
         tableView.backgroundColor = .systemGray6
+        // 画面下部の広告スペースを確保
+        let bannerHeight: CGFloat = 150 // AdMobバナーの高さ
+        tableView.contentInset.bottom = bannerHeight
+        tableView.horizontalScrollIndicatorInsets.bottom = bannerHeight
         
         self.words = UserDefaults.standard.stringArray(forKey: "word") ?? []
         self.sentences = UserDefaults.standard.stringArray(forKey: "sentence") ?? []
@@ -89,17 +93,9 @@ class PhraseStoreViewController: UIViewController {
     func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Words"
-        tableView.tableHeaderView = searchController.searchBar
-        // Layout Setting
-        tableView.tableHeaderView?.layer.cornerRadius = 16
-        tableView.tableHeaderView?.layer.masksToBounds = true
-        tableView.tableHeaderView?.layer.borderWidth = 5
-        tableView.tableHeaderView?.layer.borderColor = UIColor.systemGray6.cgColor
-        
-        searchController.searchBar.backgroundImage = UIImage() // 背景を透明に設定
-        searchController.searchBar.searchTextField.backgroundColor = AppColors.backgroundColorCheckMode
-        definesPresentationContext = true
+        searchController.searchBar.placeholder = "単語を検索"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     //MARK: - Function
