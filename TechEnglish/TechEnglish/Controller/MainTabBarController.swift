@@ -36,7 +36,12 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         categoryViewController.tabBarItem.title = "Tech Words"
         let nv3 = UINavigationController(rootViewController: categoryViewController)
         
-        setViewControllers([nv1, nv2, nv3], animated: false)
+        let calendarVC = CalendarViewController()
+        calendarVC.tabBarItem.image = UIImage(systemName: "calendar")
+        calendarVC.tabBarItem.title = "記録"
+        let nv4 = UINavigationController(rootViewController: calendarVC)
+        
+        setViewControllers([nv1, nv2, nv3, nv4], animated: false)
     }
     
     //MARK: -Admob
