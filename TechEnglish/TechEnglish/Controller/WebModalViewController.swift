@@ -18,7 +18,7 @@ class WebModalViewController: UIViewController {
         webContainer.layer.masksToBounds = true
         // search google about selected word
         if let selectedWord = selectedWord {
-            webContainer.loadURL("https://www.google.com/search?q=\(selectedWord) meaning")
+            webContainer.loadURL("https://www.google.com/search?q=\(selectedWord) 意味")
         }
         view.addSubview(webContainer)
     }

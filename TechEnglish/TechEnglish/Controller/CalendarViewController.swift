@@ -71,6 +71,7 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
             target: self,
             action: #selector(openFeedbackModal)
         )
+        navigationItem.rightBarButtonItem?.tintColor = AppColors.appMainColor
     }
 
     //MARK: -Function
