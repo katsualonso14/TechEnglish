@@ -123,7 +123,7 @@ class WordSeedViewController: UIViewController {
     
     // PhraseStoreに追加
     func addPhraseStore(word: String) {
-        let phraseStoreVC = PhraseStoreViewController()
+        let phraseStoreVC = CustomWordsViewController()
         let aleat = UIAlertController(
             title: NSLocalizedString("submit_for_custom_word_title", comment: ""),
             message: NSLocalizedString("submit_for_custom_word_message", comment: "") + word,

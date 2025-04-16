@@ -15,7 +15,6 @@
 "memo_placeholder" = "Enter memo...";
 "word_placeholder" = "Enter word...";
 
-
 //MARK: - Word Seeds
 "submit_for_custom_word_title" = "Save to Custom Words";
 "submit_for_custom_word_message" = "You can create example sentences and take notes with the checked words. Checked words: ";
@@ -28,6 +27,10 @@
 "edit_word_seed_title" = "Edit Word Seed";
 "edit_word_seed_message" = "Edit the word you want to save.";
 
+//MARK: - Custom Word List
+"edit_custom_word_list_title" = "Edit Custom Words";
+"edit_custom_word_list_message" = "Edit and save your custom words.";
+"edit_custom_word_list_error_message" = "Please enter word, sentence, and memo.";
 
 //MARK: - Tech Words
 // Button Title

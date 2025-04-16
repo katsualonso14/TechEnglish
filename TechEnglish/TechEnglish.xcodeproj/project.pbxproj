@@ -13,7 +13,7 @@
 		2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6DF2D6DA27C00F8E1D4 /* SceneDelegate.swift */; };
 		2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */; };
 		2317C6E62D6DA27C00F8E1D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */; };
-		2317C6F02D6DA28200F8E1D4 /* PhraseStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EB2D6DA28200F8E1D4 /* PhraseStoreCell.swift */; };
+		2317C6F02D6DA28200F8E1D4 /* CustomWordsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EB2D6DA28200F8E1D4 /* CustomWordsCell.swift */; };
 		2317C6F12D6DA28200F8E1D4 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */; };
 		2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */; };
 		2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */; };
@@ -21,7 +21,7 @@
 		2317C6F52D6DA28200F8E1D4 /* WordSeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EC2D6DA28200F8E1D4 /* WordSeedCell.swift */; };
 		2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */; };
 		2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */; };
-		2317C7012D6DA37B00F8E1D4 /* PhraseStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FF2D6DA37B00F8E1D4 /* PhraseStoreViewController.swift */; };
+		2317C7012D6DA37B00F8E1D4 /* CustomWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FF2D6DA37B00F8E1D4 /* CustomWordsViewController.swift */; };
 		2317C7022D6DA37B00F8E1D4 /* WordSeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */; };
 		2317C7072D6DA3DB00F8E1D4 /* SentenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7062D6DA3DB00F8E1D4 /* SentenceViewController.swift */; };
 		2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7082D6DA3F900F8E1D4 /* AppColors.swift */; };
@@ -66,13 +66,13 @@
 		2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModalViewController.swift; sourceTree = "<group>"; };
 		2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
-		2317C6EB2D6DA28200F8E1D4 /* PhraseStoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseStoreCell.swift; sourceTree = "<group>"; };
+		2317C6EB2D6DA28200F8E1D4 /* CustomWordsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWordsCell.swift; sourceTree = "<group>"; };
 		2317C6EC2D6DA28200F8E1D4 /* WordSeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSeedCell.swift; sourceTree = "<group>"; };
 		2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSearchWordModal.swift; sourceTree = "<group>"; };
 		2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContainer.swift; sourceTree = "<group>"; };
 		2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNotifController.swift; sourceTree = "<group>"; };
-		2317C6FF2D6DA37B00F8E1D4 /* PhraseStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseStoreViewController.swift; sourceTree = "<group>"; };
+		2317C6FF2D6DA37B00F8E1D4 /* CustomWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWordsViewController.swift; sourceTree = "<group>"; };
 		2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSeedViewController.swift; sourceTree = "<group>"; };
 		2317C7062D6DA3DB00F8E1D4 /* SentenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceViewController.swift; sourceTree = "<group>"; };
 		2317C7082D6DA3F900F8E1D4 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 			children = (
 				2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */,
 				2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */,
-				2317C6EB2D6DA28200F8E1D4 /* PhraseStoreCell.swift */,
+				2317C6EB2D6DA28200F8E1D4 /* CustomWordsCell.swift */,
 				2317C6EC2D6DA28200F8E1D4 /* WordSeedCell.swift */,
 				2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */,
 				2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */,
@@ -208,7 +208,7 @@
 				2317C71A2D6DE05700F8E1D4 /* Vocabularies */,
 				2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */,
 				2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */,
-				2317C6FF2D6DA37B00F8E1D4 /* PhraseStoreViewController.swift */,
+				2317C6FF2D6DA37B00F8E1D4 /* CustomWordsViewController.swift */,
 				2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */,
 				2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */,
 				2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */,
@@ -552,7 +552,7 @@
 				2317C71E2D6EEB1400F8E1D4 /* VocabSecondViewController.swift in Sources */,
 				2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */,
 				2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */,
-				2317C6F02D6DA28200F8E1D4 /* PhraseStoreCell.swift in Sources */,
+				2317C6F02D6DA28200F8E1D4 /* CustomWordsCell.swift in Sources */,
 				2317C6F12D6DA28200F8E1D4 /* CustomTableViewCell.swift in Sources */,
 				2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */,
 				2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */,
@@ -565,7 +565,7 @@
 				2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */,
 				2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */,
 				2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */,
-				2317C7012D6DA37B00F8E1D4 /* PhraseStoreViewController.swift in Sources */,
+				2317C7012D6DA37B00F8E1D4 /* CustomWordsViewController.swift in Sources */,
 				2317C7022D6DA37B00F8E1D4 /* WordSeedViewController.swift in Sources */,
 				2317C7202D6EED8400F8E1D4 /* VocabThirdViewController.swift in Sources */,
 			);

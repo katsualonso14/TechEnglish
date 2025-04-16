@@ -17,8 +17,6 @@
 "memo_placeholder" = "メモを入力...";
 "word_placeholder" = "単語を入力...";
 
-
-
 //MARK: - Word Seeds
 "submit_for_custom_word_title" = "カスタム単語帳へ保存";
 "submit_for_custom_word_message" = "チェックした単語とともに例文作成とシチュエーションをメモできます。チェックした単語: ";
@@ -31,6 +29,10 @@
 "edit_word_seed_title" = "単語のタネを編集";
 "edit_word_seed_message" = "気になる単語を編集し保存します。";
 
+//MARK: - Custom Word List
+"edit_custom_word_list_title" = "カスタム単語帳を編集";
+"edit_custom_word_list_message" = "カスタム単語帳を編集し保存します。";
+"edit_custom_word_list_error_message" = "単語・文章・メモを入力してください。";
 
 //MARK: - Tech Words
 // Button Title

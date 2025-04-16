@@ -26,7 +26,7 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         phrasesVC.tabBarItem.title = NSLocalizedString("wordseeds_tab_button", comment: "")
         let nv1 = UINavigationController(rootViewController: phrasesVC)
         
-        let phraseStoreVC = PhraseStoreViewController()
+        let phraseStoreVC = CustomWordsViewController()
         phraseStoreVC.tabBarItem.image = UIImage(systemName: "pencil.and.outline")
         phraseStoreVC.tabBarItem.title = NSLocalizedString("custom_word_list_tab_button", comment: "")
         let nv2 = UINavigationController(rootViewController: phraseStoreVC)
