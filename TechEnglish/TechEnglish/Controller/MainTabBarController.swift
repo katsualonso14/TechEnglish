@@ -23,12 +23,12 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         
         let phrasesVC = WordSeedViewController()
         phrasesVC.tabBarItem.image = UIImage(systemName: "pencil.and.scribble")
-        phrasesVC.tabBarItem.title = "単語のタネ"
+        phrasesVC.tabBarItem.title = NSLocalizedString("wordseeds_tab_button", comment: "")
         let nv1 = UINavigationController(rootViewController: phrasesVC)
         
         let phraseStoreVC = PhraseStoreViewController()
         phraseStoreVC.tabBarItem.image = UIImage(systemName: "pencil.and.outline")
-        phraseStoreVC.tabBarItem.title = "カスタム単語帳"
+        phraseStoreVC.tabBarItem.title = NSLocalizedString("custom_word_list_tab_button", comment: "")
         let nv2 = UINavigationController(rootViewController: phraseStoreVC)
         
         let categoryViewController = CategoryViewController()
@@ -38,7 +38,7 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         
         let calendarVC = CalendarViewController()
         calendarVC.tabBarItem.image = UIImage(systemName: "calendar")
-        calendarVC.tabBarItem.title = "記録"
+        calendarVC.tabBarItem.title = NSLocalizedString("calendar_tab_button", comment: "")
         let nv4 = UINavigationController(rootViewController: calendarVC)
         
         setViewControllers([nv1, nv2, nv3, nv4], animated: false)

@@ -15,7 +15,7 @@ class PhraseStoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "カスタム単語帳"
+        navigationItem.title = NSLocalizedString("custom_word_list_tab_button", comment: "")
         setView()
         setTableView()
         setAddButton()
@@ -93,7 +93,7 @@ class PhraseStoreViewController: UIViewController {
     func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "単語を検索"
+        searchController.searchBar.placeholder = NSLocalizedString("search_placeholder", comment: "")
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }

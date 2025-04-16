@@ -1,7 +1,44 @@
-/* 
+/*
   Localizable.strings
   TechEnglish
 */
+
+//MARK: - Tabs
+"wordseeds_tab_button" = "Word Seeds";
+"custom_word_list_tab_button" = "Custom Words";
+"calendar_tab_button" = "Calendar";
+
+//MARK: - Common Components
+// Placeholder Text
+"search_placeholder" = "Search for words";
+"example_sentence_placeholder" = "Enter sentence...";
+"memo_placeholder" = "Enter memo...";
+"word_placeholder" = "Enter word...";
+
+
+//MARK: - Word Seeds
+"submit_for_custom_word_title" = "Save to Custom Words";
+"submit_for_custom_word_message" = "You can create example sentences and take notes with the checked words. Checked words: ";
+"submit_for_custom_word_error_message" = "Please enter a sentence and memo.";
+
+"add_word_seed_title" = "Add Word Seed";
+"add_word_seed_message" = "Enter the word you want to save.";
+"add_word_seed_error_message" = "Please enter word.";
+
+"edit_word_seed_title" = "Edit Word Seed";
+"edit_word_seed_message" = "Edit the word you want to save.";
+
+
+//MARK: - Tech Words
+// Button Title
+"frequent_button_title" = "Frequently Occurring";
+"nomal_button_title" = "Occurring";
+"rare_button_title" = "Rarely Occurring";
+
+// Notification Delete
+"delete_all_notif_title" = "Delete All Notifications";
+"delete_all_notif_message" = "You can reset all notifications. Do you want to delete all notifications?";
+"delete_all_notif_finish_title" = "All notifications have been deleted";
 
 "invoked_meaning" = "to request help from someone, especially a god, when you want to improve a situation";
 "exception_meaning" = "someone or something that is not included in a rule, group";
@@ -30,3 +67,16 @@
 "observable_meaning" = "that can be noticed or seen";
 "deprecated_meaning" = "to not approve of something or say that you do not approve of something";
 "absolute_meaning" = "very great or to the largest degree possible";
+
+//MARK: - Feedback
+"feedback_massage" = "We are looking for your feedback on this app. Please write any requests such as 'I want this feature' or 'I want this to be improved' here and press the Submit button.";
+//MARK: - Disciption Viwe
+"dicript_check_box_lable" = "Do not show description at startup";
+"dicript_label_word_seeds" = "In 'Word Seeds', you can easily note down words that you find interesting or difficult to understand in daily life.";
+"dicript_label_add_custom_word_list" = "You can save sentences and memo based on the words saved in 'Word Seeds' to your custom word list.";
+"dicript_label_custom_word_list" = "In 'Custom Word List', you can save words that you find interesting in daily life along with sentences and notes to help you remember them.";
+
+//MARK: - Web Search Modal
+"web_search_massage" = "Please select the word to search on the web.";
+"no_search_word_title" = "No word to search";
+"no_search_word_message" = "Please save and select the word to search.";

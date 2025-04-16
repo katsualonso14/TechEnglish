@@ -22,7 +22,7 @@ class CategoryViewController: UIViewController {
         button.layer.cornerRadius = 25.0
         button.layer.masksToBounds = true
         
-        button.setTitle("よく出てくる", for: .normal)
+        button.setTitle(NSLocalizedString("frequent_button_title", comment: ""), for: .normal)
         button.setTitleColor(AppColors.textColor, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
 
@@ -45,7 +45,7 @@ class CategoryViewController: UIViewController {
         secondButton.layer.cornerRadius = 25.0
         secondButton.layer.masksToBounds = true
         
-        secondButton.setTitle("出てくる", for: .normal)
+        secondButton.setTitle(NSLocalizedString("nomal_button_title", comment: ""), for: .normal)
         secondButton.setTitleColor(AppColors.textColor, for: .normal)
         secondButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         secondButton.setImage(UIImage(named: "vocab_second"), for: .normal)
@@ -67,7 +67,7 @@ class CategoryViewController: UIViewController {
         thirdButton.layer.cornerRadius = 25.0
         thirdButton.layer.masksToBounds = true
         
-        thirdButton.setTitle("たまに出てくる", for: .normal)
+        thirdButton.setTitle(NSLocalizedString("rare_button_title", comment: ""), for: .normal)
         thirdButton.setTitleColor(AppColors.textColor, for: .normal)
         thirdButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         thirdButton.setImage(UIImage(named: "vocab_third"), for: .normal)
@@ -92,24 +92,24 @@ class CategoryViewController: UIViewController {
     //MARK: -objc
     // Push Buttons Setting
     @objc func pushButton(sender: UIButton){
-        let vc = VocabFirstViewController(titleName: "よく出てくる")
+    let vc = VocabFirstViewController(titleName: NSLocalizedString("frequent_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func pushSecondButton(sender: UIButton){
-        let vc = VocabSecondViewController(titleName: "出てくる")
+        let vc = VocabSecondViewController(titleName: NSLocalizedString("nomal_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func pushAThirdButton(sender: UIButton){
-        let vc = VocabThirdViewController(titleName: "たまに出てくる")
+        let vc = VocabThirdViewController(titleName: NSLocalizedString("rare_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
     
     // 全てのリマインドを削除
     @objc func openAllNotifDeleteAleart(){
-        let alert = UIAlertController(title: "全ての通知を削除",
-                                      message: "全ての通知をリセット可能です。全ての通知を削除しますか？",
+        let alert = UIAlertController(title: NSLocalizedString("delete_all_notif_title", comment: ""),
+                                      message: NSLocalizedString("delete_all_notif_message", comment: ""),
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [self] _ in
           deleteAllNotif()
@@ -123,7 +123,9 @@ class CategoryViewController: UIViewController {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeAllPendingNotificationRequests()
         //全ての通知を削除しましたのダイアログ表示
-        let alert = UIAlertController(title: "全ての通知を削除しました。", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: NSLocalizedString("delete_all_notif_finish_title", comment: ""),
+            message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }

@@ -212,8 +212,8 @@
 				2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */,
 				2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */,
 				2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */,
-				2353AA2E2DAF24D30057D201 /* Localizable.strings */,
 				2353AA1D2DADCA890057D201 /* CalendarViewController.swift */,
+				2353AA2E2DAF24D30057D201 /* Localizable.strings */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

@@ -1,8 +1,47 @@
-/* 
+/*
   Localizable.strings
   TechEnglish
   
 */
+
+
+//MARK: - Tabs
+"wordseeds_tab_button" = "単語のタネ";
+"custom_word_list_tab_button" = "カスタム単語帳";
+"calendar_tab_button" = "記録";
+
+//MARK: - Common Components
+// Placeholder Text
+"search_placeholder" = "単語を検索";
+"example_sentence_placeholder" = "例文を入力...";
+"memo_placeholder" = "メモを入力...";
+"word_placeholder" = "単語を入力...";
+
+
+
+//MARK: - Word Seeds
+"submit_for_custom_word_title" = "カスタム単語帳へ保存";
+"submit_for_custom_word_message" = "チェックした単語とともに例文作成とシチュエーションをメモできます。チェックした単語: ";
+"submit_for_custom_word_error_message" = "文章とメモを入力してください。";
+
+"add_word_seed_title" = "単語のタネを追加";
+"add_word_seed_message" = "気になる単語を入力し保存きます。";
+"add_word_seed_error_message" = "単語を入力してください。";
+
+"edit_word_seed_title" = "単語のタネを編集";
+"edit_word_seed_message" = "気になる単語を編集し保存します。";
+
+
+//MARK: - Tech Words
+// Button Title
+"frequent_button_title" = "頻繁に出てくる";
+"nomal_button_title" = "出てくる";
+"rare_button_title" = "たまに出てくる";
+
+// Notification Delete
+"delete_all_notif_title" = "全ての通知を削除";
+"delete_all_notif_message" = "全ての通知をリセット可能です。全ての通知を削除しますか？";
+"delete_all_notif_finish_title" = "全ての通知を削除しました";
 
 "invoked_meaning" = "呼び出された";
 "exception_meaning" = "例外";
@@ -31,3 +70,18 @@
 "observable_meaning" = "観察可能な";
 "deprecated_meaning" = "廃止された";
 "absolute_meaning" = "絶対";
+
+
+//MARK: - Feedback
+"feedback_massage" = "こちらのアプリについてのご意見を募集しております。こんな機能が欲しい・ここを改善して欲しいなどご要望をこちらに記載しSubmitボタンを押してください。";
+
+//MARK: - Disciption Viwe
+"dicript_check_box_lable" = "アプリ起動時に説明を表示しない";
+"dicript_label_word_seeds" = "「単語のタネ」では、日常で気になったり理解できない単語を簡単にメモすることができます。";
+"dicript_label_add_custom_word_list" = "「単語のタネ」で保存した単語を元に、文章やメモをカスタム単語帳に保存することができます。";
+"dicript_label_custom_word_list" = "「カスタム単語帳」では、日常で気になった単語を文章やメモと共に保存して記憶に定着することをサポートします。";
+
+//MARK: - Web Search Modal
+"web_search_massage" = "Webで検索する単語を選択してください";
+"no_search_word_title" = "検索する単語がありません";
+"no_search_word_message" = "検索する単語を保存し選択してください。";
