@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  TechEnglish
+  
+*/
+
+"invoked" = "呼び出された";
+"exception" = "例外";
+"occurred" = "発生する・起こる";
+"related" = "関連している";
+"existing" = "既存";
+"inherited" = "継承された";
+"embed" = "埋め込む";
+"opposed" = "反対した";
+"fetch" = "持ってくる";
+
+"ancestor" = "祖先,先祖";
+"modify" = "修正,変更";
+"contained" = "含まれる";
+"identifiable" = "識別可能な";
+"instead" = "代わり";
+"verify" = "確認する";
+"permission" = "許可が降りない";
+"permanent" = "永続";
+
+"denied" = "否定";
+"constraint" = "制約";
+"attempted" = "試みた";
+"indeed" = "本当に,実際に";
+"suspended" = "一時停止中";
+"observable" = "観察可能な";
+"deprecated" = "廃止された";
+"absolute" = "絶対";
