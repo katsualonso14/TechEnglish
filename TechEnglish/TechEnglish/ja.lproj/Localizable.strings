@@ -4,30 +4,30 @@
   
 */
 
-"invoked" = "呼び出された";
-"exception" = "例外";
-"occurred" = "発生する・起こる";
-"related" = "関連している";
-"existing" = "既存";
-"inherited" = "継承された";
-"embed" = "埋め込む";
-"opposed" = "反対した";
-"fetch" = "持ってくる";
+"invoked_meaning" = "呼び出された";
+"exception_meaning" = "例外";
+"occurred_meaning" = "発生する・起こる";
+"related_meaning" = "関連している";
+"existing_meaning" = "既存";
+"inherited_meaning" = "継承された";
+"embed_meaning" = "埋め込む";
+"opposed_meaning" = "反対した";
+"fetch_meaning" = "持ってくる";
 
-"ancestor" = "祖先,先祖";
-"modify" = "修正,変更";
-"contained" = "含まれる";
-"identifiable" = "識別可能な";
-"instead" = "代わり";
-"verify" = "確認する";
-"permission" = "許可が降りない";
-"permanent" = "永続";
+"ancestor_meaning" = "祖先,先祖";
+"modify_meaning" = "修正,変更";
+"contained_meaning" = "含まれる";
+"identifiable_meaning" = "識別可能な";
+"instead_meaning" = "代わり";
+"verify_meaning" = "確認する";
+"permission_meaning" = "許可が降りない";
+"permanent_meaning" = "永続";
 
-"denied" = "否定";
-"constraint" = "制約";
-"attempted" = "試みた";
-"indeed" = "本当に,実際に";
-"suspended" = "一時停止中";
-"observable" = "観察可能な";
-"deprecated" = "廃止された";
-"absolute" = "絶対";
+"denied_meaning" = "否定";
+"constraint_meaning" = "制約";
+"attempted_meaning" = "試みた";
+"indeed_meaning" = "本当に,実際に";
+"suspended_meaning" = "一時停止中";
+"observable_meaning" = "観察可能な";
+"deprecated_meaning" = "廃止された";
+"absolute_meaning" = "絶対";
