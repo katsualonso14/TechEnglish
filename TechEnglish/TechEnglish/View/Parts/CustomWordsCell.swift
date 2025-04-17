@@ -1,6 +1,6 @@
 import UIKit
 
-class PhraseStoreCell: UITableViewCell {
+class CustomWordsCell: UITableViewCell {
     
     let label = UILabel()
     let secondLabel = UILabel()

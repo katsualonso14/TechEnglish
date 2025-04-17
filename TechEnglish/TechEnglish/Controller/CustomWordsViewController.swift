@@ -1,6 +1,6 @@
 import UIKit
 
-class PhraseStoreViewController: UIViewController {
+class CustomWordsViewController: UIViewController {
     let tableView = UITableView()
     let conteinerView = UIView()
     //TODO: UseDefaultsの値のみで良い場合は削除を検討
@@ -15,7 +15,7 @@ class PhraseStoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "カスタム単語帳"
+        navigationItem.title = NSLocalizedString("custom_word_list_tab_button", comment: "")
         setView()
         setTableView()
         setAddButton()
@@ -66,7 +66,7 @@ class PhraseStoreViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(PhraseStoreCell.self, forCellReuseIdentifier: "PhraseStoreCell")
+        tableView.register(CustomWordsCell.self, forCellReuseIdentifier: "CustomWordsCell")
     }
     
     func setAddButton() {
@@ -93,7 +93,7 @@ class PhraseStoreViewController: UIViewController {
     func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "単語を検索"
+        searchController.searchBar.placeholder = NSLocalizedString("search_placeholder", comment: "")
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
@@ -110,7 +110,7 @@ class PhraseStoreViewController: UIViewController {
             textField.placeholder = "Enter sentence..."
         }
         aleat.addTextField{ (textField) in
-            textField.placeholder = "Enter situation..."
+            textField.placeholder = "Enter memo..."
         }
         
         aleat.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -167,7 +167,10 @@ class PhraseStoreViewController: UIViewController {
     }
     // メモの編集処理
     func openEditMemo(word: String, sentence: String, situation: String, index: Int) {
-        let alert = UIAlertController(title: "Edit Your Memo", message: "Edit word, sentence, situation", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: NSLocalizedString("edit_custom_word_list_title", comment: ""),
+            message: NSLocalizedString("edit_custom_word_list_message", comment: ""),
+            preferredStyle: .alert)
         
         alert.addTextField { $0.text = word }
         alert.addTextField { $0.text = sentence }
@@ -181,7 +184,10 @@ class PhraseStoreViewController: UIViewController {
                   let newWord = textFields[0].text, !newWord.isEmpty,
                   let newSentence = textFields[1].text, !newSentence.isEmpty,
                   let newSituation = textFields[2].text, !newSituation.isEmpty else {
-                let errorAlert = UIAlertController(title: "Error", message: "Please enter word and sentence", preferredStyle: .alert)
+                let errorAlert = UIAlertController(
+                    title: "Error",
+                    message: NSLocalizedString("edit_custom_word_list_error_message", comment: ""),
+                    preferredStyle: .alert)
                 errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(errorAlert, animated: true)
                 return
@@ -210,7 +216,7 @@ class PhraseStoreViewController: UIViewController {
 
 
 //MARK: - TableView DataSource
-extension PhraseStoreViewController: UITableViewDataSource, UITableViewDelegate {
+extension CustomWordsViewController: UITableViewDataSource, UITableViewDelegate {
     // テーブルビューのセクション数を返す
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
@@ -223,7 +229,7 @@ extension PhraseStoreViewController: UITableViewDataSource, UITableViewDelegate 
     
     // テーブルビューのセルの中身
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PhraseStoreCell") as! PhraseStoreCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomWordsCell") as! CustomWordsCell
         // Background view for selection
         let selectedBackgroundView = UIView()
         selectedBackgroundView.backgroundColor = UIColor.systemGray.withAlphaComponent(0.5)
@@ -243,7 +249,7 @@ extension PhraseStoreViewController: UITableViewDataSource, UITableViewDelegate 
 
         cell.label.text = "Word: \(word)"
         cell.secondLabel.text = "Sentence: \(sentence)"
-        cell.thirdLabel.text = "Situation: \(situation)"
+        cell.thirdLabel.text = "Memo: \(situation)"
         
         return cell
     }
@@ -315,7 +321,7 @@ extension PhraseStoreViewController: UITableViewDataSource, UITableViewDelegate 
     
 }
 //MARK: - Search
-extension PhraseStoreViewController: UISearchResultsUpdating {
+extension CustomWordsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let searchText = searchController.searchBar.text, !searchText.isEmpty else {
             isSearching = false

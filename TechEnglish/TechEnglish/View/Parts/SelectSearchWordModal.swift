@@ -23,7 +23,7 @@ class SelectSearchWordModal: UIView {
     
     func setupDiscriptLabel() {
         let label = UILabel()
-        label.text = "Webで検索する単語を選択してください"
+        label.text = NSLocalizedString("web_search_massage", comment: "")
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 15)
         label.numberOfLines = 0
@@ -59,7 +59,10 @@ class SelectSearchWordModal: UIView {
     //MARK - Function
     // 検索する単語がありませんのモーダル表示
     func openNoSearchWordAlert() {
-        let alert = UIAlertController(title: "検索する単語がありません", message: "検索する単語を保存し選択してください。", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: NSLocalizedString("no_search_word_title", comment: ""),
+            message: NSLocalizedString("no_search_word_message", comment: ""),
+            preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okAction)
         parentVC?.present(alert, animated: true, completion: nil)

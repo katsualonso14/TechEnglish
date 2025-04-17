@@ -11,7 +11,7 @@ class WordSeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "単語のタネ"
+        navigationItem.title = NSLocalizedString("wordseeds_tab_button", comment: "")
         setView()
         setDescriptionButton()
         setTableView()
@@ -109,7 +109,7 @@ class WordSeedViewController: UIViewController {
     func setupSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "単語を検索"
+        searchController.searchBar.placeholder = NSLocalizedString("search_placeholder", comment: "")
         
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -123,14 +123,17 @@ class WordSeedViewController: UIViewController {
     
     // PhraseStoreに追加
     func addPhraseStore(word: String) {
-        let phraseStoreVC = PhraseStoreViewController()
-        let aleat = UIAlertController(title: "カスタム単語帳へ保存", message: "チェックした単語とともに例文作成とシチュエーションをメモできます。チェックした単語: \(word)", preferredStyle: .alert)
+        let phraseStoreVC = CustomWordsViewController()
+        let aleat = UIAlertController(
+            title: NSLocalizedString("submit_for_custom_word_title", comment: ""),
+            message: NSLocalizedString("submit_for_custom_word_message", comment: "") + word,
+            preferredStyle: .alert)
         
         aleat.addTextField{ (textField) in
-            textField.placeholder = "例文を入力..."
+            textField.placeholder = NSLocalizedString("example_sentence_placeholder", comment: "")
         }
         aleat.addTextField{ (textField) in
-            textField.placeholder = "シチュエーションを入力..."
+            textField.placeholder = NSLocalizedString("memo_placeholder", comment: "")
         }
         
         aleat.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -138,7 +141,10 @@ class WordSeedViewController: UIViewController {
         aleat.addAction(UIAlertAction(title: "Done", style: .default, handler: { [weak self] (_) in
             // 文字がない場合はエラーメッセージ
             if aleat.textFields?.first?.text == "" || aleat.textFields?[1].text == "" || aleat.textFields?.last?.text == "" {
-                let alert = UIAlertController(title: "Error", message: "Please enter word and sentence", preferredStyle: .alert)
+                let alert = UIAlertController(
+                    title: "Error",
+                    message: NSLocalizedString("submit_for_custom_word_error_message", comment: ""),
+                    preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self?.present(alert, animated: true)
                 return
@@ -183,7 +189,10 @@ class WordSeedViewController: UIViewController {
     }
     // メモの編集処理
     func openEditMemo(quickMemo: String, index: Int) {
-        let alert = UIAlertController(title: "Edit Quick Memo", message: "Edit Your Word", preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: NSLocalizedString("edit_word_seed_title", comment: ""),
+            message: NSLocalizedString("edit_word_seed_message", comment: ""),
+            preferredStyle: .alert)
         
         alert.addTextField { $0.text = quickMemo }
         
@@ -193,7 +202,10 @@ class WordSeedViewController: UIViewController {
             guard let self = self else { return }
             guard let textFields = alert.textFields,
                   let newWord = textFields[0].text, !newWord.isEmpty else {
-                let errorAlert = UIAlertController(title: "Error", message: "Please enter word and sentence", preferredStyle: .alert)
+                let errorAlert = UIAlertController(
+                    title: "Error",
+                    message: NSLocalizedString("add_word_seed_error_message", comment: ""),
+                    preferredStyle: .alert)
                 errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self.present(errorAlert, animated: true)
                 return
@@ -215,16 +227,20 @@ class WordSeedViewController: UIViewController {
     //MARK: - Function
     @objc func addTapped() {
         //add new cell
-        let aleat = UIAlertController(title: "Save Quick Memo", message: "Add word", preferredStyle: .alert)
+        let aleat = UIAlertController(
+            title: NSLocalizedString("add_word_seed_title", comment: ""),
+            message: NSLocalizedString("add_word_seed_message", comment: ""), preferredStyle: .alert)
         aleat.addTextField{ (textField) in
-            textField.placeholder = "Enter word..."
+            textField.placeholder = NSLocalizedString("word_placeholder", comment: "")
         }
         
         aleat.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         aleat.addAction(UIAlertAction(title: "Done", style: .default, handler: { [weak self] (_) in
             // 文字がない場合はエラーメッセージ
             if aleat.textFields?.first?.text == "" || aleat.textFields?.last?.text == "" {
-                let alert = UIAlertController(title: "Error", message: "Please enter word and sentence", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Error",
+                                              message: NSLocalizedString("add_word_seed_error_message", comment: ""),
+                                              preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                 self?.present(alert, animated: true)
                 return

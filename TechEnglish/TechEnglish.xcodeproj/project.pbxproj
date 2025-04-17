@@ -13,8 +13,7 @@
 		2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6DF2D6DA27C00F8E1D4 /* SceneDelegate.swift */; };
 		2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */; };
 		2317C6E62D6DA27C00F8E1D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */; };
-		2317C6E82D6DA27C00F8E1D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2317C6DD2D6DA27C00F8E1D4 /* LaunchScreen.storyboard */; };
-		2317C6F02D6DA28200F8E1D4 /* PhraseStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EB2D6DA28200F8E1D4 /* PhraseStoreCell.swift */; };
+		2317C6F02D6DA28200F8E1D4 /* CustomWordsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EB2D6DA28200F8E1D4 /* CustomWordsCell.swift */; };
 		2317C6F12D6DA28200F8E1D4 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */; };
 		2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */; };
 		2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */; };
@@ -22,7 +21,7 @@
 		2317C6F52D6DA28200F8E1D4 /* WordSeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EC2D6DA28200F8E1D4 /* WordSeedCell.swift */; };
 		2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */; };
 		2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */; };
-		2317C7012D6DA37B00F8E1D4 /* PhraseStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FF2D6DA37B00F8E1D4 /* PhraseStoreViewController.swift */; };
+		2317C7012D6DA37B00F8E1D4 /* CustomWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FF2D6DA37B00F8E1D4 /* CustomWordsViewController.swift */; };
 		2317C7022D6DA37B00F8E1D4 /* WordSeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */; };
 		2317C7072D6DA3DB00F8E1D4 /* SentenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7062D6DA3DB00F8E1D4 /* SentenceViewController.swift */; };
 		2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7082D6DA3F900F8E1D4 /* AppColors.swift */; };
@@ -33,6 +32,8 @@
 		2317C7202D6EED8400F8E1D4 /* VocabThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */; };
 		2353AA1E2DADCA890057D201 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA1D2DADCA890057D201 /* CalendarViewController.swift */; };
 		2353AA202DADCB130057D201 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA1F2DADCB130057D201 /* EventModel.swift */; };
+		2353AA302DAF24D30057D201 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA2E2DAF24D30057D201 /* Localizable.strings */; };
+		2353AA332DB084A20057D201 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA322DB084A20057D201 /* LaunchScreen.storyboard */; };
 		8F915D3EBB5EDC4FC742BE69 /* Pods_TechEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F251A53FCBB91C69C86381 /* Pods_TechEnglish.framework */; };
 		A46E653C46D92CF6526727B0 /* Pods_TechEnglish_TechEnglishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71AA9BB57A37BED81626A2C /* Pods_TechEnglish_TechEnglishUITests.framework */; };
 /* End PBXBuildFile section */
@@ -61,19 +62,18 @@
 		2317C6D92D6DA27C00F8E1D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2317C6DB2D6DA27C00F8E1D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2317C6DC2D6DA27C00F8E1D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2317C6DF2D6DA27C00F8E1D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModalViewController.swift; sourceTree = "<group>"; };
 		2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
-		2317C6EB2D6DA28200F8E1D4 /* PhraseStoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseStoreCell.swift; sourceTree = "<group>"; };
+		2317C6EB2D6DA28200F8E1D4 /* CustomWordsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWordsCell.swift; sourceTree = "<group>"; };
 		2317C6EC2D6DA28200F8E1D4 /* WordSeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSeedCell.swift; sourceTree = "<group>"; };
 		2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSearchWordModal.swift; sourceTree = "<group>"; };
 		2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContainer.swift; sourceTree = "<group>"; };
 		2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNotifController.swift; sourceTree = "<group>"; };
-		2317C6FF2D6DA37B00F8E1D4 /* PhraseStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseStoreViewController.swift; sourceTree = "<group>"; };
+		2317C6FF2D6DA37B00F8E1D4 /* CustomWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWordsViewController.swift; sourceTree = "<group>"; };
 		2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSeedViewController.swift; sourceTree = "<group>"; };
 		2317C7062D6DA3DB00F8E1D4 /* SentenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceViewController.swift; sourceTree = "<group>"; };
 		2317C7082D6DA3F900F8E1D4 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -84,6 +84,9 @@
 		2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabThirdViewController.swift; sourceTree = "<group>"; };
 		2353AA1D2DADCA890057D201 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		2353AA1F2DADCB130057D201 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		2353AA2F2DAF24D30057D201 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = TechEnglish/ja.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
+		2353AA312DAF24E20057D201 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2353AA322DB084A20057D201 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2676E555D96CF7567418D47E /* Pods-TechEnglish-TechEnglishUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; path = "Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3AA25FF0E3404AEE7AC05D50 /* Pods_TechEnglishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechEnglishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53337819C95C450F32D95427 /* Pods-TechEnglish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish.debug.xcconfig"; path = "Target Support Files/Pods-TechEnglish/Pods-TechEnglish.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,7 +170,7 @@
 				2317C6F82D6DA34000F8E1D4 /* Controller */,
 				2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */,
 				2317C6DB2D6DA27C00F8E1D4 /* Info.plist */,
-				2317C6DD2D6DA27C00F8E1D4 /* LaunchScreen.storyboard */,
+				2353AA322DB084A20057D201 /* LaunchScreen.storyboard */,
 			);
 			path = TechEnglish;
 			sourceTree = "<group>";
@@ -177,7 +180,7 @@
 			children = (
 				2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */,
 				2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */,
-				2317C6EB2D6DA28200F8E1D4 /* PhraseStoreCell.swift */,
+				2317C6EB2D6DA28200F8E1D4 /* CustomWordsCell.swift */,
 				2317C6EC2D6DA28200F8E1D4 /* WordSeedCell.swift */,
 				2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */,
 				2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */,
@@ -208,11 +211,12 @@
 				2317C71A2D6DE05700F8E1D4 /* Vocabularies */,
 				2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */,
 				2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */,
-				2317C6FF2D6DA37B00F8E1D4 /* PhraseStoreViewController.swift */,
+				2317C6FF2D6DA37B00F8E1D4 /* CustomWordsViewController.swift */,
 				2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */,
 				2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */,
 				2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */,
 				2353AA1D2DADCA890057D201 /* CalendarViewController.swift */,
+				2353AA2E2DAF24D30057D201 /* Localizable.strings */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -355,11 +359,12 @@
 				};
 			};
 			buildConfigurationList = 2317C63F2D6D96DC00F8E1D4 /* Build configuration list for PBXProject "TechEnglish" */;
-			developmentRegion = en;
+			developmentRegion = ja;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 2317C63B2D6D96DC00F8E1D4;
 			minimizedProjectReferenceProxies = 1;
@@ -380,8 +385,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2353AA332DB084A20057D201 /* LaunchScreen.storyboard in Resources */,
 				2317C6E62D6DA27C00F8E1D4 /* Assets.xcassets in Resources */,
-				2317C6E82D6DA27C00F8E1D4 /* LaunchScreen.storyboard in Resources */,
+				2353AA302DAF24D30057D201 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +556,7 @@
 				2317C71E2D6EEB1400F8E1D4 /* VocabSecondViewController.swift in Sources */,
 				2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */,
 				2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */,
-				2317C6F02D6DA28200F8E1D4 /* PhraseStoreCell.swift in Sources */,
+				2317C6F02D6DA28200F8E1D4 /* CustomWordsCell.swift in Sources */,
 				2317C6F12D6DA28200F8E1D4 /* CustomTableViewCell.swift in Sources */,
 				2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */,
 				2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */,
@@ -563,7 +569,7 @@
 				2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */,
 				2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */,
 				2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */,
-				2317C7012D6DA37B00F8E1D4 /* PhraseStoreViewController.swift in Sources */,
+				2317C7012D6DA37B00F8E1D4 /* CustomWordsViewController.swift in Sources */,
 				2317C7022D6DA37B00F8E1D4 /* WordSeedViewController.swift in Sources */,
 				2317C7202D6EED8400F8E1D4 /* VocabThirdViewController.swift in Sources */,
 			);
@@ -599,12 +605,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2317C6DD2D6DA27C00F8E1D4 /* LaunchScreen.storyboard */ = {
+		2353AA2E2DAF24D30057D201 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				2317C6DC2D6DA27C00F8E1D4 /* Base */,
+				2353AA2F2DAF24D30057D201 /* ja */,
+				2353AA312DAF24E20057D201 /* en */,
 			);
-			name = LaunchScreen.storyboard;
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -674,6 +681,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -737,6 +745,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

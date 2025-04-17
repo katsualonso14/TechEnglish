@@ -35,7 +35,7 @@ class DescriptionView: UIView {
         addSubview(label)
         
         // チェックボックスの説明
-        checkBoxLabel.text = "アプリ起動時に説明を表示しない"
+        checkBoxLabel.text = NSLocalizedString("dicript_check_box_lable", comment: "")
         checkBoxLabel.frame = CGRect(x: 5, y: 260, width: 250, height: 20)
         checkBoxLabel.font = UIFont.systemFont(ofSize: 15)
         checkBoxLabel.textColor = .systemGray
@@ -75,9 +75,9 @@ class DescriptionView: UIView {
         discriptNumber == 2 ? UIImage(named: "Add CustomWordList from WordSeed") : UIImage(named: "CustomWordList Sample")
         
         label.text = discriptNumber == 1 ?
-        "「単語のタネ」では、日常で気になったり理解できない単語を簡単にメモすることができます。"
-        : discriptNumber == 2 ? "「単語のタネ」で保存した単語を元に、文章やシチュエーションをカスタム単語帳に保存することができます。" :
-        "「カスタム単語帳」では、日常で気になった単語を文章やシチュエーションと共に保存して記憶に定着することをサポートします。"
+        NSLocalizedString("dicript_label_word_seeds", comment: "") :
+        discriptNumber == 2 ? NSLocalizedString("dicript_label_add_custom_word_list", comment: "") :
+        NSLocalizedString("dicript_label_custom_word_list", comment: "")
         label.sizeToFit()
         
         button.setTitle(discriptNumber == 3 ? "Close" : "Next", for: .normal)
