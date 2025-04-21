@@ -42,7 +42,7 @@ class DescriptionView: UIView {
         addSubview(checkBoxLabel)
         
         // 起動時に説明ダイアログを表示するかどうかのチェックボックス
-        descriptionCheckBox.frame = CGRect(x: 180, y: 260, width: 150, height: 30)
+        descriptionCheckBox.frame = CGRect(x: 190, y: 260, width: 150, height: 30)
         descriptionCheckBox.contentMode = .scaleAspectFit
         descriptionCheckBox.isUserInteractionEnabled = true
         addSubview(descriptionCheckBox)

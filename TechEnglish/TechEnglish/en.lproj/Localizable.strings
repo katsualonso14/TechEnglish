@@ -34,16 +34,16 @@
 
 //MARK: - Tech Words
 // Button Title
-"frequent_button_title" = "Frequently Occurring";
-"nomal_button_title" = "Occurring";
-"rare_button_title" = "Rarely Occurring";
+"frequent_button_title" = "Essential";
+"nomal_button_title" = "Common";
+"rare_button_title" = "Rare";
 
 // Notification Delete
 "delete_all_notif_title" = "Delete All Notifications";
 "delete_all_notif_message" = "You can reset all notifications. Do you want to delete all notifications?";
 "delete_all_notif_finish_title" = "All notifications have been deleted";
 
-"invoked_meaning" = "to request help from someone, especially a god, when you want to improve a situation";
+"invoked_meaning" = "to request help from someone, when you want to improve a situation";
 "exception_meaning" = "someone or something that is not included in a rule, group";
 "occurred_meaning" = "(especially of accidents and other unexpected events) to happen";
 "related_meaning" = "connected";
@@ -59,16 +59,16 @@
 "identifiable_meaning" = "able to be recognized";
 "instead_meaning" = "in place of someone or something else";
 "verify_meaning" = "to prove that something exists or is true";
-"permission_meaning" = "if someone is given permission to do something, they are allowed to do it";
+"permission_meaning" = "officially allowed to do something";
 "permanent_meaning" = "lasting for a long time or forever";
 
 "denied_meaning" = "to say that something is not true";
-"constraint_meaning" = "something that controls what you do by keeping you within particular limits";
+"constraint_meaning" = "a limit that controls what you can do";
 "attempted_meaning" = "(of a crime) that someone has tried to commit without success";
 "indeed_meaning" = "really or certainly, often used to emphasize something";
-"suspended_meaning" = "to stop something from being active, either temporarily or permanently";
+"suspended_meaning" = "to stop something temporarily or permanently";
 "observable_meaning" = "that can be noticed or seen";
-"deprecated_meaning" = "to not approve of something or say that you do not approve of something";
+"deprecated_meaning" = "to disapprove of something";
 "absolute_meaning" = "very great or to the largest degree possible";
 
 //MARK: - Feedback
