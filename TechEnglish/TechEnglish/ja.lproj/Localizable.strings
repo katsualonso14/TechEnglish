@@ -45,33 +45,68 @@
 "delete_all_notif_message" = "全ての通知をリセット可能です。全ての通知を削除しますか？";
 "delete_all_notif_finish_title" = "全ての通知を削除しました";
 
-"invoked_meaning" = "呼び出された";
+// MARK: - Tech Words Vocabulary
+// エラー・例外
 "exception_meaning" = "例外";
 "occurred_meaning" = "発生する・起こる";
-"related_meaning" = "関連している";
-"existing_meaning" = "既存";
-"inherited_meaning" = "継承された";
-"embed_meaning" = "埋め込む";
-"opposed_meaning" = "反対した";
-"fetch_meaning" = "持ってくる";
-
-"ancestor_meaning" = "祖先,先祖";
-"modify_meaning" = "修正,変更";
-"contained_meaning" = "含まれる";
-"identifiable_meaning" = "識別可能な";
-"instead_meaning" = "代わり";
-"verify_meaning" = "確認する";
+"detected_meaning" = "検出された";
 "permission_meaning" = "許可が降りない";
+"deprecated_meaning" = "廃止された";
+"terminated_meaning" = "終了した";
+"denied_meaning" = "否定";
+"attempted_meaning" = "試みた";
+
+// データ・構造
+"indices_meaning" = "インデックス";
+"constraint_meaning" = "制約";
+"global_variable_meaning" = "グローバル変数";
+"expression_meaning" = "表現";
+"decreasing_order_meaning" = "降順";
+"non_decreasing_order_meaning" = "昇順";
+"calculation_meaning" = "計算";
+
+// 状態・ライフサイクル
+"suspended_meaning" = "一時停止中";
+"persist_meaning" = "持続する";
+"persistent_meaning" = "存在し続ける";
+"embed_meaning" = "埋め込む";
+"fetch_meaning" = "持ってくる";
+"rotated_meaning" = "回転した";
+"unbounded_meaning" = "無制限の";
+
+// 設定・条件
+"assume_meaning" = "仮定する";
+"specify_meaning" = "特定する";
+"determines_meaning" = "決定する";
+"intended_meaning" = "意図した";
+"prerequisites_meaning" = "前提条件";
+
+// 構文・表現
+"indeed_meaning" = "本当に,実際に";
+"instead_meaning" = "代わり";
+"shorthand_notation_meaning" = "速記法";
+"absolute_meaning" = "絶対";
+
+// 処理・関数
+"invoked_meaning" = "呼び出された";
+"modify_meaning" = "修正,変更";
+"verify_meaning" = "確認する";
+"inherited_meaning" = "継承された";
+
+// 目的・関係
+"related_meaning" = "関連している";
+"identifiable_meaning" = "識別可能な";
+"ancestor_meaning" = "祖先,先祖";
+"contained_meaning" = "含まれる";
+
+// その他・補足
+"existing_meaning" = "既存";
+"opposed_meaning" = "反対した";
+"palindrome_number_meaning" = "回文数（上から読んでも下から読んでも同じ数: 例 12521）";
+"depth_meaning" = "深さ";
+"proportionally_meaning" = "比例して";
 "permanent_meaning" = "永続";
 
-"denied_meaning" = "否定";
-"constraint_meaning" = "制約";
-"attempted_meaning" = "試みた";
-"indeed_meaning" = "本当に,実際に";
-"suspended_meaning" = "一時停止中";
-"observable_meaning" = "観察可能な";
-"deprecated_meaning" = "廃止された";
-"absolute_meaning" = "絶対";
 
 
 //MARK: - Feedback

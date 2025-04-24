@@ -1,7 +1,7 @@
 // 文章データ
 import UIKit
 
-class SentenceViewController: UITabBarController {
+class VocabularyList {
 
     // Beginner Page
     var sentenceArray = [
@@ -75,9 +75,6 @@ class SentenceViewController: UITabBarController {
         NSLocalizedString("absolute_meaning", comment: "")
     ]
 
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+
 }
 

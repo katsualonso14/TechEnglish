@@ -6,7 +6,7 @@ import UserNotifications
 class VocabThirdViewController: UITableViewController,AVAudioPlayerDelegate, AVSpeechSynthesizerDelegate {
     
     let titleName: String
-    let sentenceView = SentenceViewController()
+    let vocabularyList = VocabularyList()
     let synthesizer = AVSpeechSynthesizer()
     //     マナーモード時音鳴らすための宣言 AVAudioSession
     let audioSession = AVAudioSession.sharedInstance()
@@ -70,10 +70,10 @@ class VocabThirdViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         guard let indexPathTapped = tableView.indexPath(for: cell) else
         {return}
         
-        let contact = sentenceView.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
+        let contact = vocabularyList.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
         let hasFavorited = contact.hasFavorited
         
-        sentenceView.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited = !hasFavorited
+        vocabularyList.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited = !hasFavorited
         //タップしてときの値をpushメッセージに記載
         content.title = contact.name
         content.body = contact.name
@@ -95,10 +95,10 @@ class VocabThirdViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         guard let indexPathTapped = tableView.indexPath(for: cell) else
         {return}
         
-        let contact = sentenceView.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
+        let contact = vocabularyList.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
         let hasFavorited = contact.hasFavorited2
         
-        sentenceView.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited2 = !hasFavorited
+        vocabularyList.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited2 = !hasFavorited
         //タップしてときの値をpushメッセージに記載
         content.title = contact.name
         content.body = contact.name
@@ -116,16 +116,16 @@ class VocabThirdViewController: UITableViewController,AVAudioPlayerDelegate, AVS
     //MARK: -TableView
     //cellの数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sentenceView.thirdSentenceArray[0].names.count
+        return vocabularyList.thirdSentenceArray[0].names.count
     }
     //cellの中身
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //CustomTableViewCellの追加
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
         cell.thirdVC = self
-        let contact = sentenceView.thirdSentenceArray[0].names[indexPath.row]
+        let contact = vocabularyList.thirdSentenceArray[0].names[indexPath.row]
         //cellの文字指定
-        cell.setCell(sentence: contact.name, pronunciation: sentenceView.thirdPronunciation[indexPath.row], japanese: sentenceView.thirdEnglish[indexPath.row])
+        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.thirdPronunciation[indexPath.row], japanese: vocabularyList.thirdEnglish[indexPath.row])
         
         cell.heartButton.tintColor = contact.hasFavorited ? .red : .gray
         cell.heartButton2.tintColor = contact.hasFavorited2 ? .orange : .gray
@@ -139,7 +139,7 @@ class VocabThirdViewController: UITableViewController,AVAudioPlayerDelegate, AVS
     //cellをタップした時の処理
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //英語の読み上げ設定
-        let utterance = AVSpeechUtterance.init(string: sentenceView.thirdSentence[indexPath.row])
+        let utterance = AVSpeechUtterance.init(string: vocabularyList.thirdSentence[indexPath.row])
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synthesizer.speak(utterance)
 

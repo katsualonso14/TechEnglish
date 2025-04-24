@@ -8,7 +8,7 @@ class CustomTableViewCell: UITableViewCell {
     var secondVC: VocabSecondViewController?
     var thirdVC: VocabThirdViewController?
     
-    var SentenceVC: SentenceViewController?
+    var vocabularyList: VocabularyList?
     
     let sentenceLabel: UILabel = {
         let label = UILabel()
