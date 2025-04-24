@@ -22,7 +22,7 @@ class CategoryViewController: UIViewController {
         button.layer.cornerRadius = 25.0
         button.layer.masksToBounds = true
         
-        button.setTitle(NSLocalizedString("frequent_button_title", comment: ""), for: .normal)
+        button.setTitle(NSLocalizedString("vocab_first_button_title", comment: ""), for: .normal)
         button.setTitleColor(AppColors.textColor, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
 
@@ -45,7 +45,7 @@ class CategoryViewController: UIViewController {
         secondButton.layer.cornerRadius = 25.0
         secondButton.layer.masksToBounds = true
         
-        secondButton.setTitle(NSLocalizedString("nomal_button_title", comment: ""), for: .normal)
+        secondButton.setTitle(NSLocalizedString("vocab_second_button_title", comment: ""), for: .normal)
         secondButton.setTitleColor(AppColors.textColor, for: .normal)
         secondButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         secondButton.setImage(UIImage(named: "vocab_second"), for: .normal)
@@ -67,7 +67,7 @@ class CategoryViewController: UIViewController {
         thirdButton.layer.cornerRadius = 25.0
         thirdButton.layer.masksToBounds = true
         
-        thirdButton.setTitle(NSLocalizedString("rare_button_title", comment: ""), for: .normal)
+        thirdButton.setTitle(NSLocalizedString("vocab_third_button_title", comment: ""), for: .normal)
         thirdButton.setTitleColor(AppColors.textColor, for: .normal)
         thirdButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         thirdButton.setImage(UIImage(named: "vocab_third"), for: .normal)
