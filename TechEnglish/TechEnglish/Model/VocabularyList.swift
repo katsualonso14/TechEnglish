@@ -26,13 +26,13 @@ class VocabularyList {
 
     // Second: データ・構造
     var secondSentenceArray = [
-        ExpandableNames(isExpanded: true, names: ["indices", "constraint", "global_variable", "expression", "decreasing_order", "non_decreasing_order", "calculation"].map {
+        ExpandableNames(isExpanded: true, names: ["indices", "constraint", "global variable", "expression", "decreasing order", "non_decreasing_order", "calculation"].map {
             Contact(name: $0,
                     hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
         })
     ]
 
-    var secondSentence = ["indices", "constraint", "global_variable", "expression", "decreasing_order", "non_decreasing_order", "calculation"]
+    var secondSentence = ["indices", "constraint", "global variable", "expression", "decreasing order", "non_decreasing order", "calculation"]
     var secondPronunciation = ["ˈɪndɪˌsiz", "kənˈstreɪnt", "ˈɡloʊbəl ˈvɛriəbl", "ɪkˈsprɛʃən", "diːˈkriːsɪŋ ˈɔːrdər", "ˌnɑn.dɪˈkriːsɪŋ ˈɔːrdər", "ˌkælkjʊˈleɪʃən"]
     var secondEnglish = [
         NSLocalizedString("indices_meaning", comment: ""),
@@ -82,12 +82,12 @@ class VocabularyList {
 
         // Fifth: 構文・表現
         var fifthSentenceArray = [
-            ExpandableNames(isExpanded: true, names: ["indeed", "instead", "shorthand_notation", "absolute"].map {
+            ExpandableNames(isExpanded: true, names: ["indeed", "instead", "shorthand notation", "absolute"].map {
                 Contact(name: $0,
                         hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
             })
         ]
-        var fifthSentence = ["indeed", "instead", "shorthand_notation", "absolute"]
+        var fifthSentence = ["indeed", "instead", "shorthand notation", "absolute"]
         var fifthPronunciation = ["ɪnˈdiːd", "ɪnˈstɛd", "ˈʃɔːrtˌhænd noʊˈteɪʃən", "ˈæbsəluːt"]
         var fifthEnglish = [
             NSLocalizedString("indeed_meaning", comment: ""),
@@ -130,12 +130,12 @@ class VocabularyList {
 
         // Eighth: その他・補足
         var eighthSentenceArray = [
-            ExpandableNames(isExpanded: true, names: ["existing", "opposed", "palindrome_number", "depth", "proportionally", "permanent"].map {
+            ExpandableNames(isExpanded: true, names: ["existing", "opposed", "palindrome number", "depth", "proportionally", "permanent"].map {
                 Contact(name: $0,
                         hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
             })
         ]
-        var eighthSentence = ["existing", "opposed", "palindrome_number", "depth", "proportionally", "permanent"]
+        var eighthSentence = ["existing", "opposed", "palindrome number", "depth", "proportionally", "permanent"]
         var eighthPronunciation = ["ɪɡˈzɪstɪŋ", "əˈpoʊzd", "ˈpælɪnˌdroʊm ˈnʌmbər", "dɛpθ", "prəˈpɔːʃənəli", "ˈpɝːmənənt"]
         var eighthEnglish = [
             NSLocalizedString("existing_meaning", comment: ""),
