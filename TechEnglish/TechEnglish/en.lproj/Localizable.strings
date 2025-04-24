@@ -35,12 +35,12 @@
 //MARK: - Tech Words
 // Button Title
 "vocab_first_button_title" = "Error & Exception";
-"vocab_second_button_title" = "Data & Structure";
-"vocab_third_button_title" = "State & Lifecycle";
-"vocab_fourth_button_title" = "Settings & Conditions";
-"vocab_fifth_button_title" = "Syntax & Expression";
-"vocab_sixth_button_title" = "Processing & Functions";
-"vocab_seventh_button_title" = "Purpose & Relation";
+"vocab_second_button_title" = "Data";
+"vocab_third_button_title" = "Lifecycle";
+"vocab_fourth_button_title" = "Settings";
+"vocab_fifth_button_title" = "Expression";
+"vocab_sixth_button_title" = "Functions";
+"vocab_seventh_button_title" = "Relation";
 "vocab_eighth_button_title" = "Others";
 
 // Notification Delete
@@ -100,9 +100,13 @@
 "ancestor_meaning" = "a person related to you who lived a long time ago";
 "contained_meaning" = "to have something inside or include something as a part";
 
-// エラー・例外（補足）
-"denied_meaning" = "to say that something is not true";
-"attempted_meaning" = "(of a crime) that someone has tried to commit without success";
+// その他・補足
+"existing_meaning" = "present or in use now";
+"opposed_meaning" = "against something";
+"palindrome_number_meaning" = "a number that reads the same backward and forward";
+"depth_meaning" = "distance from top to bottom";
+"proportionally_meaning" = "in the right ratio";
+"permanent_meaning" = "lasting for a long time";
 
 
 
