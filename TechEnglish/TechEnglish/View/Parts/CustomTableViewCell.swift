@@ -7,8 +7,13 @@ class CustomTableViewCell: UITableViewCell {
     var firstVC: VocabFirstViewController?
     var secondVC: VocabSecondViewController?
     var thirdVC: VocabThirdViewController?
+    var fourthVC: VocabFourthViewController?
+    var fifthVC: VocabFifthViewController?
+    var sixthVC: VocabSixthViewController?
+    var seventhVC: VocabSeventhViewController?
+    var eighthVC: VocabEighthViewController?
     
-    var SentenceVC: SentenceViewController?
+    var vocabularyList: VocabularyList?
     
     let sentenceLabel: UILabel = {
         let label = UILabel()
@@ -147,18 +152,28 @@ class CustomTableViewCell: UITableViewCell {
         japaneseLabel.text = japanese
     }
     //MARK: -Function
-    // Set notif time, when tap heartButton
+    // Set notif time, when tap heartButton for 1 hour
     @objc private func tapButton() {
-        firstVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600) // 1 hour
+        firstVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
         secondVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
         thirdVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+        fourthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+        fifthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+        sixthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+        seventhVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+        eighthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
     }
     
-    // Set notif time, when tap heartButton2
+    // Set notif time, when tap heartButton2 for 1 day
     @objc private func tapButton2() {
-        firstVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400) // 1 day
+        firstVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
         secondVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
         thirdVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
+        fourthVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
+        fifthVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
+        sixthVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
+        seventhVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
+        eighthVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
     }
     
 

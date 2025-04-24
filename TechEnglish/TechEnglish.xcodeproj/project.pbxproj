@@ -23,7 +23,7 @@
 		2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */; };
 		2317C7012D6DA37B00F8E1D4 /* CustomWordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FF2D6DA37B00F8E1D4 /* CustomWordsViewController.swift */; };
 		2317C7022D6DA37B00F8E1D4 /* WordSeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */; };
-		2317C7072D6DA3DB00F8E1D4 /* SentenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7062D6DA3DB00F8E1D4 /* SentenceViewController.swift */; };
+		2317C7072D6DA3DB00F8E1D4 /* VocabularyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7062D6DA3DB00F8E1D4 /* VocabularyList.swift */; };
 		2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7082D6DA3F900F8E1D4 /* AppColors.swift */; };
 		2317C70B2D6DA40000F8E1D4 /* MyAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C70A2D6DA40000F8E1D4 /* MyAds.swift */; };
 		2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C70E2D6DA6FC00F8E1D4 /* Contact.swift */; };
@@ -34,6 +34,12 @@
 		2353AA202DADCB130057D201 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA1F2DADCB130057D201 /* EventModel.swift */; };
 		2353AA302DAF24D30057D201 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA2E2DAF24D30057D201 /* Localizable.strings */; };
 		2353AA332DB084A20057D201 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA322DB084A20057D201 /* LaunchScreen.storyboard */; };
+		2353AA472DB300550057D201 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA462DB300550057D201 /* GoogleService-Info.plist */; };
+		2353AA592DB9EC270057D201 /* VocabFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA582DB9EC270057D201 /* VocabFourthViewController.swift */; };
+		2353AA5B2DB9F0BE0057D201 /* VovabFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA5A2DB9F0BE0057D201 /* VovabFifthViewController.swift */; };
+		2353AA5D2DB9F0D20057D201 /* VovabSixthViweController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA5C2DB9F0D20057D201 /* VovabSixthViweController.swift */; };
+		2353AA5F2DB9F0E70057D201 /* VocabSeventhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA5E2DB9F0E70057D201 /* VocabSeventhViewController.swift */; };
+		2353AA612DB9F25C0057D201 /* VocabEighthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */; };
 		8F915D3EBB5EDC4FC742BE69 /* Pods_TechEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F251A53FCBB91C69C86381 /* Pods_TechEnglish.framework */; };
 		A46E653C46D92CF6526727B0 /* Pods_TechEnglish_TechEnglishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71AA9BB57A37BED81626A2C /* Pods_TechEnglish_TechEnglishUITests.framework */; };
 /* End PBXBuildFile section */
@@ -75,7 +81,7 @@
 		2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNotifController.swift; sourceTree = "<group>"; };
 		2317C6FF2D6DA37B00F8E1D4 /* CustomWordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWordsViewController.swift; sourceTree = "<group>"; };
 		2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSeedViewController.swift; sourceTree = "<group>"; };
-		2317C7062D6DA3DB00F8E1D4 /* SentenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceViewController.swift; sourceTree = "<group>"; };
+		2317C7062D6DA3DB00F8E1D4 /* VocabularyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyList.swift; sourceTree = "<group>"; };
 		2317C7082D6DA3F900F8E1D4 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		2317C70A2D6DA40000F8E1D4 /* MyAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAds.swift; sourceTree = "<group>"; };
 		2317C70E2D6DA6FC00F8E1D4 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
@@ -87,6 +93,12 @@
 		2353AA2F2DAF24D30057D201 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = TechEnglish/ja.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		2353AA312DAF24E20057D201 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2353AA322DB084A20057D201 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2353AA462DB300550057D201 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2353AA582DB9EC270057D201 /* VocabFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabFourthViewController.swift; sourceTree = "<group>"; };
+		2353AA5A2DB9F0BE0057D201 /* VovabFifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VovabFifthViewController.swift; sourceTree = "<group>"; };
+		2353AA5C2DB9F0D20057D201 /* VovabSixthViweController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VovabSixthViweController.swift; sourceTree = "<group>"; };
+		2353AA5E2DB9F0E70057D201 /* VocabSeventhViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabSeventhViewController.swift; sourceTree = "<group>"; };
+		2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabEighthViewController.swift; sourceTree = "<group>"; };
 		2676E555D96CF7567418D47E /* Pods-TechEnglish-TechEnglishUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; path = "Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3AA25FF0E3404AEE7AC05D50 /* Pods_TechEnglishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechEnglishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53337819C95C450F32D95427 /* Pods-TechEnglish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish.debug.xcconfig"; path = "Target Support Files/Pods-TechEnglish/Pods-TechEnglish.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +181,7 @@
 				2317C6F62D6DA2F200F8E1D4 /* View */,
 				2317C6F82D6DA34000F8E1D4 /* Controller */,
 				2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */,
+				2353AA462DB300550057D201 /* GoogleService-Info.plist */,
 				2317C6DB2D6DA27C00F8E1D4 /* Info.plist */,
 				2353AA322DB084A20057D201 /* LaunchScreen.storyboard */,
 			);
@@ -227,7 +240,7 @@
 				2317C70E2D6DA6FC00F8E1D4 /* Contact.swift */,
 				2317C7082D6DA3F900F8E1D4 /* AppColors.swift */,
 				2317C70A2D6DA40000F8E1D4 /* MyAds.swift */,
-				2317C7062D6DA3DB00F8E1D4 /* SentenceViewController.swift */,
+				2317C7062D6DA3DB00F8E1D4 /* VocabularyList.swift */,
 				2353AA1F2DADCB130057D201 /* EventModel.swift */,
 			);
 			path = Model;
@@ -239,6 +252,11 @@
 				2317C71B2D6DE07A00F8E1D4 /* VocabFirstViewController.swift */,
 				2317C71D2D6EEB1400F8E1D4 /* VocabSecondViewController.swift */,
 				2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */,
+				2353AA582DB9EC270057D201 /* VocabFourthViewController.swift */,
+				2353AA5A2DB9F0BE0057D201 /* VovabFifthViewController.swift */,
+				2353AA5C2DB9F0D20057D201 /* VovabSixthViweController.swift */,
+				2353AA5E2DB9F0E70057D201 /* VocabSeventhViewController.swift */,
+				2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */,
 			);
 			path = Vocabularies;
 			sourceTree = "<group>";
@@ -386,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2353AA332DB084A20057D201 /* LaunchScreen.storyboard in Resources */,
+				2353AA472DB300550057D201 /* GoogleService-Info.plist in Resources */,
 				2317C6E62D6DA27C00F8E1D4 /* Assets.xcassets in Resources */,
 				2353AA302DAF24D30057D201 /* Localizable.strings in Resources */,
 			);
@@ -551,9 +570,10 @@
 			files = (
 				2317C70B2D6DA40000F8E1D4 /* MyAds.swift in Sources */,
 				2317C6E22D6DA27C00F8E1D4 /* AppDelegate.swift in Sources */,
-				2317C7072D6DA3DB00F8E1D4 /* SentenceViewController.swift in Sources */,
+				2317C7072D6DA3DB00F8E1D4 /* VocabularyList.swift in Sources */,
 				2317C71C2D6DE07A00F8E1D4 /* VocabFirstViewController.swift in Sources */,
 				2317C71E2D6EEB1400F8E1D4 /* VocabSecondViewController.swift in Sources */,
+				2353AA5B2DB9F0BE0057D201 /* VovabFifthViewController.swift in Sources */,
 				2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */,
 				2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */,
 				2317C6F02D6DA28200F8E1D4 /* CustomWordsCell.swift in Sources */,
@@ -563,13 +583,17 @@
 				2317C6F42D6DA28200F8E1D4 /* WebViewContainer.swift in Sources */,
 				2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */,
 				2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */,
+				2353AA5F2DB9F0E70057D201 /* VocabSeventhViewController.swift in Sources */,
 				2353AA1E2DADCA890057D201 /* CalendarViewController.swift in Sources */,
 				2353AA202DADCB130057D201 /* EventModel.swift in Sources */,
 				2317C6F52D6DA28200F8E1D4 /* WordSeedCell.swift in Sources */,
 				2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */,
 				2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */,
+				2353AA5D2DB9F0D20057D201 /* VovabSixthViweController.swift in Sources */,
 				2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */,
+				2353AA592DB9EC270057D201 /* VocabFourthViewController.swift in Sources */,
 				2317C7012D6DA37B00F8E1D4 /* CustomWordsViewController.swift in Sources */,
+				2353AA612DB9F25C0057D201 /* VocabEighthViewController.swift in Sources */,
 				2317C7022D6DA37B00F8E1D4 /* WordSeedViewController.swift in Sources */,
 				2317C7202D6EED8400F8E1D4 /* VocabThirdViewController.swift in Sources */,
 			);

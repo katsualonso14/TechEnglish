@@ -3,7 +3,7 @@ import SnapKit
 import AVFoundation
 import UserNotifications
 
-class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVSpeechSynthesizerDelegate {
+class VocabFourthViewController: UITableViewController,AVAudioPlayerDelegate, AVSpeechSynthesizerDelegate {
     
     let titleName: String
     let vocabularyList = VocabularyList()
@@ -48,10 +48,10 @@ class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVS
             print("Audio Setting Failed.")
             return
         }
-        // 画面下部の広告スペースを確保
+        // TableViewのcontentInsetを調整して、広告スペースを確保
         let bannerHeight: CGFloat = 50 // AdMobバナーの高さ
         tableView.contentInset.bottom = bannerHeight
-        tableView.horizontalScrollIndicatorInsets.bottom = bannerHeight
+        tableView.scrollIndicatorInsets.bottom = bannerHeight
         
         tableView.dataSource = self
         tableView.delegate  = self
@@ -70,15 +70,15 @@ class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         guard let indexPathTapped = tableView.indexPath(for: cell) else
         {return}
         
-        let contact = vocabularyList.firstSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
+        let contact = vocabularyList.fourthSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
         let hasFavorited = contact.hasFavorited
         
-        vocabularyList.firstSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited = !hasFavorited
+        vocabularyList.fourthSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited = !hasFavorited
         //タップしてときの値をpushメッセージに記載
         content.title = contact.name
         content.body = contact.name
         content.sound = UNNotificationSound.default
-        content.userInfo = ["page": "first"]
+        content.userInfo = ["page": "fourth"]
         //通知設定
         if hasFavorited == false {
             pushRegister(pushTime: pushTime)
@@ -95,15 +95,15 @@ class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         guard let indexPathTapped = tableView.indexPath(for: cell) else
         {return}
         
-        let contact = vocabularyList.firstSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
+        let contact = vocabularyList.fourthSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
         let hasFavorited = contact.hasFavorited2
         
-        vocabularyList.firstSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited2 = !hasFavorited
+        vocabularyList.fourthSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited2 = !hasFavorited
         //タップしてときの値をpushメッセージに記載
         content.title = contact.name
         content.body = contact.name
         content.sound = UNNotificationSound.default
-        content.userInfo = ["page": "first"]
+        content.userInfo = ["page": "fourth"]
         //通知設定
         if hasFavorited == false {
             pushRegister(pushTime: pushTime)
@@ -116,21 +116,19 @@ class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVS
     //MARK: -TableView
     //cellの数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vocabularyList.firstSentenceArray[0].names.count
+        return vocabularyList.fourthSentenceArray[0].names.count
     }
     //cellの中身
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //CustomTableViewCellの追加
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
-        cell.firstVC = self
-        let contact = vocabularyList.firstSentenceArray[0].names[indexPath.row]
+        cell.fourthVC = self
+        let contact = vocabularyList.fourthSentenceArray[0].names[indexPath.row]
         //cellの文字指定
-        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.firstPronunciation[indexPath.row], japanese: vocabularyList.firstEnglish[indexPath.row])
+        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.fourthPronunciation[indexPath.row], japanese: vocabularyList.fourthEnglish[indexPath.row])
         
         cell.heartButton.tintColor = contact.hasFavorited ? .red : .gray
         cell.heartButton2.tintColor = contact.hasFavorited2 ? .orange : .gray
-        cell.heartButton3.tintColor = contact.hasFavorited3 ? .systemBlue : .gray
-        cell.heartButton4.tintColor = contact.hasFavorited4 ? .systemGreen : .gray
 
             return cell
         }
@@ -141,7 +139,7 @@ class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVS
     //cellをタップした時の処理
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //英語の読み上げ設定
-        let utterance = AVSpeechUtterance.init(string: vocabularyList.firstSentence[indexPath.row])
+        let utterance = AVSpeechUtterance.init(string: vocabularyList.fourthSentence[indexPath.row])
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synthesizer.speak(utterance)
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let notification = launchOptions?[.remoteNotification] as? [String: AnyObject] {
             handleNotification(userInfo: notification)
         }
+        
+        //Firebase Setting
+        FirebaseApp.configure()
         
         return true
     }
