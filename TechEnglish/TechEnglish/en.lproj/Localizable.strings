@@ -38,9 +38,7 @@
 "vocab_second_button_title" = "Data";
 "vocab_third_button_title" = "Lifecycle";
 "vocab_fourth_button_title" = "Settings";
-"vocab_fifth_button_title" = "Expression";
-"vocab_sixth_button_title" = "Functions";
-"vocab_seventh_button_title" = "Relation";
+"vocab_fifth_button_title" = "Coding Test";
 "vocab_eighth_button_title" = "Others";
 
 // Notification Delete
