@@ -20,6 +20,7 @@ class CustomWordsViewController: UIViewController {
         setTableView()
         setAddButton()
         setupSearchController()
+        updateBackgroundView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -96,6 +97,40 @@ class CustomWordsViewController: UIViewController {
         searchController.searchBar.placeholder = NSLocalizedString("search_placeholder", comment: "")
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    // cellのが0の場合の背景
+    func updateBackgroundView() {
+        if words.isEmpty {
+            let emptyView = UIView(frame: tableView.bounds)
+            emptyView.backgroundColor = AppColors.backgroundColorCheckMode
+            emptyView.layer.cornerRadius = 16
+            emptyView.layer.masksToBounds = true
+
+            //TODO: ここの高さをもう少し中央寄りにして見た目を調整
+            let label = UILabel()
+            let explanationText = """
+            🔹 message:
+            
+            No phrases added yet.
+            Save words, create example sentences, and add notes about their meanings or the situations where you found them.
+            
+            🔹 Example:
+            
+            Word: existing
+            Sentence: The existing system needs to be updated to improve performance.
+            Memo: It appears in the error message if it is a duplicate of something that already exists.
+            """
+            label.text = explanationText
+            label.textAlignment = .left
+            label.numberOfLines = 0
+            label.frame = CGRect(x: 40, y: 50, width: 300, height: 300)
+            label.font = .systemFont(ofSize: 16)
+
+            emptyView.addSubview(label)
+            tableView.backgroundView = emptyView
+        } else {
+            tableView.backgroundView = nil
+        }
     }
     
     //MARK: - Function
