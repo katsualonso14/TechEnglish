@@ -15,6 +15,8 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         saveToday()
         setCalendar()
         setupFeedBackForm()
+        // 連続ログイン確認と表示
+        checkStreakDay()
     }
     
     //MARK: -Layout
@@ -114,6 +116,55 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
             }
         }
     }
+    // 連続ログインモーダルの表示
+    func openStreakModal(streakDays: Int) {
+        let alert = UIAlertController(title: "You're on a streak!",
+                                      message: "You've logged in for \(streakDays) days in a row. Keep up the momentum!",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Done", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+
+    
+    func getCurrentConsecutiveLoginDays() -> Int {
+        let realm = try! Realm()
+        let loginRecords = realm.objects(EventModel.self)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        
+        // ログインした日付を重複なくリスト化
+        let loginDatesSet = Set(loginRecords.compactMap { $0.date })
+
+        var consecutiveDays = 0
+        var currentDate = Date()
+        
+        while true {
+            let dateString = dateFormatter.string(from: currentDate)
+            
+            if loginDatesSet.contains(dateString) {
+                // その日ログインしてたらカウント＋1
+                consecutiveDays += 1
+            } else {
+                // ログインしてなかったらストップ
+                break
+            }
+            
+            // 1日遡る
+            currentDate = Calendar.current.date(byAdding: .day, value: -1, to: currentDate)!
+        }
+        
+        return consecutiveDays
+    }
+
+
+    func checkStreakDay() {
+        let streakDay = getCurrentConsecutiveLoginDays()
+        if streakDay >= 2 {
+            openStreakModal(streakDays: streakDay)
+        }
+    }
+    
     
     //MARK: -objc
     @objc func openFeedbackModal() {
