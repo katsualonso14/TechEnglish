@@ -105,7 +105,6 @@ class CustomWordsViewController: UIViewController {
             emptyView.backgroundColor = AppColors.backgroundColorCheckMode
             emptyView.layer.cornerRadius = 16
             emptyView.layer.masksToBounds = true
-
             let label = UILabel()
             let explanationText = """
             🔹 message:

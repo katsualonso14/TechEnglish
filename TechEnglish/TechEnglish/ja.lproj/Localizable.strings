@@ -125,3 +125,7 @@
 "web_search_massage" = "Webで検索する単語を選択してください";
 "no_search_word_title" = "検索する単語がありません";
 "no_search_word_message" = "検索する単語を保存し選択してください。";
+
+// MARK: - WebView Stock
+"enter_url" = "URLを入力";
+"add_button_title" = "追加";
