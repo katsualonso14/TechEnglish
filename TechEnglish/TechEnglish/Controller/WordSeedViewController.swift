@@ -211,6 +211,8 @@ class WordSeedViewController: UIViewController {
                         UserDefaults.standard.setValue(currentSituation, forKey: "situation")
                         phraseStoreVC.situation.append(text2)
                         phraseStoreVC.tableView.reloadData()
+                        // 0個のcellでなくなった際のPhraseStore背景更新
+                        phraseStoreVC.updateBackgroundView()
                     }
                 }
             }
@@ -286,10 +288,13 @@ class WordSeedViewController: UIViewController {
                         UserDefaults.standard.setValue(currentWord, forKey: "quick word")
                         self?.QuickMemo.append(text)
                         self?.tableView.reloadData()
+                        // 0個のcellでなくなった際の背景更新
+                        self?.updateBackgroundView()
                     }
                 }
             }
         }))
+
         
         present(aleat, animated: true)
     }

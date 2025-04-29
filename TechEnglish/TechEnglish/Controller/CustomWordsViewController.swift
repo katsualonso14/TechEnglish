@@ -191,6 +191,8 @@ class CustomWordsViewController: UIViewController {
                         UserDefaults.standard.setValue(currentSituation, forKey: "situation")
                         self?.situation.append(text3)
                         self?.tableView.reloadData()
+                        // 0個のcellでなくなった際の背景更新
+                        self?.updateBackgroundView()
                     }
                 }
             }
