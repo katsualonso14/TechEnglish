@@ -40,7 +40,7 @@
 		2353AA5D2DB9F0D20057D201 /* VovabSixthViweController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA5C2DB9F0D20057D201 /* VovabSixthViweController.swift */; };
 		2353AA5F2DB9F0E70057D201 /* VocabSeventhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA5E2DB9F0E70057D201 /* VocabSeventhViewController.swift */; };
 		2353AA612DB9F25C0057D201 /* VocabEighthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */; };
-		2353AA892DC046540057D201 /* UrlListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA882DC046540057D201 /* UrlListController.swift */; };
+		2353AA892DC046540057D201 /* SavedDocsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA882DC046540057D201 /* SavedDocsController.swift */; };
 		2353AA8B2DC054150057D201 /* WebViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA8A2DC054150057D201 /* WebViewType.swift */; };
 		8F915D3EBB5EDC4FC742BE69 /* Pods_TechEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F251A53FCBB91C69C86381 /* Pods_TechEnglish.framework */; };
 		A46E653C46D92CF6526727B0 /* Pods_TechEnglish_TechEnglishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71AA9BB57A37BED81626A2C /* Pods_TechEnglish_TechEnglishUITests.framework */; };
@@ -101,7 +101,7 @@
 		2353AA5C2DB9F0D20057D201 /* VovabSixthViweController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VovabSixthViweController.swift; sourceTree = "<group>"; };
 		2353AA5E2DB9F0E70057D201 /* VocabSeventhViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabSeventhViewController.swift; sourceTree = "<group>"; };
 		2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabEighthViewController.swift; sourceTree = "<group>"; };
-		2353AA882DC046540057D201 /* UrlListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlListController.swift; sourceTree = "<group>"; };
+		2353AA882DC046540057D201 /* SavedDocsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDocsController.swift; sourceTree = "<group>"; };
 		2353AA8A2DC054150057D201 /* WebViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewType.swift; sourceTree = "<group>"; };
 		2676E555D96CF7567418D47E /* Pods-TechEnglish-TechEnglishUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; path = "Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3AA25FF0E3404AEE7AC05D50 /* Pods_TechEnglishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechEnglishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,7 +231,7 @@
 				2317C6FF2D6DA37B00F8E1D4 /* CustomWordsViewController.swift */,
 				2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */,
 				2353AA1D2DADCA890057D201 /* CalendarViewController.swift */,
-				2353AA882DC046540057D201 /* UrlListController.swift */,
+				2353AA882DC046540057D201 /* SavedDocsController.swift */,
 				2353AA2E2DAF24D30057D201 /* Localizable.strings */,
 			);
 			path = Controller;
@@ -591,7 +591,7 @@
 				2353AA5B2DB9F0BE0057D201 /* VovabFifthViewController.swift in Sources */,
 				2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */,
 				2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */,
-				2353AA892DC046540057D201 /* UrlListController.swift in Sources */,
+				2353AA892DC046540057D201 /* SavedDocsController.swift in Sources */,
 				2317C6F02D6DA28200F8E1D4 /* CustomWordsCell.swift in Sources */,
 				2317C6F12D6DA28200F8E1D4 /* CustomTableViewCell.swift in Sources */,
 				2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */,

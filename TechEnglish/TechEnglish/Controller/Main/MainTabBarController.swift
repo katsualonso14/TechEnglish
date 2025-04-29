@@ -36,9 +36,9 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         categoryViewController.tabBarItem.title = "Tech Words"
         let nv3 = UINavigationController(rootViewController: categoryViewController)
         
-        let urlListVC = UrlListController()
+        let urlListVC = SavedDocsController()
         urlListVC.tabBarItem.image = UIImage(systemName: "list.bullet.clipboard")
-        urlListVC.tabBarItem.title = "Web Stock"
+        urlListVC.tabBarItem.title = "Saved Docs"
         let nv4 = UINavigationController(rootViewController: urlListVC)
         
         let calendarVC = CalendarViewController()

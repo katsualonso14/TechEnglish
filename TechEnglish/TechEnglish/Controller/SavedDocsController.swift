@@ -1,7 +1,7 @@
 
 import UIKit
 
-class UrlListController: UIViewController {
+class SavedDocsController: UIViewController {
     
     let textField = UITextField()
     let addButton = UIButton(type: .system)
@@ -11,7 +11,7 @@ class UrlListController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Web Stock"
+        navigationItem.title = "Saved Docs"
         setupUI()
         loadUrls()
     }
@@ -71,7 +71,7 @@ class UrlListController: UIViewController {
 }
 
 
-extension UrlListController: UITableViewDataSource, UITableViewDelegate {
+extension SavedDocsController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return urls.count
