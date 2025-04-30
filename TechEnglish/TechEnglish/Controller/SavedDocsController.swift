@@ -63,7 +63,7 @@ class SavedDocsController: UIViewController {
     
     @objc func addUrl() {
         guard let urlText = textField.text, !urlText.isEmpty else { return }
-        urls.append(urlText)
+        urls.insert(urlText, at: 0)
         saveUrl()
         tableView.reloadData()
         textField.text = ""
@@ -92,6 +92,15 @@ extension SavedDocsController: UITableViewDataSource, UITableViewDelegate {
             let webVC = WebModalViewController()
             webVC.contentType = .url(selectedUrl)
             present(webVC, animated: true, completion: nil)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        // Delete cell process
+        if editingStyle == .delete {
+            urls.remove(at: indexPath.row)
+            saveUrl()
+            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 }
