@@ -40,9 +40,7 @@
 "vocab_second_button_title" = "データ・構造";
 "vocab_third_button_title" = "状態・ライフサイクル";
 "vocab_fourth_button_title" = "設定・条件";
-"vocab_fifth_button_title" = "構文・表現";
-"vocab_sixth_button_title" = "処理・関数";
-"vocab_seventh_button_title" = "目的・関係";
+"vocab_fifth_button_title" = "コーディングテスト";
 "vocab_eighth_button_title" = "その他";
 
 // Notification Delete
@@ -127,3 +125,7 @@
 "web_search_massage" = "Webで検索する単語を選択してください";
 "no_search_word_title" = "検索する単語がありません";
 "no_search_word_message" = "検索する単語を保存し選択してください。";
+
+// MARK: - WebView Stock
+"enter_url" = "URLを入力";
+"add_button_title" = "追加";

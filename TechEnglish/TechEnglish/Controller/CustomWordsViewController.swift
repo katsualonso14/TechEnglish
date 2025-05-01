@@ -20,6 +20,7 @@ class CustomWordsViewController: UIViewController {
         setTableView()
         setAddButton()
         setupSearchController()
+        updateBackgroundView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -97,6 +98,39 @@ class CustomWordsViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
+    // cellのが0の場合の背景
+    func updateBackgroundView() {
+        if words.isEmpty {
+            let emptyView = UIView(frame: tableView.bounds)
+            emptyView.backgroundColor = AppColors.backgroundColorCheckMode
+            emptyView.layer.cornerRadius = 16
+            emptyView.layer.masksToBounds = true
+
+            let label = UILabel()
+            let explanationText = """
+            🔹 message:
+            
+            No phrases added yet.
+            Save words, create example sentences, and add notes about their meanings or the situations where you found them.
+            
+            🔹 Example:
+            
+            Word: existing
+            Sentence: The existing system needs to be updated to improve performance.
+            Memo: It appears in the error message if it is a duplicate of something that already exists.
+            """
+            label.text = explanationText
+            label.textAlignment = .left
+            label.numberOfLines = 0
+            label.frame = CGRect(x: 40, y: 50, width: 300, height: 300)
+            label.font = .systemFont(ofSize: 16)
+
+            emptyView.addSubview(label)
+            tableView.backgroundView = emptyView
+        } else {
+            tableView.backgroundView = nil
+        }
+    }
     
     //MARK: - Function
     @objc func addTapped() {
@@ -157,6 +191,8 @@ class CustomWordsViewController: UIViewController {
                         UserDefaults.standard.setValue(currentSituation, forKey: "situation")
                         self?.situation.append(text3)
                         self?.tableView.reloadData()
+                        // 0個のcellでなくなった際の背景更新
+                        self?.updateBackgroundView()
                     }
                 }
             }

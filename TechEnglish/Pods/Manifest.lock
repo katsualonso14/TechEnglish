@@ -1367,6 +1367,7 @@ PODS:
   - RealmSwift (10.42.4):
     - Realm (= 10.42.4)
   - SnapKit (5.0.1)
+  - SwiftLinkPreview (3.4.0)
 
 DEPENDENCIES:
   - CalculateCalendarLogic
@@ -1378,6 +1379,7 @@ DEPENDENCIES:
   - Realm
   - RealmSwift (~> 10.42.0)
   - SnapKit (~> 5.0.0)
+  - SwiftLinkPreview
 
 SPEC REPOS:
   trunk:
@@ -1407,6 +1409,7 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SnapKit
+    - SwiftLinkPreview
 
 SPEC CHECKSUMS:
   abseil: d121da9ef7e2ff4cab7666e76c5a3e0915ae08c3
@@ -1435,7 +1438,8 @@ SPEC CHECKSUMS:
   Realm: a3a10c2110744ec9510a5fc21a6051818c6181c7
   RealmSwift: d25fa6c3cbb722a698993a501206d9841d79ca32
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftLinkPreview: c1bc5b2cb3cd42f2865137c1a61f5d788dcf5c9c
 
-PODFILE CHECKSUM: 4de53352d91bf64b86cdcf462f0bcb27edf7d6f2
+PODFILE CHECKSUM: e7a008efa1237d842215a69b70fe19b09df0a83d
 
 COCOAPODS: 1.16.2

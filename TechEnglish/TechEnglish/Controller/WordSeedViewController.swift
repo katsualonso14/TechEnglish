@@ -18,6 +18,7 @@ class WordSeedViewController: UIViewController {
         setAddButton()
         setResearchButton()
         setupSearchController()
+        updateBackgroundView()
         // 説明ダイアログが必要か確認
         checkIsDescription()
     }
@@ -114,6 +115,37 @@ class WordSeedViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
+    // cellのが0の場合の背景
+    func updateBackgroundView() {
+        if QuickMemo.isEmpty {
+            let emptyView = UIView(frame: tableView.bounds)
+            emptyView.backgroundColor = AppColors.backgroundColorCheckMode
+            emptyView.layer.cornerRadius = 16
+            emptyView.layer.masksToBounds = true
+
+            let label = UILabel()
+            let explanationText = """
+            🔹 message:
+            
+            No words added yet.
+            Save the words that interest you in your life.
+            
+            🔹 After that:
+            You can create your own word list on the Custom Words page.
+            """
+            label.text = explanationText
+            label.textAlignment = .left
+            label.numberOfLines = 0
+            label.frame = CGRect(x: 40, y: 0, width: 300, height: 300)
+            label.font = .systemFont(ofSize: 16)
+
+            emptyView.addSubview(label)
+            tableView.backgroundView = emptyView
+        } else {
+            tableView.backgroundView = nil
+        }
+    }
+    
     //MARK: - Helper Function
     func checkIsDescription() {
         if !UserDefaults.standard.bool(forKey: "isDescription") {
@@ -179,6 +211,8 @@ class WordSeedViewController: UIViewController {
                         UserDefaults.standard.setValue(currentSituation, forKey: "situation")
                         phraseStoreVC.situation.append(text2)
                         phraseStoreVC.tableView.reloadData()
+                        // 0個のcellでなくなった際のPhraseStore背景更新
+                        phraseStoreVC.updateBackgroundView()
                     }
                 }
             }
@@ -254,10 +288,13 @@ class WordSeedViewController: UIViewController {
                         UserDefaults.standard.setValue(currentWord, forKey: "quick word")
                         self?.QuickMemo.append(text)
                         self?.tableView.reloadData()
+                        // 0個のcellでなくなった際の背景更新
+                        self?.updateBackgroundView()
                     }
                 }
             }
         }))
+
         
         present(aleat, animated: true)
     }

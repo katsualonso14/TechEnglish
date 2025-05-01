@@ -76,7 +76,7 @@ class SelectSearchWordModal: UIView {
         let webView = WebModalViewController()
         // pickerで選択した単語を渡す(非選択時は0番目)
         let row = pickerView.selectedRow(inComponent: 0)
-        webView.selectedWord = searchWord[row]
+        webView.contentType = .word(searchWord[row])
         webView.modalPresentationStyle = .popover
         // 親ビューの上に表示
         parentVC?.present(webView, animated: true, completion: nil)

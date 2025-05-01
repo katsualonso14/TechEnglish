@@ -14,6 +14,7 @@ target 'TechEnglish' do
   pod 'GoogleUserMessagingPlatform'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'SwiftLinkPreview'
 
   # For Test Setting
   target 'TechEnglishTests' do

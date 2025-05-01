@@ -9,8 +9,6 @@ class CustomTableViewCell: UITableViewCell {
     var thirdVC: VocabThirdViewController?
     var fourthVC: VocabFourthViewController?
     var fifthVC: VocabFifthViewController?
-    var sixthVC: VocabSixthViewController?
-    var seventhVC: VocabSeventhViewController?
     var eighthVC: VocabEighthViewController?
     
     var vocabularyList: VocabularyList?
@@ -159,8 +157,6 @@ class CustomTableViewCell: UITableViewCell {
         thirdVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
         fourthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
         fifthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
-        sixthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
-        seventhVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
         eighthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
     }
     
@@ -171,8 +167,6 @@ class CustomTableViewCell: UITableViewCell {
         thirdVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
         fourthVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
         fifthVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
-        sixthVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
-        seventhVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
         eighthVC?.CustomCellTapButtonCall2(cell: self, pushTime: 86400)
     }
     

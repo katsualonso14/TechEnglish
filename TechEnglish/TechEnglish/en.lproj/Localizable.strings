@@ -38,9 +38,7 @@
 "vocab_second_button_title" = "Data";
 "vocab_third_button_title" = "Lifecycle";
 "vocab_fourth_button_title" = "Settings";
-"vocab_fifth_button_title" = "Expression";
-"vocab_sixth_button_title" = "Functions";
-"vocab_seventh_button_title" = "Relation";
+"vocab_fifth_button_title" = "Coding Test";
 "vocab_eighth_button_title" = "Others";
 
 // Notification Delete
@@ -122,3 +120,8 @@
 "web_search_massage" = "Please select the word to search on the web.";
 "no_search_word_title" = "No word to search";
 "no_search_word_message" = "Please save and select the word to search.";
+
+
+// MARK: - WebView Stock
+"enter_url" = "Enter URL";
+"add_button_title" = "Add";
