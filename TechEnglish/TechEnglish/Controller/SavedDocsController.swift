@@ -21,7 +21,12 @@ class SavedDocsController: UIViewController {
         textField.borderStyle = .roundedRect
         
         addButton.setTitle(NSLocalizedString("add_button_title", comment: ""), for: .normal)
+        addButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         addButton.addTarget(self, action: #selector(addUrl), for: .touchUpInside)
+        addButton.backgroundColor = AppColors.appMainColor
+        addButton.setTitleColor(.white, for: .normal)
+        addButton.layer.cornerRadius = 8
+        addButton.layer.masksToBounds = true
         
         tableView.dataSource = self
         tableView.delegate = self
