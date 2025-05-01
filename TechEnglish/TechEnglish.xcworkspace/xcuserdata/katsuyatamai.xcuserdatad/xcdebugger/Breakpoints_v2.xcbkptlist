@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3D5ADF21-6017-493E-AC54-D716CB68C13C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TechEnglish/Controller/WordSeedViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "updateBackgroundView()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "ABCEC6C2-1826-4862-A1E2-73D61D9FC43A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -39,16 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "05FFA639-3A6A-4A6A-9A85-70C27E3A1B26"
+            uuid = "9EDCB02A-A47F-4418-A6B8-ECB46BABD504"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TechEnglish/Controller/WordSeedViewController.swift"
+            filePath = "TechEnglish/Controller/SavedDocsController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "updateBackgroundView()"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "loadUrls()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

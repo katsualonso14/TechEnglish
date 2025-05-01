@@ -1,13 +1,13 @@
-
 import UIKit
+import SwiftLinkPreview
 
 class SavedDocsController: UIViewController {
     
     let textField = UITextField()
     let addButton = UIButton(type: .system)
     let tableView = UITableView()
-    var urls: [String] = []
     let userDefaultsKey = "savedUrls"
+    var webMetas: [WebMeta] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,34 +52,61 @@ class SavedDocsController: UIViewController {
     }
     
     func saveUrl() {
-     UserDefaults.standard.set(urls, forKey: userDefaultsKey)
+        // save to UserDefaults after encoding
+        let encoded = try? JSONEncoder().encode(webMetas)
+        UserDefaults.standard.set(encoded, forKey: userDefaultsKey)
+
     }
     
     func loadUrls() {
-        if let savedUrls = UserDefaults.standard.array(forKey: userDefaultsKey) as? [String] {
-            urls = savedUrls
+        // load from UserDefaults after decoding
+        if let savedUrls = UserDefaults.standard.data(forKey: userDefaultsKey),
+           let decoded = try? JSONDecoder().decode([WebMeta].self, from: savedUrls) {
+            webMetas = decoded
         }
+        tableView.reloadData()
     }
     
-    @objc func addUrl() {
-        guard let urlText = textField.text, !urlText.isEmpty else { return }
-        urls.insert(urlText, at: 0)
-        saveUrl()
-        tableView.reloadData()
-        textField.text = ""
+     @objc func addUrl() {
+        guard let userInputURL = textField.text, !userInputURL.isEmpty else { return }
+        let slp = SwiftLinkPreview()
+         
+        // Use SwiftLinkPreview to fetch the URL preview
+        slp.preview(
+            userInputURL,
+            onSuccess: { preview in
+                let title = preview.title ?? "No Title"
+                let url = preview.finalUrl ?? URL(string: userInputURL)
+                let domain = url?.host ?? "Unknown"
+                let icon = preview.image
+                let meta = WebMeta(title: title, url: url!.absoluteString, domain: domain, faviconURL: icon)
+                self.webMetas.insert(meta, at: 0)
+                self.tableView.reloadData()
+                self.saveUrl()
+                self.textField.text = ""
+            },
+            onError: { error in
+                print("Error: \(error)")
+                self.textField.text = ""
+                let alert = UIAlertController(title: "Error", message: "Failed to fetch URL preview.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        )
     }
+
 }
 
 
 extension SavedDocsController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return urls.count
+        return webMetas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
-        cell.textLabel?.text = urls[indexPath.row]
+        cell.textLabel?.text = webMetas[indexPath.row].title
         cell.textLabel?.numberOfLines = 0
         return cell
     }
@@ -87,8 +114,8 @@ extension SavedDocsController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let selectedUrl = urls[indexPath.row]
-        if let ulr = URL(string: urls[indexPath.row]) {
+        let selectedUrl = webMetas[indexPath.row].url
+        if let ulr = URL(string: webMetas[indexPath.row].url) {
             let webVC = WebModalViewController()
             webVC.contentType = .url(selectedUrl)
             present(webVC, animated: true, completion: nil)
@@ -98,7 +125,7 @@ extension SavedDocsController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         // Delete cell process
         if editingStyle == .delete {
-            urls.remove(at: indexPath.row)
+            webMetas.remove(at: indexPath.row)
             saveUrl()
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
