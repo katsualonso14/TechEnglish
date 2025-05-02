@@ -1,25 +1,24 @@
-//メインページ
 import UIKit
 
 class CategoryViewController: UIViewController {
-    
     let container = UIView()
     let scrollView = UIScrollView()
+    let vocabButtons: [VocabButtonInfo] = [
+        VocabButtonInfo(titleKey: "vocab_first_button_title", imageName: "error_image", selector: #selector(pushFirstButton)),
+        VocabButtonInfo(titleKey: "vocab_second_button_title", imageName: "data_image", selector: #selector(pushSecondButton)),
+        VocabButtonInfo(titleKey: "vocab_third_button_title", imageName: "lifecycle_image", selector: #selector(pushThirdButton)),
+        VocabButtonInfo(titleKey: "vocab_fourth_button_title", imageName: "settings_image", selector: #selector(pushFourthButton)),
+        VocabButtonInfo(titleKey: "vocab_fifth_button_title", imageName: "coding_test_image", selector: #selector(pushFifthButton)),
+        VocabButtonInfo(titleKey: "vocab_sixth_button_title", imageName: "others_image", selector: #selector(pushSixthButton)),
+    ]
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Category"
-        
         setupScrollView()
         setupContainer()
-        // Vocabulary Buttons Settings
-        let firstButton = setupFirstButton()
-        let secondButton = setupSecondButton(below: firstButton)
-        let thirdButton = setupThirdButton(below: secondButton)
-        let fourthButton = setupFourthButton(below: thirdButton)
-        let fifthButton = setupFifthButton(below: fourthButton)
-        let eighthButton = setupEighthButton(below: fifthButton)
-
+        setupVocabButtons()
         setDeleteNotifButton()
     }
     // MARK - Layout Setting
@@ -53,113 +52,66 @@ class CategoryViewController: UIViewController {
             
         ])
     }
-    // MARK: Vocab Buttons Setting
-    func setupFirstButton() -> UIButton {
+    
+    // MARK: - Vocab Buttons Setting
+    func createVocabButton(
+        titleKey: String,
+        imageName: String,
+        topAnchor: NSLayoutYAxisAnchor,
+        topConstant: CGFloat,
+        selector: Selector
+    ) -> UIButton {
         let button = createBaseButton()
+        let label = createBaseLabel()
+        let imageView = createImageView()
+
         container.addSubview(button)
+        container.addSubview(label)
+        button.addSubview(imageView)
+
+        label.text = NSLocalizedString(titleKey, comment: "")
+        if !imageName.isEmpty {
+            imageView.image = UIImage(named: imageName)
+        }
 
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: container.topAnchor, constant: view.frame.height * 0.03),
+            // ボタン本体
+            button.topAnchor.constraint(equalTo: topAnchor, constant: topConstant),
             button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            button.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1)
+            button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.25),
+            button.heightAnchor.constraint(equalTo: button.widthAnchor),
+
+            // タイトル（ボタンの上に配置）
+            label.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -7),
+            label.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+
+            // 画像（ボタン内に配置）
+            imageView.topAnchor.constraint(equalTo: button.topAnchor),
+            imageView.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            imageView.widthAnchor.constraint(equalTo: button.widthAnchor),
+            imageView.heightAnchor.constraint(equalTo: button.heightAnchor),
         ])
 
-        button.setTitle(NSLocalizedString("vocab_first_button_title", comment: ""), for: .normal)
-        button.setImage(UIImage(named: "error_image"), for: .normal)
-        button.addTarget(self, action: #selector(pushButton), for: .touchUpInside)
+        button.addTarget(self, action: selector, for: .touchUpInside)
 
         return button
     }
+    // 各ボタン配置
+    func setupVocabButtons() {
+        var previousAnchor: NSLayoutYAxisAnchor = container.topAnchor
+        var topPadding: CGFloat = view.frame.height * 0.1
 
-    func setupSecondButton(below anchorView: UIView) -> UIButton {
-        let button = createBaseButton()
-        container.addSubview(button)
-
-        NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: anchorView.bottomAnchor, constant: 30),
-            button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            button.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1)
-        ])
-
-        button.setTitle(NSLocalizedString("vocab_second_button_title", comment: ""), for: .normal)
-        button.setImage(UIImage(named: "data_image"), for: .normal)
-        button.addTarget(self, action: #selector(pushSecondButton), for: .touchUpInside)
-
-        return button
-    }
-
-    func setupThirdButton(below anchorView: UIView) -> UIButton {
-        let button = createBaseButton()
-        container.addSubview(button)
-
-        NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: anchorView.bottomAnchor, constant: 30),
-            button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            button.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1)
-        ])
-
-        button.setTitle(NSLocalizedString("vocab_third_button_title", comment: ""), for: .normal)
-        button.setImage(UIImage(named: "lifecycle_image"), for: .normal)
-        button.addTarget(self, action: #selector(pushAThirdButton), for: .touchUpInside)
-
-        return button
-    }
-
-    func setupFourthButton(below anchorView: UIView) -> UIButton {
-        let button = createBaseButton()
-        container.addSubview(button)
-
-        NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: anchorView.bottomAnchor, constant: 30),
-            button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            button.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1)
-        ])
-
-        button.setTitle(NSLocalizedString("vocab_fourth_button_title", comment: ""), for: .normal)
-        button.setImage(UIImage(named: "settings_image"), for: .normal)
-        button.addTarget(self, action: #selector(pushFourthButton), for: .touchUpInside)
-
-        return button
-    }
-
-    func setupFifthButton(below anchorView: UIView) -> UIButton {
-        let button = createBaseButton()
-        container.addSubview(button)
-
-        NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: anchorView.bottomAnchor, constant: 30),
-            button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            button.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1)
-        ])
-
-        button.setTitle(NSLocalizedString("vocab_fifth_button_title", comment: ""), for: .normal)
-        button.setImage(UIImage(named: "coding_test_image"), for: .normal)
-        button.addTarget(self, action: #selector(pushFifthButton), for: .touchUpInside)
-
-        return button
-    }
-
-    func setupEighthButton(below anchorView: UIView) -> UIButton {
-        let button = createBaseButton()
-        container.addSubview(button)
-
-        NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: anchorView.bottomAnchor, constant: 30),
-            button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
-            button.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1)
-        ])
-
-        button.setTitle(NSLocalizedString("vocab_eighth_button_title", comment: ""), for: .normal)
-        button.setImage(UIImage(named: "others_image"), for: .normal)
-        button.addTarget(self, action: #selector(pushEighthButton), for: .touchUpInside)
-
-        return button
+        for buttonInfo in vocabButtons {
+            let button = createVocabButton(
+                titleKey: buttonInfo.titleKey,
+                imageName: buttonInfo.imageName,
+                topAnchor: previousAnchor,
+                topConstant: topPadding,
+                selector: buttonInfo.selector
+            )
+            previousAnchor = button.bottomAnchor
+            topPadding = 50 // 2個目以降は等間隔に
+        }
     }
 
     // 共通のUIButtonセットアップ
@@ -174,8 +126,24 @@ class CategoryViewController: UIViewController {
         button.contentHorizontalAlignment = .left
         button.imageView?.contentMode = .scaleAspectFit
         button.imageView?.layer.cornerRadius = 15.0
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 50, bottom: 0, right: 0)
         return button
+    }
+    // 共通のラベルセットアップ
+    func createBaseLabel() -> UILabel {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = AppColors.textColor
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        return label
+    }
+    // 共通のimageViewセットアップ
+    func createImageView() -> UIImageView {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 25.0
+        imageView.layer.masksToBounds = true
+        return imageView
     }
 
     
@@ -190,7 +158,7 @@ class CategoryViewController: UIViewController {
     
     //MARK: -objc
     // Push Buttons Setting
-    @objc func pushButton(sender: UIButton){
+    @objc func pushFirstButton(sender: UIButton){
     let vc = VocabFirstViewController(titleName: NSLocalizedString("vocab_first_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -200,7 +168,7 @@ class CategoryViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func pushAThirdButton(sender: UIButton){
+    @objc func pushThirdButton(sender: UIButton){
         let vc = VocabThirdViewController(titleName: NSLocalizedString("vocab_third_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -215,7 +183,7 @@ class CategoryViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func pushEighthButton(sender: UIButton){
+    @objc func pushSixthButton(sender: UIButton){
         let vc = VocabEighthViewController(titleName: NSLocalizedString("vocab_eighth_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
