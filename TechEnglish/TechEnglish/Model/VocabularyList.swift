@@ -23,6 +23,17 @@ class VocabularyList {
         NSLocalizedString("denied_meaning", comment: ""),
         NSLocalizedString("attempted_meaning", comment: "")
     ]
+    
+    let firstExampleSentence = [
+        "The system threw an exception when the input value was null.",
+        "An unexpected error occurred while processing your request.",
+        "The antivirus software detected a potential threat in the file.",
+        "Permission denied: You need admin rights to access this folder.",
+        "This function is deprecated and should not be used in new code.",
+        "The process was terminated due to a memory overflow error.",
+        "Access was denied due to invalid credentials.",
+        "The application attempted to access a restricted area."
+    ]
 
     // Second: データ・構造
     var secondSentenceArray = [
@@ -45,6 +56,18 @@ class VocabularyList {
         NSLocalizedString("non_decreasing_order_meaning", comment: ""),
         NSLocalizedString("calculation_meaning", comment: "")
     ]
+    
+    let secondExampleSentence = [
+        "The array indices must be integers starting from zero.",
+        "A foreign key constraint failed during the insert operation.",
+        "The error is related to a missing dependency.",
+        "Avoid using global variables to reduce side effects.",
+        "This regular expression matches all lowercase letters.",
+        "The method is defined in an ancestor class.",
+        "Sort the data in decreasing order before calculating the average.",
+        "The list must be sorted in non-decreasing order.",
+        "The final price is the result of a simple tax calculation."
+    ]
 
     // Third: 状態・ライフサイクル
         var thirdSentenceArray = [
@@ -66,6 +89,18 @@ class VocabularyList {
             NSLocalizedString("unbounded_meaning", comment: ""),
             NSLocalizedString("instead_meaning", comment: "")
         ]
+    
+    let thirdExampleSentence = [
+        "The task was suspended due to lack of user input.",
+        "The archive contained several log files.",
+        "These changes will persist after you restart the application.",
+        "The bug was caused by a persistent connection issue.",
+        "You can embed custom fonts into the PDF document.",
+        "Use the fetch API to retrieve data from the server.",
+        "The image was rotated 90 degrees to fit the layout.",
+        "An unbounded loop can lead to performance issues.",
+        "Use 'let' instead of 'var' for block scoping."
+    ]
 
         // Fourth: 設定・条件
         var fourthSentenceArray = [
@@ -96,6 +131,16 @@ class VocabularyList {
         })
     ]
 
+    let fourthExampleSentence = [
+        "We assume the configuration file exists by default.",
+        "Please specify the file path in the input field.",
+        "The user role determines access permissions.",
+        "This script is intended for internal use only.",
+        "Installing Node.js is one of the prerequisites for running this tool.",
+        "The issue should be easily identifiable in the logs."
+    ]
+
+    
     var fifthSentence = [
         "indices", "constraint", "expression", "decreasing order", "non decreasing order",
         "calculation", "assume", "verify", "palindrome number", "depth", "absolute", "prerequisites"
@@ -120,7 +165,21 @@ class VocabularyList {
         NSLocalizedString("absolute_meaning", comment: ""),
         NSLocalizedString("prerequisites_meaning", comment: "")
     ]
-
+    
+    let fifthExampleSentence = [
+        "The array indices must be integers starting from zero.",
+        "A foreign key constraint failed during the insert operation.",
+        "This regular expression matches all lowercase letters.",
+        "Sort the data in decreasing order before calculating the average.",
+        "The list must be sorted in non-decreasing order.",
+        "The final price is the result of a simple tax calculation.",
+        "We assume the configuration file exists by default.",
+        "Verify the user's email before granting access.",
+        "121 is a palindrome number, which reads the same backward.",
+        "The depth of the directory tree can affect performance.",
+        "Set the position to absolute to remove it from the normal flow.",
+        "Installing Node.js is one of the prerequisites for running this tool."
+    ]
 
         // Eighth: その他・補足
         var eighthSentenceArray = [
@@ -141,7 +200,17 @@ class VocabularyList {
             NSLocalizedString("indeed_meaning", comment: ""),
             NSLocalizedString("shorthand_notation_meaning", comment: "")
         ]
-
+    
+    let eighthExampleSentence = [
+        "Check if the file exists before reading it.",
+        "We are opposed to changing the default behavior.",
+        "121 is a palindrome number, which reads the same backward.",
+        "The depth of the directory tree can affect performance.",
+        "The chart scales proportionally to the window size.",
+        "This change will make the redirect permanent (301).",
+        "This method is indeed faster for large datasets.",
+        "You can use shorthand notation for defining properties."
+    ]
 
 }
 

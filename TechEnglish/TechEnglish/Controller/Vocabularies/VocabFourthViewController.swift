@@ -125,7 +125,7 @@ class VocabFourthViewController: UITableViewController,AVAudioPlayerDelegate, AV
         cell.fourthVC = self
         let contact = vocabularyList.fourthSentenceArray[0].names[indexPath.row]
         //cellの文字指定
-        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.fourthPronunciation[indexPath.row], japanese: vocabularyList.fourthEnglish[indexPath.row])
+        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.fourthPronunciation[indexPath.row], japanese: vocabularyList.fourthEnglish[indexPath.row], exampleSentence: vocabularyList.fourthExampleSentence[indexPath.row])
         
         cell.heartButton.tintColor = contact.hasFavorited ? .red : .gray
         cell.heartButton2.tintColor = contact.hasFavorited2 ? .orange : .gray
@@ -134,7 +134,7 @@ class VocabFourthViewController: UITableViewController,AVAudioPlayerDelegate, AV
         }
 //    セルの高さ
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(180)
+        return CGFloat(220)
     }
     //cellをタップした時の処理
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

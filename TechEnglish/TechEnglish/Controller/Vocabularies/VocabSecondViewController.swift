@@ -126,7 +126,7 @@ class VocabSecondViewController: UITableViewController,AVAudioPlayerDelegate, AV
         cell.secondVC = self
         let contact = vocabularyList.secondSentenceArray[0].names[indexPath.row]
         //cellの文字指定
-        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.secondPronunciation[indexPath.row], japanese: vocabularyList.secondEnglish[indexPath.row])
+        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.secondPronunciation[indexPath.row], japanese: vocabularyList.secondEnglish[indexPath.row], exampleSentence: vocabularyList.secondExampleSentence[indexPath.row])
         
         cell.heartButton.tintColor = contact.hasFavorited ? .red : .gray
         cell.heartButton2.tintColor = contact.hasFavorited2 ? .orange : .gray
@@ -135,7 +135,7 @@ class VocabSecondViewController: UITableViewController,AVAudioPlayerDelegate, AV
         }
 //    セルの高さ
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(180)
+        return CGFloat(220)
     }
     //cellをタップした時の処理
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

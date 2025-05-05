@@ -39,8 +39,6 @@
 		2353AA472DB300550057D201 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA462DB300550057D201 /* GoogleService-Info.plist */; };
 		2353AA592DB9EC270057D201 /* VocabFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA582DB9EC270057D201 /* VocabFourthViewController.swift */; };
 		2353AA5B2DB9F0BE0057D201 /* VovabFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA5A2DB9F0BE0057D201 /* VovabFifthViewController.swift */; };
-		2353AA5D2DB9F0D20057D201 /* VovabSixthViweController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA5C2DB9F0D20057D201 /* VovabSixthViweController.swift */; };
-		2353AA5F2DB9F0E70057D201 /* VocabSeventhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA5E2DB9F0E70057D201 /* VocabSeventhViewController.swift */; };
 		2353AA612DB9F25C0057D201 /* VocabEighthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */; };
 		2353AA892DC046540057D201 /* SavedDocsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA882DC046540057D201 /* SavedDocsController.swift */; };
 		2353AA8B2DC054150057D201 /* WebViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA8A2DC054150057D201 /* WebViewType.swift */; };
@@ -102,8 +100,6 @@
 		2353AA462DB300550057D201 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2353AA582DB9EC270057D201 /* VocabFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabFourthViewController.swift; sourceTree = "<group>"; };
 		2353AA5A2DB9F0BE0057D201 /* VovabFifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VovabFifthViewController.swift; sourceTree = "<group>"; };
-		2353AA5C2DB9F0D20057D201 /* VovabSixthViweController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VovabSixthViweController.swift; sourceTree = "<group>"; };
-		2353AA5E2DB9F0E70057D201 /* VocabSeventhViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabSeventhViewController.swift; sourceTree = "<group>"; };
 		2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabEighthViewController.swift; sourceTree = "<group>"; };
 		2353AA882DC046540057D201 /* SavedDocsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDocsController.swift; sourceTree = "<group>"; };
 		2353AA8A2DC054150057D201 /* WebViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewType.swift; sourceTree = "<group>"; };
@@ -236,7 +232,6 @@
 				2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */,
 				2353AA1D2DADCA890057D201 /* CalendarViewController.swift */,
 				2353AA882DC046540057D201 /* SavedDocsController.swift */,
-				2353AA2E2DAF24D30057D201 /* Localizable.strings */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -244,6 +239,7 @@
 		2317C7052D6DA3D500F8E1D4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2353AA2E2DAF24D30057D201 /* Localizable.strings */,
 				2317C70E2D6DA6FC00F8E1D4 /* Contact.swift */,
 				2317C7082D6DA3F900F8E1D4 /* AppColors.swift */,
 				2317C70A2D6DA40000F8E1D4 /* MyAds.swift */,
@@ -264,8 +260,6 @@
 				2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */,
 				2353AA582DB9EC270057D201 /* VocabFourthViewController.swift */,
 				2353AA5A2DB9F0BE0057D201 /* VovabFifthViewController.swift */,
-				2353AA5C2DB9F0D20057D201 /* VovabSixthViweController.swift */,
-				2353AA5E2DB9F0E70057D201 /* VocabSeventhViewController.swift */,
 				2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */,
 			);
 			path = Vocabularies;
@@ -607,13 +601,11 @@
 				2317C6F42D6DA28200F8E1D4 /* WebViewContainer.swift in Sources */,
 				2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */,
 				2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */,
-				2353AA5F2DB9F0E70057D201 /* VocabSeventhViewController.swift in Sources */,
 				2353AA1E2DADCA890057D201 /* CalendarViewController.swift in Sources */,
 				2353AA202DADCB130057D201 /* EventModel.swift in Sources */,
 				2317C6F52D6DA28200F8E1D4 /* WordSeedCell.swift in Sources */,
 				2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */,
 				2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */,
-				2353AA5D2DB9F0D20057D201 /* VovabSixthViweController.swift in Sources */,
 				2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */,
 				2353AA592DB9EC270057D201 /* VocabFourthViewController.swift in Sources */,
 				2317C7012D6DA37B00F8E1D4 /* CustomWordsViewController.swift in Sources */,
