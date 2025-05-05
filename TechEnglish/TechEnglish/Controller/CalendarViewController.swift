@@ -176,9 +176,14 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
-            if let feedback = alert.textFields?.first?.text {
+            if let feedback = alert.textFields?.first?.text , !feedback.isEmpty {
                 // Save feedback to Firestore
                 self.saveFeedbackToFirestore(feedback: feedback)
+            } else {
+                // Show error message
+                let errorAlert = UIAlertController(title: "Error", message: "Please enter feedback.", preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(errorAlert, animated: true, completion: nil)
             }
         }))
         present(alert, animated: true, completion: nil)
