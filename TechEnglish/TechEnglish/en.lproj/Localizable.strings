@@ -102,12 +102,14 @@
 "contained_meaning" = "to have something inside or include something as a part";
 
 // その他・補足
+"outdated_meaning" = "no longer current; obsolete or out of date";
 "existing_meaning" = "present or in use now";
 "opposed_meaning" = "against something";
 "palindrome_number_meaning" = "a number that reads the same backward and forward";
 "depth_meaning" = "distance from top to bottom";
 "proportionally_meaning" = "in the right ratio";
 "permanent_meaning" = "lasting for a long time";
+
 
 
 

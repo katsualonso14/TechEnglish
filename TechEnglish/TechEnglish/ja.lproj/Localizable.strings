@@ -105,6 +105,7 @@
 "contained_meaning" = "含まれる";
 
 // その他・補足
+"outdated_meaning" = "時代遅れの、古くなった";
 "existing_meaning" = "既存";
 "opposed_meaning" = "反対した";
 "palindrome_number_meaning" = "回文数（上から読んでも下から読んでも同じ数: 例 12521）";

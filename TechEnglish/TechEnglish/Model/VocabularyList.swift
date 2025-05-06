@@ -194,27 +194,29 @@ class VocabularyList {
         "Installing Node.js is one of the prerequisites for running this tool."
     ]
 
-        // Eighth: その他・補足
-        var eighthSentenceArray = [
-            ExpandableNames(isExpanded: true, names: ["existing", "opposed", "palindrome number", "depth", "proportionally", "permanent", "indeed", "shorthand notation"].map {
-                Contact(name: $0,
-                        hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
-            })
-        ]
-        var eighthSentence = ["existing", "opposed", "palindrome number", "depth", "proportionally", "permanent", "indeed", "shorthand notation"]
-        var eighthPronunciation = ["ɪɡˈzɪstɪŋ", "əˈpoʊzd", "ˈpælɪnˌdroʊm ˈnʌmbər", "dɛpθ", "prəˈpɔːʃənəli", "ˈpɝːmənənt", "ɪnˈdiːd", "ˈʃɔːrtˌhænd noʊˈteɪʃən"]
-        var eighthEnglish = [
-            NSLocalizedString("existing_meaning", comment: ""),
-            NSLocalizedString("opposed_meaning", comment: ""),
-            NSLocalizedString("palindrome_number_meaning", comment: ""),
-            NSLocalizedString("depth_meaning", comment: ""),
-            NSLocalizedString("proportionally_meaning", comment: ""),
-            NSLocalizedString("permanent_meaning", comment: ""),
-            NSLocalizedString("indeed_meaning", comment: ""),
-            NSLocalizedString("shorthand_notation_meaning", comment: "")
-        ]
-    
+    // Eighth: その他・補足
+    var eighthSentenceArray = [
+        ExpandableNames(isExpanded: true, names: ["outdated", "existing", "opposed", "palindrome number", "depth", "proportionally", "permanent", "indeed", "shorthand notation"].map {
+            Contact(name: $0,
+                    hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
+        })
+    ]
+    var eighthSentence = ["outdated", "existing", "opposed", "palindrome number", "depth", "proportionally", "permanent", "indeed", "shorthand notation"]
+    var eighthPronunciation = ["ˌaʊtˈdeɪtɪd", "ɪɡˈzɪstɪŋ", "əˈpoʊzd", "ˈpælɪnˌdroʊm ˈnʌmbər", "dɛpθ", "prəˈpɔːʃənəli", "ˈpɝːmənənt", "ɪnˈdiːd", "ˈʃɔːrtˌhænd noʊˈteɪʃən"]
+    var eighthEnglish = [
+        NSLocalizedString("outdated_meaning", comment: ""),
+        NSLocalizedString("existing_meaning", comment: ""),
+        NSLocalizedString("opposed_meaning", comment: ""),
+        NSLocalizedString("palindrome_number_meaning", comment: ""),
+        NSLocalizedString("depth_meaning", comment: ""),
+        NSLocalizedString("proportionally_meaning", comment: ""),
+        NSLocalizedString("permanent_meaning", comment: ""),
+        NSLocalizedString("indeed_meaning", comment: ""),
+        NSLocalizedString("shorthand_notation_meaning", comment: "")
+    ]
+
     let eighthExampleSentence = [
+        "This document is outdated and should be reviewed.",
         "Check if the file exists before reading it.",
         "We are opposed to changing the default behavior.",
         "121 is a palindrome number, which reads the same backward.",
@@ -224,6 +226,7 @@ class VocabularyList {
         "This method is indeed faster for large datasets.",
         "You can use shorthand notation for defining properties."
     ]
+
 
 }
 
