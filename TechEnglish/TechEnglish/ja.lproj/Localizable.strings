@@ -41,7 +41,8 @@
 "vocab_third_button_title" = "状態・ライフサイクル";
 "vocab_fourth_button_title" = "設定・条件";
 "vocab_fifth_button_title" = "コーディングテスト";
-"vocab_sixth_button_title" = "その他";
+"vocab_sixth_button_title" = "ドキュメント";
+"vocab_eighth_button_title" = "その他";
 
 // Notification Delete
 "delete_all_notif_title" = "全ての通知を削除";
@@ -103,6 +104,18 @@
 "identifiable_meaning" = "識別可能な";
 "ancestor_meaning" = "祖先,先祖";
 "contained_meaning" = "含まれる";
+
+// ドキュメントの頻出単語
+"outdated_meaning" = "時代遅れで、もはや使われない";
+"deprecated_meaning" = "使用が推奨されなくなった（古くなったため）";
+"obsolete_meaning" = "もはや使用されていない";
+"superseded_meaning" = "新しいものに置き換えられた";
+"legacy_meaning" = "まだ使われている古いシステムや技術";
+"experimental_meaning" = "テスト段階、完全に開発されていない";
+"preview_meaning" = "未完成のレビュー用のバージョン";
+"stable_meaning" = "完全にテストされ、信頼できる";
+"release_note_meaning" = "新機能や修正を詳細に記載したドキュメント";
+"changelog_meaning" = "プロジェクトで行われた変更の記録";
 
 // その他・補足
 "outdated_meaning" = "時代遅れの、古くなった";

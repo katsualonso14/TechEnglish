@@ -9,7 +9,8 @@ class CategoryViewController: UIViewController {
         VocabButtonInfo(titleKey: "vocab_third_button_title", imageName: "lifecycle_image", selector: #selector(pushThirdButton)),
         VocabButtonInfo(titleKey: "vocab_fourth_button_title", imageName: "settings_image", selector: #selector(pushFourthButton)),
         VocabButtonInfo(titleKey: "vocab_fifth_button_title", imageName: "coding_test_image", selector: #selector(pushFifthButton)),
-        VocabButtonInfo(titleKey: "vocab_sixth_button_title", imageName: "others_image", selector: #selector(pushSixthButton)),
+        VocabButtonInfo(titleKey: "vocab_sixth_button_title", imageName: "doc_image", selector: #selector(pushSixthButton)),
+        VocabButtonInfo(titleKey: "vocab_eighth_button_title", imageName: "others_image", selector: #selector(pushEighthButton)),
     ]
 
 
@@ -194,6 +195,11 @@ class CategoryViewController: UIViewController {
     }
     
     @objc func pushSixthButton(sender: UIButton){
+        let vc = VocabSixthViewController(titleName: NSLocalizedString("vocab_sixth_button_title", comment: ""))
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func pushEighthButton(sender: UIButton){
         let vc = VocabEighthViewController(titleName: NSLocalizedString("vocab_eighth_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }

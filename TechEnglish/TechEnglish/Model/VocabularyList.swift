@@ -193,18 +193,64 @@ class VocabularyList {
         "Set the position to absolute to remove it from the normal flow.",
         "Installing Node.js is one of the prerequisites for running this tool."
     ]
-
-    // Eighth: その他・補足
-    var eighthSentenceArray = [
-        ExpandableNames(isExpanded: true, names: ["outdated", "existing", "opposed", "palindrome number", "depth", "proportionally", "permanent", "indeed", "shorthand notation"].map {
+    
+    // Sixth: ドキュメント
+    var sixthSentenceArray = [
+        ExpandableNames(isExpanded: true, names: [
+            "outdated", "deprecated", "obsolete", "superseded", "legacy",
+            "experimental", "preview", "stable", "release note", "changelog"
+        ].map {
             Contact(name: $0,
                     hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
         })
     ]
-    var eighthSentence = ["outdated", "existing", "opposed", "palindrome number", "depth", "proportionally", "permanent", "indeed", "shorthand notation"]
-    var eighthPronunciation = ["ˌaʊtˈdeɪtɪd", "ɪɡˈzɪstɪŋ", "əˈpoʊzd", "ˈpælɪnˌdroʊm ˈnʌmbər", "dɛpθ", "prəˈpɔːʃənəli", "ˈpɝːmənənt", "ɪnˈdiːd", "ˈʃɔːrtˌhænd noʊˈteɪʃən"]
-    var eighthEnglish = [
+
+    var sixthSentence = [
+        "outdated", "deprecated", "obsolete", "superseded", "legacy",
+        "experimental", "preview", "stable", "release note", "changelog"
+    ]
+
+    var sixthPronunciation = [
+        "ˌaʊtˈdeɪtɪd", "ˌdɛprəˈkeɪtɪd", "ˈɑːbsəliːt", "ˌsuːpərˈsiːdɪd", "ˈlɛɡəsi",
+        "ˌɛkspəˈrɪməntl", "ˈpriːvjuː", "ˈsteɪbəl", "rɪˈliːs noʊt", "ˈtʃeɪndʒˌlɔɡ"
+    ]
+
+    var sixthEnglish = [
         NSLocalizedString("outdated_meaning", comment: ""),
+        NSLocalizedString("deprecated_meaning", comment: ""),
+        NSLocalizedString("obsolete_meaning", comment: ""),
+        NSLocalizedString("superseded_meaning", comment: ""),
+        NSLocalizedString("legacy_meaning", comment: ""),
+        NSLocalizedString("experimental_meaning", comment: ""),
+        NSLocalizedString("preview_meaning", comment: ""),
+        NSLocalizedString("stable_meaning", comment: ""),
+        NSLocalizedString("release_note_meaning", comment: ""),
+        NSLocalizedString("changelog_meaning", comment: "")
+    ]
+
+    let sixthExampleSentence = [
+        "The documentation is outdated and needs revision.",
+        "This method is deprecated and should not be used.",
+        "The API is obsolete and will be removed in future versions.",
+        "This tool has been superseded by a newer version.",
+        "This is a legacy system that requires special maintenance.",
+        "Use this feature with caution as it is experimental.",
+        "The new UI is currently in preview mode.",
+        "Version 2.1 is now available as a stable release.",
+        "Check the release note for recent updates.",
+        "The changelog provides a full history of changes."
+    ]
+
+    // Eighth: その他・補足
+    var eighthSentenceArray = [
+        ExpandableNames(isExpanded: true, names: ["existing", "opposed", "palindrome number", "depth", "proportionally", "permanent", "indeed", "shorthand notation"].map {
+            Contact(name: $0,
+                    hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
+        })
+    ]
+    var eighthSentence = ["existing", "opposed", "palindrome number", "depth", "proportionally", "permanent", "indeed", "shorthand notation"]
+    var eighthPronunciation = ["ɪɡˈzɪstɪŋ", "əˈpoʊzd", "ˈpælɪnˌdroʊm ˈnʌmbər", "dɛpθ", "prəˈpɔːʃənəli", "ˈpɝːmənənt", "ɪnˈdiːd", "ˈʃɔːrtˌhænd noʊˈteɪʃən"]
+    var eighthEnglish = [
         NSLocalizedString("existing_meaning", comment: ""),
         NSLocalizedString("opposed_meaning", comment: ""),
         NSLocalizedString("palindrome_number_meaning", comment: ""),
@@ -216,7 +262,6 @@ class VocabularyList {
     ]
 
     let eighthExampleSentence = [
-        "This document is outdated and should be reviewed.",
         "Check if the file exists before reading it.",
         "We are opposed to changing the default behavior.",
         "121 is a palindrome number, which reads the same backward.",

@@ -9,6 +9,7 @@ class CustomTableViewCell: UITableViewCell {
     var thirdVC: VocabThirdViewController?
     var fourthVC: VocabFourthViewController?
     var fifthVC: VocabFifthViewController?
+    var sixthVC: VocabSixthViewController?
     var eighthVC: VocabEighthViewController?
     
     var vocabularyList: VocabularyList?
