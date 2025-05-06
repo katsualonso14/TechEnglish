@@ -20,6 +20,8 @@ class CategoryViewController: UIViewController {
         setupContainer()
         setupVocabButtons()
         setDeleteNotifButton()
+        setDescriptionButton()
+        checkIsDescription()
     }
     // MARK - Layout Setting
     func setupScrollView() {
@@ -51,6 +53,14 @@ class CategoryViewController: UIViewController {
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
             
         ])
+    }
+    
+    func setDescriptionButton() {
+        let descriptionButton = UIButton(type: .system)
+        descriptionButton.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
+        descriptionButton.tintColor = AppColors.appMainColor
+        descriptionButton.addTarget(self, action: #selector(setDiscrptionView), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: descriptionButton)
     }
     
     // MARK: - Vocab Buttons Setting
@@ -187,6 +197,13 @@ class CategoryViewController: UIViewController {
         let vc = VocabEighthViewController(titleName: NSLocalizedString("vocab_eighth_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @objc func setDiscrptionView() {
+        let explanationView = DescriptionView(frame: CGRect(x: 50, y: 170, width: 330, height: 350))
+        explanationView.center = view.center
+        view.addSubview(explanationView)
+    }
+    
     // 全てのリマインドを削除
     @objc func openAllNotifDeleteAleart(){
         let alert = UIAlertController(title: NSLocalizedString("delete_all_notif_title", comment: ""),
@@ -198,7 +215,12 @@ class CategoryViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-
+    // MARK - Helper
+    func checkIsDescription() {
+        if !UserDefaults.standard.bool(forKey: "isDescription") {
+            setDiscrptionView()
+        }
+    }
     //全ての通知を削除する処理
     func deleteAllNotif() {
         let notificationCenter = UNUserNotificationCenter.current()
@@ -210,7 +232,6 @@ class CategoryViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-    
     
     //大きい画像などのメモリ解放
     override func didReceiveMemoryWarning() {

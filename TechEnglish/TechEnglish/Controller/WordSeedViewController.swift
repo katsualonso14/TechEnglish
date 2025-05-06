@@ -13,14 +13,11 @@ class WordSeedViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("wordseeds_tab_button", comment: "")
         setView()
-        setDescriptionButton()
         setTableView()
         setAddButton()
         setResearchButton()
         setupSearchController()
         updateBackgroundView()
-        // 説明ダイアログが必要か確認
-        checkIsDescription()
     }
     //MARK: - View Layout
     func setView() {
@@ -99,13 +96,6 @@ class WordSeedViewController: UIViewController {
         ])
     }
     
-    func setDescriptionButton() {
-        let descriptionButton = UIButton(type: .system)
-        descriptionButton.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        descriptionButton.tintColor = AppColors.appMainColor
-        descriptionButton.addTarget(self, action: #selector(setDiscrptionView), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: descriptionButton)
-    }
     
     func setupSearchController() {
         searchController.searchResultsUpdater = self
@@ -147,12 +137,6 @@ class WordSeedViewController: UIViewController {
     }
     
     //MARK: - Helper Function
-    func checkIsDescription() {
-        if !UserDefaults.standard.bool(forKey: "isDescription") {
-            setDiscrptionView()
-        }
-    }
-    
     // PhraseStoreに追加
     func addPhraseStore(word: String) {
         let phraseStoreVC = CustomWordsViewController()
@@ -304,12 +288,6 @@ class WordSeedViewController: UIViewController {
         modal.searchWord = QuickMemo
         modal.center = view.center
         view.addSubview(modal)
-    }
-
-    @objc func setDiscrptionView() {
-        let explanationView = DescriptionView(frame: CGRect(x: 50, y: 170, width: 330, height: 350))
-        explanationView.center = view.center
-        view.addSubview(explanationView)
     }
     
 }

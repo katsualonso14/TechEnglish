@@ -70,9 +70,10 @@ class DescriptionView: UIView {
         updateViewContent()
     }
     
+    // TODO: 日本語、英語設定切り分け
     func updateViewContent() {
         imageView.image = discriptNumber == 1 ? UIImage(named: "WordSeed Sample") :
-        discriptNumber == 2 ? UIImage(named: "Add CustomWordList from WordSeed") : UIImage(named: "CustomWordList Sample")
+        discriptNumber == 2 ? UIImage(named: "Add CustomWordList") : UIImage(named: "CustomWordList")
         
         label.text = discriptNumber == 1 ?
         NSLocalizedString("dicript_label_word_seeds", comment: "") :
