@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import FirebaseFirestore
 
 class WordSeedViewController: UIViewController {
     let tableView = UITableView()
@@ -13,6 +14,7 @@ class WordSeedViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("wordseeds_tab_button", comment: "")
         setView()
+        setupFeedBackForm()
         setTableView()
         setAddButton()
         setResearchButton()
@@ -136,6 +138,16 @@ class WordSeedViewController: UIViewController {
         }
     }
     
+    func setupFeedBackForm() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "bubble.left.and.bubble.right"),
+            style: .plain,
+            target: self,
+            action: #selector(openFeedbackModal)
+        )
+        navigationItem.rightBarButtonItem?.tintColor = AppColors.appMainColor
+    }
+    
     //MARK: - Helper Function
     // PhraseStoreに追加
     func addPhraseStore(word: String) {
@@ -241,6 +253,20 @@ class WordSeedViewController: UIViewController {
         
         present(alert, animated: true)
     }
+    // Store feedback to Firestore
+    func saveFeedbackToFirestore(feedback: String) {
+        let db = Firestore.firestore()
+        db.collection("feedbacks").addDocument(data: [
+            "feedback": feedback,
+            "timestamp": Timestamp(date: Date())
+        ]) { error in
+            if let error = error {
+                print("Error saving feedback: \(error.localizedDescription)")
+            } else {
+                print("Feedback successfully saved!")
+            }
+        }
+    }
     
     //MARK: - Function
     @objc func addTapped() {
@@ -278,7 +304,6 @@ class WordSeedViewController: UIViewController {
                 }
             }
         }))
-
         
         present(aleat, animated: true)
     }
@@ -288,6 +313,28 @@ class WordSeedViewController: UIViewController {
         modal.searchWord = QuickMemo
         modal.center = view.center
         view.addSubview(modal)
+    }
+    
+    @objc func openFeedbackModal() {
+        let alert = UIAlertController(title: "Feedback",
+                                      message: NSLocalizedString("feedback_massage", comment: ""),
+                                      preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Feedback"
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
+            if let feedback = alert.textFields?.first?.text , !feedback.isEmpty {
+                // Save feedback to Firestore
+                self.saveFeedbackToFirestore(feedback: feedback)
+            } else {
+                // Show error message
+                let errorAlert = UIAlertController(title: "Error", message: "Please enter feedback.", preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(errorAlert, animated: true, completion: nil)
+            }
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
 }
