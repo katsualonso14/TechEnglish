@@ -51,9 +51,12 @@
 "exception_meaning" = "someone or something that is not included in a rule, group";
 "occurred_meaning" = "(especially of accidents and other unexpected events) to happen";
 "detected_meaning" = "discovered or noticed something";
-"permission_meaning" = "officially allowed to do something";
+"permission_dinied_meaning" = "not allowed to access or perform";
 "deprecated_meaning" = "to disapprove of something";
 "terminated_meaning" = "to bring something to an end";
+"denied_meaning" = "to refuse to accept something";
+"invalid_meaning" = "not acceptable or not correct";
+"failed_meaning" = "not successful in achieving a goal";
 
 // データ・構造
 "indices_meaning" = "plural of index; ordered references";

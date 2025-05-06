@@ -53,11 +53,13 @@
 "exception_meaning" = "例外";
 "occurred_meaning" = "発生する・起こる";
 "detected_meaning" = "検出された";
-"permission_meaning" = "許可が降りない";
-"deprecated_meaning" = "廃止された";
+"permission_dinied_meaning" = "権限がないため拒否されました";
+"deprecated_meaning" = "非推奨・廃止された";
 "terminated_meaning" = "終了した";
-"denied_meaning" = "否定";
-"attempted_meaning" = "試みた";
+"attempted_meaning" = "（失敗を含む）試みた";
+"invalid_meaning" = "無効な・適切でない";
+"failed_meaning" = "失敗した";
+
 
 // データ・構造
 "indices_meaning" = "インデックス";

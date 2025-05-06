@@ -5,33 +5,46 @@ class VocabularyList {
 
     // First: エラー・例外
     var firstSentenceArray = [
-        ExpandableNames(isExpanded: true, names: ["exception", "occurred", "detected", "permission", "deprecated", "terminated", "denied", "attempted"].map {
+        ExpandableNames(isExpanded: true, names: [
+            "exception", "invalid", "failed", "permission denied", "occurred",
+            "detected", "deprecated", "terminated", "attempted"
+        ].map {
             Contact(name: $0,
                     hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
         })
     ]
 
-    var firstSentence = ["exception", "occurred", "detected", "permission", "deprecated", "terminated", "denied", "attempted"]
-    var firstPronunciation = ["ɪkˈsɛpʃ(ə)n", "əˈkɜrd", "dɪˈtɛktɪd", "pɚˈmɪʃən", "ˈdɛprɪˌkeɪtɪd", "ˈtɜrmɪˌneɪtɪd", "dɪˈnaɪd", "əˈtɛmptɪd"]
+    var firstSentence = [
+        "exception", "invalid", "failed", "permission denied", "occurred",
+        "detected", "deprecated", "terminated", "attempted"
+    ]
+
+    var firstPronunciation = [
+        "ɪkˈsɛpʃ(ə)n", "ˌɪnˈvælɪd", "feɪld", "pɚˈmɪʃən", "əˈkɜrd",
+        "dɪˈtɛktɪd", "ˈdɛprɪˌkeɪtɪd", "ˈtɜrmɪˌneɪtɪd", "əˈtɛmptɪd"
+    ]
+
     var firstEnglish = [
         NSLocalizedString("exception_meaning", comment: ""),
+        NSLocalizedString("invalid_meaning", comment: ""),
+        NSLocalizedString("failed_meaning", comment: ""),
+        NSLocalizedString("permission_dinied_meaning", comment: ""),
         NSLocalizedString("occurred_meaning", comment: ""),
         NSLocalizedString("detected_meaning", comment: ""),
-        NSLocalizedString("permission_meaning", comment: ""),
         NSLocalizedString("deprecated_meaning", comment: ""),
         NSLocalizedString("terminated_meaning", comment: ""),
-        NSLocalizedString("denied_meaning", comment: ""),
         NSLocalizedString("attempted_meaning", comment: "")
     ]
-    
+
     let firstExampleSentence = [
         "The system threw an exception when the input value was null.",
+        "The input format is invalid and cannot be processed.",
+        "The login process failed due to incorrect credentials.",
+        "Permission denied: You need admin rights to access this folder.",
         "An unexpected error occurred while processing your request.",
         "The antivirus software detected a potential threat in the file.",
-        "Permission denied: You need admin rights to access this folder.",
         "This function is deprecated and should not be used in new code.",
         "The process was terminated due to a memory overflow error.",
-        "Access was denied due to invalid credentials.",
         "The application attempted to access a restricted area."
     ]
 
