@@ -87,15 +87,30 @@ class DescriptionView: UIView {
     }
 
     func updateViewContent() {
-        imageView.image = discriptNumber == 1 ? UIImage(named: "WordSeed Sample") :
-                          discriptNumber == 2 ? UIImage(named: "Add CustomWordList") :
-                          UIImage(named: "CustomWordList")
-
-        label.text = discriptNumber == 1 ? NSLocalizedString("dicript_label_word_seeds", comment: "") :
-                      discriptNumber == 2 ? NSLocalizedString("dicript_label_add_custom_word_list", comment: "") :
-                      NSLocalizedString("dicript_label_custom_word_list", comment: "")
-
-        button.setTitle(discriptNumber == 3 ? "Close" : "Next", for: .normal)
+        switch discriptNumber {
+        case 1:
+            imageView.image = UIImage(named: "App purpose image")
+            label.text = NSLocalizedString("dicript_label_app_purpose", comment: "")
+            button.setTitle("Next", for: .normal)
+            
+        case 2:
+            imageView.image = UIImage(named: "WordSeed Sample")
+            label.text = NSLocalizedString("dicript_label_word_seeds", comment: "")
+            button.setTitle("Next", for: .normal)
+            
+        case 3:
+            imageView.image = UIImage(named: "Add CustomWordList")
+            label.text = NSLocalizedString("dicript_label_add_custom_word_list", comment: "")
+            button.setTitle("Next", for: .normal)
+            
+        case 4:
+            imageView.image = UIImage(named: "CustomWordList")
+            label.text = NSLocalizedString("dicript_label_custom_word_list", comment: "")
+            button.setTitle("Close", for: .normal)
+            
+        default:
+            break
+        }
 
         updateCheckBox()
     }
@@ -105,10 +120,8 @@ class DescriptionView: UIView {
     }
 
     @objc func changePage() {
-        if discriptNumber == 1 {
-            discriptNumber = 2
-        } else if discriptNumber == 2 {
-            discriptNumber = 3
+        if discriptNumber < 4 {
+            discriptNumber += 1
         } else {
             parentViewController?.dismiss(animated: true)
         }

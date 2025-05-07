@@ -222,11 +222,20 @@ class CategoryViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     // MARK - Helper
+    // 説明画面表示判定
     func checkIsDescription() {
-        if !UserDefaults.standard.bool(forKey: "isDescription") {
+        let isDescriptionShown = UserDefaults.standard.bool(forKey: "isDescription")
+        // 通知用の説明表示出しわけフラグ
+        let launchedFromNotification = UserDefaults.standard.bool(forKey: "launchedFromNotification")
+
+        if !isDescriptionShown && !launchedFromNotification {
             setDiscrptionView()
         }
+
+        // 通知から遷移した場合は一時的にフラグをリセット
+        UserDefaults.standard.set(false, forKey: "launchedFromNotification")
     }
+
     //全ての通知を削除する処理
     func deleteAllNotif() {
         let notificationCenter = UNUserNotificationCenter.current()

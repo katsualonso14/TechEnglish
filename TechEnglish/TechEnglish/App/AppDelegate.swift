@@ -73,6 +73,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     // 通知をタップした際の処理
     func handleNotification(userInfo: [AnyHashable: Any]) {
         guard let page = userInfo["page"] as? String else { return }
+        // 通知をタップした時にフラグを設定
+        UserDefaults.standard.set(true, forKey: "launchedFromNotification")
         
         DispatchQueue.main.async {
             if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
