@@ -33,6 +33,7 @@
 		234916602DC30953000128C6 /* WebMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349165F2DC30953000128C6 /* WebMeta.swift */; };
 		2349166E2DC4517D000128C6 /* VocabButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */; };
 		2349167C2DC9E23C000128C6 /* VcabSixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349167B2DC9E23C000128C6 /* VcabSixthViewController.swift */; };
+		2349167E2DCABFDE000128C6 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349167D2DCABFDE000128C6 /* DescriptionViewController.swift */; };
 		2353AA1E2DADCA890057D201 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA1D2DADCA890057D201 /* CalendarViewController.swift */; };
 		2353AA202DADCB130057D201 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA1F2DADCB130057D201 /* EventModel.swift */; };
 		2353AA302DAF24D30057D201 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA2E2DAF24D30057D201 /* Localizable.strings */; };
@@ -94,6 +95,7 @@
 		2349165F2DC30953000128C6 /* WebMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebMeta.swift; sourceTree = "<group>"; };
 		2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabButtonInfo.swift; sourceTree = "<group>"; };
 		2349167B2DC9E23C000128C6 /* VcabSixthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcabSixthViewController.swift; sourceTree = "<group>"; };
+		2349167D2DCABFDE000128C6 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		2353AA1D2DADCA890057D201 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		2353AA1F2DADCB130057D201 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		2353AA2F2DAF24D30057D201 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = TechEnglish/ja.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
@@ -274,6 +276,7 @@
 				2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */,
 				2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */,
 				2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */,
+				2349167D2DCABFDE000128C6 /* DescriptionViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				2353AA592DB9EC270057D201 /* VocabFourthViewController.swift in Sources */,
 				2317C7012D6DA37B00F8E1D4 /* CustomWordsViewController.swift in Sources */,
 				2353AA612DB9F25C0057D201 /* VocabEighthViewController.swift in Sources */,
+				2349167E2DCABFDE000128C6 /* DescriptionViewController.swift in Sources */,
 				2317C7022D6DA37B00F8E1D4 /* WordSeedViewController.swift in Sources */,
 				2317C7202D6EED8400F8E1D4 /* VocabThirdViewController.swift in Sources */,
 			);
