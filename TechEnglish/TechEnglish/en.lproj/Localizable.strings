@@ -59,14 +59,16 @@
 "invalid_meaning" = "not acceptable or not correct";
 "failed_meaning" = "not successful in achieving a goal";
 
-// データ・構造
-"indices_meaning" = "plural of index; ordered references";
-"constraint_meaning" = "a limit that controls what you can do";
-"global_variable_meaning" = "a variable accessible from all parts of code";
-"expression_meaning" = "a set of symbols showing a value or idea";
-"decreasing_order_meaning" = "arranged from large to small";
-"non_decreasing_order_meaning" = "arranged in increasing or equal order";
-"calculation_meaning" = "the process of using numbers to find a result";
+// Data
+"index_indices_meaning" = "A position in a list or array.";
+"field_meaning" = "A named piece of data in a structure.";
+"structure_struct_meaning" = "A grouped set of related values.";
+"record_meaning" = "A single set of related data.";
+"constraint_meaning" = "A rule that limits values.";
+"mutable_meaning" = "Can be changed after creation.";
+"immutable_meaning" = "Cannot be changed.";
+"queue_meaning" = "Processes items in order (FIFO).";
+"node_meaning" = "An element in a structure like a tree.";
 
 // 状態・ライフサイクル
 "suspended_meaning" = "to stop something temporarily or permanently";

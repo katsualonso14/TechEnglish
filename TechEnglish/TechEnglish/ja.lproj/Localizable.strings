@@ -61,15 +61,16 @@
 "invalid_meaning" = "無効な・適切でない";
 "failed_meaning" = "失敗した";
 
-
 // データ・構造
-"indices_meaning" = "インデックス";
-"constraint_meaning" = "制約";
-"global_variable_meaning" = "グローバル変数";
-"expression_meaning" = "表現";
-"decreasing_order_meaning" = "降順";
-"non_decreasing_order_meaning" = "昇順";
-"calculation_meaning" = "計算";
+"index_indices_meaning" = "インデックス（配列やリスト内の位置）";
+"field_meaning" = "フィールド（構造体やデータの項目）";
+"structure_struct_meaning" = "構造体（データをまとめる型）";
+"record_meaning" = "レコード（1件のまとまったデータ）";
+"constraint_meaning" = "制約（データの制限ルール）";
+"mutable_meaning" = "可変（あとから変更できる）";
+"immutable_meaning" = "不変（あとから変更できない）";
+"queue_meaning" = "キュー（順番に処理するデータ構造）";
+"node_meaning" = "ノード（構造の中の要素）";
 
 // 状態・ライフサイクル
 "suspended_meaning" = "一時停止中";

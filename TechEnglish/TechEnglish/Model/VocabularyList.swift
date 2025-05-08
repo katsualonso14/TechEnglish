@@ -50,38 +50,47 @@ class VocabularyList {
 
     // Second: データ・構造
     var secondSentenceArray = [
-        ExpandableNames(isExpanded: true, names: ["indices", "constraint", "related", "global variable", "expression", "ancestor", "decreasing order", "non decreasing order", "calculation"].map {
+        ExpandableNames(isExpanded: true, names: [
+            "index/indices", "field", "structure/struct", "record",
+            "constraint", "mutable", "immutable", "queue", "node"
+        ].map {
             Contact(name: $0,
                     hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
         })
     ]
-
-    var secondSentence = ["indices", "constraint", "related", "global variable", "expression", "ancestor", "decreasing order", "non decreasing order", "calculation"]
-    var secondPronunciation = ["ˈɪndɪˌsiz", "kənˈstreɪnt", "rɪˈleɪtɪd","ˈɡloʊbəl ˈvɛriəbl", "ɪkˈsprɛʃən", "ˈænsɛstər","diːˈkriːsɪŋ ˈɔːrdər", "ˌnɑn.dɪˈkriːsɪŋ ˈɔːrdər", "ˌkælkjʊˈleɪʃən"]
+    var secondSentence = [
+        "index/indices", "field", "structure/struct", "record",
+        "constraint", "mutable", "immutable", "queue", "node"
+    ]
+    var secondPronunciation = [
+        "ˈɪndɛks/ˈɪndɪˌsiz", "fiːld", "ˈstrʌktʃər/strʌkt", "ˈrɛkərd",
+        "kənˈstreɪnt", "ˈmjuːtəbəl", "ɪˈmjuːtəbəl", "kjuː", "noʊd"
+    ]
     var secondEnglish = [
-        NSLocalizedString("indices_meaning", comment: ""),
+        NSLocalizedString("index_indices_meaning", comment: ""),
+        NSLocalizedString("field_meaning", comment: ""),
+        NSLocalizedString("structure_struct_meaning", comment: ""),
+        NSLocalizedString("structure_struct_meaning", comment: ""), // structとstructureは同一訳で共用
+        NSLocalizedString("record_meaning", comment: ""),
         NSLocalizedString("constraint_meaning", comment: ""),
-        NSLocalizedString("related_meaning", comment: ""),
-        NSLocalizedString("global_variable_meaning", comment: ""),
-        NSLocalizedString("expression_meaning", comment: ""),
-        NSLocalizedString("ancestor_meaning", comment: ""),
-        NSLocalizedString("decreasing_order_meaning", comment: ""),
-        NSLocalizedString("non_decreasing_order_meaning", comment: ""),
-        NSLocalizedString("calculation_meaning", comment: "")
+        NSLocalizedString("mutable_meaning", comment: ""),
+        NSLocalizedString("immutable_meaning", comment: ""),
+        NSLocalizedString("queue_meaning", comment: ""),
+        NSLocalizedString("node_meaning", comment: "")
+    ]
+    let secondExampleSentence = [
+        "Access the value using its index in the list.",
+        "Each field in the struct holds a specific value.",
+        "A structure groups related values together.",
+        "A struct is used to define custom data types.",
+        "Each record contains a name and score.",
+        "This constraint prevents duplicate entries.",
+        "This list is mutable and can be changed.",
+        "The string is immutable once created.",
+        "Use a queue to process tasks in order.",
+        "Each node stores a value and links to others."
     ]
     
-    let secondExampleSentence = [
-        "The array indices must be integers starting from zero.",
-        "A foreign key constraint failed during the insert operation.",
-        "The error is related to a missing dependency.",
-        "Avoid using global variables to reduce side effects.",
-        "This regular expression matches all lowercase letters.",
-        "The method is defined in an ancestor class.",
-        "Sort the data in decreasing order before calculating the average.",
-        "The list must be sorted in non-decreasing order.",
-        "The final price is the result of a simple tax calculation."
-    ]
-
     // Third: 状態・ライフサイクル
         var thirdSentenceArray = [
             ExpandableNames(isExpanded: true, names: ["suspended", "contained", "persist", "persistent", "embed", "fetch", "rotated", "unbounded", "instead"].map {
