@@ -206,8 +206,7 @@ class VocabularyList {
     // Sixth: ドキュメント
     var sixthSentenceArray = [
         ExpandableNames(isExpanded: true, names: [
-            "outdated", "deprecated", "obsolete", "superseded", "legacy",
-            "experimental", "preview", "stable", "release note", "changelog"
+            "outdated", "deprecated", "obsolete", "superseded", "experimental", "stable"
         ].map {
             Contact(name: $0,
                     hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
@@ -215,13 +214,11 @@ class VocabularyList {
     ]
 
     var sixthSentence = [
-        "outdated", "deprecated", "obsolete", "superseded", "legacy",
-        "experimental", "preview", "stable", "release note", "changelog"
+        "outdated", "deprecated", "obsolete", "superseded", "experimental", "stable"
     ]
 
     var sixthPronunciation = [
-        "ˌaʊtˈdeɪtɪd", "ˌdɛprəˈkeɪtɪd", "ˈɑːbsəliːt", "ˌsuːpərˈsiːdɪd", "ˈlɛɡəsi",
-        "ˌɛkspəˈrɪməntl", "ˈpriːvjuː", "ˈsteɪbəl", "rɪˈliːs noʊt", "ˈtʃeɪndʒˌlɔɡ"
+        "ˌaʊtˈdeɪtɪd", "ˌdɛprəˈkeɪtɪd", "ˈɑːbsəliːt", "ˌsuːpərˈsiːdɪd", "ˌɛkspəˈrɪməntl", "ˈsteɪbəl"
     ]
 
     var sixthEnglish = [
@@ -229,12 +226,8 @@ class VocabularyList {
         NSLocalizedString("deprecated_meaning", comment: ""),
         NSLocalizedString("obsolete_meaning", comment: ""),
         NSLocalizedString("superseded_meaning", comment: ""),
-        NSLocalizedString("legacy_meaning", comment: ""),
         NSLocalizedString("experimental_meaning", comment: ""),
-        NSLocalizedString("preview_meaning", comment: ""),
-        NSLocalizedString("stable_meaning", comment: ""),
-        NSLocalizedString("release_note_meaning", comment: ""),
-        NSLocalizedString("changelog_meaning", comment: "")
+        NSLocalizedString("stable_meaning", comment: "")
     ]
 
     let sixthExampleSentence = [
@@ -242,12 +235,8 @@ class VocabularyList {
         "This method is deprecated and should not be used.",
         "The API is obsolete and will be removed in future versions.",
         "This tool has been superseded by a newer version.",
-        "This is a legacy system that requires special maintenance.",
         "Use this feature with caution as it is experimental.",
-        "The new UI is currently in preview mode.",
-        "Version 2.1 is now available as a stable release.",
-        "Check the release note for recent updates.",
-        "The changelog provides a full history of changes."
+        "Version 2.1 is now available as a stable release."
     ]
 
     // Eighth: その他・補足

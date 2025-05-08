@@ -48,7 +48,7 @@
 "delete_all_notif_finish_title" = "All notifications have been deleted";
 
 // MARK: - Tech Words Vocabulary
-// エラー・例外
+// Error & Exception
 "exception_meaning" = "someone or something that is not included in a rule, group";
 "occurred_meaning" = "(especially of accidents and other unexpected events) to happen";
 "detected_meaning" = "discovered or noticed something";
@@ -69,6 +69,14 @@
 "immutable_meaning" = "Cannot be changed.";
 "queue_meaning" = "Processes items in order (FIFO).";
 "node_meaning" = "An element in a structure like a tree.";
+
+// Documents
+"outdated_meaning" = "no longer in use or relevant";
+"deprecated_meaning" = "discouraged from use, often due to being outdated";
+"obsolete_meaning" = "no longer produced or used";
+"superseded_meaning" = "replaced by something newer or better";
+"experimental_meaning" = "being tested, not fully developed";
+"stable_meaning" = "fully tested and reliable for use";
 
 // 状態・ライフサイクル
 "suspended_meaning" = "to stop something temporarily or permanently";
@@ -104,17 +112,6 @@
 "ancestor_meaning" = "a person related to you who lived a long time ago";
 "contained_meaning" = "to have something inside or include something as a part";
 
-// ドキュメントの頻出単語
-"outdated_meaning" = "no longer in use or relevant";
-"deprecated_meaning" = "discouraged from use, often due to being outdated";
-"obsolete_meaning" = "no longer produced or used";
-"superseded_meaning" = "replaced by something newer or better";
-"legacy_meaning" = "old system or technology still in use";
-"experimental_meaning" = "being tested, not fully developed";
-"preview_meaning" = "early, incomplete version for review";
-"stable_meaning" = "fully tested and reliable for use";
-"release_note_meaning" = "document detailing new features and fixes";
-"changelog_meaning" = "record of changes made to a project";
 
 // その他・補足
 "outdated_meaning" = "no longer current; obsolete or out of date";

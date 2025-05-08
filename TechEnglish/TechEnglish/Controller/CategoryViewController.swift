@@ -5,11 +5,11 @@ class CategoryViewController: UIViewController {
     let scrollView = UIScrollView()
     let vocabButtons: [VocabButtonInfo] = [
         VocabButtonInfo(titleKey: "vocab_first_button_title", imageName: "error_image", selector: #selector(pushFirstButton)),
+        VocabButtonInfo(titleKey: "vocab_sixth_button_title", imageName: "doc_image", selector: #selector(pushSixthButton)),
         VocabButtonInfo(titleKey: "vocab_second_button_title", imageName: "data_image", selector: #selector(pushSecondButton)),
         VocabButtonInfo(titleKey: "vocab_third_button_title", imageName: "lifecycle_image", selector: #selector(pushThirdButton)),
         VocabButtonInfo(titleKey: "vocab_fourth_button_title", imageName: "settings_image", selector: #selector(pushFourthButton)),
         VocabButtonInfo(titleKey: "vocab_fifth_button_title", imageName: "coding_test_image", selector: #selector(pushFifthButton)),
-        VocabButtonInfo(titleKey: "vocab_sixth_button_title", imageName: "doc_image", selector: #selector(pushSixthButton)),
         VocabButtonInfo(titleKey: "vocab_eighth_button_title", imageName: "others_image", selector: #selector(pushEighthButton)),
     ]
 

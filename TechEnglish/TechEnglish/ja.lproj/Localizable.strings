@@ -61,6 +61,14 @@
 "invalid_meaning" = "無効な・適切でない";
 "failed_meaning" = "失敗した";
 
+// ドキュメントの頻出単語
+"outdated_meaning" = "時代遅れで、もはや使われない";
+"deprecated_meaning" = "使用が推奨されなくなった（古くなったため）";
+"obsolete_meaning" = "もはや使用されていない";
+"superseded_meaning" = "新しいものに置き換えられた";
+"experimental_meaning" = "テスト段階、完全に開発されていない";
+"stable_meaning" = "完全にテストされ、信頼できる";
+
 // データ・構造
 "index_indices_meaning" = "インデックス（配列やリスト内の位置）";
 "field_meaning" = "フィールド（構造体やデータの項目）";
@@ -105,18 +113,6 @@
 "identifiable_meaning" = "識別可能な";
 "ancestor_meaning" = "祖先,先祖";
 "contained_meaning" = "含まれる";
-
-// ドキュメントの頻出単語
-"outdated_meaning" = "時代遅れで、もはや使われない";
-"deprecated_meaning" = "使用が推奨されなくなった（古くなったため）";
-"obsolete_meaning" = "もはや使用されていない";
-"superseded_meaning" = "新しいものに置き換えられた";
-"legacy_meaning" = "まだ使われている古いシステムや技術";
-"experimental_meaning" = "テスト段階、完全に開発されていない";
-"preview_meaning" = "未完成のレビュー用のバージョン";
-"stable_meaning" = "完全にテストされ、信頼できる";
-"release_note_meaning" = "新機能や修正を詳細に記載したドキュメント";
-"changelog_meaning" = "プロジェクトで行われた変更の記録";
 
 // その他・補足
 "outdated_meaning" = "時代遅れの、古くなった";
