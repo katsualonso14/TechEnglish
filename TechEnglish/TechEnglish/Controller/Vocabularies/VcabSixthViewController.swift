@@ -73,10 +73,10 @@ class VocabSixthViewController: UITableViewController, AVAudioPlayerDelegate, AV
             return
         }
         
-        let contact = vocabularyList.sixthSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
+        let contact = vocabularyList.docsSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
         let hasFavorited = contact.hasFavorited
         
-        vocabularyList.sixthSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited = !hasFavorited
+        vocabularyList.docsSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited = !hasFavorited
         // タップしてときの値をpushメッセージに記載
         content.title = contact.name
         content.body = contact.name
@@ -99,10 +99,10 @@ class VocabSixthViewController: UITableViewController, AVAudioPlayerDelegate, AV
             return
         }
         
-        let contact = vocabularyList.sixthSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
+        let contact = vocabularyList.docsSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
         let hasFavorited = contact.hasFavorited2
         
-        vocabularyList.sixthSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited2 = !hasFavorited
+        vocabularyList.docsSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited2 = !hasFavorited
         // タップしてときの値をpushメッセージに記載
         content.title = contact.name
         content.body = contact.name
@@ -121,7 +121,7 @@ class VocabSixthViewController: UITableViewController, AVAudioPlayerDelegate, AV
     // MARK: - TableView
     // cellの数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vocabularyList.sixthSentenceArray[0].names.count
+        return vocabularyList.docsSentenceArray[0].names.count
     }
     
     // cellの中身
@@ -129,9 +129,9 @@ class VocabSixthViewController: UITableViewController, AVAudioPlayerDelegate, AV
         // CustomTableViewCellの追加
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
         cell.sixthVC = self
-        let contact = vocabularyList.sixthSentenceArray[0].names[indexPath.row]
+        let contact = vocabularyList.docsSentenceArray[0].names[indexPath.row]
         // cellの文字指定
-        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.sixthPronunciation[indexPath.row], japanese: vocabularyList.sixthEnglish[indexPath.row], exampleSentence: vocabularyList.sixthExampleSentence[indexPath.row])
+        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.docsPronunciation[indexPath.row], japanese: vocabularyList.docsEnglish[indexPath.row], exampleSentence: vocabularyList.docsExampleSentence[indexPath.row])
         
         cell.heartButton.tintColor = contact.hasFavorited ? .red : .gray
         cell.heartButton2.tintColor = contact.hasFavorited2 ? .orange : .gray
@@ -147,7 +147,7 @@ class VocabSixthViewController: UITableViewController, AVAudioPlayerDelegate, AV
     // cellをタップした時の処理
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 英語の読み上げ設定
-        let utterance = AVSpeechUtterance.init(string: vocabularyList.sixthSentence[indexPath.row])
+        let utterance = AVSpeechUtterance.init(string: vocabularyList.docsSentence[indexPath.row])
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synthesizer.speak(utterance)
     }

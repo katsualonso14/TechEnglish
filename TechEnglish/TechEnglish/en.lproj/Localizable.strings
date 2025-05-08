@@ -59,17 +59,6 @@
 "invalid_meaning" = "not acceptable or not correct";
 "failed_meaning" = "not successful in achieving a goal";
 
-// Data
-"index_indices_meaning" = "A position in a list or array.";
-"field_meaning" = "A named piece of data in a structure.";
-"structure_struct_meaning" = "A grouped set of related values.";
-"record_meaning" = "A single set of related data.";
-"constraint_meaning" = "A rule that limits values.";
-"mutable_meaning" = "Can be changed after creation.";
-"immutable_meaning" = "Cannot be changed.";
-"queue_meaning" = "Processes items in order (FIFO).";
-"node_meaning" = "An element in a structure like a tree.";
-
 // Documents
 "outdated_meaning" = "no longer in use or relevant";
 "deprecated_meaning" = "discouraged from use, often due to being outdated";
@@ -78,14 +67,26 @@
 "experimental_meaning" = "being tested, not fully developed";
 "stable_meaning" = "fully tested and reliable for use";
 
-// 状態・ライフサイクル
-"suspended_meaning" = "to stop something temporarily or permanently";
-"persist_meaning" = "to continue to exist or happen";
-"persistent_meaning" = "continuing for a long time or without change";
-"embed_meaning" = "to fix something firmly into a substance";
-"fetch_meaning" = "to go to another place to get something";
-"rotated_meaning" = "turned around a central point";
-"unbounded_meaning" = "not limited in any way";
+// Data
+"index_indices_meaning" = "A position in a list or array.";
+"field_meaning" = "A named piece of data in a structure.";
+"structure_struct_meaning" = "A grouped set of related values.";
+"record_meaning" = "A single set of related data.";
+"constraint_meaning" = "A rule that limits values.";
+"immutable_meaning" = "Cannot be changed.";
+"node_meaning" = "An element in a structure like a tree.";
+
+// Lifecycle
+"suspended_meaning" = "temporarily paused or inactive";
+"persistent_meaning" = "continuing to exist or retain data over time";
+"embed_meaning" = "insert data or content within another structure";
+"fetch_meaning" = "retrieve data from a source";
+"unbounded_meaning" = "without a fixed limit or restriction";
+"invoked_meaning" = "called or triggered for execution";
+"asynchronous_meaning" = "not executed immediately; may complete later";
+"inherited_meaning" = "received properties or behavior from a parent";
+"ancestor_meaning" = "a parent or higher-level element in a hierarchy";
+"permanent_meaning" = "lasting indefinitely or without change";
 
 // 設定・条件
 "assume_meaning" = "to accept something as true without proof";

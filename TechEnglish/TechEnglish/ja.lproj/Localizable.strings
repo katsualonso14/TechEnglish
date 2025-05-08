@@ -75,19 +75,20 @@
 "structure_struct_meaning" = "構造体（データをまとめる型）";
 "record_meaning" = "レコード（1件のまとまったデータ）";
 "constraint_meaning" = "制約（データの制限ルール）";
-"mutable_meaning" = "可変（あとから変更できる）";
 "immutable_meaning" = "不変（あとから変更できない）";
 "queue_meaning" = "キュー（順番に処理するデータ構造）";
-"node_meaning" = "ノード（構造の中の要素）";
 
 // 状態・ライフサイクル
 "suspended_meaning" = "一時停止中";
-"persist_meaning" = "持続する";
-"persistent_meaning" = "存在し続ける";
-"embed_meaning" = "埋め込む";
-"fetch_meaning" = "持ってくる";
-"rotated_meaning" = "回転した";
-"unbounded_meaning" = "無制限の";
+"persistent_meaning" = "データが永続的に存在し続ける";
+"embed_meaning" = "データを埋め込む";
+"fetch_meaning" = "データを取得する";
+"unbounded_meaning" = "制限のない";
+"invoked_meaning" = "関数や処理が呼び出された";
+"asynchronous_meaning" = "非同期で実行され、すぐには完了しない";
+"inherited_meaning" = "上位の設定や属性を継承した";
+"ancestor_meaning" = "親や祖先の要素（階層構造で上にあるもの）";
+"permanent_meaning" = "恒久的に変わらない状態";
 
 // 設定・条件
 "assume_meaning" = "仮定する";

@@ -3,8 +3,8 @@ import UIKit
 
 class VocabularyList {
 
-    // First: エラー・例外
-    var firstSentenceArray = [
+    // エラー・例外
+    var errorSentenceArray = [
         ExpandableNames(isExpanded: true, names: [
             "exception", "invalid", "failed", "permission denied", "occurred",
             "detected", "deprecated", "terminated", "attempted"
@@ -14,17 +14,17 @@ class VocabularyList {
         })
     ]
 
-    var firstSentence = [
+    var errorSentence = [
         "exception", "invalid", "failed", "permission denied", "occurred",
         "detected", "deprecated", "terminated", "attempted"
     ]
 
-    var firstPronunciation = [
+    var errorPronunciation = [
         "ɪkˈsɛpʃ(ə)n", "ˌɪnˈvælɪd", "feɪld", "pɚˈmɪʃən", "əˈkɜrd",
         "dɪˈtɛktɪd", "ˈdɛprɪˌkeɪtɪd", "ˈtɜrmɪˌneɪtɪd", "əˈtɛmptɪd"
     ]
 
-    var firstEnglish = [
+    var errorEnglish = [
         NSLocalizedString("exception_meaning", comment: ""),
         NSLocalizedString("invalid_meaning", comment: ""),
         NSLocalizedString("failed_meaning", comment: ""),
@@ -36,7 +36,7 @@ class VocabularyList {
         NSLocalizedString("attempted_meaning", comment: "")
     ]
 
-    let firstExampleSentence = [
+    let errorExampleSentence = [
         "The system threw an exception when the input value was null.",
         "The input format is invalid and cannot be processed.",
         "The login process failed due to incorrect credentials.",
@@ -47,81 +47,130 @@ class VocabularyList {
         "The process was terminated due to a memory overflow error.",
         "The application attempted to access a restricted area."
     ]
-
-    // Second: データ・構造
-    var secondSentenceArray = [
+    
+    // ドキュメント
+    var docsSentenceArray = [
         ExpandableNames(isExpanded: true, names: [
-            "index/indices", "field", "structure/struct", "record",
-            "constraint", "mutable", "immutable", "queue", "node"
+            "outdated", "deprecated", "obsolete", "superseded", "experimental", "stable"
         ].map {
             Contact(name: $0,
                     hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
         })
     ]
-    var secondSentence = [
+
+    var docsSentence = [
+        "outdated", "deprecated", "obsolete", "superseded", "experimental", "stable"
+    ]
+
+    var docsPronunciation = [
+        "ˌaʊtˈdeɪtɪd", "ˌdɛprəˈkeɪtɪd", "ˈɑːbsəliːt", "ˌsuːpərˈsiːdɪd", "ˌɛkspəˈrɪməntl", "ˈsteɪbəl"
+    ]
+
+    var docsEnglish = [
+        NSLocalizedString("outdated_meaning", comment: ""),
+        NSLocalizedString("deprecated_meaning", comment: ""),
+        NSLocalizedString("obsolete_meaning", comment: ""),
+        NSLocalizedString("superseded_meaning", comment: ""),
+        NSLocalizedString("experimental_meaning", comment: ""),
+        NSLocalizedString("stable_meaning", comment: "")
+    ]
+
+    let docsExampleSentence = [
+        "The documentation is outdated and needs revision.",
+        "This method is deprecated and should not be used.",
+        "The API is obsolete and will be removed in future versions.",
+        "This tool has been superseded by a newer version.",
+        "Use this feature with caution as it is experimental.",
+        "Version 2.1 is now available as a stable release."
+    ]
+
+    // データ・構造
+    var dataSentenceArray = [
+        ExpandableNames(isExpanded: true, names: [
+            "index/indices", "field", "structure/struct", "record",
+            "constraint", "immutable", "queue"
+        ].map {
+            Contact(name: $0,
+                    hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
+        })
+    ]
+
+    var dataSentence = [
         "index/indices", "field", "structure/struct", "record",
-        "constraint", "mutable", "immutable", "queue", "node"
+        "constraint", "immutable", "queue"
     ]
-    var secondPronunciation = [
+
+    var dataPronunciation = [
         "ˈɪndɛks/ˈɪndɪˌsiz", "fiːld", "ˈstrʌktʃər/strʌkt", "ˈrɛkərd",
-        "kənˈstreɪnt", "ˈmjuːtəbəl", "ɪˈmjuːtəbəl", "kjuː", "noʊd"
+        "kənˈstreɪnt", "ɪˈmjuːtəbəl", "kjuː"
     ]
-    var secondEnglish = [
+
+    var dataEnglish = [
         NSLocalizedString("index_indices_meaning", comment: ""),
         NSLocalizedString("field_meaning", comment: ""),
-        NSLocalizedString("structure_struct_meaning", comment: ""),
-        NSLocalizedString("structure_struct_meaning", comment: ""), // structとstructureは同一訳で共用
+        NSLocalizedString("structure_meaning", comment: ""), // structure と struct を一つの意味にまとめる
         NSLocalizedString("record_meaning", comment: ""),
         NSLocalizedString("constraint_meaning", comment: ""),
-        NSLocalizedString("mutable_meaning", comment: ""),
         NSLocalizedString("immutable_meaning", comment: ""),
-        NSLocalizedString("queue_meaning", comment: ""),
-        NSLocalizedString("node_meaning", comment: "")
+        NSLocalizedString("queue_meaning", comment: "")
     ]
-    let secondExampleSentence = [
+
+    let dataExampleSentence = [
         "Access the value using its index in the list.",
         "Each field in the struct holds a specific value.",
         "A structure groups related values together.",
         "A struct is used to define custom data types.",
         "Each record contains a name and score.",
         "This constraint prevents duplicate entries.",
-        "This list is mutable and can be changed.",
         "The string is immutable once created.",
-        "Use a queue to process tasks in order.",
-        "Each node stores a value and links to others."
+        "Use a queue to process tasks in order."
     ]
     
-    // Third: 状態・ライフサイクル
-        var thirdSentenceArray = [
-            ExpandableNames(isExpanded: true, names: ["suspended", "contained", "persist", "persistent", "embed", "fetch", "rotated", "unbounded", "instead"].map {
-                Contact(name: $0,
-                        hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
-            })
-        ]
-        var thirdSentence = ["suspended", "contained", "persist", "persistent", "embed", "fetch", "rotated", "unbounded", "instead"]
-        var thirdPronunciation = ["səˈspɛndɪd", "kənˈteɪnd", "pərˈsɪst", "ˈpɝːsɪstənt", "ɪmˈbɛd", "fɛtʃ", "ˈroʊˌteɪtɪd", "ʌnˈbaʊndɪd", "ɪnˈstɛd"]
-        var thirdEnglish = [
-            NSLocalizedString("suspended_meaning", comment: ""),
-            NSLocalizedString("contained_meaning", comment: ""),
-            NSLocalizedString("persist_meaning", comment: ""),
-            NSLocalizedString("persistent_meaning", comment: ""),
-            NSLocalizedString("embed_meaning", comment: ""),
-            NSLocalizedString("fetch_meaning", comment: ""),
-            NSLocalizedString("rotated_meaning", comment: ""),
-            NSLocalizedString("unbounded_meaning", comment: ""),
-            NSLocalizedString("instead_meaning", comment: "")
-        ]
-    
-    let thirdExampleSentence = [
-        "The task was suspended due to lack of user input.",
-        "The archive contained several log files.",
-        "These changes will persist after you restart the application.",
-        "The bug was caused by a persistent connection issue.",
-        "You can embed custom fonts into the PDF document.",
-        "Use the fetch API to retrieve data from the server.",
-        "The image was rotated 90 degrees to fit the layout.",
-        "An unbounded loop can lead to performance issues.",
-        "Use 'let' instead of 'var' for block scoping."
+    // 状態・ライフサイクル
+    var lifecycleSentenceArray = [
+        ExpandableNames(isExpanded: true, names: [
+            "suspended", "persistent", "embed", "fetch", "unbounded",
+            "invoked", "asynchronous", "inherited", "ancestor", "permanent"
+        ].map {
+            Contact(name: $0,
+                    hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
+        })
+    ]
+
+    var lifecycleSentence = [
+        "suspended", "persistent", "embed", "fetch", "unbounded",
+        "invoked", "asynchronous", "inherited", "ancestor", "permanent"
+    ]
+
+    var lifecyclePronunciation = [
+        "səˈspɛndɪd", "ˈpɝːsɪstənt", "ɪmˈbɛd", "fɛtʃ", "ʌnˈbaʊndɪd",
+        "ɪnˈvoʊkt", "ˌeɪsɪŋˈkrɒnəs", "ɪnˈhɛrɪtɪd", "ˈænˌsɛstɚ", "ˈpɝːmənənt"
+    ]
+
+    var lifecycleEnglish = [
+        NSLocalizedString("suspended_meaning", comment: ""),
+        NSLocalizedString("persistent_meaning", comment: ""),
+        NSLocalizedString("embed_meaning", comment: ""),
+        NSLocalizedString("fetch_meaning", comment: ""),
+        NSLocalizedString("unbounded_meaning", comment: ""),
+        NSLocalizedString("invoked_meaning", comment: ""),
+        NSLocalizedString("asynchronous_meaning", comment: ""),
+        NSLocalizedString("inherited_meaning", comment: ""),
+        NSLocalizedString("ancestor_meaning", comment: ""),
+        NSLocalizedString("permanent_meaning", comment: "")
+    ]
+
+    let lifecycleExampleSentence = [
+        "The task was suspended due to user inactivity.",
+        "The bug was caused by a persistent memory leak.",
+        "You can embed metadata inside the image file.",
+        "The app uses fetch to load remote resources.",
+        "An unbounded queue may cause memory overflow.",
+        "The function is invoked after the event fires.",
+        "Asynchronous tasks allow non-blocking execution.",
+        "The child class inherited methods from the parent.",
+        "The ancestor element defines the layout structure.",
+        "The user has a permanent login session."
     ]
 
         // Fourth: 設定・条件
@@ -201,42 +250,6 @@ class VocabularyList {
         "The depth of the directory tree can affect performance.",
         "Set the position to absolute to remove it from the normal flow.",
         "Installing Node.js is one of the prerequisites for running this tool."
-    ]
-    
-    // Sixth: ドキュメント
-    var sixthSentenceArray = [
-        ExpandableNames(isExpanded: true, names: [
-            "outdated", "deprecated", "obsolete", "superseded", "experimental", "stable"
-        ].map {
-            Contact(name: $0,
-                    hasFavorited: false, hasFavorited2: false, hasFavorited3: false, hasFavorited4: false)
-        })
-    ]
-
-    var sixthSentence = [
-        "outdated", "deprecated", "obsolete", "superseded", "experimental", "stable"
-    ]
-
-    var sixthPronunciation = [
-        "ˌaʊtˈdeɪtɪd", "ˌdɛprəˈkeɪtɪd", "ˈɑːbsəliːt", "ˌsuːpərˈsiːdɪd", "ˌɛkspəˈrɪməntl", "ˈsteɪbəl"
-    ]
-
-    var sixthEnglish = [
-        NSLocalizedString("outdated_meaning", comment: ""),
-        NSLocalizedString("deprecated_meaning", comment: ""),
-        NSLocalizedString("obsolete_meaning", comment: ""),
-        NSLocalizedString("superseded_meaning", comment: ""),
-        NSLocalizedString("experimental_meaning", comment: ""),
-        NSLocalizedString("stable_meaning", comment: "")
-    ]
-
-    let sixthExampleSentence = [
-        "The documentation is outdated and needs revision.",
-        "This method is deprecated and should not be used.",
-        "The API is obsolete and will be removed in future versions.",
-        "This tool has been superseded by a newer version.",
-        "Use this feature with caution as it is experimental.",
-        "Version 2.1 is now available as a stable release."
     ]
 
     // Eighth: その他・補足
