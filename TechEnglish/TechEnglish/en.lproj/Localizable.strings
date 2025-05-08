@@ -39,6 +39,7 @@
 "vocab_third_button_title" = "Lifecycle";
 "vocab_fourth_button_title" = "Settings";
 "vocab_fifth_button_title" = "Coding Test";
+"vocab_sixth_button_title" = "Document";
 "vocab_eighth_button_title" = "Others";
 
 // Notification Delete
@@ -51,18 +52,23 @@
 "exception_meaning" = "someone or something that is not included in a rule, group";
 "occurred_meaning" = "(especially of accidents and other unexpected events) to happen";
 "detected_meaning" = "discovered or noticed something";
-"permission_meaning" = "officially allowed to do something";
+"permission_dinied_meaning" = "not allowed to access or perform";
 "deprecated_meaning" = "to disapprove of something";
 "terminated_meaning" = "to bring something to an end";
+"denied_meaning" = "to refuse to accept something";
+"invalid_meaning" = "not acceptable or not correct";
+"failed_meaning" = "not successful in achieving a goal";
 
-// データ・構造
-"indices_meaning" = "plural of index; ordered references";
-"constraint_meaning" = "a limit that controls what you can do";
-"global_variable_meaning" = "a variable accessible from all parts of code";
-"expression_meaning" = "a set of symbols showing a value or idea";
-"decreasing_order_meaning" = "arranged from large to small";
-"non_decreasing_order_meaning" = "arranged in increasing or equal order";
-"calculation_meaning" = "the process of using numbers to find a result";
+// Data
+"index_indices_meaning" = "A position in a list or array.";
+"field_meaning" = "A named piece of data in a structure.";
+"structure_struct_meaning" = "A grouped set of related values.";
+"record_meaning" = "A single set of related data.";
+"constraint_meaning" = "A rule that limits values.";
+"mutable_meaning" = "Can be changed after creation.";
+"immutable_meaning" = "Cannot be changed.";
+"queue_meaning" = "Processes items in order (FIFO).";
+"node_meaning" = "An element in a structure like a tree.";
 
 // 状態・ライフサイクル
 "suspended_meaning" = "to stop something temporarily or permanently";
@@ -98,7 +104,20 @@
 "ancestor_meaning" = "a person related to you who lived a long time ago";
 "contained_meaning" = "to have something inside or include something as a part";
 
+// ドキュメントの頻出単語
+"outdated_meaning" = "no longer in use or relevant";
+"deprecated_meaning" = "discouraged from use, often due to being outdated";
+"obsolete_meaning" = "no longer produced or used";
+"superseded_meaning" = "replaced by something newer or better";
+"legacy_meaning" = "old system or technology still in use";
+"experimental_meaning" = "being tested, not fully developed";
+"preview_meaning" = "early, incomplete version for review";
+"stable_meaning" = "fully tested and reliable for use";
+"release_note_meaning" = "document detailing new features and fixes";
+"changelog_meaning" = "record of changes made to a project";
+
 // その他・補足
+"outdated_meaning" = "no longer current; obsolete or out of date";
 "existing_meaning" = "present or in use now";
 "opposed_meaning" = "against something";
 "palindrome_number_meaning" = "a number that reads the same backward and forward";
@@ -108,10 +127,12 @@
 
 
 
+
 //MARK: - Feedback
 "feedback_massage" = "We are looking for your feedback on this app. Please write any requests such as 'I want this feature' or 'I want this to be improved' here and press the Submit button.";
 //MARK: - Disciption Viwe
 "dicript_check_box_lable" = "Do not show description at startup";
+"dicript_label_app_purpose" = "The purpose of this app is to help you read documentation and error messages smoothly and with confidence.";
 "dicript_label_word_seeds" = "In 'Word Seeds', you can easily note down words that you find interesting or difficult to understand in daily life.";
 "dicript_label_add_custom_word_list" = "You can save sentences and memo based on the words saved in 'Word Seeds' to your custom word list.";
 "dicript_label_custom_word_list" = "In 'Custom Word List', you can save words that you find interesting in daily life along with sentences and notes to help you remember them.";

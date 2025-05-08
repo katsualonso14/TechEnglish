@@ -3,12 +3,12 @@ import SnapKit
 import AVFoundation
 import UserNotifications
 
-class VocabFifthViewController: UITableViewController,AVAudioPlayerDelegate, AVSpeechSynthesizerDelegate {
+class VocabSixthViewController: UITableViewController, AVAudioPlayerDelegate, AVSpeechSynthesizerDelegate {
     
     let titleName: String
     let vocabularyList = VocabularyList()
     let synthesizer = AVSpeechSynthesizer()
-    //     マナーモード時音鳴らすための宣言 AVAudioSession
+    // マナーモード時音鳴らすための宣言 AVAudioSession
     let audioSession = AVAudioSession.sharedInstance()
     // 通知の編集を可能にする定数宣言
     let content = UNMutableNotificationContent()
@@ -19,7 +19,8 @@ class VocabFifthViewController: UITableViewController,AVAudioPlayerDelegate, AVS
     }
     
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    //　　　　viewのセット
+    
+    // viewのセット
     private lazy var container: UIScrollView = {
         let container = UIScrollView()
         container.backgroundColor = UIColor.white
@@ -55,31 +56,33 @@ class VocabFifthViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         
         tableView.dataSource = self
         tableView.delegate  = self
-        //CustomCellの登録
+        // CustomCellの登録
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
-       override func didReceiveMemoryWarning() {
-           super.didReceiveMemoryWarning()
-           // Dispose of any resources that can be recreated.
-       }
-    //MARK: -Function
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Function
     // ハートボタンをタップした際の設定
     func CustomCellTapButtonCall(cell: UITableViewCell, pushTime: TimeInterval) {
-        //タップしたcellの値
-        guard let indexPathTapped = tableView.indexPath(for: cell) else
-        {return}
+        // タップしたcellの値
+        guard let indexPathTapped = tableView.indexPath(for: cell) else {
+            return
+        }
         
-        let contact = vocabularyList.fifthSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
+        let contact = vocabularyList.sixthSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
         let hasFavorited = contact.hasFavorited
         
-        vocabularyList.fifthSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited = !hasFavorited
-        //タップしてときの値をpushメッセージに記載
+        vocabularyList.sixthSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited = !hasFavorited
+        // タップしてときの値をpushメッセージに記載
         content.title = contact.name
         content.body = contact.name
         content.sound = UNNotificationSound.default
-        content.userInfo = ["page": "fifth"]
-        //通知設定
+        content.userInfo = ["page": "sixth"]
+        // 通知設定
         if hasFavorited == false {
             pushRegister(pushTime: pushTime)
         } else {
@@ -91,20 +94,21 @@ class VocabFifthViewController: UITableViewController,AVAudioPlayerDelegate, AVS
     
     // ハートボタン2をタップした際の設定
     func CustomCellTapButtonCall2(cell: UITableViewCell, pushTime: TimeInterval) {
-        //タップしたcellの値
-        guard let indexPathTapped = tableView.indexPath(for: cell) else
-        {return}
+        // タップしたcellの値
+        guard let indexPathTapped = tableView.indexPath(for: cell) else {
+            return
+        }
         
-        let contact = vocabularyList.fifthSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
+        let contact = vocabularyList.sixthSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
         let hasFavorited = contact.hasFavorited2
         
-        vocabularyList.fifthSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited2 = !hasFavorited
-        //タップしてときの値をpushメッセージに記載
+        vocabularyList.sixthSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited2 = !hasFavorited
+        // タップしてときの値をpushメッセージに記載
         content.title = contact.name
         content.body = contact.name
         content.sound = UNNotificationSound.default
-        content.userInfo = ["page": "fifth"]
-        //通知設定
+        content.userInfo = ["page": "sixth"]
+        // 通知設定
         if hasFavorited == false {
             pushRegister(pushTime: pushTime)
         } else {
@@ -113,60 +117,61 @@ class VocabFifthViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         
         tableView.reloadRows(at: [indexPathTapped], with: .fade)
     }
-    //MARK: -TableView
-    //cellの数
+    
+    // MARK: - TableView
+    // cellの数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vocabularyList.fifthSentenceArray[0].names.count
+        return vocabularyList.sixthSentenceArray[0].names.count
     }
-    //cellの中身
+    
+    // cellの中身
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //CustomTableViewCellの追加
+        // CustomTableViewCellの追加
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
-        cell.fifthVC = self
-        let contact = vocabularyList.fifthSentenceArray[0].names[indexPath.row]
-        //cellの文字指定
-        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.fifthPronunciation[indexPath.row], japanese: vocabularyList.fifthEnglish[indexPath.row], exampleSentence: vocabularyList.fifthExampleSentence[indexPath.row])
+        cell.sixthVC = self
+        let contact = vocabularyList.sixthSentenceArray[0].names[indexPath.row]
+        // cellの文字指定
+        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.sixthPronunciation[indexPath.row], japanese: vocabularyList.sixthEnglish[indexPath.row], exampleSentence: vocabularyList.sixthExampleSentence[indexPath.row])
         
         cell.heartButton.tintColor = contact.hasFavorited ? .red : .gray
         cell.heartButton2.tintColor = contact.hasFavorited2 ? .orange : .gray
 
-            return cell
-        }
-//    セルの高さ
+        return cell
+    }
+    
+    // セルの高さ
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(220)
     }
-    //cellをタップした時の処理
+    
+    // cellをタップした時の処理
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //英語の読み上げ設定
-        let utterance = AVSpeechUtterance.init(string: vocabularyList.fifthSentence[indexPath.row])
+        // 英語の読み上げ設定
+        let utterance = AVSpeechUtterance.init(string: vocabularyList.sixthSentence[indexPath.row])
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synthesizer.speak(utterance)
-
     }
-    //MARK:- Push
-    //プッシュ通知登録
+    
+    // MARK:- Push
+    // プッシュ通知登録
     func pushRegister(pushTime: TimeInterval) {
         let notificationCenter = UNUserNotificationCenter.current()
         // 受け取った時間をリピート通知
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: pushTime, repeats: true)
-        //通知のID(identifier,タイトル,内容、トリガーを設定 )
+        // 通知のID(identifier,タイトル,内容、トリガーを設定 )
         let request = UNNotificationRequest(identifier: content.title, content: content, trigger: trigger)
         print("request is \(request.content.title)")
         
-        notificationCenter.add(request) {
-            (error) in
+        notificationCenter.add(request) { (error) in
             if error != nil {
-            print(error.debugDescription)
+                print(error.debugDescription)
             }
         }
     }
-    //push通知削除
+    
+    // push通知削除
     func pushDelete() {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [content.title])
-        
     }
 }
-    
-    

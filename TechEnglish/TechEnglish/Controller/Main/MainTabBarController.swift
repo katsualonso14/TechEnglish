@@ -21,20 +21,20 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         self.tabBar.tintColor = AppColors.appMainColor
         view.backgroundColor = .systemGray6
         
+        let categoryViewController = CategoryViewController()
+        categoryViewController.tabBarItem.image = UIImage(systemName: "character.book.closed")
+        categoryViewController.tabBarItem.title = "Tech Words"
+        let nv1 = UINavigationController(rootViewController: categoryViewController)
+        
         let phrasesVC = WordSeedViewController()
         phrasesVC.tabBarItem.image = UIImage(systemName: "pencil.and.scribble")
         phrasesVC.tabBarItem.title = NSLocalizedString("wordseeds_tab_button", comment: "")
-        let nv1 = UINavigationController(rootViewController: phrasesVC)
+        let nv2 = UINavigationController(rootViewController: phrasesVC)
         
         let phraseStoreVC = CustomWordsViewController()
         phraseStoreVC.tabBarItem.image = UIImage(systemName: "pencil.and.outline")
         phraseStoreVC.tabBarItem.title = NSLocalizedString("custom_word_list_tab_button", comment: "")
-        let nv2 = UINavigationController(rootViewController: phraseStoreVC)
-        
-        let categoryViewController = CategoryViewController()
-        categoryViewController.tabBarItem.image = UIImage(systemName: "character.book.closed")
-        categoryViewController.tabBarItem.title = "Tech Words"
-        let nv3 = UINavigationController(rootViewController: categoryViewController)
+        let nv3 = UINavigationController(rootViewController: phraseStoreVC)
         
         let urlListVC = SavedDocsController()
         urlListVC.tabBarItem.image = UIImage(systemName: "list.bullet.clipboard")

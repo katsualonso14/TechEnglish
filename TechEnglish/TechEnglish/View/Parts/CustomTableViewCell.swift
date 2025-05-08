@@ -9,6 +9,7 @@ class CustomTableViewCell: UITableViewCell {
     var thirdVC: VocabThirdViewController?
     var fourthVC: VocabFourthViewController?
     var fifthVC: VocabFifthViewController?
+    var sixthVC: VocabSixthViewController?
     var eighthVC: VocabEighthViewController?
     
     var vocabularyList: VocabularyList?
@@ -16,7 +17,7 @@ class CustomTableViewCell: UITableViewCell {
     let sentenceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
-        label.textColor = UITraitCollection.current.userInterfaceStyle == .dark ? .white : .black
+        label.textColor = AppColors.textColor
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -34,7 +35,16 @@ class CustomTableViewCell: UITableViewCell {
     let japaneseLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
-        label.textColor = UIColor.blue
+        label.textColor = UIColor.darkGray
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    let exampleSentenceLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.textColor = UIColor(red: 44/255, green: 92/255, blue: 144/255, alpha: 1)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -61,20 +71,23 @@ class CustomTableViewCell: UITableViewCell {
         addSubview(sentenceLabel)
         addSubview(soundsLabel)
         addSubview(japaneseLabel)
+        addSubview(exampleSentenceLabel)
         //namelabelの配置
         sentenceLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        sentenceLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -50).isActive = true
+        sentenceLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -100).isActive = true
         soundsLabel.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -220).isActive = true // 通知ボタンと被るので途中で折り返す
-        sentenceLabel.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
         //soundsButtonの配置
         soundsLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        soundsLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -50).isActive = true
         soundsLabel.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -220).isActive = true // 通知ボタンと被るので途中で折り返す
-        soundsLabel.heightAnchor.constraint(equalTo: sentenceLabel.heightAnchor).isActive = true
         //japaneseLabelの配置
         japaneseLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        japaneseLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 50).isActive = true
-        japaneseLabel.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -220).isActive = true // 通知ボタンと被るので途中で折り返す
-        japaneseLabel.heightAnchor.constraint(equalTo: sentenceLabel.heightAnchor).isActive = true
+        japaneseLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -13).isActive = true
+        japaneseLabel.widthAnchor.constraint(equalToConstant: self.frame.width * 0.6).isActive = true // 通知ボタンと被るので途中で折り返す
+        // exampleSentenceLabelの配置
+        exampleSentenceLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
+        exampleSentenceLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 60).isActive = true
+        exampleSentenceLabel.widthAnchor.constraint(equalToConstant: self.frame.width * 0.6).isActive = true // 通知ボタンと被るので途中で折り返す
         
         setupHeartButton()
         setupHeartButton2()
@@ -95,6 +108,7 @@ class CustomTableViewCell: UITableViewCell {
         let explainLabel = UILabel()
         explainLabel.text = "Remind in 1 hour"
         explainLabel.font = UIFont.systemFont(ofSize: 17)
+        explainLabel.numberOfLines = 0
         explainLabel.textColor = .lightGray
         explainLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -106,10 +120,11 @@ class CustomTableViewCell: UITableViewCell {
         contentView.addSubview(stackView)
         // StackViewの制約を設定
         NSLayoutConstraint.activate([
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: contentView.frame.width * 0.6),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
             stackView.centerYAnchor.constraint(equalTo: contentView.topAnchor, constant: 60),
             explainLabel.leadingAnchor.constraint(equalTo: heartButton.trailingAnchor, constant: 10),
-            heartButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -160),
+            heartButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: contentView.frame.width * 0.15),
             heartButton.widthAnchor.constraint(equalToConstant: 40),
             heartButton.heightAnchor.constraint(equalToConstant: 40),
         ])
@@ -123,6 +138,7 @@ class CustomTableViewCell: UITableViewCell {
         let explainLabel = UILabel()
         explainLabel.text = "Remind in 1 day"
         explainLabel.font = UIFont.systemFont(ofSize: 17)
+        explainLabel.numberOfLines = 0
         explainLabel.textColor = .lightGray
         explainLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -134,20 +150,22 @@ class CustomTableViewCell: UITableViewCell {
         contentView.addSubview(stackView)
         // StackViewの制約を設定
         NSLayoutConstraint.activate([
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: contentView.frame.width * 0.6),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
             stackView.centerYAnchor.constraint(equalTo: contentView.topAnchor, constant: 130),
-            explainLabel.leadingAnchor.constraint(equalTo: heartButton.trailingAnchor, constant: 10),
-            heartButton2.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -160),
+            explainLabel.leadingAnchor.constraint(equalTo: heartButton2.trailingAnchor, constant: 10),
+            heartButton2.leadingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: contentView.frame.width * 0.15),
             heartButton2.widthAnchor.constraint(equalToConstant: 40),
             heartButton2.heightAnchor.constraint(equalToConstant: 40),
         ])
     }
 
     
-    func setCell(sentence: String, pronunciation: String , japanese: String) {
+    func setCell(sentence: String, pronunciation: String, japanese: String, exampleSentence: String) {
         sentenceLabel.text = sentence
         soundsLabel.text = pronunciation
         japaneseLabel.text = japanese
+        exampleSentenceLabel.text = exampleSentence
     }
     //MARK: -Function
     // Set notif time, when tap heartButton for 1 hour
