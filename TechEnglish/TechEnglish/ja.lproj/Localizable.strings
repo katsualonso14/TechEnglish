@@ -71,12 +71,12 @@
 
 // データ・構造
 "index_indices_meaning" = "インデックス（配列やリスト内の位置）";
-"field_meaning" = "フィールド（構造体やデータの項目）";
 "structure_struct_meaning" = "構造体（データをまとめる型）";
-"record_meaning" = "レコード（1件のまとまったデータ）";
 "constraint_meaning" = "制約（データの制限ルール）";
+"mutable_meaning" = "変更可能な";
 "immutable_meaning" = "不変（あとから変更できない）";
 "queue_meaning" = "キュー（順番に処理するデータ構造）";
+"existing_meaning" = "既存";
 
 // 状態・ライフサイクル
 "suspended_meaning" = "一時停止中";
@@ -96,34 +96,33 @@
 "determines_meaning" = "決定する";
 "intended_meaning" = "意図した";
 "prerequisites_meaning" = "前提条件";
-
-// 構文・表現
-"indeed_meaning" = "本当に,実際に";
-"instead_meaning" = "代わり";
-"shorthand_notation_meaning" = "速記法";
+"identifiable_meaning" = "識別可能な";
 "absolute_meaning" = "絶対";
+"contained_meaning" = "含まれる";
 
-// 処理・関数
+// コーディングテスト
+"indices_meaning" = "配列やリスト内の位置（インデックス）";
+"constraint_meaning" = "入力や出力に関する制限条件";
+"expression_meaning" = "値やロジックを表す式・記述";
+"decreasing_order_meaning" = "値が大きい順に並んでいる状態（降順）";
+"non_decreasing_order_meaning" = "値が小さい順または同じ値が続く状態（昇順）";
+"calculation_meaning" = "数値や論理に対する計算処理";
+"palindrome_number_meaning" = "前後どちらから読んでも同じ数値";
+"depth_meaning" = "再帰や階層構造における深さの程度";
+"absolute_meaning" = "符号に関係ない絶対的な値";
+"prerequisites_meaning" = "処理や操作の前に必要な条件・準備";
+"depth_meaning" = "深さ";
+"proportionally_meaning" = "比例して";
+"opposed_meaning" = "反対した";
+
+// その他・補足
+"related_meaning" = "関連している";
 "invoked_meaning" = "呼び出された";
 "modify_meaning" = "修正,変更";
 "verify_meaning" = "確認する";
-"inherited_meaning" = "継承された";
-
-// 目的・関係
-"related_meaning" = "関連している";
-"identifiable_meaning" = "識別可能な";
-"ancestor_meaning" = "祖先,先祖";
-"contained_meaning" = "含まれる";
-
-// その他・補足
-"outdated_meaning" = "時代遅れの、古くなった";
-"existing_meaning" = "既存";
-"opposed_meaning" = "反対した";
-"palindrome_number_meaning" = "回文数（上から読んでも下から読んでも同じ数: 例 12521）";
-"depth_meaning" = "深さ";
-"proportionally_meaning" = "比例して";
-"permanent_meaning" = "永続";
-
+"indeed_meaning" = "本当に,実際に";
+"instead_meaning" = "代わり";
+"shorthand_notation_meaning" = "速記法";
 
 
 //MARK: - Feedback

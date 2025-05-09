@@ -58,6 +58,7 @@
 "denied_meaning" = "to refuse to accept something";
 "invalid_meaning" = "not acceptable or not correct";
 "failed_meaning" = "not successful in achieving a goal";
+"attempted_meaning" = "to try to do something";
 
 // Documents
 "outdated_meaning" = "no longer in use or relevant";
@@ -69,12 +70,12 @@
 
 // Data
 "index_indices_meaning" = "A position in a list or array.";
-"field_meaning" = "A named piece of data in a structure.";
-"structure_struct_meaning" = "A grouped set of related values.";
-"record_meaning" = "A single set of related data.";
-"constraint_meaning" = "A rule that limits values.";
-"immutable_meaning" = "Cannot be changed.";
-"node_meaning" = "An element in a structure like a tree.";
+"structure_struct_meaning" = "A type that groups related data.";
+"constraint_meaning" = "A rule that limits or restricts values.";
+"mutable_meaning" = "A data type that can be modified.";
+"immutable_meaning" = "Cannot be changed once set.";
+"queue_meaning" = "A data structure that processes items in order.";
+"existing_meaning" = "Already present or available data.";
 
 // Lifecycle
 "suspended_meaning" = "temporarily paused or inactive";
@@ -88,43 +89,38 @@
 "ancestor_meaning" = "a parent or higher-level element in a hierarchy";
 "permanent_meaning" = "lasting indefinitely or without change";
 
-// 設定・条件
+// Setting
 "assume_meaning" = "to accept something as true without proof";
-"specify_meaning" = "to state something clearly and exactly";
-"determines_meaning" = "to control or decide something";
-"intended_meaning" = "meant or planned to happen";
-"prerequisites_meaning" = "something required before something else";
+"specify_meaning" = "to state something in detail and clearly";
+"determines_meaning" = "to decide or establish something definitively";
+"intended_meaning" = "planned or meant for a specific purpose or outcome";
+"prerequisites_meaning" = "requirements or conditions that must be fulfilled beforehand";
+"identifiable_meaning" = "able to be recognized or distinguished from others";
+"absolute_meaning" = "not subject to change; independent of other factors";
+"contained_meaning" = "included or held within something else";
 
-// 構文・表現
-"indeed_meaning" = "really or certainly, often used to emphasize something";
-"instead_meaning" = "in place of someone or something else";
-"shorthand_notation_meaning" = "a shortened form of writing something";
-"absolute_meaning" = "very great or to the largest degree possible";
+// Coding Test
+"indices_meaning" = "positions within an array or list";
+"constraint_meaning" = "rules that limit possible values or behavior";
+"expression_meaning" = "a mathematical or logical statement";
+"decreasing_order_meaning" = "arranged from largest to smallest";
+"non_decreasing_order_meaning" = "arranged without decreasing (can stay the same or increase)";
+"calculation_meaning" = "the process of computing or solving numerically";
+"palindrome_number_meaning" = "a number that reads the same backward and forward";
+"depth_meaning" = "level of nesting or recursion in data or logic";
+"absolute_meaning" = "a value regardless of sign (e.g., |-3| = 3)";
+"prerequisites_meaning" = "requirements or conditions that must be met first";
+"proportionally_meaning" = "in the right ratio";
+"opposed_meaning" = "against something";
 
-// 処理・関数
+// Other
+"related_meaning" = "connected";
 "invoked_meaning" = "to request help from someone, when you want to improve a situation";
 "modify_meaning" = "to change something such as a plan, opinion, law";
 "verify_meaning" = "to prove that something exists or is true";
-"inherited_meaning" = "received from someone who has died";
-
-// 目的・関係
-"related_meaning" = "connected";
-"identifiable_meaning" = "able to be recognized";
-"ancestor_meaning" = "a person related to you who lived a long time ago";
-"contained_meaning" = "to have something inside or include something as a part";
-
-
-// その他・補足
-"outdated_meaning" = "no longer current; obsolete or out of date";
-"existing_meaning" = "present or in use now";
-"opposed_meaning" = "against something";
-"palindrome_number_meaning" = "a number that reads the same backward and forward";
-"depth_meaning" = "distance from top to bottom";
-"proportionally_meaning" = "in the right ratio";
-"permanent_meaning" = "lasting for a long time";
-
-
-
+"indeed_meaning" = "really or certainly, often used to emphasize something";
+"instead_meaning" = "in place of someone or something else";
+"shorthand_notation_meaning" = "a shortened form of writing something";
 
 //MARK: - Feedback
 "feedback_massage" = "We are looking for your feedback on this app. Please write any requests such as 'I want this feature' or 'I want this to be improved' here and press the Submit button.";
