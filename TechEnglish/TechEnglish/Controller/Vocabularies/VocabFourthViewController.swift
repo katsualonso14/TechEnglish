@@ -127,8 +127,6 @@ class VocabFourthViewController: UITableViewController,AVAudioPlayerDelegate, AV
         //cellの文字指定
         cell.setCell(sentence: contact.name, pronunciation: vocabularyList.settingPronunciation[indexPath.row], japanese: vocabularyList.settingEnglish[indexPath.row], exampleSentence: vocabularyList.settingExampleSentence[indexPath.row])
         
-        cell.heartButton.tintColor = contact.hasFavorited ? .red : .gray
-        cell.heartButton2.tintColor = contact.hasFavorited2 ? .orange : .gray
 
             return cell
         }

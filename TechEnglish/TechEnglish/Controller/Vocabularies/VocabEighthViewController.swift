@@ -126,15 +126,16 @@ class VocabEighthViewController: UITableViewController,AVAudioPlayerDelegate, AV
         let contact = vocabularyList.otherSentenceArray[0].names[indexPath.row]
         //cellの文字指定
         cell.setCell(sentence: contact.name, pronunciation: vocabularyList.otherPronunciation[indexPath.row], japanese: vocabularyList.otherEnglish[indexPath.row], exampleSentence: vocabularyList.otherExampleSentence[indexPath.row])
-        
-        cell.heartButton.tintColor = contact.hasFavorited ? .red : .gray
-        cell.heartButton2.tintColor = contact.hasFavorited2 ? .orange : .gray
-
+        //cellの文字色指定
+        cell.exampleSentenceLabel.attributedText = cell.highlightKeyword(
+            in: vocabularyList.otherExampleSentence[indexPath.row],
+            keyword: contact.name
+        )
             return cell
         }
 //    セルの高さ
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(220)
+        return 180
     }
     //cellをタップした時の処理
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
