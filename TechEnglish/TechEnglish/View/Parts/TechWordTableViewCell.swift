@@ -55,7 +55,7 @@ class TechWordTableViewCell: UITableViewCell {
         button.setImage(UIImage(systemName: "arrow.right.circle"), for: .normal)
         button.tintColor = .systemGreen
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(didTapReviewButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showBottomModal), for: .touchUpInside)
         return button
     }()
     
@@ -102,9 +102,54 @@ class TechWordTableViewCell: UITableViewCell {
         exampleSentenceLabel.text = exampleSentence
     }
     //MARK: -Function
-    @objc private func didTapReviewButton() {
-        print("Review button tapped")
-    }
+    @objc func showBottomModal() {
+        let actionSheet = UIAlertController(
+            title: NSLocalizedString("remind_bottom_sheet_title", comment: ""),
+            message: NSLocalizedString("remind_bottom_sheet_message", comment: ""),
+            preferredStyle: .actionSheet)
+        // 1時間後設定
+          actionSheet.addAction(
+            UIAlertAction(title: NSLocalizedString("remind_bottom_sheet_1hour", comment: ""),style: .default, handler: { _ in
+                self.firstVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+                self.secondVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+                self.thirdVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+                self.fourthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+                self.fifthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+                self.eighthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+                
+                self.showRemindCompletedAlert()
+          }))
+        // 3時間後設定
+          actionSheet.addAction(
+            UIAlertAction(title: NSLocalizedString("remind_bottom_sheet_3hour", comment: ""), style: .default, handler: { _ in
+                self.firstVC?.CustomCellTapButtonCall(cell: self, pushTime: 10800)
+                self.secondVC?.CustomCellTapButtonCall(cell: self, pushTime: 10800)
+                self.thirdVC?.CustomCellTapButtonCall(cell: self, pushTime: 10800)
+                self.fourthVC?.CustomCellTapButtonCall(cell: self, pushTime: 10800)
+                self.fifthVC?.CustomCellTapButtonCall(cell: self, pushTime: 10800)
+                self.eighthVC?.CustomCellTapButtonCall(cell: self, pushTime: 10800)
+                
+                self.showRemindCompletedAlert()
+          }))
+        // 1日後設定
+          actionSheet.addAction(
+            UIAlertAction(title: NSLocalizedString("remind_bottom_sheet_1day", comment: ""), style: .default, handler: { _ in
+                self.firstVC?.CustomCellTapButtonCall(cell: self, pushTime: 86400)
+                self.secondVC?.CustomCellTapButtonCall(cell: self, pushTime: 86400)
+                self.thirdVC?.CustomCellTapButtonCall(cell: self, pushTime: 86400)
+                self.fourthVC?.CustomCellTapButtonCall(cell: self, pushTime: 86400)
+                self.fifthVC?.CustomCellTapButtonCall(cell: self, pushTime: 86400)
+                self.eighthVC?.CustomCellTapButtonCall(cell: self, pushTime: 86400)
+                
+                self.showRemindCompletedAlert()
+          }))
+          actionSheet.addAction(
+            UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil)
+          )
+            if let viewController = self.window?.rootViewController {
+                viewController.present(actionSheet, animated: true, completion: nil)
+            }
+      }
     
     // キーワードの文字色可変
     func highlightKeyword(in sentence: String, keyword: String) -> NSAttributedString {
@@ -133,7 +178,20 @@ class TechWordTableViewCell: UITableViewCell {
         
         return attributed
     }
-
+    // リマインド設定完了のモーダルを表示
+    func showRemindCompletedAlert() {
+        let alert = UIAlertController(
+            title: NSLocalizedString("remind_completed_title", comment: ""),
+            message: NSLocalizedString("remind_completed_message", comment: ""),
+            preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        // モーダルを表示
+        if let viewController = self.window?.rootViewController {
+            viewController.present(alert, animated: true, completion: nil)
+        }
+    }
 
 
 

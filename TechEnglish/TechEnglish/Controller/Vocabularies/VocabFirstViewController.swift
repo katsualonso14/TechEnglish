@@ -64,6 +64,7 @@ class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVS
            // Dispose of any resources that can be recreated.
        }
     //MARK: -Function
+    // TODO: 命名の変更と2の削除(ハートから変更したため）
     // ハートボタンをタップした際の設定
     func CustomCellTapButtonCall(cell: UITableViewCell, pushTime: TimeInterval) {
         //タップしたcellの値

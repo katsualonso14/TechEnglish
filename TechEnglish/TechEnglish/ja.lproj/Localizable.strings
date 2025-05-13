@@ -16,6 +16,10 @@
 "example_sentence_placeholder" = "例文を入力...";
 "memo_placeholder" = "メモを入力...";
 "word_placeholder" = "単語を入力...";
+// Button Text
+"done" = "完了";
+"cancel" = "キャンセル";
+"close" = "閉じる";
 
 //MARK: - Word Seeds
 "submit_for_custom_word_title" = "カスタム単語帳へ保存";
@@ -143,3 +147,12 @@
 // MARK: - WebView Stock
 "enter_url" = "URLを入力";
 "add_button_title" = "追加";
+
+// MARK: - Remind Bottom Sheet
+"remind_bottom_sheet_title" = "リマインド";
+"remind_bottom_sheet_message" = "リマインドの時間を選択してください。";
+"remind_bottom_sheet_1hour" = "1時間後";
+"remind_bottom_sheet_3hour" = "3時間後";
+"remind_bottom_sheet_1day" = "1日後";
+"remind_completed_title" = "リマインドの設定完了";
+"remind_completed_message" = "リマインドの設定が完了しました。";
