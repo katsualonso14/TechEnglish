@@ -2,7 +2,7 @@
 import UIKit
 
 
-class CustomTableViewCell: UITableViewCell {
+class TechWordTableViewCell: UITableViewCell {
     
     var firstVC: VocabFirstViewController?
     var secondVC: VocabSecondViewController?
@@ -32,7 +32,7 @@ class CustomTableViewCell: UITableViewCell {
         return label
     }()
     
-    let japaneseLabel: UILabel = {
+    let meaningLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
         label.textColor = UIColor.darkGray
@@ -72,7 +72,7 @@ class CustomTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
 
-        let verticalStack = UIStackView(arrangedSubviews: [sentenceLabel, soundsLabel, japaneseLabel, exampleSentenceLabel])
+        let verticalStack = UIStackView(arrangedSubviews: [sentenceLabel, soundsLabel, meaningLabel, exampleSentenceLabel])
         verticalStack.axis = .vertical
         verticalStack.spacing = 8
         verticalStack.translatesAutoresizingMaskIntoConstraints = false
@@ -95,10 +95,10 @@ class CustomTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     //MARK: -Layout
-    func setCell(sentence: String, pronunciation: String, japanese: String, exampleSentence: String) {
+    func setCell(sentence: String, pronunciation: String, meaning: String, exampleSentence: String) {
         sentenceLabel.text = sentence
         soundsLabel.text = pronunciation
-        japaneseLabel.text = japanese
+        meaningLabel.text = meaning
         exampleSentenceLabel.text = exampleSentence
     }
     //MARK: -Function
@@ -106,14 +106,31 @@ class CustomTableViewCell: UITableViewCell {
         print("Review button tapped")
     }
     
-    // Set highlighted text
+    // キーワードの文字色可変
     func highlightKeyword(in sentence: String, keyword: String) -> NSAttributedString {
         let attributed = NSMutableAttributedString(string: sentence)
-        let range = (sentence as NSString).range(of: keyword)
-        if range.location != NSNotFound {
-            attributed.addAttribute(.foregroundColor, value: UIColor(red: 44/255, green: 92/255, blue: 144/255, alpha: 1), range: range)
-            attributed.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 17), range: range)
+        
+        // 複数キーワードに対応（例: "index/indices" → ["index", "indices"]）
+        let keywordOptions = keyword.components(separatedBy: "/")
+        
+        for word in keywordOptions {
+            // 大文字小文字を無視して検索
+            let lowercaseSentence = sentence.lowercased()
+            let lowercaseWord = word.lowercased()
+            
+            var searchRange = lowercaseSentence.startIndex..<lowercaseSentence.endIndex
+            
+            while let range = lowercaseSentence.range(of: lowercaseWord, options: [], range: searchRange) {
+                // 実際の位置をNSRangeで取得
+                let nsRange = NSRange(range, in: sentence)
+                attributed.addAttribute(.foregroundColor, value: UIColor(red: 44/255, green: 92/255, blue: 144/255, alpha: 1), range: nsRange)
+                attributed.addAttribute(.font, value: UIFont.boldSystemFont(ofSize: 17), range: nsRange)
+                
+                // 検索位置を更新
+                searchRange = range.upperBound..<lowercaseSentence.endIndex
+            }
         }
+        
         return attributed
     }
 

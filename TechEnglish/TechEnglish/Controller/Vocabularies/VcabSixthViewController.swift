@@ -57,7 +57,7 @@ class VocabSixthViewController: UITableViewController, AVAudioPlayerDelegate, AV
         tableView.dataSource = self
         tableView.delegate  = self
         // CustomCellの登録
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TechWordTableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
     override func didReceiveMemoryWarning() {
@@ -127,12 +127,13 @@ class VocabSixthViewController: UITableViewController, AVAudioPlayerDelegate, AV
     // cellの中身
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // CustomTableViewCellの追加
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TechWordTableViewCell
         cell.sixthVC = self
         let contact = vocabularyList.docsSentenceArray[0].names[indexPath.row]
         // cellの文字指定
-        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.docsPronunciation[indexPath.row], japanese: vocabularyList.docsEnglish[indexPath.row], exampleSentence: vocabularyList.docsExampleSentence[indexPath.row])
-        
+        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.docsPronunciation[indexPath.row], meaning: vocabularyList.docsEnglish[indexPath.row], exampleSentence: vocabularyList.docsExampleSentence[indexPath.row])
+        // 参考文テキストの文字色指定
+        cell.exampleSentenceLabel.attributedText = cell.highlightKeyword(in: vocabularyList.docsExampleSentence[indexPath.row], keyword: contact.name)
   
 
         return cell
@@ -140,7 +141,7 @@ class VocabSixthViewController: UITableViewController, AVAudioPlayerDelegate, AV
     
     // セルの高さ
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(220)
+        return 180
     }
     
     // cellをタップした時の処理

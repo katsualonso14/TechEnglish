@@ -14,7 +14,7 @@
 		2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */; };
 		2317C6E62D6DA27C00F8E1D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */; };
 		2317C6F02D6DA28200F8E1D4 /* CustomWordsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EB2D6DA28200F8E1D4 /* CustomWordsCell.swift */; };
-		2317C6F12D6DA28200F8E1D4 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */; };
+		2317C6F12D6DA28200F8E1D4 /* TechWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6E92D6DA28200F8E1D4 /* TechWordTableViewCell.swift */; };
 		2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */; };
 		2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */; };
 		2317C6F42D6DA28200F8E1D4 /* WebViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */; };
@@ -75,7 +75,7 @@
 		2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		2317C6DF2D6DA27C00F8E1D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModalViewController.swift; sourceTree = "<group>"; };
-		2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		2317C6E92D6DA28200F8E1D4 /* TechWordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechWordTableViewCell.swift; sourceTree = "<group>"; };
 		2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		2317C6EB2D6DA28200F8E1D4 /* CustomWordsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWordsCell.swift; sourceTree = "<group>"; };
 		2317C6EC2D6DA28200F8E1D4 /* WordSeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordSeedCell.swift; sourceTree = "<group>"; };
@@ -199,7 +199,7 @@
 		2317C6EF2D6DA28200F8E1D4 /* Parts */ = {
 			isa = PBXGroup;
 			children = (
-				2317C6E92D6DA28200F8E1D4 /* CustomTableViewCell.swift */,
+				2317C6E92D6DA28200F8E1D4 /* TechWordTableViewCell.swift */,
 				2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */,
 				2317C6EB2D6DA28200F8E1D4 /* CustomWordsCell.swift */,
 				2317C6EC2D6DA28200F8E1D4 /* WordSeedCell.swift */,
@@ -602,7 +602,7 @@
 				234916602DC30953000128C6 /* WebMeta.swift in Sources */,
 				2349167C2DC9E23C000128C6 /* VcabSixthViewController.swift in Sources */,
 				2317C6F02D6DA28200F8E1D4 /* CustomWordsCell.swift in Sources */,
-				2317C6F12D6DA28200F8E1D4 /* CustomTableViewCell.swift in Sources */,
+				2317C6F12D6DA28200F8E1D4 /* TechWordTableViewCell.swift in Sources */,
 				2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */,
 				2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */,
 				2317C6F42D6DA28200F8E1D4 /* WebViewContainer.swift in Sources */,

@@ -56,7 +56,7 @@ class VocabEighthViewController: UITableViewController,AVAudioPlayerDelegate, AV
         tableView.dataSource = self
         tableView.delegate  = self
         //CustomCellの登録
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TechWordTableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
        override func didReceiveMemoryWarning() {
@@ -121,16 +121,15 @@ class VocabEighthViewController: UITableViewController,AVAudioPlayerDelegate, AV
     //cellの中身
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //CustomTableViewCellの追加
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TechWordTableViewCell
         cell.eighthVC = self
         let contact = vocabularyList.otherSentenceArray[0].names[indexPath.row]
         //cellの文字指定
-        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.otherPronunciation[indexPath.row], japanese: vocabularyList.otherEnglish[indexPath.row], exampleSentence: vocabularyList.otherExampleSentence[indexPath.row])
-        //cellの文字色指定
+        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.otherPronunciation[indexPath.row], meaning: vocabularyList.otherEnglish[indexPath.row], exampleSentence: vocabularyList.otherExampleSentence[indexPath.row])
+        // 参考文テキストの文字色指定
         cell.exampleSentenceLabel.attributedText = cell.highlightKeyword(
             in: vocabularyList.otherExampleSentence[indexPath.row],
-            keyword: contact.name
-        )
+            keyword:contact.name)
             return cell
         }
 //    セルの高さ
