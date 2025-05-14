@@ -46,6 +46,16 @@
 "vocab_sixth_button_title" = "Document";
 "vocab_eighth_button_title" = "Others";
 
+// Label Title
+"vocab_first_button_subtitle" = "exception, failed and other error-related words";
+"vocab_sixth_button_subtitle" = "deprecated, stable and other documentation-related words";
+"vocab_second_button_subtitle" = "index, structure and other data structure-related words";
+"vocab_third_button_subtitle" = "suspended, asynchronous and other state/lifecycle-related words";
+"vocab_fourth_button_subtitle" = "assume, prerequisites and other configuration/condition-related words";
+"vocab_fifth_button_subtitle" = "expression, calculation and other function/processing-related words";
+"vocab_eighth_button_subtitle" = "related, verify and other supplemental/general words";
+
+
 // Notification Delete
 "delete_all_notif_title" = "Delete All Notifications";
 "delete_all_notif_message" = "You can reset all notifications. Do you want to delete all notifications?";

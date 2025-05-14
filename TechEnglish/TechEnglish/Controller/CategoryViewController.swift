@@ -4,19 +4,18 @@ class CategoryViewController: UIViewController {
     let container = UIView()
     let scrollView = UIScrollView()
     let vocabButtons: [VocabButtonInfo] = [
-        VocabButtonInfo(titleKey: "vocab_first_button_title", imageName: "error_image", selector: #selector(pushFirstButton)),
-        VocabButtonInfo(titleKey: "vocab_sixth_button_title", imageName: "doc_image", selector: #selector(pushSixthButton)),
-        VocabButtonInfo(titleKey: "vocab_second_button_title", imageName: "data_image", selector: #selector(pushSecondButton)),
-        VocabButtonInfo(titleKey: "vocab_third_button_title", imageName: "lifecycle_image", selector: #selector(pushThirdButton)),
-        VocabButtonInfo(titleKey: "vocab_fourth_button_title", imageName: "settings_image", selector: #selector(pushFourthButton)),
-        VocabButtonInfo(titleKey: "vocab_fifth_button_title", imageName: "coding_test_image", selector: #selector(pushFifthButton)),
-        VocabButtonInfo(titleKey: "vocab_eighth_button_title", imageName: "others_image", selector: #selector(pushEighthButton)),
+        VocabButtonInfo(titleKey: "vocab_first_button_title", subtitleKey: "vocab_first_button_subtitle", imageName: "exclamationmark.triangle", selector: #selector(pushFirstButton)),
+        VocabButtonInfo(titleKey: "vocab_sixth_button_title", subtitleKey: "vocab_sixth_button_subtitle", imageName: "doc.text", selector: #selector(pushSixthButton)),
+        VocabButtonInfo(titleKey: "vocab_second_button_title", subtitleKey: "vocab_second_button_subtitle", imageName: "cube.box", selector: #selector(pushSecondButton)),
+        VocabButtonInfo(titleKey: "vocab_third_button_title", subtitleKey: "vocab_third_button_subtitle", imageName: "arrow.triangle.2.circlepath", selector: #selector(pushThirdButton)),
+        VocabButtonInfo(titleKey: "vocab_fourth_button_title", subtitleKey: "vocab_fourth_button_subtitle", imageName: "gearshape", selector: #selector(pushFourthButton)),
+        VocabButtonInfo(titleKey: "vocab_fifth_button_title", subtitleKey: "vocab_fifth_button_subtitle", imageName: "chevron.left.forwardslash.chevron.right", selector: #selector(pushFifthButton)),
+        VocabButtonInfo(titleKey: "vocab_eighth_button_title", subtitleKey: "vocab_eighth_button_subtitle", imageName: "ellipsis", selector: #selector(pushEighthButton)),
     ]
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Category"
+        navigationItem.title = "Tech Words"
         setupScrollView()
         setupContainer()
         setupVocabButtons()
@@ -50,7 +49,7 @@ class CategoryViewController: UIViewController {
             container.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             container.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             container.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            container.heightAnchor.constraint(equalToConstant: 2400), // 全体の高さを設定
+            container.heightAnchor.constraint(equalToConstant: 1200), // 全体の高さを設定
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
             
         ])
@@ -65,97 +64,105 @@ class CategoryViewController: UIViewController {
     }
     
     // MARK: - Vocab Buttons Setting
-    func createVocabButton(
+    func createVocabItemView(
         titleKey: String,
+        subtitleKey: String,
         imageName: String,
         topAnchor: NSLayoutYAxisAnchor,
         topConstant: CGFloat,
         selector: Selector
-    ) -> UIButton {
-        let button = createBaseButton()
-        let label = createBaseLabel()
+    ) -> UIView {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(view)
+
         let imageView = createImageView()
+        view.addSubview(imageView)
+        
+        let labelStack = createLabelStack(titleKey: titleKey, subtitleKey: subtitleKey)
+        view.addSubview(labelStack)
 
-        container.addSubview(button)
-        container.addSubview(label)
-        button.addSubview(imageView)
+        let tapGesture = UITapGestureRecognizer(target: self, action: selector)
+        view.addGestureRecognizer(tapGesture)
 
-        label.text = NSLocalizedString(titleKey, comment: "")
-        if !imageName.isEmpty {
-            imageView.image = UIImage(named: imageName)
-        }
-
+        // レイアウト
         NSLayoutConstraint.activate([
-            // ボタン本体
-            button.topAnchor.constraint(equalTo: topAnchor, constant: topConstant),
-            button.centerXAnchor.constraint(equalTo: container.centerXAnchor),
-            button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.25),
-            button.heightAnchor.constraint(equalTo: button.widthAnchor),
+            view.topAnchor.constraint(equalTo: topAnchor, constant: topConstant),
+            view.centerXAnchor.constraint(equalTo: container.centerXAnchor),
+            view.widthAnchor.constraint(equalTo: view.superview!.widthAnchor, multiplier: 0.9),
+            view.heightAnchor.constraint(equalToConstant: 110),
 
-            // タイトル（ボタンの上に配置）
-            label.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -7),
-            label.centerXAnchor.constraint(equalTo: button.centerXAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 40),
+            imageView.heightAnchor.constraint(equalToConstant: 40),
 
-            // 画像（ボタン内に配置）
-            imageView.topAnchor.constraint(equalTo: button.topAnchor),
-            imageView.centerXAnchor.constraint(equalTo: button.centerXAnchor),
-            imageView.widthAnchor.constraint(equalTo: button.widthAnchor),
-            imageView.heightAnchor.constraint(equalTo: button.heightAnchor),
+            labelStack.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 30),
+            labelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            labelStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
 
-        button.addTarget(self, action: selector, for: .touchUpInside)
+        imageView.image = UIImage(systemName: imageName)
+        imageView.tintColor = .label
 
-        return button
+        // ボタンの背景色と角丸
+        view.backgroundColor = AppColors.backgroundColorCheckMode
+        view.layer.cornerRadius = 12
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.1 // 薄めで自然な影
+        view.layer.shadowOffset = CGSize(width: 0, height: 2) // 下方向に落ちる影
+        view.layer.shadowRadius = 4
+
+        return view
     }
+
     // 各ボタン配置
     func setupVocabButtons() {
         var previousAnchor: NSLayoutYAxisAnchor = container.topAnchor
-        var topPadding: CGFloat = view.frame.height * 0.1
+        var topPadding: CGFloat = view.frame.height * 0.05
 
         for buttonInfo in vocabButtons {
-            let button = createVocabButton(
+            let button = createVocabItemView(
                 titleKey: buttonInfo.titleKey,
+                subtitleKey: buttonInfo.subtitleKey,
                 imageName: buttonInfo.imageName,
                 topAnchor: previousAnchor,
                 topConstant: topPadding,
                 selector: buttonInfo.selector
             )
             previousAnchor = button.bottomAnchor
-            topPadding = 50 // 2個目以降は等間隔に
+            topPadding = 15 // 2個目以降は等間隔に
         }
-    }
-
-    // 共通のUIButtonセットアップ
-    func createBaseButton() -> UIButton {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemBackground
-        button.layer.cornerRadius = 25.0
-        button.layer.masksToBounds = true
-        button.setTitleColor(AppColors.textColor, for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
-        button.contentHorizontalAlignment = .left
-        button.imageView?.contentMode = .scaleAspectFit
-        button.imageView?.layer.cornerRadius = 15.0
-        return button
-    }
-    // 共通のラベルセットアップ
-    func createBaseLabel() -> UILabel {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = AppColors.textColor
-        label.font = .systemFont(ofSize: 20, weight: .bold)
-        return label
     }
     // 共通のimageViewセットアップ
     func createImageView() -> UIImageView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 25.0
-        imageView.layer.masksToBounds = true
         return imageView
     }
+    // 共通のlabelStackセットアップ
+    func createLabelStack(titleKey: String, subtitleKey: String) -> UIStackView {
+        let titleLabel = UILabel()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.text = NSLocalizedString(titleKey, comment: "")
+        titleLabel.font = .boldSystemFont(ofSize: 22)
+
+        let subtitleLabel = UILabel()
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtitleLabel.text = NSLocalizedString(subtitleKey, comment: "")
+        subtitleLabel.font = .systemFont(ofSize: 16)
+        subtitleLabel.textColor = .gray
+        subtitleLabel.numberOfLines = 0
+
+        let labelStack = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
+        labelStack.axis = .vertical
+        labelStack.spacing = 4
+        labelStack.translatesAutoresizingMaskIntoConstraints = false
+
+        return labelStack
+    }
+
 
     
     func setDeleteNotifButton() {
