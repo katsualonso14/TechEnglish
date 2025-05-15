@@ -19,7 +19,7 @@ class CategoryViewController: UIViewController {
         setupScrollView()
         setupContainer()
         setupVocabButtons()
-        setDeleteNotifButton()
+        setRemindListButton()
         setDescriptionButton()
         checkIsDescription()
     }
@@ -162,14 +162,12 @@ class CategoryViewController: UIViewController {
 
         return labelStack
     }
-
-
     
-    func setDeleteNotifButton() {
+    func setRemindListButton() {
         let button = UIButton(type: .system)
         button.setImage(UIImage(systemName: "bell.circle"), for: .normal)
         button.tintColor = AppColors.appMainColor
-        button.addTarget(self, action: #selector(openAllNotifDeleteAleart), for: .touchUpInside)
+        button.addTarget(self, action: #selector(pushRemindListButton), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
         
     }
@@ -217,17 +215,13 @@ class CategoryViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    // 全てのリマインドを削除
-    @objc func openAllNotifDeleteAleart(){
-        let alert = UIAlertController(title: NSLocalizedString("delete_all_notif_title", comment: ""),
-                                      message: NSLocalizedString("delete_all_notif_message", comment: ""),
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [self] _ in
-          deleteAllNotif()
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
+    // リマインドリストへ遷移
+    @objc func pushRemindListButton(){
+        // リマインドリストへ遷移
+        let vc = RemindListController()
+        navigationController?.pushViewController(vc, animated: true)
     }
+    
     // MARK - Helper
     // 説明画面表示判定
     func checkIsDescription() {

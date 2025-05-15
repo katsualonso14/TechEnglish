@@ -44,6 +44,8 @@
 		2353AA612DB9F25C0057D201 /* VocabEighthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */; };
 		2353AA892DC046540057D201 /* SavedDocsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA882DC046540057D201 /* SavedDocsController.swift */; };
 		2353AA8B2DC054150057D201 /* WebViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA8A2DC054150057D201 /* WebViewType.swift */; };
+		23776BD32DD5491B00553D04 /* RemindListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23776BD22DD5491B00553D04 /* RemindListViewController.swift */; };
+		23776BD52DD54A8100553D04 /* RemindListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23776BD42DD54A8100553D04 /* RemindListCell.swift */; };
 		8F915D3EBB5EDC4FC742BE69 /* Pods_TechEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F251A53FCBB91C69C86381 /* Pods_TechEnglish.framework */; };
 		A46E653C46D92CF6526727B0 /* Pods_TechEnglish_TechEnglishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71AA9BB57A37BED81626A2C /* Pods_TechEnglish_TechEnglishUITests.framework */; };
 /* End PBXBuildFile section */
@@ -107,6 +109,8 @@
 		2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabEighthViewController.swift; sourceTree = "<group>"; };
 		2353AA882DC046540057D201 /* SavedDocsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDocsController.swift; sourceTree = "<group>"; };
 		2353AA8A2DC054150057D201 /* WebViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewType.swift; sourceTree = "<group>"; };
+		23776BD22DD5491B00553D04 /* RemindListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindListViewController.swift; sourceTree = "<group>"; };
+		23776BD42DD54A8100553D04 /* RemindListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindListCell.swift; sourceTree = "<group>"; };
 		2676E555D96CF7567418D47E /* Pods-TechEnglish-TechEnglishUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; path = "Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3AA25FF0E3404AEE7AC05D50 /* Pods_TechEnglishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechEnglishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53337819C95C450F32D95427 /* Pods-TechEnglish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish.debug.xcconfig"; path = "Target Support Files/Pods-TechEnglish/Pods-TechEnglish.debug.xcconfig"; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 				2317C6EC2D6DA28200F8E1D4 /* WordSeedCell.swift */,
 				2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */,
 				2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */,
+				23776BD42DD54A8100553D04 /* RemindListCell.swift */,
 			);
 			path = Parts;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 				2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */,
 				2353AA1D2DADCA890057D201 /* CalendarViewController.swift */,
 				2353AA882DC046540057D201 /* SavedDocsController.swift */,
+				23776BD22DD5491B00553D04 /* RemindListViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				2349166E2DC4517D000128C6 /* VocabButtonInfo.swift in Sources */,
 				2353AA8B2DC054150057D201 /* WebViewType.swift in Sources */,
 				2317C71C2D6DE07A00F8E1D4 /* VocabFirstViewController.swift in Sources */,
+				23776BD32DD5491B00553D04 /* RemindListViewController.swift in Sources */,
 				2317C71E2D6EEB1400F8E1D4 /* VocabSecondViewController.swift in Sources */,
 				2353AA5B2DB9F0BE0057D201 /* VovabFifthViewController.swift in Sources */,
 				2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */,
@@ -607,6 +614,7 @@
 				2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */,
 				2317C6F42D6DA28200F8E1D4 /* WebViewContainer.swift in Sources */,
 				2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */,
+				23776BD52DD54A8100553D04 /* RemindListCell.swift in Sources */,
 				2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */,
 				2353AA1E2DADCA890057D201 /* CalendarViewController.swift in Sources */,
 				2353AA202DADCB130057D201 /* EventModel.swift in Sources */,

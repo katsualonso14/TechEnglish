@@ -12,6 +12,7 @@ class VocabSecondViewController: UITableViewController,AVAudioPlayerDelegate, AV
     let audioSession = AVAudioSession.sharedInstance()
     // 通知の編集を可能にする定数宣言
     let content = UNMutableNotificationContent()
+    let vobabList = VocabularyList()
     
     init(titleName: String) {
         self.titleName = titleName
@@ -66,6 +67,7 @@ class VocabSecondViewController: UITableViewController,AVAudioPlayerDelegate, AV
     //MARK: -Function
     // ハートボタンをタップした際の設定
     func CustomCellTapButtonCall(cell: UITableViewCell, pushTime: TimeInterval) {
+        print("タップ")
         //タップしたcellの値
         guard let indexPathTapped = tableView.indexPath(for: cell) else
         {return}
@@ -83,6 +85,8 @@ class VocabSecondViewController: UITableViewController,AVAudioPlayerDelegate, AV
         //通知設定
         if hasFavorited == false {
             pushRegister(pushTime: pushTime)
+            // リマインドリストへの登録
+            addRemindList(tappedRow: indexPathTapped.row)
         } else {
             pushDelete()
         }
@@ -90,30 +94,18 @@ class VocabSecondViewController: UITableViewController,AVAudioPlayerDelegate, AV
         tableView.reloadRows(at: [indexPathTapped], with: .fade)
     }
     
-    // ハートボタン2をタップした際の設定
-    func CustomCellTapButtonCall2(cell: UITableViewCell, pushTime: TimeInterval) {
-        //タップしたcellの値
-        guard let indexPathTapped = tableView.indexPath(for: cell) else
-        {return}
-        
-        let contact = vocabularyList.dataSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
-        let hasFavorited = contact.hasFavorited2
-        
-        vocabularyList.dataSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited2 = !hasFavorited
-        //タップしてときの値をpushメッセージに記載
-        content.title = contact.name
-        content.body = contact.name
-        content.sound = UNNotificationSound.default
-        content.userInfo = ["page": "second"]
-        //通知設定
-        if hasFavorited == false {
-            pushRegister(pushTime: pushTime)
+    func addRemindList(tappedRow: Int) {
+        let data = ["sentence": vobabList.dataSentenceArray[0].names[tappedRow].name]
+        NotificationCenter.default.post(name: Notification.Name("addRemind"), object: nil, userInfo: data)
+
+        if var saved = UserDefaults.standard.stringArray(forKey: "remind") {
+            saved.append(vobabList.dataSentenceArray[0].names[tappedRow].name)
+            UserDefaults.standard.set(saved, forKey: "remind")
         } else {
-            pushDelete()
+            UserDefaults.standard.set([vobabList.dataSentenceArray[0].names[tappedRow].name], forKey: "remind")
         }
-        
-        tableView.reloadRows(at: [indexPathTapped], with: .fade)
     }
+    
     //MARK: -TableView
     //cellの数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

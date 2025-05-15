@@ -115,6 +115,7 @@ class TechWordTableViewCell: UITableViewCell {
                 self.thirdVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
                 self.fourthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
                 self.fifthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
+                self.sixthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
                 self.eighthVC?.CustomCellTapButtonCall(cell: self, pushTime: 3600)
                 
                 self.showRemindCompletedAlert()
@@ -127,6 +128,7 @@ class TechWordTableViewCell: UITableViewCell {
                 self.thirdVC?.CustomCellTapButtonCall(cell: self, pushTime: 10800)
                 self.fourthVC?.CustomCellTapButtonCall(cell: self, pushTime: 10800)
                 self.fifthVC?.CustomCellTapButtonCall(cell: self, pushTime: 10800)
+                self.sixthVC?.CustomCellTapButtonCall(cell: self, pushTime: 10800)
                 self.eighthVC?.CustomCellTapButtonCall(cell: self, pushTime: 10800)
                 
                 self.showRemindCompletedAlert()
@@ -139,6 +141,7 @@ class TechWordTableViewCell: UITableViewCell {
                 self.thirdVC?.CustomCellTapButtonCall(cell: self, pushTime: 86400)
                 self.fourthVC?.CustomCellTapButtonCall(cell: self, pushTime: 86400)
                 self.fifthVC?.CustomCellTapButtonCall(cell: self, pushTime: 86400)
+                self.sixthVC?.CustomCellTapButtonCall(cell: self, pushTime: 86400)
                 self.eighthVC?.CustomCellTapButtonCall(cell: self, pushTime: 86400)
                 
                 self.showRemindCompletedAlert()
