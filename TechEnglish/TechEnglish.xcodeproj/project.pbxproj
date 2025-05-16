@@ -34,7 +34,7 @@
 		2349166E2DC4517D000128C6 /* VocabButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */; };
 		2349167C2DC9E23C000128C6 /* VcabSixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349167B2DC9E23C000128C6 /* VcabSixthViewController.swift */; };
 		2349167E2DCABFDE000128C6 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349167D2DCABFDE000128C6 /* DescriptionViewController.swift */; };
-		2353AA1E2DADCA890057D201 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA1D2DADCA890057D201 /* CalendarViewController.swift */; };
+		2353AA1E2DADCA890057D201 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA1D2DADCA890057D201 /* RecordViewController.swift */; };
 		2353AA202DADCB130057D201 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA1F2DADCB130057D201 /* EventModel.swift */; };
 		2353AA302DAF24D30057D201 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA2E2DAF24D30057D201 /* Localizable.strings */; };
 		2353AA332DB084A20057D201 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA322DB084A20057D201 /* LaunchScreen.storyboard */; };
@@ -98,7 +98,7 @@
 		2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabButtonInfo.swift; sourceTree = "<group>"; };
 		2349167B2DC9E23C000128C6 /* VcabSixthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcabSixthViewController.swift; sourceTree = "<group>"; };
 		2349167D2DCABFDE000128C6 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
-		2353AA1D2DADCA890057D201 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		2353AA1D2DADCA890057D201 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
 		2353AA1F2DADCB130057D201 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		2353AA2F2DAF24D30057D201 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = TechEnglish/ja.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
 		2353AA312DAF24E20057D201 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -239,7 +239,7 @@
 				2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */,
 				2317C6FF2D6DA37B00F8E1D4 /* CustomWordsViewController.swift */,
 				2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */,
-				2353AA1D2DADCA890057D201 /* CalendarViewController.swift */,
+				2353AA1D2DADCA890057D201 /* RecordViewController.swift */,
 				2353AA882DC046540057D201 /* SavedDocsController.swift */,
 				23776BD22DD5491B00553D04 /* RemindListViewController.swift */,
 			);
@@ -616,7 +616,7 @@
 				2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */,
 				23776BD52DD54A8100553D04 /* RemindListCell.swift in Sources */,
 				2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */,
-				2353AA1E2DADCA890057D201 /* CalendarViewController.swift in Sources */,
+				2353AA1E2DADCA890057D201 /* RecordViewController.swift in Sources */,
 				2353AA202DADCB130057D201 /* EventModel.swift in Sources */,
 				2317C6F52D6DA28200F8E1D4 /* WordSeedCell.swift in Sources */,
 				2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */,

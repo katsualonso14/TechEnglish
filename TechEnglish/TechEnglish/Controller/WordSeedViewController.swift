@@ -14,7 +14,7 @@ class WordSeedViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("wordseeds_tab_button", comment: "")
         setView()
-        setupFeedBackForm()
+        setupSavedDocsButton()
         setTableView()
         setAddButton()
         setResearchButton()
@@ -138,16 +138,14 @@ class WordSeedViewController: UIViewController {
         }
     }
     
-    func setupFeedBackForm() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "bubble.left.and.bubble.right"),
-            style: .plain,
-            target: self,
-            action: #selector(openFeedbackModal)
-        )
-        navigationItem.rightBarButtonItem?.tintColor = AppColors.appMainColor
+    func setupSavedDocsButton() {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
+        button.tintColor = AppColors.appMainColor
+        button.addTarget(self, action: #selector(transitionToSavedDocs), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+        
     }
-    
     //MARK: - Helper Function
     // PhraseStoreに追加
     func addPhraseStore(word: String) {
@@ -253,22 +251,8 @@ class WordSeedViewController: UIViewController {
         
         present(alert, animated: true)
     }
-    // Store feedback to Firestore
-    func saveFeedbackToFirestore(feedback: String) {
-        let db = Firestore.firestore()
-        db.collection("feedbacks").addDocument(data: [
-            "feedback": feedback,
-            "timestamp": Timestamp(date: Date())
-        ]) { error in
-            if let error = error {
-                print("Error saving feedback: \(error.localizedDescription)")
-            } else {
-                print("Feedback successfully saved!")
-            }
-        }
-    }
     
-    //MARK: - Function
+    //MARK: - objc
     @objc func addTapped() {
         //add new cell
         let aleat = UIAlertController(
@@ -315,26 +299,9 @@ class WordSeedViewController: UIViewController {
         view.addSubview(modal)
     }
     
-    @objc func openFeedbackModal() {
-        let alert = UIAlertController(title: "Feedback",
-                                      message: NSLocalizedString("feedback_massage", comment: ""),
-                                      preferredStyle: .alert)
-        alert.addTextField { textField in
-            textField.placeholder = "Feedback"
-        }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
-            if let feedback = alert.textFields?.first?.text , !feedback.isEmpty {
-                // Save feedback to Firestore
-                self.saveFeedbackToFirestore(feedback: feedback)
-            } else {
-                // Show error message
-                let errorAlert = UIAlertController(title: "Error", message: "Please enter feedback.", preferredStyle: .alert)
-                errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(errorAlert, animated: true, completion: nil)
-            }
-        }))
-        present(alert, animated: true, completion: nil)
+    @objc func transitionToSavedDocs() {
+        let savedDocsVC = SavedDocsController()
+        navigationController?.pushViewController(savedDocsVC, animated: true)
     }
     
 }

@@ -6,7 +6,8 @@
 //MARK: - Tabs
 "wordseeds_tab_button" = "Word Seeds";
 "custom_word_list_tab_button" = "Custom Words";
-"calendar_tab_button" = "Calendar";
+"remind_tab_button" = "Remind";
+"record_tab_button" = "Record";
 
 //MARK: - Common Components
 // Placeholder Text
@@ -18,6 +19,7 @@
 "done" = "Done";
 "cancel" = "Cancel";
 "close" = "Close";
+"delete" = "Delete";
 
 //MARK: - Word Seeds
 "submit_for_custom_word_title" = "Save to Custom Words";
@@ -54,12 +56,6 @@
 "vocab_fourth_button_subtitle" = "assume, prerequisites and other configuration/condition-related words";
 "vocab_fifth_button_subtitle" = "expression, calculation and other function/processing-related words";
 "vocab_eighth_button_subtitle" = "related, verify and other supplemental/general words";
-
-
-// Notification Delete
-"delete_all_notif_title" = "Delete All Notifications";
-"delete_all_notif_message" = "You can reset all notifications. Do you want to delete all notifications?";
-"delete_all_notif_finish_title" = "All notifications have been deleted";
 
 // MARK: - Tech Words Vocabulary
 // Error & Exception
@@ -135,6 +131,16 @@
 "indeed_meaning" = "really or certainly, often used to emphasize something";
 "instead_meaning" = "in place of someone or something else";
 "shorthand_notation_meaning" = "a shortened form of writing something";
+
+//MARK: - Remind
+// Delete Alert
+"delete_all_remind_title" = "Delete all reminders";
+"delete_all_remind_message" = "If you tap delete, all reminders will be deleted. Are you sure?";
+
+// Notification Delete
+"delete_all_notif_title" = "Delete All Notifications";
+"delete_all_notif_message" = "You can reset all notifications. Do you want to delete all notifications?";
+"delete_all_notif_finish_title" = "All notifications have been deleted";
 
 //MARK: - Feedback
 "feedback_massage" = "We are looking for your feedback on this app. Please write any requests such as 'I want this feature' or 'I want this to be improved' here and press the Submit button.";

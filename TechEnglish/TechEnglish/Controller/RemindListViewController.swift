@@ -7,7 +7,7 @@ class RemindListController: UITableViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Remind List"
+        navigationItem.title = NSLocalizedString("remind_tab_button", comment: "")
         
         loadRemind()
         setDeleteNotifButton()
@@ -76,10 +76,11 @@ class RemindListController: UITableViewController {
     
     // 全てのリマインドを削除
     @objc func openAllNotifDeleteAleart(){
-        let alert = UIAlertController(title: "Delete all reminders",
-                                      message: "If you tap delete, all reminders will be deleted. Are you sure?",
+        let alert = UIAlertController(title: NSLocalizedString("delete_all_remind_title", comment: ""),
+                                      message: NSLocalizedString("delete_all_remind_message", comment: ""),
                                       preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [self] _ in
+        alert.addAction(
+            UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: .destructive, handler: { [self] _ in
             deleteAllNotif()
             deleteAllRemindList()
             loadRemind()

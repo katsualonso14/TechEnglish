@@ -19,7 +19,6 @@ class CategoryViewController: UIViewController {
         setupScrollView()
         setupContainer()
         setupVocabButtons()
-        setRemindListButton()
         setDescriptionButton()
         checkIsDescription()
     }
@@ -163,15 +162,6 @@ class CategoryViewController: UIViewController {
         return labelStack
     }
     
-    func setRemindListButton() {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "bell.circle"), for: .normal)
-        button.tintColor = AppColors.appMainColor
-        button.addTarget(self, action: #selector(pushRemindListButton), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-        
-    }
-    
     //MARK: -objc
     // Push Buttons Setting
     @objc func pushFirstButton(sender: UIButton){
@@ -213,13 +203,6 @@ class CategoryViewController: UIViewController {
         let vc = DescriptionViewController()
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
-    }
-    
-    // リマインドリストへ遷移
-    @objc func pushRemindListButton(){
-        // リマインドリストへ遷移
-        let vc = RemindListController()
-        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK - Helper
