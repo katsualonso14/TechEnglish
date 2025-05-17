@@ -84,7 +84,7 @@ class VocabFifthViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         if hasFavorited == false {
             pushRegister(pushTime: pushTime)
             // リマインドリストへの登録
-            addRemindList(tappedRow: indexPathTapped.row)
+            addRemindList(tappedRow: indexPathTapped.row, remindPattern: String(Int(pushTime)))
         } else {
             pushDelete()
         }
@@ -92,15 +92,26 @@ class VocabFifthViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         tableView.reloadRows(at: [indexPathTapped], with: .fade)
     }
     
-    func addRemindList(tappedRow: Int) {
-        let data = ["sentence": vobabList.testSentenceArray[0].names[tappedRow].name]
+    func addRemindList(tappedRow: Int, remindPattern: String) {
+        let sentence = vobabList.testSentenceArray[0].names[tappedRow].name
+        let data = [
+            "sentence": sentence,
+            "remindPattern": remindPattern
+        ]
         NotificationCenter.default.post(name: Notification.Name("addRemind"), object: nil, userInfo: data)
 
-        if var saved = UserDefaults.standard.stringArray(forKey: "remind") {
-            saved.append(vobabList.testSentenceArray[0].names[tappedRow].name)
-            UserDefaults.standard.set(saved, forKey: "remind")
-        } else {
-            UserDefaults.standard.set([vobabList.testSentenceArray[0].names[tappedRow].name], forKey: "remind")
+        // 構造体ベースのローカル保存
+        var savedRemindData: [RemindItem] = []
+        if let data = UserDefaults.standard.data(forKey: "remindItems"),
+           let decoded = try? JSONDecoder().decode([RemindItem].self, from: data) {
+            savedRemindData = decoded
+        }
+
+        let newItem = RemindItem(sentence: sentence, remindPattern: remindPattern)
+        savedRemindData.append(newItem)
+
+        if let encoded = try? JSONEncoder().encode(savedRemindData) {
+            UserDefaults.standard.set(encoded, forKey: "remindItems")
         }
     }
     
