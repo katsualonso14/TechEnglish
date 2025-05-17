@@ -23,6 +23,11 @@
 "cancel" = "キャンセル";
 "close" = "閉じる";
 "delete" = "削除";
+// Remind Time
+"in 1hour" = "1時間後";
+"in 3hour" = "3時間後";
+"in 1day" = "1日後";
+"not set" = "未設定";
 
 //MARK: - Word Seeds
 "submit_for_custom_word_title" = "カスタム単語帳へ保存";

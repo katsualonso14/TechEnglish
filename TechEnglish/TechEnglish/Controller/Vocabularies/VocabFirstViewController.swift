@@ -85,7 +85,7 @@ class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         if hasFavorited == false {
             pushRegister(pushTime: pushTime)
             // リマインドリストへの登録
-            addRemindList(tappedRow: indexPathTapped.row)
+            addRemindList(tappedRow: indexPathTapped.row, remindPattern: String(Int(pushTime)))
         } else {
             pushDelete()
         }
@@ -94,21 +94,31 @@ class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVS
     }
     
     //TODO: 共通化
+    //TODO: 他Controllerも変更を反映
     //RemindListへの追加
-    func addRemindList(tappedRow: Int) {
-        // 別VCへの値渡し
-        let data = ["sentence": vobabList.errorSentenceArray[0].names[tappedRow].name]
+    func addRemindList(tappedRow: Int, remindPattern: String) {
+        let sentence = vobabList.errorSentenceArray[0].names[tappedRow].name
+        let data = [
+            "sentence": sentence,
+            "remindPattern": remindPattern
+        ]
         NotificationCenter.default.post(name: Notification.Name("addRemind"), object: nil, userInfo: data)
-        
-        //ローカルへの保存
-        if var savedRemindData = UserDefaults.standard.stringArray(forKey: "remind") {
-            savedRemindData.append(vobabList.errorSentenceArray[0].names[tappedRow].name)
-            UserDefaults.standard.set(savedRemindData, forKey: "remind")
-        } else {
-            let newData = [vobabList.errorSentenceArray[0].names[tappedRow].name]
-            UserDefaults.standard.set(newData, forKey: "remind") 
+
+        // 構造体ベースのローカル保存
+        var savedRemindData: [RemindItem] = []
+        if let data = UserDefaults.standard.data(forKey: "remindItems"),
+           let decoded = try? JSONDecoder().decode([RemindItem].self, from: data) {
+            savedRemindData = decoded
+        }
+
+        let newItem = RemindItem(sentence: sentence, remindPattern: remindPattern)
+        savedRemindData.append(newItem)
+
+        if let encoded = try? JSONEncoder().encode(savedRemindData) {
+            UserDefaults.standard.set(encoded, forKey: "remindItems")
         }
     }
+
     
     //MARK: -TableView
     //cellの数

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13C561F515BF267E25025F7C /* Pods_TechEnglishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA25FF0E3404AEE7AC05D50 /* Pods_TechEnglishTests.framework */; };
+		23139DDA2DD7FA0700DE8A6E /* RemindItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23139DD92DD7FA0700DE8A6E /* RemindItem.swift */; };
 		2317C6E22D6DA27C00F8E1D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6D92D6DA27C00F8E1D4 /* AppDelegate.swift */; };
 		2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */; };
 		2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6DF2D6DA27C00F8E1D4 /* SceneDelegate.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23139DD92DD7FA0700DE8A6E /* RemindItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindItem.swift; sourceTree = "<group>"; };
 		2317C6442D6D96DC00F8E1D4 /* TechEnglish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechEnglish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2317C65A2D6D96DE00F8E1D4 /* TechEnglishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechEnglishTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2317C6642D6D96DE00F8E1D4 /* TechEnglishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechEnglishUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -258,6 +260,7 @@
 				2353AA8A2DC054150057D201 /* WebViewType.swift */,
 				2349165F2DC30953000128C6 /* WebMeta.swift */,
 				2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */,
+				23139DD92DD7FA0700DE8A6E /* RemindItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */,
 				2353AA892DC046540057D201 /* SavedDocsController.swift in Sources */,
 				234916602DC30953000128C6 /* WebMeta.swift in Sources */,
+				23139DDA2DD7FA0700DE8A6E /* RemindItem.swift in Sources */,
 				2349167C2DC9E23C000128C6 /* VcabSixthViewController.swift in Sources */,
 				2317C6F02D6DA28200F8E1D4 /* CustomWordsCell.swift in Sources */,
 				2317C6F12D6DA28200F8E1D4 /* TechWordTableViewCell.swift in Sources */,
