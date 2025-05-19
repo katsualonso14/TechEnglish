@@ -17,7 +17,7 @@ class TechWordTableViewCell: UITableViewCell {
     
     let sentenceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.font = UIFont.systemFont(ofSize: 17, weight: .bold)
         label.textColor = AppColors.textColor
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +45,7 @@ class TechWordTableViewCell: UITableViewCell {
     let exampleSentenceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
-        label.textColor = UIColor.secondaryLabel
+        label.textColor = AppColors.textColor
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
