@@ -57,6 +57,7 @@ class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         tableView.dataSource = self
         tableView.delegate  = self
         tableView.separatorStyle = .none
+        view.backgroundColor = .systemGray6
         //CustomCellの登録
         tableView.register(TechWordTableViewCell.self, forCellReuseIdentifier: "cell")
     }
@@ -120,15 +121,7 @@ class VocabFirstViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         }
 //    セルの高さ
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200 // 少し高さを持たせると角丸がきれいに見える
-    }
-
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 12 // セル間のスペース
+        return 180
     }
 
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
