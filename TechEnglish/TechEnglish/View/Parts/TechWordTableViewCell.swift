@@ -103,9 +103,12 @@ class TechWordTableViewCell: UITableViewCell {
              containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
          ])
 
-         containerView.layer.cornerRadius = 12
-         containerView.layer.shadowOpacity = 0.1
-         containerView.layer.shadowRadius = 4
+        containerView.layer.cornerRadius = 12
+        containerView.layer.shadowOpacity = 0.1
+        containerView.layer.shadowRadius = 4
+        containerView.layer.masksToBounds = false
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 2)
         
         // カードっぽくする
         self.contentView.layer.cornerRadius = 12
@@ -117,15 +120,15 @@ class TechWordTableViewCell: UITableViewCell {
         verticalStack.axis = .vertical
         verticalStack.spacing = 8
         verticalStack.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(verticalStack)
-        contentView.addSubview(reviewButton)
+        containerView.addSubview(verticalStack)
+        containerView.addSubview(reviewButton)
 
         NSLayoutConstraint.activate([
-            verticalStack.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            verticalStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            verticalStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            verticalStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 16),
+            verticalStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            verticalStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -60),
 
-            reviewButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            reviewButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -16),
             reviewButton.centerYAnchor.constraint(equalTo: verticalStack.centerYAnchor)
         ])
     }
