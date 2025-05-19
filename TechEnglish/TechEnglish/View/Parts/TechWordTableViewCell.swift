@@ -13,6 +13,7 @@ class TechWordTableViewCell: UITableViewCell {
     var eighthVC: VocabEighthViewController?
     
     var vocabularyList: VocabularyList?
+    private let containerView = UIView()
     
     let sentenceLabel: UILabel = {
         let label = UILabel()
@@ -71,7 +72,54 @@ class TechWordTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        
+        self.backgroundColor = .systemGray6
+        
+        setupLayout()
+        setupVerticalStack()
+    }
 
+    //    初期化
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    //MARK: -Layout
+    func setCell(sentence: String, pronunciation: String, meaning: String, exampleSentence: String) {
+        sentenceLabel.text = sentence
+        soundsLabel.text = pronunciation
+        meaningLabel.text = meaning
+        exampleSentenceLabel.text = exampleSentence
+    }
+    
+    func setupLayout() {
+        contentView.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.backgroundColor = AppColors.backgroundColorCheckMode
+
+         NSLayoutConstraint.activate([
+             containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+             containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+             containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+             containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+         ])
+
+         containerView.layer.cornerRadius = 12
+         containerView.layer.shadowOpacity = 0.1
+         containerView.layer.shadowRadius = 4
+        
+        // カードっぽくする
+        self.contentView.layer.cornerRadius = 12
+        self.contentView.layer.masksToBounds = true
+        
+        // 影をつける
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.1
+        self.layer.shadowOffset = CGSize(width: 0, height: 2)
+        self.layer.shadowRadius = 6
+        self.layer.masksToBounds = false
+     }
+    
+    func setupVerticalStack() {
         let verticalStack = UIStackView(arrangedSubviews: [sentenceLabel, soundsLabel, meaningLabel, exampleSentenceLabel])
         verticalStack.axis = .vertical
         verticalStack.spacing = 8
@@ -87,20 +135,8 @@ class TechWordTableViewCell: UITableViewCell {
             reviewButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             reviewButton.centerYAnchor.constraint(equalTo: verticalStack.centerYAnchor)
         ])
-
     }
-
-    //    初期化
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    //MARK: -Layout
-    func setCell(sentence: String, pronunciation: String, meaning: String, exampleSentence: String) {
-        sentenceLabel.text = sentence
-        soundsLabel.text = pronunciation
-        meaningLabel.text = meaning
-        exampleSentenceLabel.text = exampleSentence
-    }
+    
     //MARK: -Function
     @objc func showBottomModal() {
         let actionSheet = UIAlertController(

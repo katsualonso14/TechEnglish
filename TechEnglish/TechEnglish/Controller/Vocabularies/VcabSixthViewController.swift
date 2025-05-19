@@ -57,6 +57,7 @@ class VocabSixthViewController: UITableViewController, AVAudioPlayerDelegate, AV
         
         tableView.dataSource = self
         tableView.delegate  = self
+        tableView.separatorStyle = .none
         // CustomCellの登録
         tableView.register(TechWordTableViewCell.self, forCellReuseIdentifier: "cell")
     }
