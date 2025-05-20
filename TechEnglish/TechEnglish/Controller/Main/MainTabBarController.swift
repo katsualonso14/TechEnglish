@@ -36,14 +36,14 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         phraseStoreVC.tabBarItem.title = NSLocalizedString("custom_word_list_tab_button", comment: "")
         let nv3 = UINavigationController(rootViewController: phraseStoreVC)
         
-        let urlListVC = SavedDocsController()
-        urlListVC.tabBarItem.image = UIImage(systemName: "list.bullet.clipboard")
-        urlListVC.tabBarItem.title = "Saved Docs"
-        let nv4 = UINavigationController(rootViewController: urlListVC)
+        let remindVC = RemindListController()
+        remindVC.tabBarItem.image = UIImage(systemName: "repeat")
+        remindVC.tabBarItem.title = NSLocalizedString("remind_tab_button", comment: "")
+        let nv4 = UINavigationController(rootViewController: remindVC)
         
-        let calendarVC = CalendarViewController()
+        let calendarVC = RecordViewController()
         calendarVC.tabBarItem.image = UIImage(systemName: "calendar")
-        calendarVC.tabBarItem.title = NSLocalizedString("calendar_tab_button", comment: "")
+        calendarVC.tabBarItem.title = NSLocalizedString("record_tab_button", comment: "")
         let nv5 = UINavigationController(rootViewController: calendarVC)
         
         setViewControllers([nv1, nv2, nv3, nv4, nv5], animated: false)

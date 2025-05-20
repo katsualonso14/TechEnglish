@@ -12,6 +12,7 @@ class VocabThirdViewController: UITableViewController,AVAudioPlayerDelegate, AVS
     let audioSession = AVAudioSession.sharedInstance()
     // 通知の編集を可能にする定数宣言
     let content = UNMutableNotificationContent()
+    let vobabList = VocabularyList()
     
     init(titleName: String) {
         self.titleName = titleName
@@ -55,8 +56,10 @@ class VocabThirdViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         
         tableView.dataSource = self
         tableView.delegate  = self
+        tableView.separatorStyle = .none
+        view.backgroundColor = .systemGray6
         //CustomCellの登録
-        tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TechWordTableViewCell.self, forCellReuseIdentifier: "cell")
     }
 
        override func didReceiveMemoryWarning() {
@@ -70,10 +73,10 @@ class VocabThirdViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         guard let indexPathTapped = tableView.indexPath(for: cell) else
         {return}
         
-        let contact = vocabularyList.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
+        let contact = vocabularyList.lifecycleSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
         let hasFavorited = contact.hasFavorited
         
-        vocabularyList.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited = !hasFavorited
+        vocabularyList.lifecycleSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited = !hasFavorited
         //タップしてときの値をpushメッセージに記載
         content.title = contact.name
         content.body = contact.name
@@ -82,6 +85,8 @@ class VocabThirdViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         //通知設定
         if hasFavorited == false {
             pushRegister(pushTime: pushTime)
+            // リマインドリストへの登録
+            addRemindList(tappedRow: indexPathTapped.row, remindPattern: String(Int(pushTime)))
         } else {
             pushDelete()
         }
@@ -89,57 +94,38 @@ class VocabThirdViewController: UITableViewController,AVAudioPlayerDelegate, AVS
         tableView.reloadRows(at: [indexPathTapped], with: .fade)
     }
     
-    // ハートボタン2をタップした際の設定
-    func CustomCellTapButtonCall2(cell: UITableViewCell, pushTime: TimeInterval) {
-        //タップしたcellの値
-        guard let indexPathTapped = tableView.indexPath(for: cell) else
-        {return}
-        
-        let contact = vocabularyList.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row]
-        let hasFavorited = contact.hasFavorited2
-        
-        vocabularyList.thirdSentenceArray[indexPathTapped.section].names[indexPathTapped.row].hasFavorited2 = !hasFavorited
-        //タップしてときの値をpushメッセージに記載
-        content.title = contact.name
-        content.body = contact.name
-        content.sound = UNNotificationSound.default
-        content.userInfo = ["page": "third"]
-        //通知設定
-        if hasFavorited == false {
-            pushRegister(pushTime: pushTime)
-        } else {
-            pushDelete()
-        }
-        
-        tableView.reloadRows(at: [indexPathTapped], with: .fade)
+    //RemindListへの追加
+    func addRemindList(tappedRow: Int, remindPattern: String) {
+        let sentence = vobabList.lifecycleSentenceArray[0].names[tappedRow].name
+        RemindManager.addRemindItem(sentence: sentence, remindPattern: remindPattern)
     }
+    
     //MARK: -TableView
     //cellの数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vocabularyList.thirdSentenceArray[0].names.count
+        return vocabularyList.lifecycleSentenceArray[0].names.count
     }
     //cellの中身
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //CustomTableViewCellの追加
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TechWordTableViewCell
         cell.thirdVC = self
-        let contact = vocabularyList.thirdSentenceArray[0].names[indexPath.row]
+        let contact = vocabularyList.lifecycleSentenceArray[0].names[indexPath.row]
         //cellの文字指定
-        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.thirdPronunciation[indexPath.row], japanese: vocabularyList.thirdEnglish[indexPath.row], exampleSentence: vocabularyList.thirdExampleSentence[indexPath.row])
-        
-        cell.heartButton.tintColor = contact.hasFavorited ? .red : .gray
-        cell.heartButton2.tintColor = contact.hasFavorited2 ? .orange : .gray
+        cell.setCell(sentence: contact.name, pronunciation: vocabularyList.lifecyclePronunciation[indexPath.row], meaning: vocabularyList.lifecycleEnglish[indexPath.row], exampleSentence: vocabularyList.lifecycleExampleSentence[indexPath.row])
+        // 参考文テキストの文字色指定
+        cell.exampleSentenceLabel.attributedText = cell.highlightKeyword(in: vocabularyList.lifecycleExampleSentence[indexPath.row], keyword: contact.name)
 
             return cell
         }
 //    セルの高さ
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(220)
+        return 180
     }
     //cellをタップした時の処理
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //英語の読み上げ設定
-        let utterance = AVSpeechUtterance.init(string: vocabularyList.thirdSentence[indexPath.row])
+        let utterance = AVSpeechUtterance.init(string: vocabularyList.lifecycleSentence[indexPath.row])
         utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
         synthesizer.speak(utterance)
 

@@ -6,9 +6,11 @@
 
 
 //MARK: - Tabs
+// Bottom Navigation Bar Title
 "wordseeds_tab_button" = "単語のタネ";
 "custom_word_list_tab_button" = "カスタム単語帳";
-"calendar_tab_button" = "記録";
+"remind_tab_button" = "リマインド";
+"record_tab_button" = "記録";
 
 //MARK: - Common Components
 // Placeholder Text
@@ -16,6 +18,16 @@
 "example_sentence_placeholder" = "例文を入力...";
 "memo_placeholder" = "メモを入力...";
 "word_placeholder" = "単語を入力...";
+// Button Text
+"done" = "完了";
+"cancel" = "キャンセル";
+"close" = "閉じる";
+"delete" = "削除";
+// Remind Time
+"in 1hour" = "1時間後";
+"in 3hour" = "3時間後";
+"in 1day" = "1日後";
+"not set" = "未設定";
 
 //MARK: - Word Seeds
 "submit_for_custom_word_title" = "カスタム単語帳へ保存";
@@ -44,10 +56,14 @@
 "vocab_sixth_button_title" = "ドキュメント";
 "vocab_eighth_button_title" = "その他";
 
-// Notification Delete
-"delete_all_notif_title" = "全ての通知を削除";
-"delete_all_notif_message" = "全ての通知をリセット可能です。全ての通知を削除しますか？";
-"delete_all_notif_finish_title" = "全ての通知を削除しました";
+// Label Title
+"vocab_first_button_subtitle" = "exception, failedなどのエラー関連ワード";
+"vocab_sixth_button_subtitle" = "deprecated, stableなどのドキュメント関連ワード";
+"vocab_second_button_subtitle" = "index, structureなどのデータ構造関連ワード";
+"vocab_third_button_subtitle" = "suspended, asynchronousなどの状態・ライフサイクル関連ワード";
+"vocab_fourth_button_subtitle" = "assume, prerequisitesなどの設定・条件関連ワード";
+"vocab_fifth_button_subtitle" = "expression, calculationなどの処理・関数関連ワード";
+"vocab_eighth_button_subtitle" = "related, verifyなどのその他・補足関連ワード";
 
 // MARK: - Tech Words Vocabulary
 // エラー・例外
@@ -61,25 +77,34 @@
 "invalid_meaning" = "無効な・適切でない";
 "failed_meaning" = "失敗した";
 
+// ドキュメントの頻出単語
+"outdated_meaning" = "時代遅れで、もはや使われない";
+"deprecated_meaning" = "使用が推奨されなくなった（古くなったため）";
+"obsolete_meaning" = "もはや使用されていない";
+"superseded_meaning" = "新しいものに置き換えられた";
+"experimental_meaning" = "テスト段階、完全に開発されていない";
+"stable_meaning" = "完全にテストされ、信頼できる";
+
 // データ・構造
 "index_indices_meaning" = "インデックス（配列やリスト内の位置）";
-"field_meaning" = "フィールド（構造体やデータの項目）";
 "structure_struct_meaning" = "構造体（データをまとめる型）";
-"record_meaning" = "レコード（1件のまとまったデータ）";
 "constraint_meaning" = "制約（データの制限ルール）";
-"mutable_meaning" = "可変（あとから変更できる）";
+"mutable_meaning" = "変更可能な";
 "immutable_meaning" = "不変（あとから変更できない）";
 "queue_meaning" = "キュー（順番に処理するデータ構造）";
-"node_meaning" = "ノード（構造の中の要素）";
+"existing_meaning" = "既存";
 
 // 状態・ライフサイクル
 "suspended_meaning" = "一時停止中";
-"persist_meaning" = "持続する";
-"persistent_meaning" = "存在し続ける";
-"embed_meaning" = "埋め込む";
-"fetch_meaning" = "持ってくる";
-"rotated_meaning" = "回転した";
-"unbounded_meaning" = "無制限の";
+"persistent_meaning" = "データが永続的に存在し続ける";
+"embed_meaning" = "データを埋め込む";
+"fetch_meaning" = "データを取得する";
+"unbounded_meaning" = "制限のない";
+"invoked_meaning" = "関数や処理が呼び出された";
+"asynchronous_meaning" = "非同期で実行され、すぐには完了しない";
+"inherited_meaning" = "上位の設定や属性を継承した";
+"ancestor_meaning" = "親や祖先の要素（階層構造で上にあるもの）";
+"permanent_meaning" = "恒久的に変わらない状態";
 
 // 設定・条件
 "assume_meaning" = "仮定する";
@@ -87,46 +112,43 @@
 "determines_meaning" = "決定する";
 "intended_meaning" = "意図した";
 "prerequisites_meaning" = "前提条件";
-
-// 構文・表現
-"indeed_meaning" = "本当に,実際に";
-"instead_meaning" = "代わり";
-"shorthand_notation_meaning" = "速記法";
+"identifiable_meaning" = "識別可能な";
 "absolute_meaning" = "絶対";
+"contained_meaning" = "含まれる";
 
-// 処理・関数
+// コーディングテスト
+"indices_meaning" = "配列やリスト内の位置（インデックス）";
+"constraint_meaning" = "入力や出力に関する制限条件";
+"expression_meaning" = "値やロジックを表す式・記述";
+"decreasing_order_meaning" = "値が大きい順に並んでいる状態（降順）";
+"non_decreasing_order_meaning" = "値が小さい順または同じ値が続く状態（昇順）";
+"calculation_meaning" = "数値や論理に対する計算処理";
+"palindrome_number_meaning" = "前後どちらから読んでも同じ数値";
+"depth_meaning" = "再帰や階層構造における深さの程度";
+"absolute_meaning" = "符号に関係ない絶対的な値";
+"prerequisites_meaning" = "処理や操作の前に必要な条件・準備";
+"depth_meaning" = "深さ";
+"proportionally_meaning" = "比例して";
+"opposed_meaning" = "反対した";
+
+// その他・補足
+"related_meaning" = "関連している";
 "invoked_meaning" = "呼び出された";
 "modify_meaning" = "修正,変更";
 "verify_meaning" = "確認する";
-"inherited_meaning" = "継承された";
+"indeed_meaning" = "本当に,実際に";
+"instead_meaning" = "代わり";
+"shorthand_notation_meaning" = "速記法";
 
-// 目的・関係
-"related_meaning" = "関連している";
-"identifiable_meaning" = "識別可能な";
-"ancestor_meaning" = "祖先,先祖";
-"contained_meaning" = "含まれる";
+//MARK: - Remind
+// Delete Alert
+"delete_all_remind_title" = "全てのリマインドを削除";
+"delete_all_remind_message" = "全てのリマインドを削除可能です。全てのリマインドを削除しますか？";
 
-// ドキュメントの頻出単語
-"outdated_meaning" = "時代遅れで、もはや使われない";
-"deprecated_meaning" = "使用が推奨されなくなった（古くなったため）";
-"obsolete_meaning" = "もはや使用されていない";
-"superseded_meaning" = "新しいものに置き換えられた";
-"legacy_meaning" = "まだ使われている古いシステムや技術";
-"experimental_meaning" = "テスト段階、完全に開発されていない";
-"preview_meaning" = "未完成のレビュー用のバージョン";
-"stable_meaning" = "完全にテストされ、信頼できる";
-"release_note_meaning" = "新機能や修正を詳細に記載したドキュメント";
-"changelog_meaning" = "プロジェクトで行われた変更の記録";
-
-// その他・補足
-"outdated_meaning" = "時代遅れの、古くなった";
-"existing_meaning" = "既存";
-"opposed_meaning" = "反対した";
-"palindrome_number_meaning" = "回文数（上から読んでも下から読んでも同じ数: 例 12521）";
-"depth_meaning" = "深さ";
-"proportionally_meaning" = "比例して";
-"permanent_meaning" = "永続";
-
+// Notification Delete
+"delete_all_notif_title" = "全ての通知を削除";
+"delete_all_notif_message" = "全ての通知をリセット可能です。全ての通知を削除しますか？";
+"delete_all_notif_finish_title" = "全ての通知を削除しました";
 
 
 //MARK: - Feedback
@@ -147,3 +169,12 @@
 // MARK: - WebView Stock
 "enter_url" = "URLを入力";
 "add_button_title" = "追加";
+
+// MARK: - Remind Bottom Sheet
+"remind_bottom_sheet_title" = "リマインド";
+"remind_bottom_sheet_message" = "リマインドの時間を選択してください。";
+"remind_bottom_sheet_1hour" = "1時間後";
+"remind_bottom_sheet_3hour" = "3時間後";
+"remind_bottom_sheet_1day" = "1日後";
+"remind_completed_title" = "リマインドの設定完了";
+"remind_completed_message" = "リマインドの設定が完了しました。";
