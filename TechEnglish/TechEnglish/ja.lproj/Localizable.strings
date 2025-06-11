@@ -11,6 +11,7 @@
 "custom_word_list_tab_button" = "カスタム単語帳";
 "remind_tab_button" = "リマインド";
 "record_tab_button" = "記録";
+"quiz_tab_button" = "クイズ";
 
 //MARK: - Common Components
 // Placeholder Text
@@ -23,6 +24,7 @@
 "cancel" = "キャンセル";
 "close" = "閉じる";
 "delete" = "削除";
+"next" = "次へ";
 // Remind Time
 "in 1hour" = "1時間後";
 "in 3hour" = "3時間後";
@@ -84,6 +86,12 @@
 "superseded_meaning" = "新しいものに置き換えられた";
 "experimental_meaning" = "テスト段階、完全に開発されていない";
 "stable_meaning" = "完全にテストされ、信頼できる";
+"related_meaning" = "関連している";
+"invoked_meaning" = "呼び出された";
+"modify_meaning" = "修正,変更";
+"verify_meaning" = "確認する";
+"indeed_meaning" = "本当に,実際に";
+"instead_meaning" = "代わり";
 
 // データ・構造
 "index_indices_meaning" = "インデックス（配列やリスト内の位置）";
@@ -178,3 +186,38 @@
 "remind_bottom_sheet_1day" = "1日後";
 "remind_completed_title" = "リマインドの設定完了";
 "remind_completed_message" = "リマインドの設定が完了しました。";
+
+// MARK: - Quiz
+// errorHandlingQuestions
+"quiz_unexpected_error_occurred" = "「予期せぬエラーが〇〇〇〇しました」の正しい語を選んでください。";
+"quiz_old_api_deprecated" = "「古いAPIはすでに〇〇〇〇されています」の正しい語を選んでください。";
+"quiz_function_invoked_automatically" = "「この関数は自動的に〇〇〇〇されます」の正しい語を選んでください。";
+"quiz_session_terminated_by_timeout" = "「セッションはタイムアウトにより〇〇〇〇されました」の正しい語を選んでください。";
+"quiz_memory_leak_detected" = "「ログによるとメモリリークが〇〇〇〇されました」の正しい語を選んでください。";
+
+// documentQuestions
+"quiz_superseded_feature" = "「この機能はすでに新しいものに〇〇〇〇されています」の正しい語を選んでください。";
+"quiz_deprecated_method" = "「このメソッドはすでに〇〇〇〇です。代わりのAPIを使ってください。」の正しい語を選んでください。";
+"quiz_experimental_api" = "「このAPIはまだ〇〇〇〇段階なので、本番利用には注意が必要です。」の正しい語を選んでください。";
+"quiz_obsolete_code" = "「このコードは動作するが、すでに〇〇〇〇と見なされています」の正しい語を選んでください。";
+"quiz_verify_after_change" = "「変更を加えたら、次にそれが正しく動くかを〇〇〇〇する必要があります」の正しい語を選んでください。";
+
+// lifecycleQuestions
+"quiz_process_suspended" = "「このプロセスは現在一時的に〇〇〇〇されています」の正しい語を選んでください。";
+"quiz_persistent_storage" = "「このストレージは、データを〇〇〇〇に保持します」の正しい語を選んでください。";
+"quiz_async_function" = "「この関数は他の処理とは独立して〇〇〇〇に動作します」の正しい語を選んでください。";
+"quiz_inherited_style" = "「このコンポーネントは上位のスタイルを〇〇〇〇しています」の正しい語を選んでください。";
+"quiz_fetch_data" = "「このAPIはデータを〇〇〇〇してUIを更新します」の正しい語を選んでください。";
+
+// Quiz Helper
+"quiz_completed" = "クイズ完了";
+"correct" = "正解";
+"wrong" = "不正解";
+"correct_message" = "素晴らしい！";
+"wrong_message" = "正しい答えは: ";
+"quiz_reset" = "クイズをリセット";
+
+//MARK: - QuizList
+"error_handling_quiz" = "エラー・例外クイズ";
+"document_quiz" = "ドキュメントクイズ";
+"lifecycle_quiz" = "状態・ライフサイクルクイズ";

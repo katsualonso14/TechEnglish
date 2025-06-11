@@ -8,6 +8,7 @@
 "custom_word_list_tab_button" = "Custom Words";
 "remind_tab_button" = "Remind";
 "record_tab_button" = "Record";
+"quiz_tab_button" = "Quiz";
 
 //MARK: - Common Components
 // Placeholder Text
@@ -20,6 +21,7 @@
 "cancel" = "Cancel";
 "close" = "Close";
 "delete" = "Delete";
+"next" = "Next";
 // Remind Time
 "in 1hour" = "in 1hour";
 "in 3hour" = "in 3hour";
@@ -174,3 +176,39 @@
 "remind_bottom_sheet_1day" = "1 day later";
 "remind_completed_title" = "Remind Completed";
 "remind_completed_message" = "The reminder has been set successfully.";
+
+//MARK: - Quiz
+// errorHandlingQuestions
+"quiz_unexpected_error_occurred" = "Which word best completes: 'An unexpected error has ____.'";
+"quiz_old_api_deprecated" = "Which word best completes: 'The old API has been ____.'";
+"quiz_function_invoked_automatically" = "Which word best completes: 'This function is automatically ____.'";
+"quiz_session_terminated_by_timeout" = "Which word best completes: 'The session was ____ due to a timeout.'";
+"quiz_memory_leak_detected" = "Which word best completes: 'According to the log, a memory leak was ____.'";
+
+// documentQuestions
+"quiz_superseded_feature" = "Which word best completes: 'This feature has been ____ by a new implementation.'";
+"quiz_deprecated_method" = "Which word best completes: 'This method is now ____. Please use the new API instead.'";
+"quiz_experimental_api" = "Which word best completes: 'This API is still in the ____ stage, so use with caution in production.'";
+"quiz_obsolete_code" = "Which word best completes: 'This code still runs, but is considered ____.'";
+"quiz_verify_after_change" = "Which word best completes: 'After making changes, you should ____ the results.'";
+
+// lifecycleQuestions
+"quiz_process_suspended" = "Which word best completes: 'This process is currently ____.'";
+"quiz_persistent_storage" = "Which word best completes: 'This storage retains data in a ____ manner.'";
+"quiz_async_function" = "Which word best completes: 'This function operates ____ from the main thread.'";
+"quiz_inherited_style" = "Which word best completes: 'This component ____ styles from its parent.'";
+"quiz_fetch_data" = "Which word best completes: 'This API call will ____ data to update the UI.'";
+
+
+// Quiz Helper
+"quiz_completed" = "Quiz Completed";
+"correct" = "Correct";
+"wrong" = "Wrong";
+"correct_message" = "Good job!";
+"wrong_message" = "Correct answer: ";
+"quiz_reset" = "Reset Quiz";
+
+//MARK: - QuizList
+"error_handling_quiz" = "Error Handling Quiz";
+"document_quiz" = "Document Quiz";
+"lifecycle_quiz" = "Lifecycle Quiz";

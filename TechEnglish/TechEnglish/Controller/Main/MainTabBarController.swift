@@ -46,7 +46,12 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         calendarVC.tabBarItem.title = NSLocalizedString("record_tab_button", comment: "")
         let nv5 = UINavigationController(rootViewController: calendarVC)
         
-        setViewControllers([nv1, nv2, nv3, nv4, nv5], animated: false)
+        let quizVC = QuizListViewController()
+        quizVC.tabBarItem.image = UIImage(systemName: "questionmark.circle")
+        quizVC.tabBarItem.title = NSLocalizedString("quiz_tab_button", comment: "")
+        let nv6 = UINavigationController(rootViewController: quizVC)
+        
+        setViewControllers([nv1, nv6, nv2, nv3, nv4, nv5], animated: false)
     }
     
     //MARK: -Admob

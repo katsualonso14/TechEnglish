@@ -46,6 +46,9 @@
 		2353AA612DB9F25C0057D201 /* VocabEighthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */; };
 		2353AA892DC046540057D201 /* SavedDocsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA882DC046540057D201 /* SavedDocsController.swift */; };
 		2353AA8B2DC054150057D201 /* WebViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA8A2DC054150057D201 /* WebViewType.swift */; };
+		2368A9852DF8EA940092310A /* QuizListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9842DF8EA940092310A /* QuizListViewController.swift */; };
+		2368A9872DF8EAFF0092310A /* QuizListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9862DF8EAFF0092310A /* QuizListModel.swift */; };
+		2368A98A2DF8EB5E0092310A /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9892DF8EB5E0092310A /* QuizViewController.swift */; };
 		23776BD32DD5491B00553D04 /* RemindListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23776BD22DD5491B00553D04 /* RemindListViewController.swift */; };
 		23776BD52DD54A8100553D04 /* RemindListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23776BD42DD54A8100553D04 /* RemindListCell.swift */; };
 		8F915D3EBB5EDC4FC742BE69 /* Pods_TechEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F251A53FCBB91C69C86381 /* Pods_TechEnglish.framework */; };
@@ -113,6 +116,9 @@
 		2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabEighthViewController.swift; sourceTree = "<group>"; };
 		2353AA882DC046540057D201 /* SavedDocsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDocsController.swift; sourceTree = "<group>"; };
 		2353AA8A2DC054150057D201 /* WebViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewType.swift; sourceTree = "<group>"; };
+		2368A9842DF8EA940092310A /* QuizListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizListViewController.swift; sourceTree = "<group>"; };
+		2368A9862DF8EAFF0092310A /* QuizListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizListModel.swift; sourceTree = "<group>"; };
+		2368A9892DF8EB5E0092310A /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		23776BD22DD5491B00553D04 /* RemindListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindListViewController.swift; sourceTree = "<group>"; };
 		23776BD42DD54A8100553D04 /* RemindListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindListCell.swift; sourceTree = "<group>"; };
 		2676E555D96CF7567418D47E /* Pods-TechEnglish-TechEnglishUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; path = "Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -238,9 +244,11 @@
 		2317C6F82D6DA34000F8E1D4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2368A9882DF8EB590092310A /* Quiz */,
 				2353AA872DC045F10057D201 /* Main */,
 				2317C71A2D6DE05700F8E1D4 /* Vocabularies */,
 				2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */,
+				2368A9842DF8EA940092310A /* QuizListViewController.swift */,
 				2317C6FF2D6DA37B00F8E1D4 /* CustomWordsViewController.swift */,
 				2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */,
 				2353AA1D2DADCA890057D201 /* RecordViewController.swift */,
@@ -256,6 +264,7 @@
 				2353AA2E2DAF24D30057D201 /* Localizable.strings */,
 				2317C70E2D6DA6FC00F8E1D4 /* Contact.swift */,
 				2317C7082D6DA3F900F8E1D4 /* AppColors.swift */,
+				2368A9862DF8EAFF0092310A /* QuizListModel.swift */,
 				2317C70A2D6DA40000F8E1D4 /* MyAds.swift */,
 				2317C7062D6DA3DB00F8E1D4 /* VocabularyList.swift */,
 				2353AA1F2DADCB130057D201 /* EventModel.swift */,
@@ -291,6 +300,14 @@
 				23139DDB2DDA925700DE8A6E /* RemindManager.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		2368A9882DF8EB590092310A /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				2368A9892DF8EB5E0092310A /* QuizViewController.swift */,
+			);
+			path = Quiz;
 			sourceTree = "<group>";
 		};
 		2CD3859A869429ED58EC1AFD /* Pods */ = {
@@ -608,6 +625,7 @@
 				2317C71C2D6DE07A00F8E1D4 /* VocabFirstViewController.swift in Sources */,
 				23776BD32DD5491B00553D04 /* RemindListViewController.swift in Sources */,
 				2317C71E2D6EEB1400F8E1D4 /* VocabSecondViewController.swift in Sources */,
+				2368A9852DF8EA940092310A /* QuizListViewController.swift in Sources */,
 				2353AA5B2DB9F0BE0057D201 /* VovabFifthViewController.swift in Sources */,
 				2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */,
 				2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */,
@@ -620,7 +638,9 @@
 				2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */,
 				2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */,
 				2317C6F42D6DA28200F8E1D4 /* WebViewContainer.swift in Sources */,
+				2368A98A2DF8EB5E0092310A /* QuizViewController.swift in Sources */,
 				2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */,
+				2368A9872DF8EAFF0092310A /* QuizListModel.swift in Sources */,
 				23776BD52DD54A8100553D04 /* RemindListCell.swift in Sources */,
 				2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */,
 				2353AA1E2DADCA890057D201 /* RecordViewController.swift in Sources */,
