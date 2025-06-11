@@ -21,20 +21,20 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         self.tabBar.tintColor = AppColors.appMainColor
         view.backgroundColor = .systemGray6
         
+        let quizVC = QuizListViewController()
+        quizVC.tabBarItem.image = UIImage(systemName: "questionmark.circle")
+        quizVC.tabBarItem.title = NSLocalizedString("quiz_tab_button", comment: "")
+        let nv1 = UINavigationController(rootViewController: quizVC)
+        
+        let phrasesVC = PhrasesContainerViewController()
+        phrasesVC.tabBarItem.image = UIImage(systemName: "pencil.and.scribble")
+        phrasesVC.tabBarItem.title = "PhraseStock"
+        let nv2 = UINavigationController(rootViewController: phrasesVC)
+        
         let categoryViewController = CategoryViewController()
         categoryViewController.tabBarItem.image = UIImage(systemName: "character.book.closed")
         categoryViewController.tabBarItem.title = "Tech Words"
-        let nv1 = UINavigationController(rootViewController: categoryViewController)
-        
-        let phrasesVC = WordSeedViewController()
-        phrasesVC.tabBarItem.image = UIImage(systemName: "pencil.and.scribble")
-        phrasesVC.tabBarItem.title = NSLocalizedString("wordseeds_tab_button", comment: "")
-        let nv2 = UINavigationController(rootViewController: phrasesVC)
-        
-        let phraseStoreVC = CustomWordsViewController()
-        phraseStoreVC.tabBarItem.image = UIImage(systemName: "pencil.and.outline")
-        phraseStoreVC.tabBarItem.title = NSLocalizedString("custom_word_list_tab_button", comment: "")
-        let nv3 = UINavigationController(rootViewController: phraseStoreVC)
+        let nv3 = UINavigationController(rootViewController: categoryViewController)
         
         let remindVC = RemindListController()
         remindVC.tabBarItem.image = UIImage(systemName: "repeat")
@@ -46,12 +46,7 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         calendarVC.tabBarItem.title = NSLocalizedString("record_tab_button", comment: "")
         let nv5 = UINavigationController(rootViewController: calendarVC)
         
-        let quizVC = QuizListViewController()
-        quizVC.tabBarItem.image = UIImage(systemName: "questionmark.circle")
-        quizVC.tabBarItem.title = NSLocalizedString("quiz_tab_button", comment: "")
-        let nv6 = UINavigationController(rootViewController: quizVC)
-        
-        setViewControllers([nv1, nv6, nv2, nv3, nv4, nv5], animated: false)
+        setViewControllers([nv1, nv2, nv3, nv4, nv5], animated: false)
     }
     
     //MARK: -Admob

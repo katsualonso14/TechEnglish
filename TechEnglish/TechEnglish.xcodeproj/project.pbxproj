@@ -49,6 +49,7 @@
 		2368A9852DF8EA940092310A /* QuizListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9842DF8EA940092310A /* QuizListViewController.swift */; };
 		2368A9872DF8EAFF0092310A /* QuizListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9862DF8EAFF0092310A /* QuizListModel.swift */; };
 		2368A98A2DF8EB5E0092310A /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9892DF8EB5E0092310A /* QuizViewController.swift */; };
+		2368A99F2DFA41E30092310A /* PhrasesContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A99E2DFA41E30092310A /* PhrasesContainerViewController.swift */; };
 		23776BD32DD5491B00553D04 /* RemindListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23776BD22DD5491B00553D04 /* RemindListViewController.swift */; };
 		23776BD52DD54A8100553D04 /* RemindListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23776BD42DD54A8100553D04 /* RemindListCell.swift */; };
 		8F915D3EBB5EDC4FC742BE69 /* Pods_TechEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F251A53FCBB91C69C86381 /* Pods_TechEnglish.framework */; };
@@ -119,6 +120,7 @@
 		2368A9842DF8EA940092310A /* QuizListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizListViewController.swift; sourceTree = "<group>"; };
 		2368A9862DF8EAFF0092310A /* QuizListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizListModel.swift; sourceTree = "<group>"; };
 		2368A9892DF8EB5E0092310A /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		2368A99E2DFA41E30092310A /* PhrasesContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasesContainerViewController.swift; sourceTree = "<group>"; };
 		23776BD22DD5491B00553D04 /* RemindListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindListViewController.swift; sourceTree = "<group>"; };
 		23776BD42DD54A8100553D04 /* RemindListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindListCell.swift; sourceTree = "<group>"; };
 		2676E555D96CF7567418D47E /* Pods-TechEnglish-TechEnglishUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; path = "Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				2317C7002D6DA37B00F8E1D4 /* WordSeedViewController.swift */,
 				2353AA1D2DADCA890057D201 /* RecordViewController.swift */,
 				2353AA882DC046540057D201 /* SavedDocsController.swift */,
+				2368A99E2DFA41E30092310A /* PhrasesContainerViewController.swift */,
 				23776BD22DD5491B00553D04 /* RemindListViewController.swift */,
 			);
 			path = Controller;
@@ -648,6 +651,7 @@
 				2317C6F52D6DA28200F8E1D4 /* WordSeedCell.swift in Sources */,
 				2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */,
 				2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */,
+				2368A99F2DFA41E30092310A /* PhrasesContainerViewController.swift in Sources */,
 				23139DDC2DDA925700DE8A6E /* RemindManager.swift in Sources */,
 				2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */,
 				2353AA592DB9EC270057D201 /* VocabFourthViewController.swift in Sources */,
