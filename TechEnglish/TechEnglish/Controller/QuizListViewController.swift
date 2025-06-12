@@ -25,6 +25,25 @@ class QuizListViewController: UIViewController {
             imageName: "arrow.triangle.2.circlepath",
             selector: #selector(pushLifecycleButton)
         ),
+        VocabButtonInfo(
+            titleKey:"core_words_quiz",
+            subtitleKey: "quiz_core_words_button_subtitle",
+            imageName: "book.closed",
+            selector: #selector(pushCoreWordsButton)
+        ),
+        VocabButtonInfo(
+            titleKey: "core_words_quiz2",
+            subtitleKey: "quiz_core_words2_button_subtitle",
+            imageName: "book.closed",
+            selector: #selector(pushCoreWords2Button)
+        ),
+        VocabButtonInfo(
+            titleKey: "core_words_quiz2",
+            subtitleKey: "quiz_core_words3_button_subtitle",
+            imageName: "book.closed",
+            selector: #selector(pushCoreWords3Button)
+        ),
+        
     ]
     
     override func viewDidLoad() {
@@ -189,6 +208,30 @@ class QuizListViewController: UIViewController {
         let vc = QuizViewController(
             questions: quizList.docsWordQuestions,
             navTitle: NSLocalizedString("lifecycle_quiz", comment: "")
+        )
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func pushCoreWordsButton(sender: UIButton){
+        let vc = QuizViewController(
+            questions: quizList.coreWordsQuestions,
+            navTitle: NSLocalizedString("core_words_quiz", comment: "")
+        )
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func pushCoreWords2Button(sender: UIButton){
+        let vc = QuizViewController(
+            questions: quizList.coreWordsQuestions2,
+            navTitle: NSLocalizedString("core_words_quiz2", comment: "")
+        )
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func pushCoreWords3Button(sender: UIButton){
+        let vc = QuizViewController(
+            questions: quizList.coreWordsQuestions3,
+            navTitle: NSLocalizedString("core_words_quiz3", comment: "")
         )
         navigationController?.pushViewController(vc, animated: true)
     }

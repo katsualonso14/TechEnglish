@@ -210,6 +210,28 @@
 "quiz_inherited_style" = "「このコンポーネントは上位のスタイルを〇〇〇〇しています」の正しい語を選んでください。";
 "quiz_fetch_data" = "「このAPIはデータを〇〇〇〇してUIを更新します」の正しい語を選んでください。";
 
+// CoreWordsQuestions
+"quiz_occurred" = "「occurred」は日本語でどういう意味？";
+"quiz_attempt" = "「attempt」は日本語でどういう意味？";
+"quiz_suspended" = "「suspended」は日本語でどういう意味？";
+"quiz_ancestor" = "「ancestor」は日本語でどういう意味？";
+"quiz_permanent" = "「permanent」は日本語でどういう意味？";
+
+// CoreWordsQuestions2
+"quiz_existing" = "「existing」は日本語でどういう意味？";
+"quiz_related" = "「related」は日本語でどういう意味？";
+"quiz_opposed" = "「opposed」は日本語でどういう意味？";
+"quiz_absolute" = "「absolute」は日本語でどういう意味？";
+"quiz_illegal" = "「illegal」は日本語でどういう意味？";
+
+// CoreWordsQuestions3
+"quiz_embed" = "「embed」は日本語でどういう意味？";
+"quiz_detected" = "「detected」は日本語でどういう意味？";
+"quiz_assume" = "「assume」は日本語でどういう意味？";
+"quiz_specify" = "「specify」は日本語でどういう意味？";
+"quiz_expression" = "「expression」は日本語でどういう意味？";
+
+
 // Quiz Helper
 "quiz_completed" = "クイズ完了";
 "correct" = "正解";
@@ -222,3 +244,6 @@
 "error_handling_quiz" = "エラー・例外クイズ";
 "document_quiz" = "ドキュメントクイズ";
 "lifecycle_quiz" = "状態・ライフサイクルクイズ";
+"core_words_quiz" = "頻出単語クイズ";
+"core_words_quiz2" = "頻出単語クイズ2";
+"core_words_quiz3" = "頻出単語クイズ3";

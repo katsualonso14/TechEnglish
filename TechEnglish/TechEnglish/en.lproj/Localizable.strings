@@ -200,6 +200,27 @@
 "quiz_inherited_style" = "Which word best completes: 'This component ____ styles from its parent.'";
 "quiz_fetch_data" = "Which word best completes: 'This API call will ____ data to update the UI.'";
 
+// CoreWordsQuestions
+"quiz_occurred" = "「occurred」は日本語でどういう意味？";
+"quiz_attempt" = "「attempt」は日本語でどういう意味？";
+"quiz_suspended" = "「suspended」は日本語でどういう意味？";
+"quiz_ancestor" = "「ancestor」は日本語でどういう意味？";
+"quiz_permanent" = "「permanent」は日本語でどういう意味？";
+
+// CoreWordsQuestions2
+"quiz_existing" = "What is the meaning of \"existing\"?";
+"quiz_related" = "What is the meaning of \"related\"?";
+"quiz_opposed" = "What is the meaning of \"opposed\"?";
+"quiz_absolute" = "What is the meaning of \"absolute\"?";
+"quiz_illegal" = "What is the meaning of \"illegal\"?";
+
+// CoreWordsQuestions3
+"quiz_embed" = "What is the meaning of \"embed\"?";
+"quiz_detected" = "What is the meaning of \"detected\"?";
+"quiz_assume" = "What is the meaning of \"assume\"?";
+"quiz_specify" = "What is the meaning of \"specify\"?";
+"quiz_expression" = "What is the meaning of \"expression\"?";
+
 
 // Quiz Helper
 "quiz_completed" = "Quiz Completed";
@@ -213,3 +234,6 @@
 "error_handling_quiz" = "Error Handling Quiz";
 "document_quiz" = "Document Quiz";
 "lifecycle_quiz" = "Lifecycle Quiz";
+"core_words_quiz" = "Core Words Quiz";
+"core_words_quiz2" = "Core Words Quiz 2";
+"core_words_quiz3" = "Core Words Quiz 3";

@@ -100,6 +100,104 @@ class QuizListModel {
         )
     ]
 
+    let coreWordsQuestions: [(question: String, choices: [String], correctIndex: Int, explanation: String)] = [
+        (
+            NSLocalizedString("quiz_occurred", comment: "occurredの意味を問うクイズ"),
+            ["試みる", "発生する・起こる", "継承する", "無効にする"],
+            1,
+            "「occurred」は何かが起こった、発生したことを意味します。"
+        ),
+        (
+            NSLocalizedString("quiz_attempt", comment: "attemptの意味を問うクイズ"),
+            ["表現する", "起動する", "試みる・試す", "一時停止する"],
+            2,
+            "「attempt」は「挑戦する・試す」ことを意味します。"
+        ),
+        (
+            NSLocalizedString("quiz_suspended", comment: "suspendedの意味を問うクイズ"),
+            ["保護された", "削除された", "一時停止中", "関連付けられた"],
+            2,
+            "「suspended」は一時的に停止されている状態を表します。"
+        ),
+        (
+            NSLocalizedString("quiz_ancestor", comment: "ancestorの意味を問うクイズ"),
+            ["デバッグ対象", "祖先・先祖", "対象外", "一時的な値"],
+            1,
+            "「ancestor」は親や上位構造の要素を意味します。"
+        ),
+        (
+            NSLocalizedString("quiz_permanent", comment: "permanentの意味を問うクイズ"),
+            ["仮の", "暫定的", "永続的な", "失効した"],
+            2,
+            "「permanent」は変更されない、恒久的な状態を指します。"
+        )
+    ]
+    
+    let coreWordsQuestions2: [(question: String, choices: [String], correctIndex: Int, explanation: String)] = [
+        (
+            NSLocalizedString("quiz_existing", comment: "existingの意味を問うクイズ"),
+            ["既存の", "拡張された", "特定の", "作成中の"],
+            0,
+            "「existing」はすでに存在しているものを意味します。"
+        ),
+        (
+            NSLocalizedString("quiz_related", comment: "relatedの意味を問うクイズ"),
+            ["不明な", "関連している", "絶対の", "無効の"],
+            1,
+            "「related」は何かに関連している、関係があることを意味します。"
+        ),
+        (
+            NSLocalizedString("quiz_opposed", comment: "opposedの意味を問うクイズ"),
+            ["承認された", "優先された", "反対した", "保護された"],
+            2,
+            "「opposed」はある意見や提案に反対することを意味します。"
+        ),
+        (
+            NSLocalizedString("quiz_absolute", comment: "absoluteの意味を問うクイズ"),
+            ["相対的な", "絶対的な", "限定的な", "単純な"],
+            1,
+            "「absolute」は完全で例外のない、絶対的な状態を意味します。"
+        ),
+        (
+            NSLocalizedString("quiz_illegal", comment: "illegalの意味を問うクイズ"),
+            ["複雑な", "関連のある", "違法な", "永続的な"],
+            2,
+            "「illegal」は法に反していることを意味します。"
+        )
+    ]
+
+    let coreWordsQuestions3: [(question: String, choices: [String], correctIndex: Int, explanation: String)] = [
+        (
+            NSLocalizedString("quiz_embed", comment: "embedの意味を問うクイズ"),
+            ["削除する", "埋め込む", "再構成する", "無効化する"],
+            1,
+            "「embed」はデータやコードを内部に埋め込むことを意味します。"
+        ),
+        (
+            NSLocalizedString("quiz_detected", comment: "detectedの意味を問うクイズ"),
+            ["設定された", "選択された", "検出された", "保存された"],
+            2,
+            "「detected」は何かを感知・検出したことを意味します。"
+        ),
+        (
+            NSLocalizedString("quiz_assume", comment: "assumeの意味を問うクイズ"),
+            ["仮定する", "測定する", "追加する", "無視する"],
+            0,
+            "「assume」は事実として受け入れる仮定を意味します。"
+        ),
+        (
+            NSLocalizedString("quiz_specify", comment: "specifyの意味を問うクイズ"),
+            ["検証する", "割り当てる", "特定する", "回避する"],
+            2,
+            "「specify」は条件や内容を明確に指定することを意味します。"
+        ),
+        (
+            NSLocalizedString("quiz_expression", comment: "expressionの意味を問うクイズ"),
+            ["構文", "式・表現", "変数", "戻り値"],
+            1,
+            "「expression」は演算式や記述の表現そのものを意味します。"
+        )
+    ]
 
 
 }
