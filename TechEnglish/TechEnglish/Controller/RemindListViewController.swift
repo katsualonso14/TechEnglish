@@ -11,6 +11,7 @@ class RemindListController: UITableViewController {
         
         loadRemind()
         setDeleteNotifButton()
+        setupSavedDocsButton()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: NSNotification.Name("addRemind"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(deleteData(_:)), name: Notification.Name("deleteRemind"), object: nil)
@@ -27,6 +28,14 @@ class RemindListController: UITableViewController {
         button.tintColor = AppColors.appMainColor
         button.addTarget(self, action: #selector(openAllNotifDeleteAleart), for: .touchUpInside)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+    }
+    
+    func setupSavedDocsButton() {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
+        button.tintColor = AppColors.appMainColor
+        button.addTarget(self, action: #selector(transitionToSavedDocs), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
     }
     
     //MARK: -Function
@@ -108,6 +117,11 @@ class RemindListController: UITableViewController {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func transitionToSavedDocs() {
+        let savedDocsVC = SavedDocsController()
+        navigationController?.pushViewController(savedDocsVC, animated: true)
     }
     
     //MARK: -Tableview

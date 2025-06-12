@@ -14,7 +14,6 @@ class WordSeedViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("wordseeds_tab_button", comment: "")
         setView()
-        setupSavedDocsButton()
         setTableView()
         setAddButton()
         setResearchButton()
@@ -138,14 +137,6 @@ class WordSeedViewController: UIViewController {
         }
     }
     
-    func setupSavedDocsButton() {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
-        button.tintColor = AppColors.appMainColor
-        button.addTarget(self, action: #selector(transitionToSavedDocs), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-        
-    }
     //MARK: - Helper Function
     // PhraseStoreに追加
     func addPhraseStore(word: String) {
@@ -297,11 +288,6 @@ class WordSeedViewController: UIViewController {
         modal.searchWord = QuickMemo
         modal.center = view.center
         view.addSubview(modal)
-    }
-    
-    @objc func transitionToSavedDocs() {
-        let savedDocsVC = SavedDocsController()
-        navigationController?.pushViewController(savedDocsVC, animated: true)
     }
     
 }

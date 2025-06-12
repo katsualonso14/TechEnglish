@@ -25,8 +25,6 @@ class PhrasesContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "PhraseStock"
-        
         // 上部セグメント
         view.addSubview(segmentedControl)
         segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
