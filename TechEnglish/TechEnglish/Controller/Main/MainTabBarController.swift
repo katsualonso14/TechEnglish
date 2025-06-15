@@ -4,13 +4,14 @@ import UserMessagingPlatform
 import AppTrackingTransparency
 import AdSupport
 
-class MainTabBarController: UITabBarController, BannerViewDelegate {
+class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarControllerDelegate {
     
     var bannerView: BannerView!
     let requestParameters = UMPRequestParameters()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self
         setupTab()
         setupBanner()
     }
@@ -26,27 +27,26 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         quizVC.tabBarItem.title = NSLocalizedString("quiz_tab_button", comment: "")
         let nv1 = UINavigationController(rootViewController: quizVC)
         
-        let phrasesVC = PhrasesContainerViewController()
-        phrasesVC.tabBarItem.image = UIImage(systemName: "pencil.and.scribble")
-        phrasesVC.tabBarItem.title = "PhraseStock"
-        let nv2 = UINavigationController(rootViewController: phrasesVC)
+        let myCardsVC = MyCardsViewController()
+        myCardsVC.tabBarItem.image = UIImage(systemName: "tag")
+        myCardsVC.tabBarItem.title = "Phrase Stock"
+        let nv2 = UINavigationController(rootViewController: myCardsVC)
         
         let categoryViewController = CategoryViewController()
         categoryViewController.tabBarItem.image = UIImage(systemName: "character.book.closed")
         categoryViewController.tabBarItem.title = "Tech Words"
         let nv3 = UINavigationController(rootViewController: categoryViewController)
         
-        let remindVC = RemindListController()
-        remindVC.tabBarItem.image = UIImage(systemName: "repeat")
-        remindVC.tabBarItem.title = NSLocalizedString("remind_tab_button", comment: "")
-        let nv4 = UINavigationController(rootViewController: remindVC)
+        let recordContainerVC = RecordContainerViewController()
+        recordContainerVC.tabBarItem.image = UIImage(systemName: "clock")
+        recordContainerVC.tabBarItem.title = NSLocalizedString("record_tab_button", comment: "")
+        let nv4 = UINavigationController(rootViewController: recordContainerVC)
         
-        let calendarVC = RecordViewController()
-        calendarVC.tabBarItem.image = UIImage(systemName: "calendar")
-        calendarVC.tabBarItem.title = NSLocalizedString("record_tab_button", comment: "")
-        let nv5 = UINavigationController(rootViewController: calendarVC)
+        let dummyVC = DummyViewController()
+        dummyVC.tabBarItem = UITabBarItem(
+            title: NSLocalizedString("add", comment: ""), image: UIImage(systemName: "plus.circle"), tag: 0)
         
-        setViewControllers([nv1, nv2, nv3, nv4, nv5], animated: false)
+        setViewControllers([nv1, nv2, dummyVC, nv3, nv4], animated: false)
     }
     
     //MARK: -Admob
@@ -80,5 +80,34 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         ])
     }
     
+    // MARK: -TabBarControllerDelegate
+    // タブバー選択時にモーダル表示
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController is DummyViewController {
+            showModal()
+            return false // 選択しない
+        }
+        return true
+    }
+    
+    // MARK: - objc
+    @objc func showModal() {
+        // MyCardの場所をサーチ
+        if let myCardsVC = self.viewControllers?.first(where: {
+            ($0 as? UINavigationController)?.viewControllers.first is MyCardsViewController
+        }) as? UINavigationController,
+           let targetVC = myCardsVC.viewControllers.first as? MyCardsViewController {
+            
+            let inputVC = MyCardsInputViewController()
+            inputVC.delegate = targetVC // delegateにMyCardsViewControllerを設定
+            if #available(iOS 15.0, *) {
+                if let sheet = inputVC.sheetPresentationController {
+                    sheet.detents = [.medium()]
+                    sheet.prefersGrabberVisible = true
+                }
+            }
+            present(inputVC, animated: true)
+        }
+    }
 
 }

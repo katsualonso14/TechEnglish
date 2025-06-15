@@ -1,6 +1,7 @@
 import UIKit
 
 protocol MyCardsInputDelegate: AnyObject {
+    //TODO: ここが効いていないので要確認
     func didSaveMyCards(frontText: String, backText: String)
     func didSaveEditMyCards(frontText: String, backText: String, index: Int)
     func saveEditFilterdMyCards()

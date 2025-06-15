@@ -17,7 +17,7 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
         setDescriptionButton()
         setTableView()
         setupSearchController()
-        setNavRightButton()
+        setupWebReseachButton()
         // 説明ダイアログが必要か確認
         checkIsDescription()
     }
@@ -90,22 +90,15 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: descriptionButton)
     }
     
-    func setNavRightButton() {
-        let addButton = UIBarButtonItem(
-            image: UIImage(systemName: "plus"),
-            style: .plain,
-            target: self,
-            action: #selector(showModal))
-        
+    func setupWebReseachButton() {
         let webReseachButton = UIBarButtonItem(
             image: UIImage(systemName: "magnifyingglass"),
             style: .plain,
             target: self,
             action: #selector(checkSearchWord))
-        addButton.tintColor = AppColors.appMainColor
         webReseachButton.tintColor = AppColors.appMainColor
     
-        navigationItem.rightBarButtonItems = [addButton, webReseachButton]
+        navigationItem.rightBarButtonItem = webReseachButton
     }
     
     func setupSearchController() {
@@ -222,16 +215,6 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
         present(vc, animated: true)
     }
     
-    @objc func showModal() {
-        let modal = MyCardsInputViewController()
-        if #available(iOS 15.0, *) {
-            if let sheet = modal.sheetPresentationController {
-                sheet.detents = [.medium()]
-                sheet.prefersGrabberVisible = true
-            }
-        }
-        present(modal, animated: true)
-    }
 }
 
 //MARK: - TableView DataSource

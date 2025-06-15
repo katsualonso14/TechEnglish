@@ -5,16 +5,15 @@ import RealmSwift
 import CalculateCalendarLogic
 import FirebaseFirestore
 
-class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
+class RecordViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     fileprivate weak var calendar: FSCalendar!
     let memoButton = UIButton() // memo contents
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Calendar"
+        navigationItem.title = NSLocalizedString("record_tab_button", comment: "")
         saveToday()
         setCalendar()
-        setupFeedBackForm()
         // 連続ログイン確認と表示
         checkStreakDay()
     }
@@ -65,16 +64,6 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
             checkMarkView.heightAnchor.constraint(equalToConstant: 60)
         ])
     }
-    
-    func setupFeedBackForm() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "bubble.left.and.bubble.right"),
-            style: .plain,
-            target: self,
-            action: #selector(openFeedbackModal)
-        )
-        navigationItem.rightBarButtonItem?.tintColor = AppColors.appMainColor
-    }
 
     //MARK: -Function
     // 既存のチェックマークを削除する
@@ -88,6 +77,7 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         }
     }
     
+    // MARK: - Function Calendar
     func updateCalendar() {
         calendar.reloadData()
     }
@@ -100,20 +90,6 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         try! realm.write{
             let Events = [EventModel(value: ["date": formatter.string(from: Date()), "event": "Study English"])]
             realm.add(Events)
-        }
-    }
-    // Store feedback to Firestore
-    func saveFeedbackToFirestore(feedback: String) {
-        let db = Firestore.firestore()
-        db.collection("feedbacks").addDocument(data: [
-            "feedback": feedback,
-            "timestamp": Timestamp(date: Date())
-        ]) { error in
-            if let error = error {
-                print("Error saving feedback: \(error.localizedDescription)")
-            } else {
-                print("Feedback successfully saved!")
-            }
         }
     }
     // 連続ログインモーダルの表示
@@ -163,27 +139,7 @@ class CalendarViewController: UIViewController, FSCalendarDataSource, FSCalendar
         if streakDay >= 2 {
             openStreakModal(streakDays: streakDay)
         }
-    }
-    
-    
-    //MARK: -objc
-    @objc func openFeedbackModal() {
-        let alert = UIAlertController(title: "Feedback",
-                                      message: NSLocalizedString("feedback_massage", comment: ""),
-                                      preferredStyle: .alert)
-        alert.addTextField { textField in
-            textField.placeholder = "Feedback"
-        }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
-            if let feedback = alert.textFields?.first?.text {
-                // Save feedback to Firestore
-                self.saveFeedbackToFirestore(feedback: feedback)
-            }
-        }))
-        present(alert, animated: true, completion: nil)
-    }
-    
+    }    
     
     //MARK: -CalendarSupport
     func calendar(_ calendar: FSCalendar, cellFor date: Date, at position: FSCalendarMonthPosition) -> FSCalendarCell {

@@ -10,8 +10,6 @@ class RemindListController: UITableViewController {
         navigationItem.title = NSLocalizedString("remind_tab_button", comment: "")
         
         loadRemind()
-        setDeleteNotifButton()
-        setupSavedDocsButton()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: NSNotification.Name("addRemind"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(deleteData(_:)), name: Notification.Name("deleteRemind"), object: nil)
@@ -21,23 +19,6 @@ class RemindListController: UITableViewController {
         tableView.register(RemindListCell.self, forCellReuseIdentifier: "remindCell")
     }
 
-    //MARK: - Layout
-    func setDeleteNotifButton() {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "trash"), for: .normal)
-        button.tintColor = AppColors.appMainColor
-        button.addTarget(self, action: #selector(openAllNotifDeleteAleart), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
-    }
-    
-    func setupSavedDocsButton() {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
-        button.tintColor = AppColors.appMainColor
-        button.addTarget(self, action: #selector(transitionToSavedDocs), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
-    }
-    
     //MARK: -Function
     //リマインドのローカルからの読み込み
     func loadRemind() {
@@ -46,28 +27,6 @@ class RemindListController: UITableViewController {
                 remindItems = decoded
             }
         }
-        tableView.reloadData()
-    }
-
-    
-    //MARK: Delete Notification
-    //全ての通知を削除する処理
-    func showDeleteAllDoneAlert() {
-        //全ての通知を削除しましたのダイアログ表示
-        let alert = UIAlertController(
-            title: NSLocalizedString("delete_all_notif_finish_title", comment: ""),
-            message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
-    // RemidListから全データ削除
-    func deleteAllRemindList() {
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.removeAllPendingNotificationRequests()
-        
-        UserDefaults.standard.set([], forKey: "remindItems")
-        remindItems.removeAll()
         tableView.reloadData()
     }
 
@@ -104,25 +63,7 @@ class RemindListController: UITableViewController {
         tableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
         saveRemindItemsToLocal()// ローカル保存も更新
     }
-
-    // 全てのリマインドを削除
-    @objc func openAllNotifDeleteAleart(){
-        let alert = UIAlertController(title: NSLocalizedString("delete_all_remind_title", comment: ""),
-                                      message: NSLocalizedString("delete_all_remind_message", comment: ""),
-                                      preferredStyle: .alert)
-        alert.addAction(
-            UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: .destructive, handler: { [self] _ in
-            deleteAllRemindList()
-            showDeleteAllDoneAlert()
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
     
-    @objc func transitionToSavedDocs() {
-        let savedDocsVC = SavedDocsController()
-        navigationController?.pushViewController(savedDocsVC, animated: true)
-    }
     
     //MARK: -Tableview
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

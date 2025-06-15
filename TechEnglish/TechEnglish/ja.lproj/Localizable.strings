@@ -44,6 +44,10 @@
 "edit_word_seed_title" = "単語のタネを編集";
 "edit_word_seed_message" = "気になる単語を編集し保存します。";
 
+"front_label" = "表";
+"back_label" = "裏";
+"no_sentence" = "意味や例文などをメモすることが可能です。";
+
 //MARK: - Custom Word List
 "edit_custom_word_list_title" = "カスタム単語帳を編集";
 "edit_custom_word_list_message" = "カスタム単語帳を編集し保存します。";

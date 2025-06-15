@@ -41,6 +41,10 @@
 "edit_word_seed_title" = "Edit Word Seed";
 "edit_word_seed_message" = "Edit the word you want to save.";
 
+"front_label" = "Front";
+"back_label" = "Back";
+"no_sentence" = "You can note the meaning or sentences here.";
+
 //MARK: - Custom Word List
 "edit_custom_word_list_title" = "Edit Custom Words";
 "edit_custom_word_list_message" = "Edit and save your custom words.";
