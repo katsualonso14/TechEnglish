@@ -156,12 +156,13 @@
 
 //MARK: - Feedback
 "feedback_massage" = "We are looking for your feedback on this app. Please write any requests such as 'I want this feature' or 'I want this to be improved' here and press the Submit button.";
+
 //MARK: - Disciption Viwe
 "dicript_check_box_lable" = "Do not show description at startup";
 "dicript_label_app_purpose" = "The purpose of this app is to help you read documentation and error messages smoothly and with confidence.";
-"dicript_label_word_seeds" = "In 'Word Seeds', you can easily note down words that you find interesting or difficult to understand in daily life.";
-"dicript_label_add_custom_word_list" = "You can save sentences and memo based on the words saved in 'Word Seeds' to your custom word list.";
-"dicript_label_custom_word_list" = "In 'Custom Word List', you can save words that you find interesting in daily life along with sentences and notes to help you remember them.";
+"dicript_label_quiz" = "In 'Quiz', you can learn frequently used words in the app.";
+"dicript_label_phase_stock" = "In 'Phrase Stock', you can save words that interest you and create your own vocabulary list.";
+"dicript_label_tech_words" = "In 'Tech Words', you can learn key English words used in engineering.";
 
 //MARK: - Web Search Modal
 "web_search_massage" = "Please select the word to search on the web.";

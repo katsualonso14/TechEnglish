@@ -12,14 +12,11 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "My Cards"
+        navigationItem.title = "Phrase Stock"
         setView()
-        setDescriptionButton()
         setTableView()
         setupSearchController()
         setupWebReseachButton()
-        // 説明ダイアログが必要か確認
-        checkIsDescription()
     }
     //MARK: - View Layout
     func setView() {
@@ -78,17 +75,6 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
         ])
     }
     
-    func setDescriptionButton() {
-        let descriptionButton = UIButton(type: .system)
-        descriptionButton.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        descriptionButton.tintColor = AppColors.appMainColor
-        // QuickMemoからの遷移は1ページ目を初期表示に設定
-        let data = ["discriptNumber": 1]
-        NotificationCenter.default.post(name: Notification.Name("addDescription"), object: nil, userInfo: data)
-        print("send data \(data)")
-        descriptionButton.addTarget(self, action: #selector(setDiscrptionView), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: descriptionButton)
-    }
     
     func setupWebReseachButton() {
         let webReseachButton = UIBarButtonItem(
@@ -110,12 +96,6 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
         navigationItem.hidesSearchBarWhenScrolling = false
     }
     //MARK: - Helper Function
-    func checkIsDescription() {
-        if !UserDefaults.standard.bool(forKey: "isDescription") {
-            setDiscrptionView()
-        }
-    }
-    
     // メモの編集処理
     func openEditMyCard(editingCard: MyCard, index: Int) {
         let modal = MyCardsInputViewController()
@@ -207,12 +187,6 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
         modal.searchWord = myCards.map { $0.word }
         modal.center = view.center
         view.addSubview(modal)
-    }
-
-    @objc func setDiscrptionView() {
-        let vc = DescriptionViewController()
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true)
     }
     
 }

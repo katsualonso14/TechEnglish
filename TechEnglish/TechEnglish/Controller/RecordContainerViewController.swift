@@ -31,7 +31,6 @@ class RecordContainerViewController: UIViewController {
         super.viewDidLoad()
         
         setupNabRightButton()
-        setupSavedDocsButton()
         // 上部セグメント
         view.addSubview(segmentedControl)
         segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
@@ -76,14 +75,6 @@ class RecordContainerViewController: UIViewController {
         feedbackButton.tintColor = AppColors.appMainColor
         deleteButton.tintColor = AppColors.appMainColor
         navigationItem.rightBarButtonItems = [feedbackButton, deleteButton]
-    }
-        
-    func setupSavedDocsButton() {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "doc.on.doc"), for: .normal)
-        button.tintColor = AppColors.appMainColor
-        button.addTarget(self, action: #selector(transitionToSavedDocs), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: button)
     }
     
     // Store feedback to Firestore
@@ -143,11 +134,6 @@ class RecordContainerViewController: UIViewController {
             }
         }))
         present(alert, animated: true, completion: nil)
-    }
-    
-    @objc func transitionToSavedDocs() {
-        let savedDocsVC = SavedDocsController()
-        navigationController?.pushViewController(savedDocsVC, animated: true)
     }
 
     @objc private func segmentChanged() {

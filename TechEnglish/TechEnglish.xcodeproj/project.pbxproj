@@ -40,7 +40,6 @@
 		2353AA592DB9EC270057D201 /* VocabFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA582DB9EC270057D201 /* VocabFourthViewController.swift */; };
 		2353AA5B2DB9F0BE0057D201 /* VovabFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA5A2DB9F0BE0057D201 /* VovabFifthViewController.swift */; };
 		2353AA612DB9F25C0057D201 /* VocabEighthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */; };
-		2353AA892DC046540057D201 /* SavedDocsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA882DC046540057D201 /* SavedDocsController.swift */; };
 		2353AA8B2DC054150057D201 /* WebViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA8A2DC054150057D201 /* WebViewType.swift */; };
 		2359FB3D2DFE4B39006643C1 /* MyCardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359FB3C2DFE4B39006643C1 /* MyCardsCell.swift */; };
 		2359FB3F2DFE4D17006643C1 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359FB3E2DFE4D17006643C1 /* DummyViewController.swift */; };
@@ -113,7 +112,6 @@
 		2353AA582DB9EC270057D201 /* VocabFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabFourthViewController.swift; sourceTree = "<group>"; };
 		2353AA5A2DB9F0BE0057D201 /* VovabFifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VovabFifthViewController.swift; sourceTree = "<group>"; };
 		2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabEighthViewController.swift; sourceTree = "<group>"; };
-		2353AA882DC046540057D201 /* SavedDocsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedDocsController.swift; sourceTree = "<group>"; };
 		2353AA8A2DC054150057D201 /* WebViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewType.swift; sourceTree = "<group>"; };
 		2359FB3C2DFE4B39006643C1 /* MyCardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsCell.swift; sourceTree = "<group>"; };
 		2359FB3E2DFE4D17006643C1 /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 				2368A9842DF8EA940092310A /* QuizListViewController.swift */,
 				2368A9B12DFB8C2B0092310A /* MyCardsViewController.swift */,
 				2359FB3E2DFE4D17006643C1 /* DummyViewController.swift */,
-				2353AA882DC046540057D201 /* SavedDocsController.swift */,
 				2368A99E2DFA41E30092310A /* RecordContainerViewController.swift */,
 			);
 			path = Controller;
@@ -656,7 +653,6 @@
 				2353AA5B2DB9F0BE0057D201 /* VovabFifthViewController.swift in Sources */,
 				2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */,
 				2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */,
-				2353AA892DC046540057D201 /* SavedDocsController.swift in Sources */,
 				234916602DC30953000128C6 /* WebMeta.swift in Sources */,
 				23139DDA2DD7FA0700DE8A6E /* RemindItem.swift in Sources */,
 				2349167C2DC9E23C000128C6 /* VcabSixthViewController.swift in Sources */,

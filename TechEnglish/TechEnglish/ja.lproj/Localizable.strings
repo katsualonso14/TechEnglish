@@ -170,9 +170,9 @@
 //MARK: - Disciption Viwe
 "dicript_check_box_lable" = "アプリ起動時に説明を表示しない";
 "dicript_label_app_purpose" = "このアプリの目的はドキュメントやエラーメッセージをスラスラ読めるようにすることです。";
-"dicript_label_word_seeds" = "「単語のタネ」では、日常で気になったり理解できない単語を簡単にメモすることができます。";
-"dicript_label_add_custom_word_list" = "「単語のタネ」で保存した単語を元に、文章やメモをカスタム単語帳に保存することができます。";
-"dicript_label_custom_word_list" = "「カスタム単語帳」では、日常で気になった単語を文章やメモと共に保存して記憶に定着することをサポートします。";
+"dicript_label_quiz" = "「クイズ」では、アプリ内で使用される頻出単語を学習できます。";
+"dicript_label_phase_stock" = "「Phare Stock」では、裏表に気になる英単語を保存し独自の単語帳を作成できます。";
+"dicript_label_tech_words" = "「Tech Words」では、エンジニアリングで主要な英単語を学習できます。";
 
 //MARK: - Web Search Modal
 "web_search_massage" = "Webで検索する単語を選択してください";

@@ -19,8 +19,6 @@ class CategoryViewController: UIViewController {
         setupScrollView()
         setupContainer()
         setupVocabButtons()
-        setDescriptionButton()
-        checkIsDescription()
     }
     // MARK - Layout Setting
     func setupScrollView() {
@@ -52,14 +50,6 @@ class CategoryViewController: UIViewController {
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
             
         ])
-    }
-    
-    func setDescriptionButton() {
-        let descriptionButton = UIButton(type: .system)
-        descriptionButton.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        descriptionButton.tintColor = AppColors.appMainColor
-        descriptionButton.addTarget(self, action: #selector(setDiscrptionView), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: descriptionButton)
     }
     
     // MARK: - Vocab Buttons Setting
@@ -199,27 +189,8 @@ class CategoryViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func setDiscrptionView() {
-        let vc = DescriptionViewController()
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true)
-    }
     
     // MARK - Helper
-    // 説明画面表示判定
-    func checkIsDescription() {
-        let isDescriptionShown = UserDefaults.standard.bool(forKey: "isDescription")
-        // 通知用の説明表示出しわけフラグ
-        let launchedFromNotification = UserDefaults.standard.bool(forKey: "launchedFromNotification")
-
-        if !isDescriptionShown && !launchedFromNotification {
-            setDiscrptionView()
-        }
-
-        // 通知から遷移した場合は一時的にフラグをリセット
-        UserDefaults.standard.set(false, forKey: "launchedFromNotification")
-    }
-
     //全ての通知を削除する処理
     func deleteAllNotif() {
         let notificationCenter = UNUserNotificationCenter.current()
