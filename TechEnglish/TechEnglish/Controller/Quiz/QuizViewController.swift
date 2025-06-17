@@ -109,19 +109,29 @@ class QuizViewController: UIViewController {
     @objc func answerTapped(_ sender: UIButton) {
         let correctIndex = questions[currentQuestionIndex].correctIndex
         let isCorrect = sender.tag == correctIndex
-
-        let alert = UIAlertController(
-            title: isCorrect ? NSLocalizedString("correct", comment: "") : NSLocalizedString("wrong", comment: ""),
-            message: isCorrect ? NSLocalizedString("correct_message", comment: "")
-            : NSLocalizedString("wrong_message", comment: "") + "\(questions[currentQuestionIndex].choices[correctIndex])",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: NSLocalizedString("next", comment: ""), style: .default, handler: { _ in
+        
+        let resultVC = AnswerResultViewController()
+        resultVC.isCorrect = isCorrect
+        resultVC.correctAnswer = questions[currentQuestionIndex].choices[correctIndex]
+        resultVC.nextHandler = {
             self.currentQuestionIndex += 1
             self.showQuestion()
-        }))
-        present(alert, animated: true)
+        }
+        
+        // iOS 15+ only
+        if let sheet = resultVC.sheetPresentationController {
+            sheet.detents = [
+                .custom(identifier: .init("oneThird")) { context in
+                    return context.maximumDetentValue * 0.3
+                }
+            ]
+            sheet.prefersGrabberVisible = true
+            sheet.preferredCornerRadius = 20
+        }
+        resultVC.modalPresentationStyle = .pageSheet
+        present(resultVC, animated: true)
     }
+
     
     // Quize Reset
     @objc func resetQuiz() {

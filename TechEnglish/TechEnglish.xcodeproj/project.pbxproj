@@ -28,6 +28,7 @@
 		2317C71C2D6DE07A00F8E1D4 /* VocabFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71B2D6DE07A00F8E1D4 /* VocabFirstViewController.swift */; };
 		2317C71E2D6EEB1400F8E1D4 /* VocabSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71D2D6EEB1400F8E1D4 /* VocabSecondViewController.swift */; };
 		2317C7202D6EED8400F8E1D4 /* VocabThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */; };
+		232A564A2E00F3BD000C4FED /* AnswerResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A56492E00F3BD000C4FED /* AnswerResultViewController.swift */; };
 		234916602DC30953000128C6 /* WebMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349165F2DC30953000128C6 /* WebMeta.swift */; };
 		2349166E2DC4517D000128C6 /* VocabButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */; };
 		2349167C2DC9E23C000128C6 /* VcabSixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349167B2DC9E23C000128C6 /* VcabSixthViewController.swift */; };
@@ -99,6 +100,7 @@
 		2317C71B2D6DE07A00F8E1D4 /* VocabFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabFirstViewController.swift; sourceTree = "<group>"; };
 		2317C71D2D6EEB1400F8E1D4 /* VocabSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabSecondViewController.swift; sourceTree = "<group>"; };
 		2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabThirdViewController.swift; sourceTree = "<group>"; };
+		232A56492E00F3BD000C4FED /* AnswerResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerResultViewController.swift; sourceTree = "<group>"; };
 		2349165F2DC30953000128C6 /* WebMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebMeta.swift; sourceTree = "<group>"; };
 		2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabButtonInfo.swift; sourceTree = "<group>"; };
 		2349167B2DC9E23C000128C6 /* VcabSixthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcabSixthViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */,
 				2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */,
 				23776BD42DD54A8100553D04 /* RemindListCell.swift */,
+				232A56492E00F3BD000C4FED /* AnswerResultViewController.swift */,
 			);
 			path = Parts;
 			sourceTree = "<group>";
@@ -665,6 +668,7 @@
 				2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */,
 				2368A9872DF8EAFF0092310A /* QuizListModel.swift in Sources */,
 				23776BD52DD54A8100553D04 /* RemindListCell.swift in Sources */,
+				232A564A2E00F3BD000C4FED /* AnswerResultViewController.swift in Sources */,
 				2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */,
 				2353AA1E2DADCA890057D201 /* RecordViewController.swift in Sources */,
 				2353AA202DADCB130057D201 /* EventModel.swift in Sources */,
