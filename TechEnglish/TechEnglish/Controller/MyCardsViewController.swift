@@ -12,11 +12,11 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Phrase Stock"
+        navigationItem.title = "My Cards"
         setView()
         setTableView()
         setupSearchController()
-        setupWebReseachButton()
+        setupRightNavBarButton()
     }
     //MARK: - View Layout
     func setView() {
@@ -76,15 +76,22 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
     }
     
     
-    func setupWebReseachButton() {
+    func setupRightNavBarButton() {
         let webReseachButton = UIBarButtonItem(
             image: UIImage(systemName: "magnifyingglass"),
             style: .plain,
             target: self,
             action: #selector(checkSearchWord))
         webReseachButton.tintColor = AppColors.appMainColor
+        
+        let addButton = UIBarButtonItem(
+            image: UIImage(systemName: "plus"),
+            style: .plain,
+            target: self,
+            action: #selector(openAddMyCardModal))
+        addButton.tintColor = AppColors.appMainColor
     
-        navigationItem.rightBarButtonItem = webReseachButton
+        navigationItem.rightBarButtonItems = [webReseachButton, addButton]
     }
     
     func setupSearchController() {
@@ -187,6 +194,19 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
         modal.searchWord = myCards.map { $0.word }
         modal.center = view.center
         view.addSubview(modal)
+    }
+    
+    // メモ追加モーダル表示
+    @objc func openAddMyCardModal() {
+        let inputVC = MyCardsInputViewController()
+        inputVC.delegate = self
+        if #available(iOS 15.0, *) {
+            if let sheet = inputVC.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.prefersGrabberVisible = true
+            }
+        }
+        present(inputVC, animated: true)
     }
     
 }

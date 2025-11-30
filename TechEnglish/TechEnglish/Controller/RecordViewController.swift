@@ -65,6 +65,7 @@ class RecordViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
         ])
     }
 
+    
     //MARK: -Function
     // 既存のチェックマークを削除する
     func removeCheckMarks() {
@@ -76,6 +77,8 @@ class RecordViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
             }
         }
     }
+    
+
     
     // MARK: - Function Calendar
     func updateCalendar() {

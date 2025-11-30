@@ -9,6 +9,7 @@
 "remind_tab_button" = "Remind";
 "record_tab_button" = "Record";
 "quiz_tab_button" = "Quiz";
+"learn_tab_button" = "Learn";
 
 //MARK: - Common Components
 // Placeholder Text

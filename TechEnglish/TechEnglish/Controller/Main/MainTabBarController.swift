@@ -13,7 +13,7 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
         super.viewDidLoad()
         self.delegate = self
         setupTab()
-        setupBanner()
+//        setupBanner()
     }
     
     //MARK: -Layout
@@ -22,31 +22,22 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
         self.tabBar.tintColor = AppColors.appMainColor
         view.backgroundColor = .systemGray6
         
-        let quizVC = QuizListViewController()
-        quizVC.tabBarItem.image = UIImage(systemName: "questionmark.circle")
-        quizVC.tabBarItem.title = NSLocalizedString("quiz_tab_button", comment: "")
-        let nv1 = UINavigationController(rootViewController: quizVC)
+        let learnVC = LearnContainerViewController()
+        learnVC.tabBarItem.image = UIImage(systemName: "book.closed")
+        learnVC.tabBarItem.title = NSLocalizedString("learn_tab_button", comment: "")
+        let nv1 = UINavigationController(rootViewController: learnVC)
         
         let myCardsVC = MyCardsViewController()
         myCardsVC.tabBarItem.image = UIImage(systemName: "tag")
-        myCardsVC.tabBarItem.title = "Phrase Stock"
+        myCardsVC.tabBarItem.title = "My Cards"
         let nv2 = UINavigationController(rootViewController: myCardsVC)
         
-        let categoryViewController = CategoryViewController()
-        categoryViewController.tabBarItem.image = UIImage(systemName: "character.book.closed")
-        categoryViewController.tabBarItem.title = "Tech Words"
-        let nv3 = UINavigationController(rootViewController: categoryViewController)
+        let remindVC = RemindListController()
+        remindVC.tabBarItem.image = UIImage(systemName: "bell")
+        remindVC.tabBarItem.title = NSLocalizedString("remind_tab_button", comment: "")
+        let nv3 = UINavigationController(rootViewController: remindVC)
         
-        let recordContainerVC = RecordContainerViewController()
-        recordContainerVC.tabBarItem.image = UIImage(systemName: "clock")
-        recordContainerVC.tabBarItem.title = NSLocalizedString("record_tab_button", comment: "")
-        let nv4 = UINavigationController(rootViewController: recordContainerVC)
-        
-        let dummyVC = DummyViewController()
-        dummyVC.tabBarItem = UITabBarItem(
-            title: NSLocalizedString("add", comment: ""), image: UIImage(systemName: "plus.circle"), tag: 0)
-        
-        setViewControllers([nv1, nv2, dummyVC, nv3, nv4], animated: false)
+        setViewControllers([nv1, nv2, nv3], animated: false)
     }
     
     //MARK: -Admob

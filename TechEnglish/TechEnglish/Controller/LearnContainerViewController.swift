@@ -1,15 +1,15 @@
 import UIKit
 import FirebaseFirestore
 
-class RecordContainerViewController: UIViewController {
+class LearnContainerViewController: UIViewController {
     
-    let remindVC = RemindListController()
-    let recordVC = RecordViewController()
-
+    let quizListVC = QuizListViewController()
+    let techWordsVC = CategoryViewController()
+    
     private let segmentedControl: UISegmentedControl = {
         let control = UISegmentedControl(items: [
-            NSLocalizedString("remind_tab_button", comment: ""),
-            NSLocalizedString("record_tab_button", comment: "")
+            NSLocalizedString("quiz_tab_button", comment: ""),
+            "Tech Words"
         ])
         control.selectedSegmentIndex = 0
         return control
@@ -23,15 +23,19 @@ class RecordContainerViewController: UIViewController {
     }()
     
     private lazy var viewControllers: [UIViewController] = [
-        remindVC,
-        recordVC
+        quizListVC,
+        techWordsVC
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
+        setPageView()
+        setDescriptionButton()
+        checkIsDescription() // 説明ダイアログが必要か確認
+    }
+    
+    // MARK: - Layout
+    func setPageView(){
         // 上部セグメント
         view.addSubview(segmentedControl)
         segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
@@ -58,8 +62,25 @@ class RecordContainerViewController: UIViewController {
         pageViewController.setViewControllers([viewControllers[0]], direction: .forward, animated: false, completion: nil)
     }
     
-
-
+    func setDescriptionButton() {
+        let descriptionButton = UIButton(type: .system)
+        descriptionButton.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
+        descriptionButton.tintColor = AppColors.appMainColor
+        // QuickMemoからの遷移は1ページ目を初期表示に設定
+        let data = ["discriptNumber": 1]
+        NotificationCenter.default.post(name: Notification.Name("addDescription"), object: nil, userInfo: data)
+        print("send data \(data)")
+        descriptionButton.addTarget(self, action: #selector(setDiscrptionView), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: descriptionButton)
+    }
+    
+    //MARK: - Helper Functions
+    func checkIsDescription() {
+        if !UserDefaults.standard.bool(forKey: "isDescription") {
+            setDiscrptionView()
+        }
+    }
+    
     // MARK: - objc
     @objc private func segmentChanged() {
         let index = segmentedControl.selectedSegmentIndex
@@ -67,9 +88,15 @@ class RecordContainerViewController: UIViewController {
         pageViewController.setViewControllers([viewControllers[index]], direction: direction, animated: true, completion: nil)
     }
     
+    @objc func setDiscrptionView() {
+        let vc = DescriptionViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true)
+    }
+    
 }
 
-extension RecordContainerViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+extension LearnContainerViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = viewControllers.firstIndex(of: viewController), index > 0 else { return nil }
         return viewControllers[index - 1]

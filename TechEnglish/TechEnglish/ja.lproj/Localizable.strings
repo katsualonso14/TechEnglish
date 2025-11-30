@@ -12,6 +12,7 @@
 "remind_tab_button" = "リマインド";
 "record_tab_button" = "記録";
 "quiz_tab_button" = "クイズ";
+"learn_tab_button" = "学習";
 
 //MARK: - Common Components
 // Placeholder Text

@@ -28,6 +28,7 @@
 		2317C71C2D6DE07A00F8E1D4 /* VocabFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71B2D6DE07A00F8E1D4 /* VocabFirstViewController.swift */; };
 		2317C71E2D6EEB1400F8E1D4 /* VocabSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71D2D6EEB1400F8E1D4 /* VocabSecondViewController.swift */; };
 		2317C7202D6EED8400F8E1D4 /* VocabThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */; };
+		231AEEBB2E04C239006C5714 /* LearnContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AEEBA2E04C239006C5714 /* LearnContainerViewController.swift */; };
 		232A564A2E00F3BD000C4FED /* AnswerResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A56492E00F3BD000C4FED /* AnswerResultViewController.swift */; };
 		234916602DC30953000128C6 /* WebMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349165F2DC30953000128C6 /* WebMeta.swift */; };
 		2349166E2DC4517D000128C6 /* VocabButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */; };
@@ -47,7 +48,6 @@
 		2368A9852DF8EA940092310A /* QuizListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9842DF8EA940092310A /* QuizListViewController.swift */; };
 		2368A9872DF8EAFF0092310A /* QuizListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9862DF8EAFF0092310A /* QuizListModel.swift */; };
 		2368A98A2DF8EB5E0092310A /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9892DF8EB5E0092310A /* QuizViewController.swift */; };
-		2368A99F2DFA41E30092310A /* RecordContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A99E2DFA41E30092310A /* RecordContainerViewController.swift */; };
 		2368A9B22DFB8C2B0092310A /* MyCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9B12DFB8C2B0092310A /* MyCardsViewController.swift */; };
 		2368A9B52DFB8C3B0092310A /* MyCardsInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9B32DFB8C3B0092310A /* MyCardsInputController.swift */; };
 		2368A9B92DFB8C6F0092310A /* MyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9B82DFB8C6F0092310A /* MyCard.swift */; };
@@ -100,6 +100,7 @@
 		2317C71B2D6DE07A00F8E1D4 /* VocabFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabFirstViewController.swift; sourceTree = "<group>"; };
 		2317C71D2D6EEB1400F8E1D4 /* VocabSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabSecondViewController.swift; sourceTree = "<group>"; };
 		2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabThirdViewController.swift; sourceTree = "<group>"; };
+		231AEEBA2E04C239006C5714 /* LearnContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnContainerViewController.swift; sourceTree = "<group>"; };
 		232A56492E00F3BD000C4FED /* AnswerResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerResultViewController.swift; sourceTree = "<group>"; };
 		2349165F2DC30953000128C6 /* WebMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebMeta.swift; sourceTree = "<group>"; };
 		2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabButtonInfo.swift; sourceTree = "<group>"; };
@@ -120,7 +121,6 @@
 		2368A9842DF8EA940092310A /* QuizListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizListViewController.swift; sourceTree = "<group>"; };
 		2368A9862DF8EAFF0092310A /* QuizListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizListModel.swift; sourceTree = "<group>"; };
 		2368A9892DF8EB5E0092310A /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
-		2368A99E2DFA41E30092310A /* RecordContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordContainerViewController.swift; sourceTree = "<group>"; };
 		2368A9B12DFB8C2B0092310A /* MyCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsViewController.swift; sourceTree = "<group>"; };
 		2368A9B32DFB8C3B0092310A /* MyCardsInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsInputController.swift; sourceTree = "<group>"; };
 		2368A9B82DFB8C6F0092310A /* MyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCard.swift; sourceTree = "<group>"; };
@@ -251,16 +251,17 @@
 		2317C6F82D6DA34000F8E1D4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				2359FB3B2DFE49FC006643C1 /* Record */,
 				2368A9B42DFB8C3B0092310A /* MyCards */,
 				2368A9882DF8EB590092310A /* Quiz */,
 				2353AA872DC045F10057D201 /* Main */,
 				2317C71A2D6DE05700F8E1D4 /* Vocabularies */,
 				2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */,
+				23776BD22DD5491B00553D04 /* RemindListViewController.swift */,
+				2353AA1D2DADCA890057D201 /* RecordViewController.swift */,
 				2368A9842DF8EA940092310A /* QuizListViewController.swift */,
 				2368A9B12DFB8C2B0092310A /* MyCardsViewController.swift */,
 				2359FB3E2DFE4D17006643C1 /* DummyViewController.swift */,
-				2368A99E2DFA41E30092310A /* RecordContainerViewController.swift */,
+				231AEEBA2E04C239006C5714 /* LearnContainerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -308,15 +309,6 @@
 				23139DDB2DDA925700DE8A6E /* RemindManager.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		2359FB3B2DFE49FC006643C1 /* Record */ = {
-			isa = PBXGroup;
-			children = (
-				2353AA1D2DADCA890057D201 /* RecordViewController.swift */,
-				23776BD22DD5491B00553D04 /* RemindListViewController.swift */,
-			);
-			path = Record;
 			sourceTree = "<group>";
 		};
 		2368A9882DF8EB590092310A /* Quiz */ = {
@@ -671,10 +663,10 @@
 				232A564A2E00F3BD000C4FED /* AnswerResultViewController.swift in Sources */,
 				2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */,
 				2353AA1E2DADCA890057D201 /* RecordViewController.swift in Sources */,
+				231AEEBB2E04C239006C5714 /* LearnContainerViewController.swift in Sources */,
 				2353AA202DADCB130057D201 /* EventModel.swift in Sources */,
 				2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */,
 				2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */,
-				2368A99F2DFA41E30092310A /* RecordContainerViewController.swift in Sources */,
 				23139DDC2DDA925700DE8A6E /* RemindManager.swift in Sources */,
 				2368A9B92DFB8C6F0092310A /* MyCard.swift in Sources */,
 				2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */,

@@ -52,9 +52,6 @@ class QuizListViewController: UIViewController {
         setupScrollView()
         setupContainer()
         setupVocabButtons()
-        setDescriptionButton()
-        // 説明ダイアログが必要か確認
-        checkIsDescription()
     }
     
     func setupScrollView() {
@@ -189,34 +186,9 @@ class QuizListViewController: UIViewController {
         chevronButton.tintColor = AppColors.appMainColor
         return chevronButton
     }
-    
-    func setDescriptionButton() {
-        let descriptionButton = UIButton(type: .system)
-        descriptionButton.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        descriptionButton.tintColor = AppColors.appMainColor
-        // QuickMemoからの遷移は1ページ目を初期表示に設定
-        let data = ["discriptNumber": 1]
-        NotificationCenter.default.post(name: Notification.Name("addDescription"), object: nil, userInfo: data)
-        print("send data \(data)")
-        descriptionButton.addTarget(self, action: #selector(setDiscrptionView), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: descriptionButton)
-    }
-    
-    //MARK: - Helper Functions
-    func checkIsDescription() {
-        if !UserDefaults.standard.bool(forKey: "isDescription") {
-            setDiscrptionView()
-        }
-    }
 
     
 // MARK: - objc
-    @objc func setDiscrptionView() {
-        let vc = DescriptionViewController()
-        vc.modalPresentationStyle = .overFullScreen
-        present(vc, animated: true)
-    }
-    
     @objc func pushErrorButton(sender: UIButton){
         let vc = QuizViewController(
             questions: quizList.errorHandlingQuestions,
