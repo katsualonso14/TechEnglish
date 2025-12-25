@@ -1,4 +1,5 @@
 import UIKit
+import GoogleMobileAds
 
 class QuizViewController: UIViewController {
     let questionLabel = UILabel()
@@ -7,6 +8,9 @@ class QuizViewController: UIViewController {
     var questions: [Quiz] = []
     var currentQuestionIndex = 0
     var navTitle = ""
+    
+    // MARK: - Interstitial Ad
+    private var interstitialAd: InterstitialAd?
     
     // MARK: - Initializer
     init(questions: [Quiz], navTitle: String) {
@@ -25,6 +29,7 @@ class QuizViewController: UIViewController {
         setupViews()
         showQuestion()
         setupResetButton()
+        loadInterstitialAd()
     }
 
     // MARK: - Setup UI
@@ -115,6 +120,12 @@ class QuizViewController: UIViewController {
         resultVC.correctAnswer = questions[currentQuestionIndex].choices[correctIndex]
         resultVC.nextHandler = {
             self.currentQuestionIndex += 1
+            
+            // 5問終了時にインターステシャル広告を表示
+            if self.currentQuestionIndex == 5 {
+                self.showInterstitialAdIfAvailable()
+            }
+            
             self.showQuestion()
         }
         
@@ -138,5 +149,43 @@ class QuizViewController: UIViewController {
         currentQuestionIndex = 0
         showQuestion()
     }
+    
+    // MARK: - Interstitial Ad
+    func loadInterstitialAd() {
+        let request = Request()
+        InterstitialAd.load(with: MyAds.interstitialID, request: request) { [weak self] ad, error in
+            guard let self = self else { return }
+            if let error = error {
+                print("Failed to load interstitial ad: \(error.localizedDescription)")
+                return
+            }
+            self.interstitialAd = ad
+            self.interstitialAd?.fullScreenContentDelegate = self
+        }
+    }
+    
+    func showInterstitialAdIfAvailable() {
+        guard let interstitialAd = interstitialAd else {
+            // 広告が読み込まれていない場合は、次の広告を読み込む
+            loadInterstitialAd()
+            return
+        }
+        
+        interstitialAd.present(from: self)
+    }
 
+}
+
+// MARK: - GADFullScreenContentDelegate
+extension QuizViewController: FullScreenContentDelegate {
+    func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
+        // 広告が閉じられた後、次の広告を読み込む
+        loadInterstitialAd()
+    }
+    
+    func ad(_ ad: FullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("Failed to present interstitial ad: \(error.localizedDescription)")
+        // エラーが発生した場合も、次の広告を読み込む
+        loadInterstitialAd()
+    }
 }

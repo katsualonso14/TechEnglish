@@ -13,6 +13,7 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
         super.viewDidLoad()
         self.delegate = self
         setupTab()
+        // インターステシャルで運用する方針で一時停止
 //        setupBanner()
     }
     
