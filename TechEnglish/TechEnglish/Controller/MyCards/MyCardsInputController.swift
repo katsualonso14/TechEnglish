@@ -1,4 +1,5 @@
 import UIKit
+import GoogleMobileAds
 
 protocol MyCardsInputDelegate: AnyObject {
     //TODO: ここが効いていないので要確認
@@ -20,6 +21,7 @@ class MyCardsInputViewController: UIViewController {
     var currentIndex: Int = 0
     
     weak var delegate: MyCardsInputDelegate?
+    var interstitialAd: InterstitialAd?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,7 @@ class MyCardsInputViewController: UIViewController {
         setupBackLabel()
         setupSentenceTextView()
         saveButtonSetup()
+        loadInterstitialAd()
     }
     
     func setupMyWordTextView() {
@@ -145,12 +148,107 @@ class MyCardsInputViewController: UIViewController {
         
         if (editMode) {
             delegate?.didSaveEditMyCards(frontText: frontText, backText: backText, index: currentIndex)
+            delegate?.saveEditFilterdMyCards()
+            dismiss(animated: true, completion: nil)
         } else {
             delegate?.didSaveMyCards(frontText: frontText, backText: backText)
+            delegate?.saveEditFilterdMyCards()
+            
+            // インタースティシャル広告を表示（表示する場合は、広告が閉じた後にdismiss）
+            let willShowAd = showInterstitialAdIfAvailable()
+            if !willShowAd {
+                // 広告を表示しない場合は、すぐにdismiss
+                dismiss(animated: true, completion: nil)
+            }
+            // 広告を表示する場合は、広告が閉じた後にdismissされる（adDidDismissFullScreenContentで処理）
+        }
+    }
+    
+    // MARK: - Interstitial Ad
+    func loadInterstitialAd() {
+        let request = Request()
+        InterstitialAd.load(with: MyAds.interstitialTestID, request: request) { [weak self] ad, error in
+            guard let self = self else { return }
+            if let error = error {
+                print("Failed to load interstitial ad: \(error.localizedDescription)")
+                return
+            }
+            self.interstitialAd = ad
+            self.interstitialAd?.fullScreenContentDelegate = self
+        }
+    }
+    
+    func showInterstitialAdIfAvailable() -> Bool {
+        // 1日2回までの制限をチェック
+//        guard canShowInterstitialAd() else {
+//            return false
+//        }
+        
+        guard let interstitialAd = interstitialAd else {
+            // 広告が読み込まれていない場合は、表示しない
+            return false
         }
         
-        delegate?.saveEditFilterdMyCards()
+        // 表示回数をカウント
+        incrementInterstitialAdCount()
         
+        interstitialAd.present(from: self)
+        // 広告を表示した後、オブジェクトをnilにして再利用を防ぐ
+        self.interstitialAd = nil
+        return true
+    }
+    
+    // MARK: - Interstitial Ad Limit (1日2回まで)
+    private func canShowInterstitialAd() -> Bool {
+        let today = getTodayString()
+        let lastDate = UserDefaults.standard.string(forKey: "myCardInterstitialLastDate") ?? ""
+        let count = UserDefaults.standard.integer(forKey: "myCardInterstitialCount")
+        
+        // 日付が変わった場合はリセット
+        if lastDate != today {
+            UserDefaults.standard.set(today, forKey: "myCardInterstitialLastDate")
+            UserDefaults.standard.set(0, forKey: "myCardInterstitialCount")
+            return true
+        }
+        
+        // 同じ日で2回未満の場合のみ表示可能
+        return count < 2
+    }
+    
+    private func incrementInterstitialAdCount() {
+        let today = getTodayString()
+        let lastDate = UserDefaults.standard.string(forKey: "myCardInterstitialLastDate") ?? ""
+        let currentCount = UserDefaults.standard.integer(forKey: "myCardInterstitialCount")
+        
+        if lastDate == today {
+            UserDefaults.standard.set(currentCount + 1, forKey: "myCardInterstitialCount")
+        } else {
+            UserDefaults.standard.set(today, forKey: "myCardInterstitialLastDate")
+            UserDefaults.standard.set(1, forKey: "myCardInterstitialCount")
+        }
+    }
+    
+    private func getTodayString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: Date())
+    }
+}
+
+// MARK: - GADFullScreenContentDelegate
+extension MyCardsInputViewController: FullScreenContentDelegate {
+    func adDidDismissFullScreenContent(_ ad: FullScreenPresentingAd) {
+        // 広告が閉じられた後、次の広告を読み込む
+        loadInterstitialAd()
+        // 広告が閉じられた後にbottomSheetを閉じる
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func ad(_ ad: FullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("Failed to present interstitial ad: \(error.localizedDescription)")
+        // エラーが発生した場合も、次の広告を読み込む
+        loadInterstitialAd()
+        // エラーが発生した場合も、bottomSheetを閉じる
         dismiss(animated: true, completion: nil)
     }
 }
