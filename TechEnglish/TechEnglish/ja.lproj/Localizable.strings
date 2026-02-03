@@ -16,10 +16,9 @@
 
 //MARK: - Common Components
 // Placeholder Text
-"search_placeholder" = "単語を検索";
-"example_sentence_placeholder" = "例文を入力...";
-"memo_placeholder" = "メモを入力...";
-"word_placeholder" = "単語を入力...";
+"search_placeholder" = "過去に引っかかった単語を検索...";
+"word_placeholder" = "引っかかった単語を入力...";
+"memo_placeholder" = "思い出せなかった意味やメモを入力...";
 // Button Text
 "done" = "完了";
 "cancel" = "キャンセル";

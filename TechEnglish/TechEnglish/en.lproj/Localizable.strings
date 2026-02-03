@@ -13,10 +13,9 @@
 
 //MARK: - Common Components
 // Placeholder Text
-"search_placeholder" = "Search for words";
-"example_sentence_placeholder" = "Enter sentence...";
-"memo_placeholder" = "Enter memo...";
-"word_placeholder" = "Enter word...";
+"search_placeholder" = "Search for previously encountered words...";
+"word_placeholder" = "Enter the word you're stuck on...";
+"memo_placeholder" = "Enter the meaning or note you couldn't recall...";
 // Button Text
 "done" = "Done";
 "cancel" = "Cancel";

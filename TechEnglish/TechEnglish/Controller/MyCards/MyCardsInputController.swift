@@ -54,7 +54,7 @@ class MyCardsInputViewController: UIViewController {
     }
     
     func setupSentenceTextView() {
-        setenceTextView.placeholder = NSLocalizedString("word_placeholder", comment: "")
+        setenceTextView.placeholder = NSLocalizedString("memo_placeholder", comment: "")
         setenceTextView.font = UIFont.systemFont(ofSize: 16)
         setenceTextView.layer.borderColor = UIColor.lightGray.cgColor
         setenceTextView.layer.borderWidth = 1.0
