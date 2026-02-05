@@ -11,18 +11,21 @@
 "custom_word_list_tab_button" = "カスタム単語帳";
 "remind_tab_button" = "リマインド";
 "record_tab_button" = "記録";
+"quiz_tab_button" = "クイズ";
+"learn_tab_button" = "学習";
 
 //MARK: - Common Components
 // Placeholder Text
-"search_placeholder" = "単語を検索";
-"example_sentence_placeholder" = "例文を入力...";
-"memo_placeholder" = "メモを入力...";
-"word_placeholder" = "単語を入力...";
+"search_placeholder" = "過去に引っかかった単語を検索...";
+"word_placeholder" = "引っかかった単語を入力...";
+"memo_placeholder" = "思い出せなかった意味やメモを入力...";
 // Button Text
 "done" = "完了";
 "cancel" = "キャンセル";
 "close" = "閉じる";
 "delete" = "削除";
+"next" = "次へ";
+"save" = "保存";
 // Remind Time
 "in 1hour" = "1時間後";
 "in 3hour" = "3時間後";
@@ -40,6 +43,10 @@
 
 "edit_word_seed_title" = "単語のタネを編集";
 "edit_word_seed_message" = "気になる単語を編集し保存します。";
+
+"front_label" = "表";
+"back_label" = "裏";
+"no_sentence" = "意味や例文などをメモすることが可能です。";
 
 //MARK: - Custom Word List
 "edit_custom_word_list_title" = "カスタム単語帳を編集";
@@ -84,6 +91,12 @@
 "superseded_meaning" = "新しいものに置き換えられた";
 "experimental_meaning" = "テスト段階、完全に開発されていない";
 "stable_meaning" = "完全にテストされ、信頼できる";
+"related_meaning" = "関連している";
+"invoked_meaning" = "呼び出された";
+"modify_meaning" = "修正,変更";
+"verify_meaning" = "確認する";
+"indeed_meaning" = "本当に,実際に";
+"instead_meaning" = "代わり";
 
 // データ・構造
 "index_indices_meaning" = "インデックス（配列やリスト内の位置）";
@@ -157,9 +170,9 @@
 //MARK: - Disciption Viwe
 "dicript_check_box_lable" = "アプリ起動時に説明を表示しない";
 "dicript_label_app_purpose" = "このアプリの目的はドキュメントやエラーメッセージをスラスラ読めるようにすることです。";
-"dicript_label_word_seeds" = "「単語のタネ」では、日常で気になったり理解できない単語を簡単にメモすることができます。";
-"dicript_label_add_custom_word_list" = "「単語のタネ」で保存した単語を元に、文章やメモをカスタム単語帳に保存することができます。";
-"dicript_label_custom_word_list" = "「カスタム単語帳」では、日常で気になった単語を文章やメモと共に保存して記憶に定着することをサポートします。";
+"dicript_label_quiz" = "「クイズ」では、アプリ内で使用される頻出単語を学習できます。";
+"dicript_label_phase_stock" = "「Phare Stock」では、裏表に気になる英単語を保存し独自の単語帳を作成できます。";
+"dicript_label_tech_words" = "「Tech Words」では、エンジニアリングで主要な英単語を学習できます。";
 
 //MARK: - Web Search Modal
 "web_search_massage" = "Webで検索する単語を選択してください";
@@ -178,3 +191,63 @@
 "remind_bottom_sheet_1day" = "1日後";
 "remind_completed_title" = "リマインドの設定完了";
 "remind_completed_message" = "リマインドの設定が完了しました。";
+
+// MARK: - Quiz
+// errorHandlingQuestions
+"quiz_unexpected_error_occurred" = "「予期せぬエラーが〇〇〇〇しました」の正しい語を選んでください。";
+"quiz_old_api_deprecated" = "「古いAPIはすでに〇〇〇〇されています」の正しい語を選んでください。";
+"quiz_function_invoked_automatically" = "「この関数は自動的に〇〇〇〇されます」の正しい語を選んでください。";
+"quiz_session_terminated_by_timeout" = "「セッションはタイムアウトにより〇〇〇〇されました」の正しい語を選んでください。";
+"quiz_memory_leak_detected" = "「ログによるとメモリリークが〇〇〇〇されました」の正しい語を選んでください。";
+
+// documentQuestions
+"quiz_superseded_feature" = "「この機能はすでに新しいものに〇〇〇〇されています」の正しい語を選んでください。";
+"quiz_deprecated_method" = "「このメソッドはすでに〇〇〇〇です。代わりのAPIを使ってください。」の正しい語を選んでください。";
+"quiz_experimental_api" = "「このAPIはまだ〇〇〇〇段階なので、本番利用には注意が必要です。」の正しい語を選んでください。";
+"quiz_obsolete_code" = "「このコードは動作するが、すでに〇〇〇〇と見なされています」の正しい語を選んでください。";
+"quiz_verify_after_change" = "「変更を加えたら、次にそれが正しく動くかを〇〇〇〇する必要があります」の正しい語を選んでください。";
+
+// lifecycleQuestions
+"quiz_process_suspended" = "「このプロセスは現在一時的に〇〇〇〇されています」の正しい語を選んでください。";
+"quiz_persistent_storage" = "「このストレージは、データを〇〇〇〇に保持します」の正しい語を選んでください。";
+"quiz_async_function" = "「この関数は他の処理とは独立して〇〇〇〇に動作します」の正しい語を選んでください。";
+"quiz_inherited_style" = "「このコンポーネントは上位のスタイルを〇〇〇〇しています」の正しい語を選んでください。";
+"quiz_fetch_data" = "「このAPIはデータを〇〇〇〇してUIを更新します」の正しい語を選んでください。";
+
+// CoreWordsQuestions
+"quiz_occurred" = "「occurred」は日本語でどういう意味？";
+"quiz_attempt" = "「attempt」は日本語でどういう意味？";
+"quiz_suspended" = "「suspended」は日本語でどういう意味？";
+"quiz_ancestor" = "「ancestor」は日本語でどういう意味？";
+"quiz_permanent" = "「permanent」は日本語でどういう意味？";
+
+// CoreWordsQuestions2
+"quiz_existing" = "「existing」は日本語でどういう意味？";
+"quiz_related" = "「related」は日本語でどういう意味？";
+"quiz_opposed" = "「opposed」は日本語でどういう意味？";
+"quiz_absolute" = "「absolute」は日本語でどういう意味？";
+"quiz_illegal" = "「illegal」は日本語でどういう意味？";
+
+// CoreWordsQuestions3
+"quiz_embed" = "「embed」は日本語でどういう意味？";
+"quiz_detected" = "「detected」は日本語でどういう意味？";
+"quiz_assume" = "「assume」は日本語でどういう意味？";
+"quiz_specify" = "「specify」は日本語でどういう意味？";
+"quiz_expression" = "「expression」は日本語でどういう意味？";
+
+
+// Quiz Helper
+"quiz_completed" = "クイズ完了";
+"correct" = "正解";
+"wrong" = "不正解";
+"correct_message" = "素晴らしい！";
+"wrong_message" = "正しい答えは: ";
+"quiz_reset" = "クイズをリセット";
+
+//MARK: - QuizList
+"error_handling_quiz" = "エラー・例外クイズ";
+"document_quiz" = "ドキュメントクイズ";
+"lifecycle_quiz" = "状態・ライフサイクルクイズ";
+"core_words_quiz" = "頻出単語クイズ";
+"core_words_quiz2" = "頻出単語クイズ2";
+"core_words_quiz3" = "頻出単語クイズ3";

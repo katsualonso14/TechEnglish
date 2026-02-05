@@ -4,15 +4,17 @@ import UserMessagingPlatform
 import AppTrackingTransparency
 import AdSupport
 
-class MainTabBarController: UITabBarController, BannerViewDelegate {
+class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarControllerDelegate {
     
     var bannerView: BannerView!
     let requestParameters = UMPRequestParameters()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self
         setupTab()
-        setupBanner()
+        // インターステシャルで運用する方針で一時停止
+//        setupBanner()
     }
     
     //MARK: -Layout
@@ -21,32 +23,22 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         self.tabBar.tintColor = AppColors.appMainColor
         view.backgroundColor = .systemGray6
         
-        let categoryViewController = CategoryViewController()
-        categoryViewController.tabBarItem.image = UIImage(systemName: "character.book.closed")
-        categoryViewController.tabBarItem.title = "Tech Words"
-        let nv1 = UINavigationController(rootViewController: categoryViewController)
+        let learnVC = LearnContainerViewController()
+        learnVC.tabBarItem.image = UIImage(systemName: "book.closed")
+        learnVC.tabBarItem.title = NSLocalizedString("learn_tab_button", comment: "")
+        let nv1 = UINavigationController(rootViewController: learnVC)
         
-        let phrasesVC = WordSeedViewController()
-        phrasesVC.tabBarItem.image = UIImage(systemName: "pencil.and.scribble")
-        phrasesVC.tabBarItem.title = NSLocalizedString("wordseeds_tab_button", comment: "")
-        let nv2 = UINavigationController(rootViewController: phrasesVC)
-        
-        let phraseStoreVC = CustomWordsViewController()
-        phraseStoreVC.tabBarItem.image = UIImage(systemName: "pencil.and.outline")
-        phraseStoreVC.tabBarItem.title = NSLocalizedString("custom_word_list_tab_button", comment: "")
-        let nv3 = UINavigationController(rootViewController: phraseStoreVC)
+        let myCardsVC = MyCardsViewController()
+        myCardsVC.tabBarItem.image = UIImage(systemName: "tag")
+        myCardsVC.tabBarItem.title = "My Cards"
+        let nv2 = UINavigationController(rootViewController: myCardsVC)
         
         let remindVC = RemindListController()
-        remindVC.tabBarItem.image = UIImage(systemName: "repeat")
+        remindVC.tabBarItem.image = UIImage(systemName: "bell")
         remindVC.tabBarItem.title = NSLocalizedString("remind_tab_button", comment: "")
-        let nv4 = UINavigationController(rootViewController: remindVC)
+        let nv3 = UINavigationController(rootViewController: remindVC)
         
-        let calendarVC = RecordViewController()
-        calendarVC.tabBarItem.image = UIImage(systemName: "calendar")
-        calendarVC.tabBarItem.title = NSLocalizedString("record_tab_button", comment: "")
-        let nv5 = UINavigationController(rootViewController: calendarVC)
-        
-        setViewControllers([nv1, nv2, nv3, nv4, nv5], animated: false)
+        setViewControllers([nv1, nv2, nv3], animated: false)
     }
     
     //MARK: -Admob
@@ -80,5 +72,34 @@ class MainTabBarController: UITabBarController, BannerViewDelegate {
         ])
     }
     
+    // MARK: -TabBarControllerDelegate
+    // タブバー選択時にモーダル表示
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController is DummyViewController {
+            showModal()
+            return false // 選択しない
+        }
+        return true
+    }
+    
+    // MARK: - objc
+    @objc func showModal() {
+        // MyCardの場所をサーチ
+        if let myCardsVC = self.viewControllers?.first(where: {
+            ($0 as? UINavigationController)?.viewControllers.first is MyCardsViewController
+        }) as? UINavigationController,
+           let targetVC = myCardsVC.viewControllers.first as? MyCardsViewController {
+            
+            let inputVC = MyCardsInputViewController()
+            inputVC.delegate = targetVC // delegateにMyCardsViewControllerを設定
+            if #available(iOS 15.0, *) {
+                if let sheet = inputVC.sheetPresentationController {
+                    sheet.detents = [.medium()]
+                    sheet.prefersGrabberVisible = true
+                }
+            }
+            present(inputVC, animated: true)
+        }
+    }
 
 }

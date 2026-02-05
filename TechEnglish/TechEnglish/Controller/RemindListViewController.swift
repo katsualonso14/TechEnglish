@@ -1,5 +1,6 @@
 
 import UIKit
+import FirebaseFirestore
 
 
 class RemindListController: UITableViewController {
@@ -9,8 +10,9 @@ class RemindListController: UITableViewController {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("remind_tab_button", comment: "")
         
+        setupDeleteNotifButton()
         loadRemind()
-        setDeleteNotifButton()
+        setupFeedBackButton()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: NSNotification.Name("addRemind"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(deleteData(_:)), name: Notification.Name("deleteRemind"), object: nil)
@@ -20,13 +22,28 @@ class RemindListController: UITableViewController {
         tableView.register(RemindListCell.self, forCellReuseIdentifier: "remindCell")
     }
 
-    //MARK: - Layout
-    func setDeleteNotifButton() {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "trash"), for: .normal)
-        button.tintColor = AppColors.appMainColor
-        button.addTarget(self, action: #selector(openAllNotifDeleteAleart), for: .touchUpInside)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: button)
+    //MARK: -Layout
+    func setupDeleteNotifButton() {
+        let deleteButton = UIBarButtonItem(
+            image: UIImage(systemName: "trash"),
+            style: .plain,
+            target: self,
+            action: #selector(openAllNotifDeleteAleart)
+        )
+        deleteButton.tintColor = AppColors.appMainColor
+        navigationItem.rightBarButtonItem = deleteButton
+    }
+    
+    func setupFeedBackButton() {
+        let feedbackButton = UIBarButtonItem(
+            image: UIImage(systemName: "bubble.left.and.bubble.right"),
+            style: .plain,
+            target: self,
+            action: #selector(openFeedbackModal)
+        )
+        
+        feedbackButton.tintColor = AppColors.appMainColor
+        navigationItem.leftBarButtonItem = feedbackButton
     }
     
     //MARK: -Function
@@ -40,7 +57,13 @@ class RemindListController: UITableViewController {
         tableView.reloadData()
     }
 
-    
+    // ローカルのremindItems更新
+    func saveRemindItemsToLocal() {
+        if let data = try? JSONEncoder().encode(remindItems) {
+            UserDefaults.standard.set(data, forKey: "remindItems")
+        }
+    }
+
     //MARK: Delete Notification
     //全ての通知を削除する処理
     func showDeleteAllDoneAlert() {
@@ -61,14 +84,21 @@ class RemindListController: UITableViewController {
         remindItems.removeAll()
         tableView.reloadData()
     }
-
-    // ローカルのremindItems更新
-    func saveRemindItemsToLocal() {
-        if let data = try? JSONEncoder().encode(remindItems) {
-            UserDefaults.standard.set(data, forKey: "remindItems")
+    // Store feedback to Firestore
+    func saveFeedbackToFirestore(feedback: String) {
+        let db = Firestore.firestore()
+        db.collection("feedbacks").addDocument(data: [
+            "feedback": feedback,
+            "timestamp": Timestamp(date: Date())
+        ]) { error in
+            if let error = error {
+                print("Error saving feedback: \(error.localizedDescription)")
+            } else {
+                print("Feedback successfully saved!")
+            }
         }
     }
-
+    
     //MARK: -objc
     @objc func updateData(_ notification: Notification) {
         guard let data = notification.userInfo as? [String: String],
@@ -95,7 +125,7 @@ class RemindListController: UITableViewController {
         tableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
         saveRemindItemsToLocal()// ローカル保存も更新
     }
-
+    
     // 全てのリマインドを削除
     @objc func openAllNotifDeleteAleart(){
         let alert = UIAlertController(title: NSLocalizedString("delete_all_remind_title", comment: ""),
@@ -107,6 +137,28 @@ class RemindListController: UITableViewController {
             showDeleteAllDoneAlert()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func openFeedbackModal() {
+        let alert = UIAlertController(title: "Feedback",
+                                      message: NSLocalizedString("feedback_massage", comment: ""),
+                                      preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Feedback"
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
+            if let feedback = alert.textFields?.first?.text , !feedback.isEmpty {
+                // Save feedback to Firestore
+                self.saveFeedbackToFirestore(feedback: feedback)
+            } else {
+                // Show error message
+                let errorAlert = UIAlertController(title: "Error", message: "Please enter feedback.", preferredStyle: .alert)
+                errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(errorAlert, animated: true, completion: nil)
+            }
+        }))
         present(alert, animated: true, completion: nil)
     }
     

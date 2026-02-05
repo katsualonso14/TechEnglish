@@ -89,23 +89,23 @@ class DescriptionView: UIView {
     func updateViewContent() {
         switch discriptNumber {
         case 1:
-            imageView.image = UIImage(named: "App purpose image")
+            imageView.image = UIImage(named: "App_purpose_image")
             label.text = NSLocalizedString("dicript_label_app_purpose", comment: "")
             button.setTitle("Next", for: .normal)
             
         case 2:
-            imageView.image = UIImage(named: "WordSeed Sample")
-            label.text = NSLocalizedString("dicript_label_word_seeds", comment: "")
+            imageView.image = UIImage(named: "Quiz_image")
+            label.text = NSLocalizedString("dicript_label_quiz", comment: "")
             button.setTitle("Next", for: .normal)
             
         case 3:
-            imageView.image = UIImage(named: "Add CustomWordList")
-            label.text = NSLocalizedString("dicript_label_add_custom_word_list", comment: "")
+            imageView.image = UIImage(named: "PhraseStock_image")
+            label.text = NSLocalizedString("dicript_label_phase_stock", comment: "")
             button.setTitle("Next", for: .normal)
             
         case 4:
-            imageView.image = UIImage(named: "CustomWordList")
-            label.text = NSLocalizedString("dicript_label_custom_word_list", comment: "")
+            imageView.image = UIImage(named: "TechWords_image")
+            label.text = NSLocalizedString("dicript_label_tech_words", comment: "")
             button.setTitle("Close", for: .normal)
             
         default:

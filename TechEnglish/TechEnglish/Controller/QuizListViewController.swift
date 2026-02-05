@@ -1,26 +1,59 @@
 import UIKit
 
-class CategoryViewController: UIViewController {
+class QuizListViewController: UIViewController {
+    
     let container = UIView()
     let scrollView = UIScrollView()
-    let vocabButtons: [VocabButtonInfo] = [
-        VocabButtonInfo(titleKey: "vocab_first_button_title", subtitleKey: "vocab_first_button_subtitle", imageName: "exclamationmark.triangle", selector: #selector(pushFirstButton)),
-        VocabButtonInfo(titleKey: "vocab_sixth_button_title", subtitleKey: "vocab_sixth_button_subtitle", imageName: "doc.text", selector: #selector(pushSixthButton)),
-        VocabButtonInfo(titleKey: "vocab_second_button_title", subtitleKey: "vocab_second_button_subtitle", imageName: "cube.box", selector: #selector(pushSecondButton)),
-        VocabButtonInfo(titleKey: "vocab_third_button_title", subtitleKey: "vocab_third_button_subtitle", imageName: "arrow.triangle.2.circlepath", selector: #selector(pushThirdButton)),
-        VocabButtonInfo(titleKey: "vocab_fourth_button_title", subtitleKey: "vocab_fourth_button_subtitle", imageName: "gearshape", selector: #selector(pushFourthButton)),
-        VocabButtonInfo(titleKey: "vocab_fifth_button_title", subtitleKey: "vocab_fifth_button_subtitle", imageName: "chevron.left.forwardslash.chevron.right", selector: #selector(pushFifthButton)),
-        VocabButtonInfo(titleKey: "vocab_eighth_button_title", subtitleKey: "vocab_eighth_button_subtitle", imageName: "ellipsis", selector: #selector(pushEighthButton)),
-    ]
+    let quizList = QuizListModel()
 
+    let vocabButtons: [VocabButtonInfo] = [
+        VocabButtonInfo(
+            titleKey: "error_handling_quiz",
+            subtitleKey: "quiz_greeting_button_subtitle",
+            imageName: "exclamationmark.triangle",
+            selector: #selector(pushErrorButton)
+        ),
+        VocabButtonInfo(
+            titleKey: "document_quiz",
+            subtitleKey: "quiz_pronoun_button_subtitle",
+            imageName: "doc.text",
+            selector: #selector(pushDocsButton)
+        ),
+        VocabButtonInfo(
+            titleKey: "lifecycle_quiz",
+            subtitleKey: "quiz_travel_button_subtitle",
+            imageName: "arrow.triangle.2.circlepath",
+            selector: #selector(pushLifecycleButton)
+        ),
+        VocabButtonInfo(
+            titleKey:"core_words_quiz",
+            subtitleKey: "quiz_core_words_button_subtitle",
+            imageName: "book.closed",
+            selector: #selector(pushCoreWordsButton)
+        ),
+        VocabButtonInfo(
+            titleKey: "core_words_quiz2",
+            subtitleKey: "quiz_core_words2_button_subtitle",
+            imageName: "book.closed",
+            selector: #selector(pushCoreWords2Button)
+        ),
+        VocabButtonInfo(
+            titleKey: "core_words_quiz3",
+            subtitleKey: "quiz_core_words3_button_subtitle",
+            imageName: "book.closed",
+            selector: #selector(pushCoreWords3Button)
+        ),
+        
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Tech Words"
+        navigationItem.title = NSLocalizedString("quiz_tab_button", comment: "")
         setupScrollView()
         setupContainer()
         setupVocabButtons()
     }
-    // MARK - Layout Setting
+    
     func setupScrollView() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(scrollView)
@@ -46,16 +79,14 @@ class CategoryViewController: UIViewController {
             container.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             container.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             container.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            container.heightAnchor.constraint(equalToConstant: 1200), // 全体の高さを設定
+            container.heightAnchor.constraint(equalToConstant: 2400), // 全体の高さを設定
             container.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
             
         ])
     }
-    
     // MARK: - Vocab Buttons Setting
     func createVocabItemView(
         titleKey: String,
-        subtitleKey: String,
         imageName: String,
         topAnchor: NSLayoutYAxisAnchor,
         topConstant: CGFloat,
@@ -68,11 +99,15 @@ class CategoryViewController: UIViewController {
         let imageView = createImageView()
         view.addSubview(imageView)
         
-        let labelStack = createLabelStack(titleKey: titleKey, subtitleKey: subtitleKey)
-        view.addSubview(labelStack)
+        let titleLabel = createLabel(titleKey: titleKey)
+        view.addSubview(titleLabel)
+        
+        let chevronButton = craeteChevronButton()
+        view.addSubview(chevronButton)
 
         let tapGesture = UITapGestureRecognizer(target: self, action: selector)
         view.addGestureRecognizer(tapGesture)
+        chevronButton.addTarget(self, action: selector, for: .touchUpInside)
 
         // レイアウト
         NSLayoutConstraint.activate([
@@ -86,9 +121,13 @@ class CategoryViewController: UIViewController {
             imageView.widthAnchor.constraint(equalToConstant: 40),
             imageView.heightAnchor.constraint(equalToConstant: 40),
 
-            labelStack.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 30),
-            labelStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            labelStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 30),
+            titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            titleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            chevronButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
+            chevronButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            chevronButton.widthAnchor.constraint(equalToConstant: 30),
         ])
 
         imageView.image = UIImage(systemName: imageName)
@@ -113,7 +152,6 @@ class CategoryViewController: UIViewController {
         for buttonInfo in vocabButtons {
             let button = createVocabItemView(
                 titleKey: buttonInfo.titleKey,
-                subtitleKey: buttonInfo.subtitleKey,
                 imageName: buttonInfo.imageName,
                 topAnchor: previousAnchor,
                 topConstant: topPadding,
@@ -130,79 +168,75 @@ class CategoryViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }
-    // 共通のlabelStackセットアップ
-    func createLabelStack(titleKey: String, subtitleKey: String) -> UIStackView {
+    
+    func createLabel(titleKey: String) -> UILabel {
         let titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = NSLocalizedString(titleKey, comment: "")
         titleLabel.font = .boldSystemFont(ofSize: 22)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
 
-        let subtitleLabel = UILabel()
-        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        subtitleLabel.text = NSLocalizedString(subtitleKey, comment: "")
-        subtitleLabel.font = .systemFont(ofSize: 16)
-        subtitleLabel.textColor = .gray
-        subtitleLabel.numberOfLines = 0
+        return titleLabel
+    }
+    
+    func craeteChevronButton() -> UIButton {
+        let chevronButton = UIButton(type: .system)
+        chevronButton.translatesAutoresizingMaskIntoConstraints = false
+        chevronButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+        chevronButton.tintColor = AppColors.appMainColor
+        return chevronButton
+    }
 
-        let labelStack = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
-        labelStack.axis = .vertical
-        labelStack.spacing = 4
-        labelStack.translatesAutoresizingMaskIntoConstraints = false
+    
+// MARK: - objc
+    @objc func pushErrorButton(sender: UIButton){
+        let vc = QuizViewController(
+            questions: quizList.errorHandlingQuestions,
+            navTitle: NSLocalizedString("error_handling_quiz", comment: "")
+        )
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func pushDocsButton(sender: UIButton){
+        let vc = QuizViewController(
+            questions: quizList.docsWordQuestions,
+            navTitle: NSLocalizedString("document_quiz", comment: "")
+        )
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
-        return labelStack
-    }
-    
-    //MARK: -objc
-    // Push Buttons Setting
-    @objc func pushFirstButton(sender: UIButton){
-    let vc = VocabFirstViewController(titleName: NSLocalizedString("vocab_first_button_title", comment: ""))
+    @objc func pushLifecycleButton(sender: UIButton){
+        let vc = QuizViewController(
+            questions: quizList.docsWordQuestions,
+            navTitle: NSLocalizedString("lifecycle_quiz", comment: "")
+        )
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func pushSecondButton(sender: UIButton){
-        let vc = VocabSecondViewController(titleName: NSLocalizedString("vocab_second_button_title", comment: ""))
+    @objc func pushCoreWordsButton(sender: UIButton){
+        let vc = QuizViewController(
+            questions: quizList.coreWordsQuestions,
+            navTitle: NSLocalizedString("core_words_quiz", comment: "")
+        )
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func pushThirdButton(sender: UIButton){
-        let vc = VocabThirdViewController(titleName: NSLocalizedString("vocab_third_button_title", comment: ""))
+    @objc func pushCoreWords2Button(sender: UIButton){
+        let vc = QuizViewController(
+            questions: quizList.coreWordsQuestions2,
+            navTitle: NSLocalizedString("core_words_quiz2", comment: "")
+        )
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func pushFourthButton(sender: UIButton){
-        let vc = VocabFourthViewController(titleName: NSLocalizedString("vocab_fourth_button_title", comment: ""))
+    @objc func pushCoreWords3Button(sender: UIButton){
+        let vc = QuizViewController(
+            questions: quizList.coreWordsQuestions3,
+            navTitle: NSLocalizedString("core_words_quiz3", comment: "")
+        )
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    @objc func pushFifthButton(sender: UIButton){
-        let vc = VocabFifthViewController(titleName: NSLocalizedString("vocab_fifth_button_title", comment: ""))
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc func pushSixthButton(sender: UIButton){
-        let vc = VocabSixthViewController(titleName: NSLocalizedString("vocab_sixth_button_title", comment: ""))
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @objc func pushEighthButton(sender: UIButton){
-        let vc = VocabEighthViewController(titleName: NSLocalizedString("vocab_eighth_button_title", comment: ""))
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
-    // MARK - Helper
-    //全ての通知を削除する処理
-    func deleteAllNotif() {
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.removeAllPendingNotificationRequests()
-        //全ての通知を削除しましたのダイアログ表示
-        let alert = UIAlertController(
-            title: NSLocalizedString("delete_all_notif_finish_title", comment: ""),
-            message: nil, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
-    
+
     //大きい画像などのメモリ解放
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -8,18 +8,21 @@
 "custom_word_list_tab_button" = "Custom Words";
 "remind_tab_button" = "Remind";
 "record_tab_button" = "Record";
+"quiz_tab_button" = "Quiz";
+"learn_tab_button" = "Learn";
 
 //MARK: - Common Components
 // Placeholder Text
-"search_placeholder" = "Search for words";
-"example_sentence_placeholder" = "Enter sentence...";
-"memo_placeholder" = "Enter memo...";
-"word_placeholder" = "Enter word...";
+"search_placeholder" = "Search for previously encountered words...";
+"word_placeholder" = "Enter the word you're stuck on...";
+"memo_placeholder" = "Enter the meaning or note you couldn't recall...";
 // Button Text
 "done" = "Done";
 "cancel" = "Cancel";
 "close" = "Close";
 "delete" = "Delete";
+"next" = "Next";
+"save" = "Save";
 // Remind Time
 "in 1hour" = "in 1hour";
 "in 3hour" = "in 3hour";
@@ -37,6 +40,10 @@
 
 "edit_word_seed_title" = "Edit Word Seed";
 "edit_word_seed_message" = "Edit the word you want to save.";
+
+"front_label" = "Front";
+"back_label" = "Back";
+"no_sentence" = "You can note the meaning or sentences here.";
 
 //MARK: - Custom Word List
 "edit_custom_word_list_title" = "Edit Custom Words";
@@ -149,12 +156,13 @@
 
 //MARK: - Feedback
 "feedback_massage" = "We are looking for your feedback on this app. Please write any requests such as 'I want this feature' or 'I want this to be improved' here and press the Submit button.";
+
 //MARK: - Disciption Viwe
 "dicript_check_box_lable" = "Do not show description at startup";
 "dicript_label_app_purpose" = "The purpose of this app is to help you read documentation and error messages smoothly and with confidence.";
-"dicript_label_word_seeds" = "In 'Word Seeds', you can easily note down words that you find interesting or difficult to understand in daily life.";
-"dicript_label_add_custom_word_list" = "You can save sentences and memo based on the words saved in 'Word Seeds' to your custom word list.";
-"dicript_label_custom_word_list" = "In 'Custom Word List', you can save words that you find interesting in daily life along with sentences and notes to help you remember them.";
+"dicript_label_quiz" = "In 'Quiz', you can learn frequently used words in the app.";
+"dicript_label_phase_stock" = "In 'Phrase Stock', you can save words that interest you and create your own vocabulary list.";
+"dicript_label_tech_words" = "In 'Tech Words', you can learn key English words used in engineering.";
 
 //MARK: - Web Search Modal
 "web_search_massage" = "Please select the word to search on the web.";
@@ -174,3 +182,63 @@
 "remind_bottom_sheet_1day" = "1 day later";
 "remind_completed_title" = "Remind Completed";
 "remind_completed_message" = "The reminder has been set successfully.";
+
+//MARK: - Quiz
+// errorHandlingQuestions
+"quiz_unexpected_error_occurred" = "Which word best completes: 'An unexpected error has ____.'";
+"quiz_old_api_deprecated" = "Which word best completes: 'The old API has been ____.'";
+"quiz_function_invoked_automatically" = "Which word best completes: 'This function is automatically ____.'";
+"quiz_session_terminated_by_timeout" = "Which word best completes: 'The session was ____ due to a timeout.'";
+"quiz_memory_leak_detected" = "Which word best completes: 'According to the log, a memory leak was ____.'";
+
+// documentQuestions
+"quiz_superseded_feature" = "Which word best completes: 'This feature has been ____ by a new implementation.'";
+"quiz_deprecated_method" = "Which word best completes: 'This method is now ____. Please use the new API instead.'";
+"quiz_experimental_api" = "Which word best completes: 'This API is still in the ____ stage, so use with caution in production.'";
+"quiz_obsolete_code" = "Which word best completes: 'This code still runs, but is considered ____.'";
+"quiz_verify_after_change" = "Which word best completes: 'After making changes, you should ____ the results.'";
+
+// lifecycleQuestions
+"quiz_process_suspended" = "Which word best completes: 'This process is currently ____.'";
+"quiz_persistent_storage" = "Which word best completes: 'This storage retains data in a ____ manner.'";
+"quiz_async_function" = "Which word best completes: 'This function operates ____ from the main thread.'";
+"quiz_inherited_style" = "Which word best completes: 'This component ____ styles from its parent.'";
+"quiz_fetch_data" = "Which word best completes: 'This API call will ____ data to update the UI.'";
+
+// CoreWordsQuestions
+"quiz_occurred" = "「occurred」は日本語でどういう意味？";
+"quiz_attempt" = "「attempt」は日本語でどういう意味？";
+"quiz_suspended" = "「suspended」は日本語でどういう意味？";
+"quiz_ancestor" = "「ancestor」は日本語でどういう意味？";
+"quiz_permanent" = "「permanent」は日本語でどういう意味？";
+
+// CoreWordsQuestions2
+"quiz_existing" = "What is the meaning of \"existing\"?";
+"quiz_related" = "What is the meaning of \"related\"?";
+"quiz_opposed" = "What is the meaning of \"opposed\"?";
+"quiz_absolute" = "What is the meaning of \"absolute\"?";
+"quiz_illegal" = "What is the meaning of \"illegal\"?";
+
+// CoreWordsQuestions3
+"quiz_embed" = "What is the meaning of \"embed\"?";
+"quiz_detected" = "What is the meaning of \"detected\"?";
+"quiz_assume" = "What is the meaning of \"assume\"?";
+"quiz_specify" = "What is the meaning of \"specify\"?";
+"quiz_expression" = "What is the meaning of \"expression\"?";
+
+
+// Quiz Helper
+"quiz_completed" = "Quiz Completed";
+"correct" = "Correct";
+"wrong" = "Wrong";
+"correct_message" = "Good job!";
+"wrong_message" = "Correct answer: ";
+"quiz_reset" = "Reset Quiz";
+
+//MARK: - QuizList
+"error_handling_quiz" = "Error Handling Quiz";
+"document_quiz" = "Document Quiz";
+"lifecycle_quiz" = "Lifecycle Quiz";
+"core_words_quiz" = "Core Words Quiz";
+"core_words_quiz2" = "Core Words Quiz 2";
+"core_words_quiz3" = "Core Words Quiz 3";
