@@ -29,6 +29,8 @@ class DescriptionViewController: UIViewController {
     }
 
     @objc private func dismissSelf() {
+        // 初回オンボーディング完了として記録（×ボタンで閉じた場合も）
+        UserDefaults.standard.set(true, forKey: "hasCompletedFirstTimeOnboarding")
         self.dismiss(animated: true, completion: nil)
     }
 }

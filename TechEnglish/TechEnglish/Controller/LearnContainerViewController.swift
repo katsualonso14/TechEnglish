@@ -75,8 +75,10 @@ class LearnContainerViewController: UIViewController {
     }
     
     //MARK: - Helper Functions
+    /// 初回ダウンロード時のみオンボーディングを自動表示する
     func checkIsDescription() {
-        if !UserDefaults.standard.bool(forKey: "isDescription") {
+        let hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "hasCompletedFirstTimeOnboarding")
+        if !hasCompletedOnboarding {
             setDiscrptionView()
         }
     }
