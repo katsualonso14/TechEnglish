@@ -17,6 +17,7 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
         setTableView()
         setupSearchController()
         setupRightNavBarButton()
+        setupFloatingAddButton()
     }
     //MARK: - View Layout
     func setView() {
@@ -83,15 +84,29 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
             target: self,
             action: #selector(checkSearchWord))
         webReseachButton.tintColor = AppColors.appMainColor
-        
-        let addButton = UIBarButtonItem(
-            image: UIImage(systemName: "plus"),
-            style: .plain,
-            target: self,
-            action: #selector(openAddMyCardModal))
-        addButton.tintColor = AppColors.appMainColor
-    
-        navigationItem.rightBarButtonItems = [webReseachButton, addButton]
+        navigationItem.rightBarButtonItem = webReseachButton
+    }
+
+    func setupFloatingAddButton() {
+        let fabButton = UIButton(type: .system)
+        fabButton.backgroundColor = AppColors.appMainColor
+        fabButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        fabButton.tintColor = .white
+        fabButton.addTarget(self, action: #selector(openAddMyCardModal), for: .touchUpInside)
+        fabButton.layer.cornerRadius = 28
+        fabButton.layer.shadowColor = UIColor.black.cgColor
+        fabButton.layer.shadowOpacity = 0.25
+        fabButton.layer.shadowOffset = CGSize(width: 0, height: 4)
+        fabButton.layer.shadowRadius = 6
+        view.addSubview(fabButton)
+
+        fabButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fabButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            fabButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
+            fabButton.widthAnchor.constraint(equalToConstant: 56),
+            fabButton.heightAnchor.constraint(equalToConstant: 56)
+        ])
     }
     
     func setupSearchController() {

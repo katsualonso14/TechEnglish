@@ -30,7 +30,6 @@ class LearnContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setPageView()
-        setDescriptionButton()
         checkIsDescription() // 説明ダイアログが必要か確認
     }
     
@@ -60,18 +59,6 @@ class LearnContainerViewController: UIViewController {
         
         // 初期表示
         pageViewController.setViewControllers([viewControllers[0]], direction: .forward, animated: false, completion: nil)
-    }
-    
-    func setDescriptionButton() {
-        let descriptionButton = UIButton(type: .system)
-        descriptionButton.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        descriptionButton.tintColor = AppColors.appMainColor
-        // QuickMemoからの遷移は1ページ目を初期表示に設定
-        let data = ["discriptNumber": 1]
-        NotificationCenter.default.post(name: Notification.Name("addDescription"), object: nil, userInfo: data)
-        print("send data \(data)")
-        descriptionButton.addTarget(self, action: #selector(setDiscrptionView), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: descriptionButton)
     }
     
     //MARK: - Helper Functions

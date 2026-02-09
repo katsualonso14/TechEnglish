@@ -12,7 +12,7 @@ class RemindListController: UITableViewController {
         
         setupDeleteNotifButton()
         loadRemind()
-        setupFeedBackButton()
+        setupLeftBarButtons()
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateData(_:)), name: NSNotification.Name("addRemind"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(deleteData(_:)), name: Notification.Name("deleteRemind"), object: nil)
@@ -34,16 +34,24 @@ class RemindListController: UITableViewController {
         navigationItem.rightBarButtonItem = deleteButton
     }
     
-    func setupFeedBackButton() {
+    func setupLeftBarButtons() {
         let feedbackButton = UIBarButtonItem(
             image: UIImage(systemName: "bubble.left.and.bubble.right"),
             style: .plain,
             target: self,
             action: #selector(openFeedbackModal)
         )
-        
         feedbackButton.tintColor = AppColors.appMainColor
-        navigationItem.leftBarButtonItem = feedbackButton
+
+        let descriptionButton = UIBarButtonItem(
+            image: UIImage(systemName: "questionmark.circle"),
+            style: .plain,
+            target: self,
+            action: #selector(showDescriptionView)
+        )
+        descriptionButton.tintColor = AppColors.appMainColor
+
+        navigationItem.leftBarButtonItems = [feedbackButton, descriptionButton]
     }
     
     //MARK: -Function
@@ -140,6 +148,12 @@ class RemindListController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    @objc func showDescriptionView() {
+        let vc = DescriptionViewController()
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated: true)
+    }
+
     @objc func openFeedbackModal() {
         let alert = UIAlertController(title: "Feedback",
                                       message: NSLocalizedString("feedback_massage", comment: ""),
