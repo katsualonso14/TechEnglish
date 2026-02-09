@@ -13,8 +13,6 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
         super.viewDidLoad()
         self.delegate = self
         setupTab()
-        // インターステシャルで運用する方針で一時停止
-//        setupBanner()
     }
     
     //MARK: -Layout
@@ -23,15 +21,15 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
         self.tabBar.tintColor = AppColors.appMainColor
         view.backgroundColor = .systemGray6
         
-        let learnVC = LearnContainerViewController()
-        learnVC.tabBarItem.image = UIImage(systemName: "book.closed")
-        learnVC.tabBarItem.title = NSLocalizedString("learn_tab_button", comment: "")
-        let nv1 = UINavigationController(rootViewController: learnVC)
-        
         let myCardsVC = MyCardsViewController()
         myCardsVC.tabBarItem.image = UIImage(systemName: "tag")
         myCardsVC.tabBarItem.title = "My Cards"
-        let nv2 = UINavigationController(rootViewController: myCardsVC)
+        let nv1 = UINavigationController(rootViewController: myCardsVC)
+        
+        let learnVC = LearnContainerViewController()
+        learnVC.tabBarItem.image = UIImage(systemName: "book.closed")
+        learnVC.tabBarItem.title = NSLocalizedString("learn_tab_button", comment: "")
+        let nv2 = UINavigationController(rootViewController: learnVC)
         
         let remindVC = RemindListController()
         remindVC.tabBarItem.image = UIImage(systemName: "bell")
@@ -39,37 +37,6 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
         let nv3 = UINavigationController(rootViewController: remindVC)
         
         setViewControllers([nv1, nv2, nv3], animated: false)
-    }
-    
-    //MARK: -Admob
-    func setupBanner() {
-        let viewWidth = view.frame.inset(by: view.safeAreaInsets).width
-        let adaptiveSize = currentOrientationAnchoredAdaptiveBanner(width: viewWidth)
-        bannerView = BannerView(adSize: adaptiveSize)
-        
-        bannerView.delegate = self
-        bannerView.adUnitID = MyAds.bannerID
-        bannerView.rootViewController = self
-        bannerView.load(Request())
-        
-        // set main thread
-        DispatchQueue.main.async {[weak self] in
-            guard let self = self else { return }
-            self.addBannerViewToView(self.bannerView)
-        }
-    }
-    
-    // Setting ads x and y
-    func addBannerViewToView(_ bannerView: BannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        
-        let tabBarY = self.tabBar.frame.origin.y
-        
-        NSLayoutConstraint.activate([
-            bannerView.bottomAnchor.constraint(equalTo: view.topAnchor, constant: tabBarY),
-            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
     }
     
     // MARK: -TabBarControllerDelegate
