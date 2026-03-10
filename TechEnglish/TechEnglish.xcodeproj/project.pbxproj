@@ -8,53 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13C561F515BF267E25025F7C /* Pods_TechEnglishTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AA25FF0E3404AEE7AC05D50 /* Pods_TechEnglishTests.framework */; };
-		23139DDA2DD7FA0700DE8A6E /* RemindItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23139DD92DD7FA0700DE8A6E /* RemindItem.swift */; };
-		23139DDC2DDA925700DE8A6E /* RemindManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23139DDB2DDA925700DE8A6E /* RemindManager.swift */; };
-		2317C6E22D6DA27C00F8E1D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6D92D6DA27C00F8E1D4 /* AppDelegate.swift */; };
-		2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */; };
-		2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6DF2D6DA27C00F8E1D4 /* SceneDelegate.swift */; };
-		2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */; };
-		2317C6E62D6DA27C00F8E1D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */; };
-		2317C6F12D6DA28200F8E1D4 /* TechWordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6E92D6DA28200F8E1D4 /* TechWordTableViewCell.swift */; };
-		2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */; };
-		2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */; };
-		2317C6F42D6DA28200F8E1D4 /* WebViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */; };
-		2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */; };
-		2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */; };
-		2317C7072D6DA3DB00F8E1D4 /* VocabularyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7062D6DA3DB00F8E1D4 /* VocabularyList.swift */; };
-		2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C7082D6DA3F900F8E1D4 /* AppColors.swift */; };
-		2317C70B2D6DA40000F8E1D4 /* MyAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C70A2D6DA40000F8E1D4 /* MyAds.swift */; };
-		2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C70E2D6DA6FC00F8E1D4 /* Contact.swift */; };
-		2317C71C2D6DE07A00F8E1D4 /* VocabFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71B2D6DE07A00F8E1D4 /* VocabFirstViewController.swift */; };
-		2317C71E2D6EEB1400F8E1D4 /* VocabSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71D2D6EEB1400F8E1D4 /* VocabSecondViewController.swift */; };
-		2317C7202D6EED8400F8E1D4 /* VocabThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */; };
-		231AEEBB2E04C239006C5714 /* LearnContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231AEEBA2E04C239006C5714 /* LearnContainerViewController.swift */; };
-		232A564A2E00F3BD000C4FED /* AnswerResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232A56492E00F3BD000C4FED /* AnswerResultViewController.swift */; };
-		234916602DC30953000128C6 /* WebMeta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349165F2DC30953000128C6 /* WebMeta.swift */; };
-		2349166E2DC4517D000128C6 /* VocabButtonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */; };
-		2349167C2DC9E23C000128C6 /* VcabSixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349167B2DC9E23C000128C6 /* VcabSixthViewController.swift */; };
-		2349167E2DCABFDE000128C6 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2349167D2DCABFDE000128C6 /* DescriptionViewController.swift */; };
-		2353AA1E2DADCA890057D201 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA1D2DADCA890057D201 /* RecordViewController.swift */; };
-		2353AA202DADCB130057D201 /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA1F2DADCB130057D201 /* EventModel.swift */; };
-		2353AA302DAF24D30057D201 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA2E2DAF24D30057D201 /* Localizable.strings */; };
-		2353AA332DB084A20057D201 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA322DB084A20057D201 /* LaunchScreen.storyboard */; };
-		2353AA472DB300550057D201 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2353AA462DB300550057D201 /* GoogleService-Info.plist */; };
-		2353AA592DB9EC270057D201 /* VocabFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA582DB9EC270057D201 /* VocabFourthViewController.swift */; };
-		2353AA5B2DB9F0BE0057D201 /* VovabFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA5A2DB9F0BE0057D201 /* VovabFifthViewController.swift */; };
-		2353AA612DB9F25C0057D201 /* VocabEighthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */; };
-		2353AA8B2DC054150057D201 /* WebViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2353AA8A2DC054150057D201 /* WebViewType.swift */; };
-		2359FB3D2DFE4B39006643C1 /* MyCardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359FB3C2DFE4B39006643C1 /* MyCardsCell.swift */; };
-		2359FB3F2DFE4D17006643C1 /* DummyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2359FB3E2DFE4D17006643C1 /* DummyViewController.swift */; };
 		236124DB2F343B5300F0B263 /* .cursorignore in Resources */ = {isa = PBXBuildFile; fileRef = 236124DA2F343B5300F0B263 /* .cursorignore */; };
-		2368A9852DF8EA940092310A /* QuizListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9842DF8EA940092310A /* QuizListViewController.swift */; };
-		2368A9872DF8EAFF0092310A /* QuizListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9862DF8EAFF0092310A /* QuizListModel.swift */; };
-		2368A98A2DF8EB5E0092310A /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9892DF8EB5E0092310A /* QuizViewController.swift */; };
-		2368A9B22DFB8C2B0092310A /* MyCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9B12DFB8C2B0092310A /* MyCardsViewController.swift */; };
-		2368A9B52DFB8C3B0092310A /* MyCardsInputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9B32DFB8C3B0092310A /* MyCardsInputController.swift */; };
-		2368A9B92DFB8C6F0092310A /* MyCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9B82DFB8C6F0092310A /* MyCard.swift */; };
-		2368A9BB2DFB8D470092310A /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2368A9BA2DFB8D470092310A /* PlaceholderTextView.swift */; };
-		23776BD32DD5491B00553D04 /* RemindListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23776BD22DD5491B00553D04 /* RemindListViewController.swift */; };
-		23776BD52DD54A8100553D04 /* RemindListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23776BD42DD54A8100553D04 /* RemindListCell.swift */; };
 		8F915D3EBB5EDC4FC742BE69 /* Pods_TechEnglish.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F251A53FCBB91C69C86381 /* Pods_TechEnglish.framework */; };
 		A46E653C46D92CF6526727B0 /* Pods_TechEnglish_TechEnglishUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B71AA9BB57A37BED81626A2C /* Pods_TechEnglish_TechEnglishUITests.framework */; };
 /* End PBXBuildFile section */
@@ -77,58 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		23139DD92DD7FA0700DE8A6E /* RemindItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindItem.swift; sourceTree = "<group>"; };
-		23139DDB2DDA925700DE8A6E /* RemindManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindManager.swift; sourceTree = "<group>"; };
 		2317C6442D6D96DC00F8E1D4 /* TechEnglish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechEnglish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2317C65A2D6D96DE00F8E1D4 /* TechEnglishTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechEnglishTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2317C6642D6D96DE00F8E1D4 /* TechEnglishUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TechEnglishUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2317C6D92D6DA27C00F8E1D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2317C6DB2D6DA27C00F8E1D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		2317C6DF2D6DA27C00F8E1D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModalViewController.swift; sourceTree = "<group>"; };
-		2317C6E92D6DA28200F8E1D4 /* TechWordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechWordTableViewCell.swift; sourceTree = "<group>"; };
-		2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
-		2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSearchWordModal.swift; sourceTree = "<group>"; };
-		2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewContainer.swift; sourceTree = "<group>"; };
-		2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
-		2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckNotifController.swift; sourceTree = "<group>"; };
-		2317C7062D6DA3DB00F8E1D4 /* VocabularyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabularyList.swift; sourceTree = "<group>"; };
-		2317C7082D6DA3F900F8E1D4 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
-		2317C70A2D6DA40000F8E1D4 /* MyAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAds.swift; sourceTree = "<group>"; };
-		2317C70E2D6DA6FC00F8E1D4 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
-		2317C71B2D6DE07A00F8E1D4 /* VocabFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabFirstViewController.swift; sourceTree = "<group>"; };
-		2317C71D2D6EEB1400F8E1D4 /* VocabSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabSecondViewController.swift; sourceTree = "<group>"; };
-		2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabThirdViewController.swift; sourceTree = "<group>"; };
-		231AEEBA2E04C239006C5714 /* LearnContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnContainerViewController.swift; sourceTree = "<group>"; };
-		232A56492E00F3BD000C4FED /* AnswerResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerResultViewController.swift; sourceTree = "<group>"; };
-		2349165F2DC30953000128C6 /* WebMeta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebMeta.swift; sourceTree = "<group>"; };
-		2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabButtonInfo.swift; sourceTree = "<group>"; };
-		2349167B2DC9E23C000128C6 /* VcabSixthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VcabSixthViewController.swift; sourceTree = "<group>"; };
-		2349167D2DCABFDE000128C6 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
-		2353AA1D2DADCA890057D201 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
-		2353AA1F2DADCB130057D201 /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
-		2353AA2F2DAF24D30057D201 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = TechEnglish/ja.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
-		2353AA312DAF24E20057D201 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		2353AA322DB084A20057D201 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		2353AA462DB300550057D201 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		2353AA582DB9EC270057D201 /* VocabFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabFourthViewController.swift; sourceTree = "<group>"; };
-		2353AA5A2DB9F0BE0057D201 /* VovabFifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VovabFifthViewController.swift; sourceTree = "<group>"; };
-		2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VocabEighthViewController.swift; sourceTree = "<group>"; };
-		2353AA8A2DC054150057D201 /* WebViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewType.swift; sourceTree = "<group>"; };
-		2359FB3C2DFE4B39006643C1 /* MyCardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsCell.swift; sourceTree = "<group>"; };
-		2359FB3E2DFE4D17006643C1 /* DummyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyViewController.swift; sourceTree = "<group>"; };
 		236124DA2F343B5300F0B263 /* .cursorignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .cursorignore; sourceTree = "<group>"; };
-		2368A9842DF8EA940092310A /* QuizListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizListViewController.swift; sourceTree = "<group>"; };
-		2368A9862DF8EAFF0092310A /* QuizListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizListModel.swift; sourceTree = "<group>"; };
-		2368A9892DF8EB5E0092310A /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
-		2368A9B12DFB8C2B0092310A /* MyCardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsViewController.swift; sourceTree = "<group>"; };
-		2368A9B32DFB8C3B0092310A /* MyCardsInputController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCardsInputController.swift; sourceTree = "<group>"; };
-		2368A9B82DFB8C6F0092310A /* MyCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCard.swift; sourceTree = "<group>"; };
-		2368A9BA2DFB8D470092310A /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
-		23776BD22DD5491B00553D04 /* RemindListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindListViewController.swift; sourceTree = "<group>"; };
-		23776BD42DD54A8100553D04 /* RemindListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindListCell.swift; sourceTree = "<group>"; };
 		2676E555D96CF7567418D47E /* Pods-TechEnglish-TechEnglishUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; path = "Target Support Files/Pods-TechEnglish-TechEnglishUITests/Pods-TechEnglish-TechEnglishUITests.release.xcconfig"; sourceTree = "<group>"; };
 		3AA25FF0E3404AEE7AC05D50 /* Pods_TechEnglishTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechEnglishTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53337819C95C450F32D95427 /* Pods-TechEnglish.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechEnglish.debug.xcconfig"; path = "Target Support Files/Pods-TechEnglish/Pods-TechEnglish.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,6 +46,82 @@
 		E6F251A53FCBB91C69C86381 /* Pods_TechEnglish.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechEnglish.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		23FD49722F5E664700C249D3 /* Exceptions for "TechEnglish" folder in "TechEnglish" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"/Localized: Localizable.strings",
+				App/AppDelegate.swift,
+				App/SceneDelegate.swift,
+				Assets.xcassets,
+				Controller/CategoryViewController.swift,
+				Controller/CustomWordsViewController.swift,
+				Controller/DailyWord/DailyWordViewController.swift,
+				Controller/DummyViewController.swift,
+				Controller/LearnContainerViewController.swift,
+				Controller/Main/CheckNotifController.swift,
+				Controller/Main/DescriptionViewController.swift,
+				Controller/Main/MainTabBarController.swift,
+				Controller/Main/RemindManager.swift,
+				Controller/Main/WebModalViewController.swift,
+				Controller/MyCards/MyCardsInputController.swift,
+				Controller/MyCardsViewController.swift,
+				Controller/Quiz/QuizViewController.swift,
+				Controller/QuizListViewController.swift,
+				Controller/RecordContainerViewController.swift,
+				Controller/RecordViewController.swift,
+				Controller/RemindListViewController.swift,
+				Controller/SavedDocsController.swift,
+				Controller/TestPageViewContnroller.swift,
+				Controller/Vocabularies/VcabSixthViewController.swift,
+				Controller/Vocabularies/VocabEighthViewController.swift,
+				Controller/Vocabularies/VocabErrorViewController.swift,
+				Controller/Vocabularies/VocabFirstViewController.swift,
+				Controller/Vocabularies/VocabFourthViewController.swift,
+				Controller/Vocabularies/VocabSecondViewController.swift,
+				Controller/Vocabularies/VocabSeventhViewController.swift,
+				Controller/Vocabularies/VocabThirdViewController.swift,
+				Controller/Vocabularies/VovabFifthViewController.swift,
+				Controller/Vocabularies/VovabSixthViweController.swift,
+				Controller/WordSeedViewController.swift,
+				"GoogleService-Info.plist",
+				Model/AppColors.swift,
+				Model/AppError.swift,
+				Model/Contact.swift,
+				Model/EventModel.swift,
+				Model/Manager/DailyWordManager.swift,
+				Model/MyAds.swift,
+				Model/MyCard.swift,
+				Model/QuizListModel.swift,
+				Model/RemindItem.swift,
+				Model/VocabButtonInfo.swift,
+				Model/VocabularyList.swift,
+				Model/WebMeta.swift,
+				Model/WebViewType.swift,
+				View/Parts/AnswerResultViewController.swift,
+				View/Parts/CustomWordsCell.swift,
+				View/Parts/DescriptionView.swift,
+				View/Parts/MyCardsCell.swift,
+				View/Parts/PlaceholderTextView.swift,
+				View/Parts/RemindListCell.swift,
+				View/Parts/SelectSearchWordModal.swift,
+				View/Parts/TechWordTableViewCell.swift,
+				View/Parts/WebViewContainer.swift,
+				View/Parts/WordSeedCell.swift,
+			);
+			target = 2317C6432D6D96DC00F8E1D4 /* TechEnglish */;
+		};
+		23FD4A3D2F5FF7CA00C249D3 /* Exceptions for "TechEnglish" folder in "TechEnglishUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"/Localized: Localizable.strings",
+				Assets.xcassets,
+				"GoogleService-Info.plist",
+			);
+			target = 2317C6632D6D96DE00F8E1D4 /* TechEnglishUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2317C65D2D6D96DE00F8E1D4 /* TechEnglishTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -149,6 +131,15 @@
 		2317C6672D6D96DE00F8E1D4 /* TechEnglishUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TechEnglishUITests;
+			sourceTree = "<group>";
+		};
+		23F919B02F57AF9D0058B81F /* TechEnglish */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				23FD49722F5E664700C249D3 /* Exceptions for "TechEnglish" folder in "TechEnglish" target */,
+				23FD4A3D2F5FF7CA00C249D3 /* Exceptions for "TechEnglish" folder in "TechEnglishUITests" target */,
+			);
+			path = TechEnglish;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -184,8 +175,8 @@
 		2317C63B2D6D96DC00F8E1D4 = {
 			isa = PBXGroup;
 			children = (
+				23F919B02F57AF9D0058B81F /* TechEnglish */,
 				236124DA2F343B5300F0B263 /* .cursorignore */,
-				2317C6E12D6DA27C00F8E1D4 /* TechEnglish */,
 				2317C65D2D6D96DE00F8E1D4 /* TechEnglishTests */,
 				2317C6672D6D96DE00F8E1D4 /* TechEnglishUITests */,
 				2317C6452D6D96DC00F8E1D4 /* Products */,
@@ -202,132 +193,6 @@
 				2317C6642D6D96DE00F8E1D4 /* TechEnglishUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		2317C6E12D6DA27C00F8E1D4 /* TechEnglish */ = {
-			isa = PBXGroup;
-			children = (
-				2317C6F72D6DA32000F8E1D4 /* App */,
-				2317C7052D6DA3D500F8E1D4 /* Model */,
-				2317C6F62D6DA2F200F8E1D4 /* View */,
-				2317C6F82D6DA34000F8E1D4 /* Controller */,
-				2317C6DA2D6DA27C00F8E1D4 /* Assets.xcassets */,
-				2353AA462DB300550057D201 /* GoogleService-Info.plist */,
-				2317C6DB2D6DA27C00F8E1D4 /* Info.plist */,
-				2353AA322DB084A20057D201 /* LaunchScreen.storyboard */,
-			);
-			path = TechEnglish;
-			sourceTree = "<group>";
-		};
-		2317C6EF2D6DA28200F8E1D4 /* Parts */ = {
-			isa = PBXGroup;
-			children = (
-				2359FB3C2DFE4B39006643C1 /* MyCardsCell.swift */,
-				2317C6E92D6DA28200F8E1D4 /* TechWordTableViewCell.swift */,
-				2317C6EA2D6DA28200F8E1D4 /* DescriptionView.swift */,
-				2368A9BA2DFB8D470092310A /* PlaceholderTextView.swift */,
-				2317C6ED2D6DA28200F8E1D4 /* SelectSearchWordModal.swift */,
-				2317C6EE2D6DA28200F8E1D4 /* WebViewContainer.swift */,
-				23776BD42DD54A8100553D04 /* RemindListCell.swift */,
-				232A56492E00F3BD000C4FED /* AnswerResultViewController.swift */,
-			);
-			path = Parts;
-			sourceTree = "<group>";
-		};
-		2317C6F62D6DA2F200F8E1D4 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2317C6EF2D6DA28200F8E1D4 /* Parts */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2317C6F72D6DA32000F8E1D4 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				2317C6DF2D6DA27C00F8E1D4 /* SceneDelegate.swift */,
-				2317C6D92D6DA27C00F8E1D4 /* AppDelegate.swift */,
-			);
-			path = App;
-			sourceTree = "<group>";
-		};
-		2317C6F82D6DA34000F8E1D4 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				2368A9B42DFB8C3B0092310A /* MyCards */,
-				2368A9882DF8EB590092310A /* Quiz */,
-				2353AA872DC045F10057D201 /* Main */,
-				2317C71A2D6DE05700F8E1D4 /* Vocabularies */,
-				2317C6FA2D6DA36B00F8E1D4 /* CategoryViewController.swift */,
-				23776BD22DD5491B00553D04 /* RemindListViewController.swift */,
-				2353AA1D2DADCA890057D201 /* RecordViewController.swift */,
-				2368A9842DF8EA940092310A /* QuizListViewController.swift */,
-				2368A9B12DFB8C2B0092310A /* MyCardsViewController.swift */,
-				2359FB3E2DFE4D17006643C1 /* DummyViewController.swift */,
-				231AEEBA2E04C239006C5714 /* LearnContainerViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		2317C7052D6DA3D500F8E1D4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				2353AA2E2DAF24D30057D201 /* Localizable.strings */,
-				2317C70E2D6DA6FC00F8E1D4 /* Contact.swift */,
-				2317C7082D6DA3F900F8E1D4 /* AppColors.swift */,
-				2368A9862DF8EAFF0092310A /* QuizListModel.swift */,
-				2317C70A2D6DA40000F8E1D4 /* MyAds.swift */,
-				2368A9B82DFB8C6F0092310A /* MyCard.swift */,
-				2317C7062D6DA3DB00F8E1D4 /* VocabularyList.swift */,
-				2353AA1F2DADCB130057D201 /* EventModel.swift */,
-				2353AA8A2DC054150057D201 /* WebViewType.swift */,
-				2349165F2DC30953000128C6 /* WebMeta.swift */,
-				2349166D2DC4517D000128C6 /* VocabButtonInfo.swift */,
-				23139DD92DD7FA0700DE8A6E /* RemindItem.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2317C71A2D6DE05700F8E1D4 /* Vocabularies */ = {
-			isa = PBXGroup;
-			children = (
-				2317C71B2D6DE07A00F8E1D4 /* VocabFirstViewController.swift */,
-				2317C71D2D6EEB1400F8E1D4 /* VocabSecondViewController.swift */,
-				2317C71F2D6EED8400F8E1D4 /* VocabThirdViewController.swift */,
-				2353AA582DB9EC270057D201 /* VocabFourthViewController.swift */,
-				2353AA5A2DB9F0BE0057D201 /* VovabFifthViewController.swift */,
-				2349167B2DC9E23C000128C6 /* VcabSixthViewController.swift */,
-				2353AA602DB9F25C0057D201 /* VocabEighthViewController.swift */,
-			);
-			path = Vocabularies;
-			sourceTree = "<group>";
-		};
-		2353AA872DC045F10057D201 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				2317C6E02D6DA27C00F8E1D4 /* WebModalViewController.swift */,
-				2317C6FB2D6DA36B00F8E1D4 /* CheckNotifController.swift */,
-				2317C6DE2D6DA27C00F8E1D4 /* MainTabBarController.swift */,
-				2349167D2DCABFDE000128C6 /* DescriptionViewController.swift */,
-				23139DDB2DDA925700DE8A6E /* RemindManager.swift */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		2368A9882DF8EB590092310A /* Quiz */ = {
-			isa = PBXGroup;
-			children = (
-				2368A9892DF8EB5E0092310A /* QuizViewController.swift */,
-			);
-			path = Quiz;
-			sourceTree = "<group>";
-		};
-		2368A9B42DFB8C3B0092310A /* MyCards */ = {
-			isa = PBXGroup;
-			children = (
-				2368A9B32DFB8C3B0092310A /* MyCardsInputController.swift */,
-			);
-			path = MyCards;
 			sourceTree = "<group>";
 		};
 		2CD3859A869429ED58EC1AFD /* Pods */ = {
@@ -392,6 +257,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				2317C65D2D6D96DE00F8E1D4 /* TechEnglishTests */,
+				23F919B02F57AF9D0058B81F /* TechEnglish */,
 			);
 			name = TechEnglishTests;
 			productName = TechEnglishTests;
@@ -472,10 +338,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2353AA332DB084A20057D201 /* LaunchScreen.storyboard in Resources */,
-				2353AA472DB300550057D201 /* GoogleService-Info.plist in Resources */,
-				2317C6E62D6DA27C00F8E1D4 /* Assets.xcassets in Resources */,
-				2353AA302DAF24D30057D201 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -638,48 +500,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2317C70B2D6DA40000F8E1D4 /* MyAds.swift in Sources */,
-				2317C6E22D6DA27C00F8E1D4 /* AppDelegate.swift in Sources */,
-				2317C7072D6DA3DB00F8E1D4 /* VocabularyList.swift in Sources */,
-				2349166E2DC4517D000128C6 /* VocabButtonInfo.swift in Sources */,
-				2353AA8B2DC054150057D201 /* WebViewType.swift in Sources */,
-				2359FB3D2DFE4B39006643C1 /* MyCardsCell.swift in Sources */,
-				2317C71C2D6DE07A00F8E1D4 /* VocabFirstViewController.swift in Sources */,
-				2359FB3F2DFE4D17006643C1 /* DummyViewController.swift in Sources */,
-				23776BD32DD5491B00553D04 /* RemindListViewController.swift in Sources */,
-				2317C71E2D6EEB1400F8E1D4 /* VocabSecondViewController.swift in Sources */,
-				2368A9852DF8EA940092310A /* QuizListViewController.swift in Sources */,
-				2353AA5B2DB9F0BE0057D201 /* VovabFifthViewController.swift in Sources */,
-				2317C6E32D6DA27C00F8E1D4 /* MainTabBarController.swift in Sources */,
-				2317C6E42D6DA27C00F8E1D4 /* SceneDelegate.swift in Sources */,
-				234916602DC30953000128C6 /* WebMeta.swift in Sources */,
-				23139DDA2DD7FA0700DE8A6E /* RemindItem.swift in Sources */,
-				2349167C2DC9E23C000128C6 /* VcabSixthViewController.swift in Sources */,
-				2317C6F12D6DA28200F8E1D4 /* TechWordTableViewCell.swift in Sources */,
-				2317C6F22D6DA28200F8E1D4 /* SelectSearchWordModal.swift in Sources */,
-				2317C6F32D6DA28200F8E1D4 /* DescriptionView.swift in Sources */,
-				2317C6F42D6DA28200F8E1D4 /* WebViewContainer.swift in Sources */,
-				2368A98A2DF8EB5E0092310A /* QuizViewController.swift in Sources */,
-				2368A9B52DFB8C3B0092310A /* MyCardsInputController.swift in Sources */,
-				2317C7092D6DA3F900F8E1D4 /* AppColors.swift in Sources */,
-				2368A9872DF8EAFF0092310A /* QuizListModel.swift in Sources */,
-				23776BD52DD54A8100553D04 /* RemindListCell.swift in Sources */,
-				232A564A2E00F3BD000C4FED /* AnswerResultViewController.swift in Sources */,
-				2317C70F2D6DA6FC00F8E1D4 /* Contact.swift in Sources */,
-				2353AA1E2DADCA890057D201 /* RecordViewController.swift in Sources */,
-				231AEEBB2E04C239006C5714 /* LearnContainerViewController.swift in Sources */,
-				2353AA202DADCB130057D201 /* EventModel.swift in Sources */,
-				2317C6E52D6DA27C00F8E1D4 /* WebModalViewController.swift in Sources */,
-				2317C6FC2D6DA36B00F8E1D4 /* CategoryViewController.swift in Sources */,
-				23139DDC2DDA925700DE8A6E /* RemindManager.swift in Sources */,
-				2368A9B92DFB8C6F0092310A /* MyCard.swift in Sources */,
-				2317C6FD2D6DA36B00F8E1D4 /* CheckNotifController.swift in Sources */,
-				2353AA592DB9EC270057D201 /* VocabFourthViewController.swift in Sources */,
-				2368A9BB2DFB8D470092310A /* PlaceholderTextView.swift in Sources */,
-				2353AA612DB9F25C0057D201 /* VocabEighthViewController.swift in Sources */,
-				2349167E2DCABFDE000128C6 /* DescriptionViewController.swift in Sources */,
-				2317C7202D6EED8400F8E1D4 /* VocabThirdViewController.swift in Sources */,
-				2368A9B22DFB8C2B0092310A /* MyCardsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -712,18 +532,6 @@
 		};
 /* End PBXTargetDependency section */
 
-/* Begin PBXVariantGroup section */
-		2353AA2E2DAF24D30057D201 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2353AA2F2DAF24D30057D201 /* ja */,
-				2353AA312DAF24E20057D201 /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		2317C66E2D6D96DE00F8E1D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -731,9 +539,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RXTSJ9F9Z8;
+				ENABLE_DEBUG_DYLIB = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				EXCLUDED_ARCHS = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -762,9 +572,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RXTSJ9F9Z8;
+				ENABLE_DEBUG_DYLIB = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TechEnglish/Info.plist;

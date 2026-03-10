@@ -15,21 +15,26 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
         setupTab()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showDailyWordIfNeeded()
+    }
+    
     //MARK: -Layout
     //タブバーの表示
     func setupTab() {
         self.tabBar.tintColor = AppColors.appMainColor
         view.backgroundColor = .systemGray6
         
-        let myCardsVC = MyCardsViewController()
-        myCardsVC.tabBarItem.image = UIImage(systemName: "tag")
-        myCardsVC.tabBarItem.title = "My Cards"
-        let nv1 = UINavigationController(rootViewController: myCardsVC)
-        
         let learnVC = LearnContainerViewController()
         learnVC.tabBarItem.image = UIImage(systemName: "book.closed")
         learnVC.tabBarItem.title = NSLocalizedString("learn_tab_button", comment: "")
-        let nv2 = UINavigationController(rootViewController: learnVC)
+        let nv1 = UINavigationController(rootViewController: learnVC)
+        
+        let myCardsVC = MyCardsViewController()
+        myCardsVC.tabBarItem.image = UIImage(systemName: "tag")
+        myCardsVC.tabBarItem.title = "My Cards"
+        let nv2 = UINavigationController(rootViewController: myCardsVC)
         
         let remindVC = RemindListController()
         remindVC.tabBarItem.image = UIImage(systemName: "bell")
@@ -66,6 +71,34 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
                 }
             }
             present(inputVC, animated: true)
+        }
+    }
+    
+    // MARK: - Daily Word
+    private func showDailyWordIfNeeded() {
+        guard DailyWordManager.shared.shouldShowDailyWord() else {
+            return
+        }
+        
+        guard let wordData = DailyWordManager.shared.getRandomWord() else {
+            return
+        }
+        
+        let dailyWordVC = DailyWordViewController()
+        dailyWordVC.wordData = wordData
+        
+        if #available(iOS 15.0, *) {
+            if let sheet = dailyWordVC.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+                sheet.selectedDetentIdentifier = .medium
+            }
+        }
+        
+        DailyWordManager.shared.markAsShown()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.present(dailyWordVC, animated: true)
         }
     }
 
