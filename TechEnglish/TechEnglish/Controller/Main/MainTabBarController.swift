@@ -12,64 +12,48 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        applyEditorTheme()
         setupTab()
-        // インターステシャルで運用する方針で一時停止
-//        setupBanner()
     }
     
-    //MARK: -Layout
-    //タブバーの表示
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showDailyWordIfNeeded()
+    }
+    
+    // MARK: - Theme
+    
+    private func applyEditorTheme() {
+        overrideUserInterfaceStyle = .dark
+        EditorTheme.applyToTabBar(tabBar)
+        view.backgroundColor = EditorTheme.editorBackground
+    }
+    
+    // MARK: - Layout
+    
     func setupTab() {
-        self.tabBar.tintColor = AppColors.appMainColor
-        view.backgroundColor = .systemGray6
-        
         let learnVC = LearnContainerViewController()
-        learnVC.tabBarItem.image = UIImage(systemName: "book.closed")
+        learnVC.tabBarItem.image = UIImage(systemName: "terminal")
+        learnVC.tabBarItem.selectedImage = UIImage(systemName: "terminal.fill")
         learnVC.tabBarItem.title = NSLocalizedString("learn_tab_button", comment: "")
         let nv1 = UINavigationController(rootViewController: learnVC)
+        EditorTheme.applyToNavigationBar(nv1.navigationBar)
         
         let myCardsVC = MyCardsViewController()
-        myCardsVC.tabBarItem.image = UIImage(systemName: "tag")
+        myCardsVC.tabBarItem.image = UIImage(systemName: "doc.text")
+        myCardsVC.tabBarItem.selectedImage = UIImage(systemName: "doc.text.fill")
         myCardsVC.tabBarItem.title = "My Cards"
         let nv2 = UINavigationController(rootViewController: myCardsVC)
+        EditorTheme.applyToNavigationBar(nv2.navigationBar)
         
         let remindVC = RemindListController()
-        remindVC.tabBarItem.image = UIImage(systemName: "bell")
+        remindVC.tabBarItem.image = UIImage(systemName: "clock.arrow.circlepath")
+        remindVC.tabBarItem.selectedImage = UIImage(systemName: "clock.arrow.circlepath")
         remindVC.tabBarItem.title = NSLocalizedString("remind_tab_button", comment: "")
         let nv3 = UINavigationController(rootViewController: remindVC)
+        EditorTheme.applyToNavigationBar(nv3.navigationBar)
         
         setViewControllers([nv1, nv2, nv3], animated: false)
-    }
-    
-    //MARK: -Admob
-    func setupBanner() {
-        let viewWidth = view.frame.inset(by: view.safeAreaInsets).width
-        let adaptiveSize = currentOrientationAnchoredAdaptiveBanner(width: viewWidth)
-        bannerView = BannerView(adSize: adaptiveSize)
-        
-        bannerView.delegate = self
-        bannerView.adUnitID = MyAds.bannerID
-        bannerView.rootViewController = self
-        bannerView.load(Request())
-        
-        // set main thread
-        DispatchQueue.main.async {[weak self] in
-            guard let self = self else { return }
-            self.addBannerViewToView(self.bannerView)
-        }
-    }
-    
-    // Setting ads x and y
-    func addBannerViewToView(_ bannerView: BannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        
-        let tabBarY = self.tabBar.frame.origin.y
-        
-        NSLayoutConstraint.activate([
-            bannerView.bottomAnchor.constraint(equalTo: view.topAnchor, constant: tabBarY),
-            bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
     }
     
     // MARK: -TabBarControllerDelegate
@@ -99,6 +83,34 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
                 }
             }
             present(inputVC, animated: true)
+        }
+    }
+    
+    // MARK: - Daily Word
+    private func showDailyWordIfNeeded() {
+        guard DailyWordManager.shared.shouldShowDailyWord() else {
+            return
+        }
+        
+        guard let wordData = DailyWordManager.shared.getRandomWord() else {
+            return
+        }
+        
+        let dailyWordVC = DailyWordViewController()
+        dailyWordVC.wordData = wordData
+        
+        if #available(iOS 15.0, *) {
+            if let sheet = dailyWordVC.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+                sheet.selectedDetentIdentifier = .medium
+            }
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.present(dailyWordVC, animated: true) {
+                DailyWordManager.shared.markAsShown()
+            }
         }
     }
 

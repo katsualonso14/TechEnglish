@@ -26,6 +26,7 @@
 "delete" = "削除";
 "next" = "次へ";
 "save" = "保存";
+"daily_word_title" = "今日のテック英単語";
 // Remind Time
 "in 1hour" = "1時間後";
 "in 3hour" = "3時間後";

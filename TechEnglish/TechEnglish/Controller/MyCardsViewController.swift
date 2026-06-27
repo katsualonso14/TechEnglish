@@ -2,31 +2,47 @@ import Foundation
 import UIKit
 
 class MyCardsViewController: UIViewController, MyCardsInputDelegate {
+    
+    // MARK: - Properties
+    
     let tableView = UITableView()
     let conteinerView = UIView()
     var myCards: [MyCard] = []
     var filteredMyCards: [MyCard] = []
     let searchController = UISearchController(searchResultsController: nil)
-    var isSearching = false // 検索中かどうか判定
-    let content = UNMutableNotificationContent() // 通知の編集を可能にする定数
+    var isSearching = false
+    let content = UNMutableNotificationContent()
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyEditorTheme()
         navigationItem.title = "My Cards"
         setView()
         setTableView()
         setupSearchController()
         setupRightNavBarButton()
+        setupFloatingAddButton()
     }
-    //MARK: - View Layout
+    
+    // MARK: - Theme
+    
+    private func applyEditorTheme() {
+        overrideUserInterfaceStyle = .dark
+        view.backgroundColor = EditorTheme.editorBackground
+    }
+    
+    // MARK: - View Layout
+    
     func setView() {
         conteinerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(conteinerView)
         
         NSLayoutConstraint.activate([
-            conteinerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            conteinerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            conteinerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            conteinerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            conteinerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            conteinerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             conteinerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
         ])
     }
@@ -40,10 +56,12 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
             tableView.topAnchor.constraint(equalTo: conteinerView.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: conteinerView.bottomAnchor)
         ])
-        tableView.backgroundColor = .clear
-        tableView.layer.cornerRadius = 16
+        tableView.backgroundColor = EditorTheme.editorBackground
+        tableView.layer.cornerRadius = 8
         tableView.layer.masksToBounds = true
-        tableView.separatorStyle = .none // Remove default separator
+        tableView.layer.borderWidth = 1
+        tableView.layer.borderColor = EditorTheme.border.cgColor
+        tableView.separatorStyle = .none
         loadFromUserDefaults()
         
         tableView.dataSource = self
@@ -53,7 +71,7 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
     
     func setResearchButton() {
         let researchButton = UIButton()
-        researchButton.backgroundColor = .systemBlue
+        researchButton.backgroundColor = EditorTheme.accentPrimary
         let searchImage = UIImage(systemName: "magnifyingglass")
         researchButton.setImage(searchImage, for: .normal)
         researchButton.tintColor = .white
@@ -75,23 +93,37 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
         ])
     }
     
-    
     func setupRightNavBarButton() {
         let webReseachButton = UIBarButtonItem(
             image: UIImage(systemName: "magnifyingglass"),
             style: .plain,
             target: self,
-            action: #selector(checkSearchWord))
-        webReseachButton.tintColor = AppColors.appMainColor
-        
-        let addButton = UIBarButtonItem(
-            image: UIImage(systemName: "plus"),
-            style: .plain,
-            target: self,
-            action: #selector(openAddMyCardModal))
-        addButton.tintColor = AppColors.appMainColor
-    
-        navigationItem.rightBarButtonItems = [webReseachButton, addButton]
+            action: #selector(checkSearchWord)
+        )
+        webReseachButton.tintColor = EditorTheme.accentPrimary
+        navigationItem.rightBarButtonItem = webReseachButton
+    }
+
+    func setupFloatingAddButton() {
+        let fabButton = UIButton(type: .system)
+        fabButton.backgroundColor = EditorTheme.accentPrimary
+        fabButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        fabButton.tintColor = .white
+        fabButton.addTarget(self, action: #selector(openAddMyCardModal), for: .touchUpInside)
+        fabButton.layer.cornerRadius = 28
+        fabButton.layer.shadowColor = UIColor.black.cgColor
+        fabButton.layer.shadowOpacity = 0.25
+        fabButton.layer.shadowOffset = CGSize(width: 0, height: 4)
+        fabButton.layer.shadowRadius = 6
+        view.addSubview(fabButton)
+
+        fabButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fabButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -24),
+            fabButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -24),
+            fabButton.widthAnchor.constraint(equalToConstant: 56),
+            fabButton.heightAnchor.constraint(equalToConstant: 56)
+        ])
     }
     
     func setupSearchController() {

@@ -3,16 +3,10 @@ import UIKit
 class DescriptionView: UIView {
     let imageView = UIImageView()
     let label = UILabel()
-    let checkBoxLabel = UILabel()
-    let descriptionCheckBox = UIImageView()
     let button = UIButton(type: .system)
     let closeButton = UIButton(type: .system)
     var discriptNumber = 1
     weak var parentViewController: UIViewController?
-
-    var isDescription: Bool {
-        return UserDefaults.standard.bool(forKey: "isDescription")
-    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,7 +16,7 @@ class DescriptionView: UIView {
     }
 
     private func setupView() {
-        [imageView, label, checkBoxLabel, descriptionCheckBox, button, closeButton].forEach {
+        [imageView, label, button, closeButton].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
@@ -31,15 +25,6 @@ class DescriptionView: UIView {
 
         label.font = UIFont.systemFont(ofSize: 17)
         label.numberOfLines = 0
-
-        checkBoxLabel.text = NSLocalizedString("dicript_check_box_lable", comment: "")
-        checkBoxLabel.font = UIFont.systemFont(ofSize: 16)
-        checkBoxLabel.textColor = .systemGray
-
-        descriptionCheckBox.contentMode = .scaleAspectFit
-        descriptionCheckBox.isUserInteractionEnabled = true
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapCheckBox))
-        descriptionCheckBox.addGestureRecognizer(gesture)
 
         button.backgroundColor = AppColors.appMainColor
         button.setTitleColor(.white, for: .normal)
@@ -71,15 +56,7 @@ class DescriptionView: UIView {
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
 
-            checkBoxLabel.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 20),
-            checkBoxLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-
-            descriptionCheckBox.centerYAnchor.constraint(equalTo: checkBoxLabel.centerYAnchor),
-            descriptionCheckBox.leadingAnchor.constraint(equalTo: checkBoxLabel.trailingAnchor, constant: 10),
-            descriptionCheckBox.widthAnchor.constraint(equalToConstant: 24),
-            descriptionCheckBox.heightAnchor.constraint(equalToConstant: 24),
-
-            button.topAnchor.constraint(equalTo: checkBoxLabel.bottomAnchor, constant: 30),
+            button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 30),
             button.centerXAnchor.constraint(equalTo: centerXAnchor),
             button.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             button.heightAnchor.constraint(equalToConstant: 44)
@@ -111,27 +88,17 @@ class DescriptionView: UIView {
         default:
             break
         }
-
-        updateCheckBox()
-    }
-
-    func updateCheckBox() {
-        descriptionCheckBox.image = isDescription ? UIImage(systemName: "checkmark.square.fill") : UIImage(systemName: "square")
     }
 
     @objc func changePage() {
         if discriptNumber < 4 {
             discriptNumber += 1
         } else {
+            // 初回オンボーディング完了として記録
+            UserDefaults.standard.set(true, forKey: "hasCompletedFirstTimeOnboarding")
             parentViewController?.dismiss(animated: true)
         }
         updateViewContent()
-    }
-
-    @objc func didTapCheckBox() {
-        let newState = !UserDefaults.standard.bool(forKey: "isDescription")
-        UserDefaults.standard.set(newState, forKey: "isDescription")
-        updateCheckBox()
     }
 
     @objc func closeModal() {

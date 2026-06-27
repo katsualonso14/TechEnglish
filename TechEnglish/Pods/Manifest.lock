@@ -1152,6 +1152,8 @@ PODS:
     - BoringSSL-GRPC/Interface (= 0.0.36)
   - BoringSSL-GRPC/Interface (0.0.36)
   - CalculateCalendarLogic (0.8.1)
+  - Firebase/Analytics (11.8.1):
+    - Firebase/Core
   - Firebase/Core (11.8.1):
     - Firebase/CoreOnly
     - FirebaseAnalytics (~> 11.8.0)
@@ -1371,6 +1373,7 @@ PODS:
 
 DEPENDENCIES:
   - CalculateCalendarLogic
+  - Firebase/Analytics
   - Firebase/Core
   - Firebase/Firestore
   - FSCalendar
@@ -1440,6 +1443,6 @@ SPEC CHECKSUMS:
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftLinkPreview: c1bc5b2cb3cd42f2865137c1a61f5d788dcf5c9c
 
-PODFILE CHECKSUM: e7a008efa1237d842215a69b70fe19b09df0a83d
+PODFILE CHECKSUM: 4e0ecde9097d66e61b0ddd9d8d4468f750a027a0
 
 COCOAPODS: 1.16.2

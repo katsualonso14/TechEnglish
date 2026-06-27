@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAnalytics
 
 class QuizListViewController: UIViewController {
     
@@ -52,6 +53,13 @@ class QuizListViewController: UIViewController {
         setupScrollView()
         setupContainer()
         setupVocabButtons()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+            AnalyticsParameterScreenName: "quiz_list"
+        ])
     }
     
     func setupScrollView() {
@@ -190,14 +198,16 @@ class QuizListViewController: UIViewController {
     
 // MARK: - objc
     @objc func pushErrorButton(sender: UIButton){
+        Analytics.logEvent("start_quiz", parameters: ["quiz_name": "error_handling"])
         let vc = QuizViewController(
             questions: quizList.errorHandlingQuestions,
             navTitle: NSLocalizedString("error_handling_quiz", comment: "")
         )
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func pushDocsButton(sender: UIButton){
+        Analytics.logEvent("start_quiz", parameters: ["quiz_name": "document"])
         let vc = QuizViewController(
             questions: quizList.docsWordQuestions,
             navTitle: NSLocalizedString("document_quiz", comment: "")
@@ -206,30 +216,34 @@ class QuizListViewController: UIViewController {
     }
 
     @objc func pushLifecycleButton(sender: UIButton){
+        Analytics.logEvent("start_quiz", parameters: ["quiz_name": "lifecycle"])
         let vc = QuizViewController(
             questions: quizList.docsWordQuestions,
             navTitle: NSLocalizedString("lifecycle_quiz", comment: "")
         )
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func pushCoreWordsButton(sender: UIButton){
+        Analytics.logEvent("start_quiz", parameters: ["quiz_name": "core_words_1"])
         let vc = QuizViewController(
             questions: quizList.coreWordsQuestions,
             navTitle: NSLocalizedString("core_words_quiz", comment: "")
         )
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func pushCoreWords2Button(sender: UIButton){
+        Analytics.logEvent("start_quiz", parameters: ["quiz_name": "core_words_2"])
         let vc = QuizViewController(
             questions: quizList.coreWordsQuestions2,
             navTitle: NSLocalizedString("core_words_quiz2", comment: "")
         )
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func pushCoreWords3Button(sender: UIButton){
+        Analytics.logEvent("start_quiz", parameters: ["quiz_name": "core_words_3"])
         let vc = QuizViewController(
             questions: quizList.coreWordsQuestions3,
             navTitle: NSLocalizedString("core_words_quiz3", comment: "")
