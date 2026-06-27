@@ -1,5 +1,11 @@
 import Foundation
 
+enum DailyWordFrequency: String {
+    case everyLaunch = "everyLaunch"
+    case oncePerDay = "oncePerDay"
+    case disabled = "disabled"
+}
+
 class DailyWordManager {
     
     static let shared = DailyWordManager()
@@ -7,18 +13,41 @@ class DailyWordManager {
     private let lastShownDateKey = "dailyWordLastShownDate"
     private let lastShownWordIndexKey = "dailyWordLastShownIndex"
     private let lastShownCategoryKey = "dailyWordLastShownCategory"
+    private let frequencyKey = "dailyWordFrequency"
     
     private init() {}
     
+    var frequency: DailyWordFrequency {
+        get {
+            if let rawValue = UserDefaults.standard.string(forKey: frequencyKey),
+               let frequency = DailyWordFrequency(rawValue: rawValue) {
+                return frequency
+            }
+            return .everyLaunch
+        }
+        set {
+            UserDefaults.standard.set(newValue.rawValue, forKey: frequencyKey)
+        }
+    }
+    
     func shouldShowDailyWord() -> Bool {
-        let lastShownDate = UserDefaults.standard.string(forKey: lastShownDateKey) ?? ""
-        let today = getTodayString()
-        return lastShownDate != today
+        switch frequency {
+        case .everyLaunch:
+            return true
+        case .oncePerDay:
+            let lastShownDate = UserDefaults.standard.string(forKey: lastShownDateKey) ?? ""
+            let today = getTodayString()
+            return lastShownDate != today
+        case .disabled:
+            return false
+        }
     }
     
     func markAsShown() {
-        let today = getTodayString()
-        UserDefaults.standard.set(today, forKey: lastShownDateKey)
+        if frequency == .oncePerDay {
+            let today = getTodayString()
+            UserDefaults.standard.set(today, forKey: lastShownDateKey)
+        }
     }
     
     func getRandomWord() -> (word: String, pronunciation: String, meaning: String, example: String)? {

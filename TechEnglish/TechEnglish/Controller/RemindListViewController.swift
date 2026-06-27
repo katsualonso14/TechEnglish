@@ -1,13 +1,15 @@
-
 import UIKit
 import FirebaseFirestore
 
-
 class RemindListController: UITableViewController {
+    
     var remindItems: [RemindItem] = []
    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyEditorTheme()
         navigationItem.title = NSLocalizedString("remind_tab_button", comment: "")
         
         setupDeleteNotifButton()
@@ -20,9 +22,20 @@ class RemindListController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(RemindListCell.self, forCellReuseIdentifier: "remindCell")
+        tableView.separatorStyle = .none
+        tableView.rowHeight = 72
+    }
+    
+    // MARK: - Theme
+    
+    private func applyEditorTheme() {
+        overrideUserInterfaceStyle = .dark
+        view.backgroundColor = EditorTheme.editorBackground
+        tableView.backgroundColor = EditorTheme.editorBackground
     }
 
-    //MARK: -Layout
+    // MARK: - Layout
+    
     func setupDeleteNotifButton() {
         let deleteButton = UIBarButtonItem(
             image: UIImage(systemName: "trash"),
@@ -30,7 +43,7 @@ class RemindListController: UITableViewController {
             target: self,
             action: #selector(openAllNotifDeleteAleart)
         )
-        deleteButton.tintColor = AppColors.appMainColor
+        deleteButton.tintColor = EditorTheme.accentError
         navigationItem.rightBarButtonItem = deleteButton
     }
     
@@ -41,7 +54,7 @@ class RemindListController: UITableViewController {
             target: self,
             action: #selector(openFeedbackModal)
         )
-        feedbackButton.tintColor = AppColors.appMainColor
+        feedbackButton.tintColor = EditorTheme.accentPrimary
 
         let descriptionButton = UIBarButtonItem(
             image: UIImage(systemName: "questionmark.circle"),
@@ -49,7 +62,7 @@ class RemindListController: UITableViewController {
             target: self,
             action: #selector(showDescriptionView)
         )
-        descriptionButton.tintColor = AppColors.appMainColor
+        descriptionButton.tintColor = EditorTheme.accentPrimary
 
         navigationItem.leftBarButtonItems = [feedbackButton, descriptionButton]
     }
@@ -72,13 +85,16 @@ class RemindListController: UITableViewController {
         }
     }
 
-    //MARK: Delete Notification
-    //全ての通知を削除する処理
+    // MARK: - Delete Notification
+    
     func showDeleteAllDoneAlert() {
-        //全ての通知を削除しましたのダイアログ表示
         let alert = UIAlertController(
-            title: NSLocalizedString("delete_all_notif_finish_title", comment: ""),
-            message: nil, preferredStyle: .alert)
+            title: "✓ \(NSLocalizedString("delete_all_notif_finish_title", comment: ""))",
+            message: nil,
+            preferredStyle: .alert
+        )
+        alert.overrideUserInterfaceStyle = .dark
+        alert.view.tintColor = EditorTheme.accentSuccess
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
@@ -107,7 +123,8 @@ class RemindListController: UITableViewController {
         }
     }
     
-    //MARK: -objc
+    // MARK: - Notification Handlers
+    
     @objc func updateData(_ notification: Notification) {
         guard let data = notification.userInfo as? [String: String],
               let sentence = data["sentence"],
@@ -116,34 +133,39 @@ class RemindListController: UITableViewController {
         let newItem = RemindItem(sentence: sentence, remindPattern: pattern)
         remindItems.append(newItem)
 
-        // 保存
         if let encoded = try? JSONEncoder().encode(remindItems) {
             UserDefaults.standard.set(encoded, forKey: "remindItems")
         }
 
         tableView.reloadData()
     }
-
     
     @objc func deleteData(_ notification: Notification) {
         guard let tapSentence = notification.userInfo?["sentence"] as? String else { return }
         guard let rowIndex = remindItems.firstIndex(where: { $0.sentence == tapSentence }) else { return }
-        remindItems.remove(at: rowIndex)// 配列から削除
-        // TableViewの行を削除
+        remindItems.remove(at: rowIndex)
         tableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .automatic)
-        saveRemindItemsToLocal()// ローカル保存も更新
+        saveRemindItemsToLocal()
     }
     
-    // 全てのリマインドを削除
-    @objc func openAllNotifDeleteAleart(){
-        let alert = UIAlertController(title: NSLocalizedString("delete_all_remind_title", comment: ""),
-                                      message: NSLocalizedString("delete_all_remind_message", comment: ""),
-                                      preferredStyle: .alert)
-        alert.addAction(
-            UIAlertAction(title: NSLocalizedString("delete", comment: ""), style: .destructive, handler: { [self] _ in
-            deleteAllRemindList()
-            showDeleteAllDoneAlert()
-        }))
+    @objc func openAllNotifDeleteAleart() {
+        let alert = UIAlertController(
+            title: "⚠️ \(NSLocalizedString("delete_all_remind_title", comment: ""))",
+            message: NSLocalizedString("delete_all_remind_message", comment: ""),
+            preferredStyle: .alert
+        )
+        alert.overrideUserInterfaceStyle = .dark
+        alert.view.tintColor = EditorTheme.accentError
+        
+        let deleteAction = UIAlertAction(
+            title: "$ rm -rf *",
+            style: .destructive,
+            handler: { [self] _ in
+                deleteAllRemindList()
+                showDeleteAllDoneAlert()
+            }
+        )
+        alert.addAction(deleteAction)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
@@ -155,28 +177,60 @@ class RemindListController: UITableViewController {
     }
 
     @objc func openFeedbackModal() {
-        let alert = UIAlertController(title: "Feedback",
-                                      message: NSLocalizedString("feedback_massage", comment: ""),
-                                      preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "// Feedback",
+            message: NSLocalizedString("feedback_massage", comment: ""),
+            preferredStyle: .alert
+        )
+        alert.overrideUserInterfaceStyle = .dark
+        alert.view.tintColor = EditorTheme.accentPrimary
+        
         alert.addTextField { textField in
-            textField.placeholder = "Feedback"
+            textField.placeholder = "Enter your feedback..."
+            textField.font = EditorFonts.mono(size: EditorFonts.Size.body)
+            textField.backgroundColor = EditorTheme.editorBackground
+            textField.textColor = EditorTheme.textDefault
+            textField.keyboardAppearance = .dark
         }
+        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(UIAlertAction(title: "Submit", style: .default, handler: { _ in
-            if let feedback = alert.textFields?.first?.text , !feedback.isEmpty {
-                // Save feedback to Firestore
+        alert.addAction(UIAlertAction(title: "$ submit", style: .default, handler: { _ in
+            if let feedback = alert.textFields?.first?.text, !feedback.isEmpty {
                 self.saveFeedbackToFirestore(feedback: feedback)
+                self.showFeedbackSuccessAlert()
             } else {
-                // Show error message
-                let errorAlert = UIAlertController(title: "Error", message: "Please enter feedback.", preferredStyle: .alert)
-                errorAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(errorAlert, animated: true, completion: nil)
+                self.showFeedbackErrorAlert()
             }
         }))
         present(alert, animated: true, completion: nil)
     }
     
-    //MARK: -Tableview
+    private func showFeedbackSuccessAlert() {
+        let alert = UIAlertController(
+            title: "✓ Submitted",
+            message: "Thank you for your feedback!",
+            preferredStyle: .alert
+        )
+        alert.overrideUserInterfaceStyle = .dark
+        alert.view.tintColor = EditorTheme.accentSuccess
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showFeedbackErrorAlert() {
+        let alert = UIAlertController(
+            title: "// Error",
+            message: "Please enter feedback.",
+            preferredStyle: .alert
+        )
+        alert.overrideUserInterfaceStyle = .dark
+        alert.view.tintColor = EditorTheme.accentError
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - TableView
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return remindItems.count
     }
@@ -184,21 +238,14 @@ class RemindListController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "remindCell") as! RemindListCell
         cell.setCell(sentence: remindItems[indexPath.row].sentence, pattern: remindItems[indexPath.row].remindPattern)
-        
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
-    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        // 変数・テーブルのcell・ローカルデータを削除
         if editingStyle == .delete {
             let sentence = remindItems[indexPath.row].sentence
             let notificationCenter = UNUserNotificationCenter.current()
             notificationCenter.removePendingNotificationRequests(withIdentifiers: [sentence])
-            
             
             remindItems.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -206,11 +253,9 @@ class RemindListController: UITableViewController {
         }
     }
     
-    //TODO: タップ時に発音を
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Tapped")
+        tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
 
 

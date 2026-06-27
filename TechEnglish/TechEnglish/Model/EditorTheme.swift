@@ -182,4 +182,43 @@ extension EditorTheme {
     static func applyEditorBackground(to view: UIView) {
         view.backgroundColor = editorBackground
     }
+    
+    /// Apply editor theme to UIAlertController
+    static func styleAlert(_ alert: UIAlertController) {
+        alert.view.tintColor = accentPrimary
+        
+        if let subview = alert.view.subviews.first?.subviews.first?.subviews.first {
+            subview.backgroundColor = sidebarBackground
+        }
+    }
+    
+    /// Apply editor theme to modal view controller
+    static func applyToModalViewController(_ viewController: UIViewController) {
+        viewController.overrideUserInterfaceStyle = .dark
+        viewController.view.backgroundColor = editorBackground
+        
+        if let sheet = viewController.sheetPresentationController {
+            sheet.preferredCornerRadius = 12
+        }
+    }
+    
+    /// Create styled text field for editor theme
+    static func createStyledTextField() -> UITextField {
+        let textField = UITextField()
+        textField.backgroundColor = editorBackground
+        textField.textColor = textDefault
+        textField.font = EditorFonts.mono(size: EditorFonts.Size.body)
+        textField.layer.borderColor = border.cgColor
+        textField.layer.borderWidth = 1
+        textField.layer.cornerRadius = 6
+        textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: 1))
+        textField.leftViewMode = .always
+        
+        textField.attributedPlaceholder = NSAttributedString(
+            string: "",
+            attributes: [.foregroundColor: textInactive]
+        )
+        
+        return textField
+    }
 }

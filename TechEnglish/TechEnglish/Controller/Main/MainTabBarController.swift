@@ -12,6 +12,7 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        applyEditorTheme()
         setupTab()
     }
     
@@ -20,26 +21,37 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
         showDailyWordIfNeeded()
     }
     
-    //MARK: -Layout
-    //タブバーの表示
+    // MARK: - Theme
+    
+    private func applyEditorTheme() {
+        overrideUserInterfaceStyle = .dark
+        EditorTheme.applyToTabBar(tabBar)
+        view.backgroundColor = EditorTheme.editorBackground
+    }
+    
+    // MARK: - Layout
+    
     func setupTab() {
-        self.tabBar.tintColor = AppColors.appMainColor
-        view.backgroundColor = .systemGray6
-        
         let learnVC = LearnContainerViewController()
-        learnVC.tabBarItem.image = UIImage(systemName: "book.closed")
+        learnVC.tabBarItem.image = UIImage(systemName: "terminal")
+        learnVC.tabBarItem.selectedImage = UIImage(systemName: "terminal.fill")
         learnVC.tabBarItem.title = NSLocalizedString("learn_tab_button", comment: "")
         let nv1 = UINavigationController(rootViewController: learnVC)
+        EditorTheme.applyToNavigationBar(nv1.navigationBar)
         
         let myCardsVC = MyCardsViewController()
-        myCardsVC.tabBarItem.image = UIImage(systemName: "tag")
+        myCardsVC.tabBarItem.image = UIImage(systemName: "doc.text")
+        myCardsVC.tabBarItem.selectedImage = UIImage(systemName: "doc.text.fill")
         myCardsVC.tabBarItem.title = "My Cards"
         let nv2 = UINavigationController(rootViewController: myCardsVC)
+        EditorTheme.applyToNavigationBar(nv2.navigationBar)
         
         let remindVC = RemindListController()
-        remindVC.tabBarItem.image = UIImage(systemName: "bell")
+        remindVC.tabBarItem.image = UIImage(systemName: "clock.arrow.circlepath")
+        remindVC.tabBarItem.selectedImage = UIImage(systemName: "clock.arrow.circlepath")
         remindVC.tabBarItem.title = NSLocalizedString("remind_tab_button", comment: "")
         let nv3 = UINavigationController(rootViewController: remindVC)
+        EditorTheme.applyToNavigationBar(nv3.navigationBar)
         
         setViewControllers([nv1, nv2, nv3], animated: false)
     }
@@ -95,10 +107,10 @@ class MainTabBarController: UITabBarController, BannerViewDelegate, UITabBarCont
             }
         }
         
-        DailyWordManager.shared.markAsShown()
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            self?.present(dailyWordVC, animated: true)
+            self?.present(dailyWordVC, animated: true) {
+                DailyWordManager.shared.markAsShown()
+            }
         }
     }
 

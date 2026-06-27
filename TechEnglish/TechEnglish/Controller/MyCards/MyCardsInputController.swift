@@ -2,7 +2,6 @@ import UIKit
 import GoogleMobileAds
 
 protocol MyCardsInputDelegate: AnyObject {
-    //TODO: ここが効いていないので要確認
     func didSaveMyCards(frontText: String, backText: String)
     func didSaveEditMyCards(frontText: String, backText: String, index: Int)
     func saveEditFilterdMyCards()
@@ -10,12 +9,18 @@ protocol MyCardsInputDelegate: AnyObject {
 
 class MyCardsInputViewController: UIViewController {
     
+    // MARK: - UI Elements
+    
+    private let headerView = UIView()
+    private let headerLabel = UILabel()
+    private let closeButton = UIButton(type: .system)
+    
     let frontLabel = UILabel()
     let backLabel = UILabel()
     let myWordsField = UITextField()
     let myWordsTextView = PlaceholderTextView()
     let setenceTextView = PlaceholderTextView()
-    let saveButton = UIButton(type: .system)
+    let saveButton = EditorButton()
     let separator = UIView()
     var editMode = false
     var currentIndex: Int = 0
@@ -23,25 +28,65 @@ class MyCardsInputViewController: UIViewController {
     weak var delegate: MyCardsInputDelegate?
     var interstitialAd: InterstitialAd?
 
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        applyEditorTheme()
+        setupHeader()
         setupFrontLabel()
         setupMyWordTextView()
         setupSeparator()
-        
         setupBackLabel()
         setupSentenceTextView()
         saveButtonSetup()
         loadInterstitialAd()
     }
     
+    // MARK: - Theme
+    
+    private func applyEditorTheme() {
+        overrideUserInterfaceStyle = .dark
+        view.backgroundColor = EditorTheme.editorBackground
+    }
+    
+    // MARK: - Setup
+    
+    private func setupHeader() {
+        headerView.backgroundColor = EditorTheme.tabBarBackground
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(headerView)
+        
+        headerLabel.text = editMode ? "// Edit Card" : "// New Card"
+        headerLabel.font = EditorFonts.mono(size: EditorFonts.Size.body)
+        headerLabel.textColor = EditorTheme.comment
+        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerView.addSubview(headerLabel)
+        
+        closeButton.setImage(UIImage(systemName: "xmark"), for: .normal)
+        closeButton.tintColor = EditorTheme.textInactive
+        closeButton.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        headerView.addSubview(closeButton)
+        
+        NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: view.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 50),
+            
+            headerLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+            headerLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20),
+            
+            closeButton.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+            closeButton.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
+            closeButton.widthAnchor.constraint(equalToConstant: 30),
+            closeButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+    }
+    
     func setupMyWordTextView() {
         myWordsTextView.placeholder = NSLocalizedString("word_placeholder", comment: "")
-        myWordsTextView.font = UIFont.systemFont(ofSize: 16)
-        myWordsTextView.layer.borderColor = UIColor.lightGray.cgColor
-        myWordsTextView.layer.borderWidth = 1.0
-        myWordsTextView.layer.cornerRadius = 8
         view.addSubview(myWordsTextView)
         myWordsTextView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -55,10 +100,6 @@ class MyCardsInputViewController: UIViewController {
     
     func setupSentenceTextView() {
         setenceTextView.placeholder = NSLocalizedString("memo_placeholder", comment: "")
-        setenceTextView.font = UIFont.systemFont(ofSize: 16)
-        setenceTextView.layer.borderColor = UIColor.lightGray.cgColor
-        setenceTextView.layer.borderWidth = 1.0
-        setenceTextView.layer.cornerRadius = 8
         view.addSubview(setenceTextView)
         setenceTextView.translatesAutoresizingMaskIntoConstraints = false
 
@@ -71,18 +112,10 @@ class MyCardsInputViewController: UIViewController {
     }
     
     func saveButtonSetup() {
-        saveButton.setTitle(NSLocalizedString("save", comment: ""), for: .normal)
-        saveButton.setTitleColor(.white, for: .normal)
-        saveButton.backgroundColor = AppColors.appMainColor
-        saveButton.titleLabel?.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        saveButton.layer.cornerRadius = 12
-        saveButton.layer.masksToBounds = true
-
-        saveButton.layer.shadowColor = UIColor.black.cgColor
-        saveButton.layer.shadowOffset = CGSize(width: 0, height: 2)
-        saveButton.layer.shadowOpacity = 0.3
-        saveButton.layer.shadowRadius = 4
-        
+        saveButton.style = .primary
+        saveButton.setTitle("$ \(NSLocalizedString("save", comment: ""))", for: .normal)
+        saveButton.titleLabel?.font = EditorFonts.monoSemibold(size: EditorFonts.Size.body)
+        saveButton.layer.cornerRadius = 6
         saveButton.addTarget(self, action: #selector(saveTapped), for: .touchUpInside)
         view.addSubview(saveButton)
         saveButton.translatesAutoresizingMaskIntoConstraints = false
@@ -90,13 +123,13 @@ class MyCardsInputViewController: UIViewController {
         NSLayoutConstraint.activate([
             saveButton.topAnchor.constraint(equalTo: setenceTextView.bottomAnchor, constant: 24),
             saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            saveButton.heightAnchor.constraint(equalToConstant: 50),
-            saveButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8)
+            saveButton.heightAnchor.constraint(equalToConstant: 44),
+            saveButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.6)
         ])
     }
 
     func setupSeparator() {
-        separator.backgroundColor = .separator
+        separator.backgroundColor = EditorTheme.border
         separator.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(separator)
 
@@ -109,18 +142,22 @@ class MyCardsInputViewController: UIViewController {
     }
     
     func setupFrontLabel() {
-        frontLabel.text = NSLocalizedString("front_label", comment: "")
+        frontLabel.text = "let word = // \(NSLocalizedString("front_label", comment: ""))"
+        frontLabel.font = EditorFonts.mono(size: EditorFonts.Size.small)
+        frontLabel.textColor = EditorTheme.keyword
         frontLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(frontLabel)
         
         NSLayoutConstraint.activate([
-            frontLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            frontLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
             frontLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         ])
     }
     
     func setupBackLabel() {
-        backLabel.text = NSLocalizedString("back_label", comment: "")
+        backLabel.text = "let memo = // \(NSLocalizedString("back_label", comment: ""))"
+        backLabel.font = EditorFonts.mono(size: EditorFonts.Size.small)
+        backLabel.textColor = EditorTheme.keyword
         backLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(backLabel)
         
@@ -129,24 +166,26 @@ class MyCardsInputViewController: UIViewController {
             backLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
         ])
     }
+    
+    // MARK: - Actions
+    
+    @objc private func closeTapped() {
+        dismiss(animated: true)
+    }
 
     @objc func saveTapped() {
         let frontText = myWordsTextView.text ?? ""
         let backText = setenceTextView.text ?? ""
-        // 単語テキストフィールドがからの場合はアラートを表示
-         // ただし、バックテキストが空の場合は許容する
+        
         if frontText.isEmpty {
-            let alert = UIAlertController(
-                title: NSLocalizedString("error", comment: ""),
-                message: NSLocalizedString("word_seeds_error_message", comment: ""),
-                preferredStyle: .alert
+            showEditorAlert(
+                title: "// Error",
+                message: NSLocalizedString("word_seeds_error_message", comment: "")
             )
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true)
-            return // dismiss しない
+            return
         }
         
-        if (editMode) {
+        if editMode {
             delegate?.didSaveEditMyCards(frontText: frontText, backText: backText, index: currentIndex)
             delegate?.saveEditFilterdMyCards()
             dismiss(animated: true, completion: nil)
@@ -154,14 +193,19 @@ class MyCardsInputViewController: UIViewController {
             delegate?.didSaveMyCards(frontText: frontText, backText: backText)
             delegate?.saveEditFilterdMyCards()
             
-            // インタースティシャル広告を表示（表示する場合は、広告が閉じた後にdismiss）
             let willShowAd = showInterstitialAdIfAvailable()
             if !willShowAd {
-                // 広告を表示しない場合は、すぐにdismiss
                 dismiss(animated: true, completion: nil)
             }
-            // 広告を表示する場合は、広告が閉じた後にdismissされる（adDidDismissFullScreenContentで処理）
         }
+    }
+    
+    private func showEditorAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.overrideUserInterfaceStyle = .dark
+        alert.view.tintColor = EditorTheme.accentPrimary
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
     
     // MARK: - Interstitial Ad
