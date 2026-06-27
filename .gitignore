@@ -1,1 +1,18 @@
+# Build output
+build/
+*.ipa
+*.xcarchive
+DerivedData/
+
+# Xcode user-specific state
 *.xcuserstate
+xcuserdata/
+
+# Local tooling / env (accidental)
+.fvm/
+.fvmrc
+.zshrc
+.claude/
+
+# Export config (regenerated on archive)
+ExportOptions.plist
