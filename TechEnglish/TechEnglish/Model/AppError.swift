@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 /// アプリケーション固有のエラータイプ
 enum AppError: LocalizedError {

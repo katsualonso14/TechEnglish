@@ -8,8 +8,8 @@ class LearnContainerViewController: UIViewController {
     
     private let segmentedControl: UISegmentedControl = {
         let control = UISegmentedControl(items: [
-            NSLocalizedString("quiz_tab_button", comment: ""),
-            "Tech Words"
+            "▶ \(NSLocalizedString("quiz_tab_button", comment: ""))",
+            "📁 Tech Words"
         ])
         control.selectedSegmentIndex = 0
         return control
@@ -29,59 +29,76 @@ class LearnContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        overrideUserInterfaceStyle = .dark
+        view.backgroundColor = EditorTheme.editorBackground
+        applyEditorTheme()
         setPageView()
-        setDescriptionButton()
-        checkIsDescription() // 説明ダイアログが必要か確認
+        checkIsDescription()
+    }
+    
+    // MARK: - Theme
+    
+    private func applyEditorTheme() {
+        let normalAttributes: [NSAttributedString.Key: Any] = [
+            .font: EditorFonts.mono(size: EditorFonts.Size.small),
+            .foregroundColor: EditorTheme.textInactive
+        ]
+        let selectedAttributes: [NSAttributedString.Key: Any] = [
+            .font: EditorFonts.monoSemibold(size: EditorFonts.Size.small),
+            .foregroundColor: EditorTheme.textDefault
+        ]
+        
+        segmentedControl.setTitleTextAttributes(normalAttributes, for: .normal)
+        segmentedControl.setTitleTextAttributes(selectedAttributes, for: .selected)
+        segmentedControl.backgroundColor = EditorTheme.sidebarBackground
+        segmentedControl.selectedSegmentTintColor = EditorTheme.tabBarBackground
+        
+        if #available(iOS 13.0, *) {
+            segmentedControl.layer.borderWidth = 1
+            segmentedControl.layer.borderColor = EditorTheme.border.cgColor
+        }
     }
     
     // MARK: - Layout
-    func setPageView(){
-        // 上部セグメント
+    
+    func setPageView() {
         view.addSubview(segmentedControl)
         segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            segmentedControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            segmentedControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             segmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            segmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            segmentedControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            segmentedControl.heightAnchor.constraint(equalToConstant: 36)
         ])
         
-        // PageViewController埋め込み
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        pageViewController.view.backgroundColor = EditorTheme.editorBackground
+        
         NSLayoutConstraint.activate([
-            pageViewController.view.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 8),
+            pageViewController.view.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 12),
             pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        // 初期表示
         pageViewController.setViewControllers([viewControllers[0]], direction: .forward, animated: false, completion: nil)
     }
     
-    func setDescriptionButton() {
-        let descriptionButton = UIButton(type: .system)
-        descriptionButton.setImage(UIImage(systemName: "questionmark.circle"), for: .normal)
-        descriptionButton.tintColor = AppColors.appMainColor
-        // QuickMemoからの遷移は1ページ目を初期表示に設定
-        let data = ["discriptNumber": 1]
-        NotificationCenter.default.post(name: Notification.Name("addDescription"), object: nil, userInfo: data)
-        print("send data \(data)")
-        descriptionButton.addTarget(self, action: #selector(setDiscrptionView), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: descriptionButton)
-    }
+    // MARK: - Helper Functions
     
-    //MARK: - Helper Functions
     func checkIsDescription() {
-        if !UserDefaults.standard.bool(forKey: "isDescription") {
+        let hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "hasCompletedFirstTimeOnboarding")
+        if !hasCompletedOnboarding {
             setDiscrptionView()
         }
     }
     
-    // MARK: - objc
+    // MARK: - Actions
+    
     @objc private func segmentChanged() {
         let index = segmentedControl.selectedSegmentIndex
         let direction: UIPageViewController.NavigationDirection = (index == 0) ? .reverse : .forward
@@ -93,7 +110,6 @@ class LearnContainerViewController: UIViewController {
         vc.modalPresentationStyle = .overFullScreen
         present(vc, animated: true)
     }
-    
 }
 
 extension LearnContainerViewController: UIPageViewControllerDataSource, UIPageViewControllerDelegate {

@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAnalytics
 
 class CategoryViewController: UIViewController {
     let container = UIView()
@@ -19,6 +20,13 @@ class CategoryViewController: UIViewController {
         setupScrollView()
         setupContainer()
         setupVocabButtons()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+            AnalyticsParameterScreenName: "category_home"
+        ])
     }
     // MARK - Layout Setting
     func setupScrollView() {
@@ -155,36 +163,43 @@ class CategoryViewController: UIViewController {
     //MARK: -objc
     // Push Buttons Setting
     @objc func pushFirstButton(sender: UIButton){
-    let vc = VocabFirstViewController(titleName: NSLocalizedString("vocab_first_button_title", comment: ""))
+        Analytics.logEvent("select_category", parameters: ["category_name": "essential_errors"])
+        let vc = VocabFirstViewController(titleName: NSLocalizedString("vocab_first_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func pushSecondButton(sender: UIButton){
+        Analytics.logEvent("select_category", parameters: ["category_name": "dev_tools"])
         let vc = VocabSecondViewController(titleName: NSLocalizedString("vocab_second_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func pushThirdButton(sender: UIButton){
+        Analytics.logEvent("select_category", parameters: ["category_name": "agile"])
         let vc = VocabThirdViewController(titleName: NSLocalizedString("vocab_third_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func pushFourthButton(sender: UIButton){
+        Analytics.logEvent("select_category", parameters: ["category_name": "settings"])
         let vc = VocabFourthViewController(titleName: NSLocalizedString("vocab_fourth_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func pushFifthButton(sender: UIButton){
+        Analytics.logEvent("select_category", parameters: ["category_name": "programming"])
         let vc = VocabFifthViewController(titleName: NSLocalizedString("vocab_fifth_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func pushSixthButton(sender: UIButton){
+        Analytics.logEvent("select_category", parameters: ["category_name": "documents"])
         let vc = VocabSixthViewController(titleName: NSLocalizedString("vocab_sixth_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     @objc func pushEighthButton(sender: UIButton){
+        Analytics.logEvent("select_category", parameters: ["category_name": "other"])
         let vc = VocabEighthViewController(titleName: NSLocalizedString("vocab_eighth_button_title", comment: ""))
         navigationController?.pushViewController(vc, animated: true)
     }

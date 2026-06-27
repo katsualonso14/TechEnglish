@@ -1,5 +1,6 @@
 import UIKit
 import SwiftLinkPreview
+import FirebaseAnalytics
 
 class SavedDocsController: UIViewController {
     
@@ -14,6 +15,13 @@ class SavedDocsController: UIViewController {
         navigationItem.title = "Saved Docs"
         setupUI()
         loadUrls()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+            AnalyticsParameterScreenName: "saved_docs"
+        ])
     }
     
     func setupUI() {
@@ -89,6 +97,7 @@ class SavedDocsController: UIViewController {
                 self.tableView.reloadData()
                 self.saveUrl()
                 self.textField.text = ""
+                Analytics.logEvent("add_saved_doc", parameters: ["domain": domain])
             },
             onError: { error in
                 print("Error: \(error)")

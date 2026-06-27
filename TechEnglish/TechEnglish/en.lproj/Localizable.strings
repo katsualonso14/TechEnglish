@@ -23,6 +23,7 @@
 "delete" = "Delete";
 "next" = "Next";
 "save" = "Save";
+"daily_word_title" = "Today's Tech Word";
 // Remind Time
 "in 1hour" = "in 1hour";
 "in 3hour" = "in 3hour";

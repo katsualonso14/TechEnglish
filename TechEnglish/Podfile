@@ -14,6 +14,7 @@ target 'TechEnglish' do
   pod 'GoogleUserMessagingPlatform'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Analytics'
   pod 'SwiftLinkPreview'
 
   # For Test Setting
@@ -30,7 +31,7 @@ target 'TechEnglish' do
       installer.generated_projects.each do |project|
           project.targets.each do |target|
               target.build_configurations.each do |config|
-                  config.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
+                  # NOTE: arm64 を simulator から除外しない（Apple Silicon でシミュレータビルドが壊れるため）
                   config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
               end
           end

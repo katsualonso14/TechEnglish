@@ -4,6 +4,7 @@ import FSCalendar
 import RealmSwift
 import CalculateCalendarLogic
 import FirebaseFirestore
+import FirebaseAnalytics
 
 class RecordViewController: UIViewController, FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     fileprivate weak var calendar: FSCalendar!
@@ -14,8 +15,14 @@ class RecordViewController: UIViewController, FSCalendarDataSource, FSCalendarDe
         navigationItem.title = NSLocalizedString("record_tab_button", comment: "")
         saveToday()
         setCalendar()
-        // 連続ログイン確認と表示
         checkStreakDay()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        Analytics.logEvent(AnalyticsEventScreenView, parameters: [
+            AnalyticsParameterScreenName: "record_calendar"
+        ])
     }
     
     //MARK: -Layout
