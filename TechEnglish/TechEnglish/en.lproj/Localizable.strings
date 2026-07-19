@@ -243,3 +243,17 @@
 "core_words_quiz" = "Core Words Quiz";
 "core_words_quiz2" = "Core Words Quiz 2";
 "core_words_quiz3" = "Core Words Quiz 3";
+
+//MARK: - Remove Ads (Paywall)
+"remove_ads_title" = "Remove Ads";
+"remove_ads_subtitle" = "One purchase. No ads, forever.";
+"remove_ads_benefit_1" = "// Hide interstitial ads after saving cards and quizzes";
+"remove_ads_benefit_2" = "// One-time purchase (no subscription), restorable on new devices";
+"remove_ads_purchase_button" = "Turn Off Ads";
+"remove_ads_restore_button" = "Restore Purchase";
+"remove_ads_close_button" = "Close";
+"remove_ads_success_title" = "Done";
+"remove_ads_success_message" = "Ads are now off. Thank you!";
+"remove_ads_restore_none_title" = "Nothing to Restore";
+"remove_ads_restore_none_message" = "No previous purchase was found for this Apple ID.";
+"remove_ads_error_title" = "Error";

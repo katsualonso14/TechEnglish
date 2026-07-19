@@ -16,6 +16,7 @@ target 'TechEnglish' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Analytics'
   pod 'SwiftLinkPreview'
+  pod 'RevenueCat'
 
   # For Test Setting
   target 'TechEnglishTests' do
