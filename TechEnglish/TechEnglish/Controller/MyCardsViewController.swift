@@ -23,7 +23,14 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
         setTableView()
         setupSearchController()
         setupRightNavBarButton()
+        setupLeftNavBarButton()
         setupFloatingAddButton()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateRemoveAdsButtonVisibility),
+            name: PurchaseManager.adFreeStatusChangedNotification,
+            object: nil
+        )
     }
     
     // MARK: - Theme
@@ -102,6 +109,39 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
         )
         webReseachButton.tintColor = EditorTheme.accentPrimary
         navigationItem.rightBarButtonItem = webReseachButton
+    }
+
+    // MARK: - Remove Ads (Paywall)
+
+    func setupLeftNavBarButton() {
+        updateRemoveAdsButtonVisibility()
+    }
+
+    /// 広告オフ未購入のときだけ「広告オフ」導線を出す
+    @objc func updateRemoveAdsButtonVisibility() {
+        guard !PurchaseManager.shared.isAdFree else {
+            navigationItem.leftBarButtonItem = nil
+            return
+        }
+        let removeAdsButton = UIBarButtonItem(
+            image: UIImage(systemName: "nosign"),
+            style: .plain,
+            target: self,
+            action: #selector(showRemoveAds)
+        )
+        removeAdsButton.tintColor = EditorTheme.accentPrimary
+        navigationItem.leftBarButtonItem = removeAdsButton
+    }
+
+    @objc func showRemoveAds() {
+        let removeAdsVC = RemoveAdsViewController()
+        if #available(iOS 15.0, *) {
+            if let sheet = removeAdsVC.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+            }
+        }
+        present(removeAdsVC, animated: true)
     }
 
     func setupFloatingAddButton() {

@@ -33,7 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Firebase Setting
         FirebaseApp.configure()
-        
+
+        // 課金（広告オフ）
+        PurchaseManager.shared.configure()
+
         return true
     }
 

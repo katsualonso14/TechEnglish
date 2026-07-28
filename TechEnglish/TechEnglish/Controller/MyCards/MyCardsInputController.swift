@@ -210,6 +210,8 @@ class MyCardsInputViewController: UIViewController {
     
     // MARK: - Interstitial Ad
     func loadInterstitialAd() {
+        // 広告オフ購入者にはリクエストしない
+        guard !PurchaseManager.shared.isAdFree else { return }
         let request = Request()
         InterstitialAd.load(with: MyAds.interstitialTestID, request: request) { [weak self] ad, error in
             guard let self = self else { return }
@@ -223,11 +225,15 @@ class MyCardsInputViewController: UIViewController {
     }
     
     func showInterstitialAdIfAvailable() -> Bool {
+        // 広告オフ購入者には表示しない（呼び出し元は false を受けて通常どおり dismiss する）
+        guard !PurchaseManager.shared.isAdFree else {
+            return false
+        }
         // 1日2回までの制限をチェック
 //        guard canShowInterstitialAd() else {
 //            return false
 //        }
-        
+
         guard let interstitialAd = interstitialAd else {
             // 広告が読み込まれていない場合は、表示しない
             return false

@@ -152,6 +152,8 @@ class QuizViewController: UIViewController {
     
     // MARK: - Interstitial Ad
     func loadInterstitialAd() {
+        // 広告オフ購入者にはリクエストしない
+        guard !PurchaseManager.shared.isAdFree else { return }
         let request = Request()
         InterstitialAd.load(with: MyAds.interstitialID, request: request) { [weak self] ad, error in
             guard let self = self else { return }
@@ -165,6 +167,8 @@ class QuizViewController: UIViewController {
     }
     
     func showInterstitialAdIfAvailable() {
+        // 広告オフ購入者には表示しない
+        guard !PurchaseManager.shared.isAdFree else { return }
         guard let interstitialAd = interstitialAd else {
             // 広告が読み込まれていない場合は、次の広告を読み込む
             loadInterstitialAd()
