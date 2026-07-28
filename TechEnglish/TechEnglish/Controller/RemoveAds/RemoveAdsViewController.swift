@@ -8,7 +8,34 @@
 import UIKit
 import FirebaseAnalytics
 
+/// paywall をどの導線から開いたか（Firebase の `source` パラメータに載せる）。
+/// どの導線が購入に効いたかを比較するために使う。
+enum PaywallSource: String {
+    /// Learn タブ（クイズがある1ページ目）の常設バーボタン
+    case learnNav = "learn_nav"
+    /// My Cards タブの常設バーボタン
+    case myCardsNav = "mycards_nav"
+    /// クイズ完了時に出るボタン
+    case quizEnd = "quiz_end"
+}
+
 final class RemoveAdsViewController: UIViewController {
+
+    // MARK: - Properties
+
+    /// この paywall を開いた導線。計測にのみ使う。
+    private let source: PaywallSource
+
+    // MARK: - Initializer
+
+    init(source: PaywallSource) {
+        self.source = source
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     // MARK: - UI
 
@@ -41,7 +68,7 @@ final class RemoveAdsViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        Analytics.logEvent("paywall_view", parameters: nil)
+        Analytics.logEvent("paywall_view", parameters: ["source": source.rawValue])
     }
 
     // MARK: - Layout
@@ -139,7 +166,7 @@ final class RemoveAdsViewController: UIViewController {
 
     @objc private func purchaseTapped() {
         setLoading(true)
-        PurchaseManager.shared.purchaseAdFree { [weak self] success, userCancelled, error in
+        PurchaseManager.shared.purchaseAdFree(source: source) { [weak self] success, userCancelled, error in
             guard let self = self else { return }
             self.setLoading(false)
             if userCancelled { return }

@@ -33,7 +33,14 @@ class LearnContainerViewController: UIViewController {
         view.backgroundColor = EditorTheme.editorBackground
         applyEditorTheme()
         setPageView()
+        setupLeftNavBarButton()
         checkIsDescription()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateRemoveAdsButtonVisibility),
+            name: PurchaseManager.adFreeStatusChangedNotification,
+            object: nil
+        )
     }
     
     // MARK: - Theme
@@ -88,8 +95,41 @@ class LearnContainerViewController: UIViewController {
         pageViewController.setViewControllers([viewControllers[0]], direction: .forward, animated: false, completion: nil)
     }
     
+    // MARK: - Remove Ads (Paywall)
+
+    private func setupLeftNavBarButton() {
+        updateRemoveAdsButtonVisibility()
+    }
+
+    /// 広告オフ未購入のときだけ「広告オフ」導線を出す
+    @objc private func updateRemoveAdsButtonVisibility() {
+        guard !PurchaseManager.shared.isAdFree else {
+            navigationItem.leftBarButtonItem = nil
+            return
+        }
+        let removeAdsButton = UIBarButtonItem(
+            image: UIImage(systemName: "nosign"),
+            style: .plain,
+            target: self,
+            action: #selector(showRemoveAds)
+        )
+        removeAdsButton.tintColor = EditorTheme.accentPrimary
+        navigationItem.leftBarButtonItem = removeAdsButton
+    }
+
+    @objc private func showRemoveAds() {
+        let removeAdsVC = RemoveAdsViewController(source: .learnNav)
+        if #available(iOS 15.0, *) {
+            if let sheet = removeAdsVC.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+            }
+        }
+        present(removeAdsVC, animated: true)
+    }
+
     // MARK: - Helper Functions
-    
+
     func checkIsDescription() {
         let hasCompletedOnboarding = UserDefaults.standard.bool(forKey: "hasCompletedFirstTimeOnboarding")
         if !hasCompletedOnboarding {
