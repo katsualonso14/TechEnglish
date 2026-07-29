@@ -257,3 +257,5 @@
 "remove_ads_restore_none_title" = "Nothing to Restore";
 "remove_ads_restore_none_message" = "No previous purchase was found for this Apple ID.";
 "remove_ads_error_title" = "Error";
+
+"quiz_remove_ads_button" = "Turn Off Ads";

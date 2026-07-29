@@ -134,7 +134,7 @@ class MyCardsViewController: UIViewController, MyCardsInputDelegate {
     }
 
     @objc func showRemoveAds() {
-        let removeAdsVC = RemoveAdsViewController()
+        let removeAdsVC = RemoveAdsViewController(source: .myCardsNav)
         if #available(iOS 15.0, *) {
             if let sheet = removeAdsVC.sheetPresentationController {
                 sheet.detents = [.medium(), .large()]

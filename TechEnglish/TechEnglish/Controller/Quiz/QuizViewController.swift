@@ -11,7 +11,14 @@ class QuizViewController: UIViewController {
     
     // MARK: - Interstitial Ad
     private var interstitialAd: InterstitialAd?
-    
+
+    // MARK: - Remove Ads (Paywall)
+    /// クイズ完了時にだけ出す「広告オフ」導線。割込広告の直後で、痛みが最も近い場所。
+    private let removeAdsButton = EditorButton()
+
+    /// 全問終えて完了表示になっているか
+    private var isQuizCompleted: Bool { currentQuestionIndex >= questions.count }
+
     // MARK: - Initializer
     init(questions: [Quiz], navTitle: String) {
         self.questions = questions
@@ -30,6 +37,12 @@ class QuizViewController: UIViewController {
         showQuestion()
         setupResetButton()
         loadInterstitialAd()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateRemoveAdsButtonVisibility),
+            name: PurchaseManager.adFreeStatusChangedNotification,
+            object: nil
+        )
     }
 
     // MARK: - Setup UI
@@ -80,6 +93,37 @@ class QuizViewController: UIViewController {
             button.addTarget(self, action: #selector(answerTapped(_:)), for: .touchUpInside)
         }
 
+        // 広告オフ導線（クイズ完了時のみ表示）
+        removeAdsButton.style = .primary
+        removeAdsButton.setTitle(NSLocalizedString("quiz_remove_ads_button", comment: ""), for: .normal)
+        removeAdsButton.addTarget(self, action: #selector(removeAdsTapped), for: .touchUpInside)
+        removeAdsButton.isHidden = true
+
+        view.addSubview(removeAdsButton)
+        removeAdsButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            removeAdsButton.topAnchor.constraint(equalTo: gridStack.bottomAnchor, constant: 32),
+            removeAdsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            removeAdsButton.heightAnchor.constraint(equalToConstant: 48)
+        ])
+    }
+
+    // MARK: - Remove Ads (Paywall)
+
+    /// クイズ完了時かつ未購入のときだけ「広告オフ」導線を出す
+    @objc private func updateRemoveAdsButtonVisibility() {
+        removeAdsButton.isHidden = !(isQuizCompleted && !PurchaseManager.shared.isAdFree)
+    }
+
+    @objc private func removeAdsTapped() {
+        let removeAdsVC = RemoveAdsViewController(source: .quizEnd)
+        if #available(iOS 15.0, *) {
+            if let sheet = removeAdsVC.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.prefersGrabberVisible = true
+            }
+        }
+        present(removeAdsVC, animated: true)
     }
     
     // MARK: - Reset Button
@@ -96,6 +140,7 @@ class QuizViewController: UIViewController {
 
     // MARK: - Show Question
     func showQuestion() {
+        updateRemoveAdsButtonVisibility()
         guard currentQuestionIndex < questions.count else {
             questionLabel.text = "Quiz Completed!"
             buttons.forEach { $0.isHidden = true }

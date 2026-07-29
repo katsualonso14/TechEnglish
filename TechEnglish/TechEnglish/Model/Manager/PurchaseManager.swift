@@ -60,8 +60,11 @@ final class PurchaseManager: NSObject {
     // MARK: - Purchase
 
     /// 広告オフ商品を購入する
-    /// - Parameter completion: (成功, ユーザーキャンセル, エラー)。メインスレッドで呼ばれる。
-    func purchaseAdFree(completion: @escaping (_ success: Bool, _ userCancelled: Bool, _ error: Error?) -> Void) {
+    /// - Parameters:
+    ///   - source: どの paywall 導線から購入されたか（計測用）
+    ///   - completion: (成功, ユーザーキャンセル, エラー)。メインスレッドで呼ばれる。
+    func purchaseAdFree(source: PaywallSource,
+                        completion: @escaping (_ success: Bool, _ userCancelled: Bool, _ error: Error?) -> Void) {
         Purchases.shared.getOfferings { [weak self] offerings, error in
             if let error = error {
                 completion(false, false, error)
@@ -85,7 +88,7 @@ final class PurchaseManager: NSObject {
                     self.updateAdFree(from: customerInfo)
                 }
                 if self.isAdFree {
-                    self.logPurchase(package: package)
+                    self.logPurchase(package: package, source: source)
                 }
                 completion(self.isAdFree, false, nil)
             }
@@ -126,12 +129,14 @@ final class PurchaseManager: NSObject {
     }
 
     /// 購入成功を Firebase に記録（ファネル計測用。RevenueCat 側は自動計測）。
-    private func logPurchase(package: Package) {
+    /// `source` は paywall_view と同じ値で、どの導線が購入まで運んだかを突き合わせる。
+    private func logPurchase(package: Package, source: PaywallSource) {
         let product = package.storeProduct
         Analytics.logEvent(AnalyticsEventPurchase, parameters: [
             AnalyticsParameterValue: NSDecimalNumber(decimal: product.price).doubleValue,
             AnalyticsParameterCurrency: product.currencyCode ?? "",
-            AnalyticsParameterItemID: product.productIdentifier
+            AnalyticsParameterItemID: product.productIdentifier,
+            "source": source.rawValue
         ])
     }
 }

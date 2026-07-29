@@ -266,3 +266,5 @@
 "remove_ads_restore_none_title" = "復元できる購入がありません";
 "remove_ads_restore_none_message" = "このApple IDでの購入履歴が見つかりませんでした。";
 "remove_ads_error_title" = "エラー";
+
+"quiz_remove_ads_button" = "広告をオフにする";
